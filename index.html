@@ -139,7 +139,8 @@ input,select{font-family:inherit;outline:none}
 .hero-overlay{
   position:absolute;inset:0;z-index:3;
   background:
-    linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.15) 35%, rgba(10,10,10,0.5) 65%, rgba(10,10,10,0.92) 100%),
+    linear-gradient(180deg, rgba(10,10,10,0.78) 0%, rgba(10,10,10,0.45) 30%, rgba(10,10,10,0.55) 60%, rgba(10,10,10,0.95) 100%),
+    radial-gradient(circle at 30% 50%, rgba(10,10,10,0.45) 0%, transparent 70%),
     radial-gradient(circle at 20% 30%, rgba(200,144,80,0.08) 0%, transparent 50%);
 }
 /* лёгкое зерно */
@@ -151,19 +152,27 @@ input,select{font-family:inherit;outline:none}
 
 .hero-meta-top{
   position:absolute;z-index:10;top:120px;left:48px;
-  display:flex;align-items:center;gap:14px;
-  font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
-  color:var(--text-muted);
+  display:inline-flex;align-items:center;gap:14px;
+  padding:10px 18px 10px 14px;
+  background:rgba(10,10,10,0.55);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(232,229,221,0.12);
+  font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  color:var(--text-on-dark);
 }
 .hero-meta-top::before{
-  content:'';width:32px;height:1px;background:var(--amber);
+  content:'';width:24px;height:1px;background:var(--amber);
 }
 
 .hero-meta-right{
   position:absolute;z-index:10;top:120px;right:48px;
   display:flex;flex-direction:column;align-items:flex-end;gap:6px;
-  font-size:10px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
-  color:var(--text-muted);
+  padding:10px 14px;
+  background:rgba(10,10,10,0.55);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  border:1px solid rgba(232,229,221,0.12);
+  font-size:11px;font-weight:500;letter-spacing:3px;text-transform:uppercase;
+  color:var(--text-on-dark);
   text-align:right;
 }
 .hero-meta-right .num{color:var(--amber);font-size:11px}
@@ -183,10 +192,11 @@ input,select{font-family:inherit;outline:none}
   animation:reveal .9s var(--ease-out-expo) .2s forwards;
 }
 .hero-headline{
-  font-size:clamp(56px,11vw,180px);
-  font-weight:200;line-height:0.92;letter-spacing:-0.03em;
+  font-size:clamp(48px,10vw,160px);
+  font-weight:200;line-height:0.95;letter-spacing:-0.03em;
   text-transform:uppercase;
   margin-bottom:32px;
+  text-shadow:0 4px 40px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.4);
 }
 .hero-headline .line{
   display:block;overflow:hidden;
@@ -217,6 +227,7 @@ input,select{font-family:inherit;outline:none}
   font-size:clamp(18px,2vw,24px);color:var(--text-on-dark);
   max-width:580px;line-height:1.5;
   margin-bottom:48px;
+  text-shadow:0 2px 16px rgba(0,0,0,0.6);
   opacity:0;
   animation:reveal 1s var(--ease-out-expo) .9s forwards;
 }
@@ -565,8 +576,11 @@ input,select{font-family:inherit;outline:none}
   color:var(--amber);margin-bottom:24px;
 }
 .page-title{
-  font-size:clamp(48px,7.5vw,120px);
-  font-weight:200;line-height:0.95;letter-spacing:-0.025em;text-transform:uppercase;
+  font-size:clamp(40px,6.5vw,108px);
+  font-weight:200;line-height:0.98;letter-spacing:-0.025em;text-transform:uppercase;
+  word-break:break-word;
+  overflow-wrap:break-word;
+  hyphens:auto;
 }
 .page-title .em{color:var(--amber);font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;text-transform:none}
 .page-subtitle{
@@ -1387,11 +1401,7 @@ input,select{font-family:inherit;outline:none}
 }
 .training-card-v2:hover .training-link{gap:12px;color:var(--amber)}
 
-@media(max-width:1100px){
-  .training-grid-8{grid-template-columns:repeat(2,1fr)}
-  .course-content-grid{grid-template-columns:1fr;gap:48px}
-  .course-toc{position:static;border-left:none;border-top:1px solid var(--border);padding-left:0;padding-top:24px;display:none}
-}
+
 @media(max-width:600px){
   .training-grid-8{grid-template-columns:1fr}
   .course-hero{padding:120px 24px 60px}
@@ -1415,7 +1425,6 @@ input,select{font-family:inherit;outline:none}
   cursor:pointer;
   transition:background .5s ease;
   position:relative;overflow:hidden;
-  min-height:560px;
 }
 .product-card:hover{background:#1a1a1a}
 .product-card-img-wrap{
@@ -1441,6 +1450,7 @@ input,select{font-family:inherit;outline:none}
 .product-card-body{
   padding:32px 28px 28px;
   display:flex;flex-direction:column;flex:1;
+  min-height:280px;
 }
 .product-card-tag{
   font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
@@ -1713,33 +1723,7 @@ input,select{font-family:inherit;outline:none}
 .offline-manager-call:hover{color:var(--black);border-color:var(--amber)}
 .offline-manager-call:hover::before{transform:scaleX(1)}
 
-@media(max-width:1100px){
-  .products-grid-4{grid-template-columns:repeat(2,1fr)}
-  .product-hero-grid{grid-template-columns:1fr;gap:40px}
-  .product-hero-img-wrap{height:420px}
-  .product-hero-info{padding-left:0}
-  .creators-grid{grid-template-columns:1fr;gap:48px}
-  .creators-form-wrap{position:static}
-  .offline-list{grid-template-columns:1fr}
-}
-@media(max-width:600px){
-  .products-grid-4{grid-template-columns:1fr}
-  .product-card{min-height:auto}
-  .product-card-img-wrap{height:280px}
-  .product-hero{padding:120px 24px 60px}
-  .product-content-section{padding:80px 24px}
-  .product-spec{grid-template-columns:1fr}
-  .creators-section{padding:48px 24px}
-  .creators-form{padding:32px 24px}
-  .cf-row-2{grid-template-columns:1fr;gap:24px}
-  .training-tabs{flex-direction:column;gap:0}
-  .training-tab{text-align:left;padding:16px 0;border-bottom:1px solid var(--border)}
-  .training-tab::after{display:none}
-  .training-tab.active{color:var(--amber)}
-  .offline-city{padding:32px 24px}
-  .offline-city-name{font-size:24px}
-  .offline-manager{flex-direction:column;align-items:stretch}
-}
+
 
 
 /* ============ COURSE VIDEO IFRAME ============ */
@@ -1770,6 +1754,97 @@ input,select{font-family:inherit;outline:none}
 .cv-host-dot{
   width:6px;height:6px;border-radius:50%;background:var(--amber);
   display:inline-block;
+}
+
+
+/* ============ BRAND TYPOGRAPHY FIX ============ */
+.brand-evoxa{
+  font-family:'Montserrat',sans-serif !important;
+  font-style:normal !important;
+  font-weight:200 !important;
+  letter-spacing:0.04em;
+  color:var(--amber);
+  text-transform:uppercase;
+}
+
+
+/* ============ COMPATIBILITY SECTION ============ */
+.compatibility-section{
+  padding:120px 48px;
+  background:var(--black);
+  border-top:1px solid var(--border);
+}
+.compatibility-inner{
+  max-width:1280px;margin:0 auto;
+}
+.compatibility-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:6px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.compatibility-title{
+  font-size:clamp(36px,5vw,72px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.015em;
+  text-transform:uppercase;margin-bottom:24px;
+}
+.compatibility-title .em{
+  color:var(--amber);font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;text-transform:none;
+}
+.compatibility-lead{
+  font-size:17px;line-height:1.65;color:var(--text-muted);
+  max-width:640px;margin-bottom:60px;
+}
+.compatibility-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:var(--border);
+  border:1px solid var(--border);
+  margin-bottom:48px;
+}
+.compat-item{
+  background:var(--coal);
+  padding:36px 36px;
+  display:flex;gap:28px;
+  transition:background .4s ease;
+  position:relative;
+}
+.compat-item:hover{background:#181818}
+.compat-item::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:2px;
+  background:var(--amber);
+  transform:scaleY(0);transform-origin:top;
+  transition:transform .5s var(--ease-out-expo);
+}
+.compat-item:hover::before{transform:scaleY(1)}
+.compat-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:28px;color:var(--amber);
+  letter-spacing:1px;
+  flex-shrink:0;
+  padding-top:4px;
+}
+.compat-body{flex:1}
+.compat-name{
+  font-size:17px;font-weight:400;
+  letter-spacing:0.3px;
+  text-transform:none;
+  margin-bottom:12px;color:var(--text-on-dark);
+  line-height:1.3;
+}
+.compat-desc{
+  font-size:13px;line-height:1.65;color:var(--text-muted);
+}
+.compatibility-note{
+  display:flex;gap:20px;align-items:flex-start;
+  padding:24px 28px;
+  background:rgba(200,144,80,0.06);
+  border-left:2px solid var(--amber);
+  font-size:13px;line-height:1.6;color:var(--text-on-dark);
+}
+.compat-note-tag{
+  font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--amber);
+  padding-top:2px;flex-shrink:0;
+  white-space:nowrap;
 }
 
 </style>
@@ -1912,7 +1987,7 @@ input,select{font-family:inherit;outline:none}
   <!-- ============ PRODUCTS HOME ============ -->
   <section class="lines products-home">
     <div class="lines-header">
-      <h2 class="lines-title reveal"><span data-i18n="ph.title1">Продукты</span> <span class="em" data-i18n="ph.title2">EVOXA.</span></h2>
+      <h2 class="lines-title reveal"><span data-i18n="ph.title1">Продукты</span> <span class="brand-evoxa" data-i18n="ph.title2">EVOXA.</span></h2>
       <a class="line-link reveal reveal-delay-1" data-route="products" data-cursor>
         <span data-i18n="ph.all">Все продукты</span> <span>→</span>
       </a>
@@ -1977,15 +2052,15 @@ input,select{font-family:inherit;outline:none}
       </a>
     </div>
     <div class="gallery-grid">
-      <div class="gallery-item span-2 span-2v reveal-img" data-img="spain_model_1.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-1" data-img="peel_2.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-2" data-img="foam_2.jpeg" data-cursor></div>
-      <div class="gallery-item span-2 reveal-img reveal-delay-1" data-img="all_line_2.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-2" data-img="model3.jpeg" data-cursor></div>
+      <div class="gallery-item span-2 span-2v reveal-img" data-img="model.jpeg" data-cursor></div>
+      <div class="gallery-item reveal-img reveal-delay-1" data-img="magazine.jpeg" data-cursor></div>
+      <div class="gallery-item reveal-img reveal-delay-2" data-img="foam.jpeg" data-cursor></div>
+      <div class="gallery-item span-2 reveal-img reveal-delay-1" data-img="model4.jpeg" data-cursor></div>
+      <div class="gallery-item reveal-img reveal-delay-2" data-img="skin.jpeg" data-cursor></div>
       <div class="gallery-item reveal-img reveal-delay-3" data-img="tonic_2.jpeg" data-cursor></div>
       <div class="gallery-item reveal-img reveal-delay-1" data-img="cosmetologist_2.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-2" data-img="peel_grass.jpg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-3" data-img="bohema.jpeg" data-cursor></div>
+      <div class="gallery-item reveal-img reveal-delay-2" data-img="all_line.jpeg" data-cursor></div>
+      <div class="gallery-item reveal-img reveal-delay-3" data-img="model_best.jpg" data-cursor></div>
     </div>
   </section>
 </main>
@@ -1996,8 +2071,8 @@ input,select{font-family:inherit;outline:none}
     <div class="page-header-inner">
       <div class="page-eyebrow" data-i18n="prod.eyebrow">— Каталог продуктов —</div>
       <h1 class="page-title">
-        <span data-i18n="prod.title1">Полная</span><br>
-        <span class="em" data-i18n="prod.title2">система ухода.</span>
+        <span data-i18n="prod.title1">Профессиональная</span><br>
+        <span class="em" data-i18n="prod.title2">система.</span>
       </h1>
       <p class="page-subtitle" data-i18n="prod.subtitle">От профессионального применения в кабинете врача до ежедневного домашнего ритуала. Каждый продукт спроектирован как часть единой методологии.</p>
     </div>
@@ -2204,6 +2279,58 @@ input,select{font-family:inherit;outline:none}
       <article class="course-content" id="productContent"></article>
     </div>
   </section>
+
+  <section class="compatibility-section" id="compatibilitySection">
+    <div class="compatibility-inner">
+      <div class="compatibility-eyebrow" data-i18n="compat.eyebrow">— Совместимость —</div>
+      <h2 class="compatibility-title">
+        <span data-i18n="compat.title1">Сочетается</span>
+        <span class="em" data-i18n="compat.title2">с методами.</span>
+      </h2>
+      <p class="compatibility-lead" data-i18n="compat.lead">EVOXA усиливает действие большинства эстетических протоколов. Используйте в комбинации для синергического эффекта.</p>
+      <div class="compatibility-grid">
+        <div class="compat-item">
+          <div class="compat-num">01</div>
+          <div class="compat-body">
+            <h3 class="compat-name" data-i18n="compat.1.name">Инъекционная биоревитализация</h3>
+            <p class="compat-desc" data-i18n="compat.1.desc">После ремодулятора кожа подготовлена. Гиалуроновая кислота встраивается максимально эффективно. Один визит — два уровня обновления.</p>
+          </div>
+        </div>
+        <div class="compat-item">
+          <div class="compat-num">02</div>
+          <div class="compat-body">
+            <h3 class="compat-name" data-i18n="compat.2.name">Экзосомы</h3>
+            <p class="compat-desc" data-i18n="compat.2.desc">Активированный фибробласт получает сигнальные молекулы. Регенерация ускоряется в несколько раз. Премиальный протокол.</p>
+          </div>
+        </div>
+        <div class="compat-item">
+          <div class="compat-num">03</div>
+          <div class="compat-body">
+            <h3 class="compat-name" data-i18n="compat.3.name">IPL — фотоомоложение</h3>
+            <p class="compat-desc" data-i18n="compat.3.desc">Работа с сосудистым компонентом и пигментом на разных уровнях. Интервал между процедурами 14 дней.</p>
+          </div>
+        </div>
+        <div class="compat-item">
+          <div class="compat-num">04</div>
+          <div class="compat-body">
+            <h3 class="compat-name" data-i18n="compat.4.name">Игольчатый RF-лифтинг</h3>
+            <p class="compat-desc" data-i18n="compat.4.desc">Глубинное воздействие на дермальный коллаген. EVOXA подготавливает кожу, RF работает с матрицей. Интервал 21 день.</p>
+          </div>
+        </div>
+        <div class="compat-item">
+          <div class="compat-num">05</div>
+          <div class="compat-body">
+            <h3 class="compat-name" data-i18n="compat.5.name">УЗ-чистка лица</h3>
+            <p class="compat-desc" data-i18n="compat.5.desc">Деликатное очищение пор перед нанесением ремодулятора. В одном визите — улучшение текстуры и обновление.</p>
+          </div>
+        </div>
+      </div>
+      <div class="compatibility-note">
+        <span class="compat-note-tag" data-i18n="compat.noteTag">Важно</span>
+        <span data-i18n="compat.noteText">Все сочетания подбираются индивидуально врачом-косметологом. Не назначайте комбинированные протоколы самостоятельно. Конкретные интервалы и последовательность зависят от типа кожи и задач пациента.</span>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- ============ CREATORS PAGE ============ -->
@@ -2362,7 +2489,7 @@ input,select{font-family:inherit;outline:none}
 <script>
 /* ============ ВСТРОЕННЫЕ КАРТИНКИ ============ */
 const IMG = {};
-const __IMG_FILES = ["bold_bg.jpeg","foam.jpeg","peel_lab.jpeg","cosmetologist_1.jpeg","cosmetologist_2.jpeg","all_line.jpeg","all_line_2.jpeg","spain_model_1.jpeg","spain_model_2.jpeg","peel_1.jpeg","peel_2.jpeg","peel_grass.jpg","model_best.jpg","model3.jpeg","tonic_2.jpeg","bohema.jpeg","foam_2.jpeg","skin.jpeg","tonic_foam.jpeg","bg_spain.jpeg","film.jpeg","creative.jpeg","model_male.jpg","peel_soft.jpg","tonic.jpeg"];
+const __IMG_FILES = ["bold_bg.jpeg","foam.jpeg","peel_lab.jpeg","cosmetologist_1.jpeg","cosmetologist_2.jpeg","all_line.jpeg","all_line_2.jpeg","spain_model_1.jpeg","spain_model_2.jpeg","peel_1.jpeg","peel_2.jpeg","peel_grass.jpg","model_best.jpg","model3.jpeg","tonic_2.jpeg","bohema.jpeg","foam_2.jpeg","skin.jpeg","tonic_foam.jpeg","bg_spain.jpeg","film.jpeg","creative.jpeg","model_male.jpg","peel_soft.jpg","tonic.jpeg","model.jpeg","model4.jpeg","magazine.jpeg"];
 __IMG_FILES.forEach(f => { IMG[f] = 'images/' + f; });
 
 
@@ -2389,6 +2516,21 @@ const I18N = {
     'nav.news':'Журнал',
     'ph.title1':'Продукты','ph.title2':'EVOXA.','ph.all':'Все продукты','ph.more':'Подробнее',
     'product.back':'Все продукты','product.cta1':'Найти клинику','product.cta2':'Обучение по продукту',
+    'compat.eyebrow':'— Совместимость —',
+    'compat.title1':'Сочетается','compat.title2':'с методами.',
+    'compat.lead':'EVOXA усиливает действие большинства эстетических протоколов. Используйте в комбинации для синергического эффекта.',
+    'compat.1.name':'Инъекционная биоревитализация',
+    'compat.1.desc':'После ремодулятора кожа подготовлена. Гиалуроновая кислота встраивается максимально эффективно. Один визит — два уровня обновления.',
+    'compat.2.name':'Экзосомы',
+    'compat.2.desc':'Активированный фибробласт получает сигнальные молекулы. Регенерация ускоряется в несколько раз. Премиальный протокол.',
+    'compat.3.name':'IPL — фотоомоложение',
+    'compat.3.desc':'Работа с сосудистым компонентом и пигментом на разных уровнях. Интервал между процедурами 14 дней.',
+    'compat.4.name':'Игольчатый RF-лифтинг',
+    'compat.4.desc':'Глубинное воздействие на дермальный коллаген. EVOXA подготавливает кожу, RF работает с матрицей. Интервал 21 день.',
+    'compat.5.name':'УЗ-чистка лица',
+    'compat.5.desc':'Деликатное очищение пор перед нанесением ремодулятора. В одном визите — улучшение текстуры и обновление.',
+    'compat.noteTag':'Важно',
+    'compat.noteText':'Все сочетания подбираются индивидуально врачом-косметологом. Не назначайте комбинированные протоколы самостоятельно. Интервалы и последовательность зависят от типа кожи и задач пациента.',
     'cr.eyebrow':'— EVOXA Creators —','cr.title1':'Стать креатором','cr.title2':'бренда.',
     'cr.subtitle':'Если ты хочешь стать креатором продукта EVOXA — оставь заявку. Мы открыты для врачей-косметологов, дерматологов, эстетов и специалистов индустрии красоты с собственной аудиторией.',
     'cr.whoTitle':'Кого мы ищем',
@@ -2443,8 +2585,8 @@ const I18N = {
     'ed.cta':'Читать журнал',
     'gal.title':'Визуальный<br><span style="font-family:Cormorant Garamond,serif;font-style:italic;font-weight:300;text-transform:none;color:var(--amber)">журнал.</span>',
     'gal.all':'Все материалы',
-    'prod.eyebrow':'— 18 продуктов / 3 линейки —','prod.title1':'Полная','prod.title2':'система ухода.',
-    'prod.subtitle':'От профессионального применения в кабинете врача до ежедневного домашнего ритуала. Каждый продукт спроектирован как часть единой методологии.',
+    'prod.eyebrow':'— 18 продуктов / 3 линейки —','prod.title1':'Профессиональная','prod.title2':'система.',
+    'prod.subtitle':'Сейчас доступно 4 профессиональных продукта. Ещё 6 — запуск осенью 2026. Полная система ремодуляции для специалистов и пациентов.',
     'prod.peel':'PEEL 1 — поверхностный. PEEL 2 — срединный. PEEL 3 — глубокий. TONIC — нейтрализация CO2. 4 продукта, 3 уровня глубины, 1 принцип безопасности.',
     'prod.clinic':'Signal Serum, Bio Serum и активы. Используются врачом для усиления и направления эффекта процедуры. Профессиональная упаковка с лайм-акцентами.',
     'prod.pro':'C3 Radiance Serum, ремоделирующий крем, SPF. Полный домашний протокол. Бордо-акценты. Премиальное стекло. Роскошь на полке в ванной.',
@@ -2475,6 +2617,21 @@ const I18N = {
     'nav.news':'Journal',
     'ph.title1':'EVOXA','ph.title2':'products.','ph.all':'All products','ph.more':'Learn more',
     'product.back':'All products','product.cta1':'Find a clinic','product.cta2':'Training on this product',
+    'compat.eyebrow':'— Compatibility —',
+    'compat.title1':'Pairs','compat.title2':'with methods.',
+    'compat.lead':'EVOXA amplifies most aesthetic protocols. Combine for a synergistic effect.',
+    'compat.1.name':'Injectable biorevitalization',
+    'compat.1.desc':'After the remodulator the skin is primed. Hyaluronic acid integrates at maximum efficiency. One visit, two layers of renewal.',
+    'compat.2.name':'Exosomes',
+    'compat.2.desc':'Activated fibroblasts receive signaling molecules. Regeneration accelerates multifold. A premium protocol.',
+    'compat.3.name':'IPL photorejuvenation',
+    'compat.3.desc':'Works with vascular component and pigment at different depths. 14-day interval between procedures.',
+    'compat.4.name':'Needle RF-lifting',
+    'compat.4.desc':'Deep impact on dermal collagen. EVOXA primes the skin, RF works the matrix. 21-day interval.',
+    'compat.5.name':'Ultrasonic facial cleansing',
+    'compat.5.desc':'Gentle pore cleansing before applying the remodulator. In one visit — better texture and renewal.',
+    'compat.noteTag':'Note',
+    'compat.noteText':'All combinations are selected individually by a medical cosmetologist. Do not prescribe combined protocols on your own. Intervals and sequence depend on skin type and patient goals.',
     'cr.eyebrow':'— EVOXA Creators —','cr.title1':'Become a creator','cr.title2':'of the brand.',
     'cr.subtitle':"If you want to become an EVOXA creator — submit your application. We are open to medical cosmetologists, dermatologists, aestheticians and beauty industry specialists with their own audience.",
     'cr.whoTitle':'Who we look for',
@@ -2529,8 +2686,8 @@ const I18N = {
     'ed.cta':'Read the journal',
     'gal.title':'Visual<br><span style="font-family:Cormorant Garamond,serif;font-style:italic;font-weight:300;text-transform:none;color:var(--amber)">journal.</span>',
     'gal.all':'All materials',
-    'prod.eyebrow':'— 18 products / 3 lines —','prod.title1':'A complete','prod.title2':'care system.',
-    'prod.subtitle':'From professional in-clinic application to the daily home ritual. Every product is engineered as part of a single methodology.',
+    'prod.eyebrow':'— 18 products / 3 lines —','prod.title1':'A professional','prod.title2':'system.',
+    'prod.subtitle':'Four professional products available now. Six more launching in autumn 2026. A full remodulation system for specialists and patients.',
     'prod.peel':'PEEL 1 — superficial. PEEL 2 — medium. PEEL 3 — deep. TONIC — CO2 neutralization. 4 products, 3 depth levels, 1 safety principle.',
     'prod.clinic':'Signal Serum, Bio Serum and actives. Used by physicians to amplify and direct the procedure effect. Professional packaging with lime accents.',
     'prod.pro':'C3 Radiance Serum, remodulating cream, SPF. The complete home protocol. Wine accents. Premium glass. Quiet luxury on the bathroom shelf.',
@@ -2560,6 +2717,21 @@ const I18N = {
     'nav.news':'Diario',
     'ph.title1':'Productos','ph.title2':'EVOXA.','ph.all':'Todos los productos','ph.more':'Saber más',
     'product.back':'Todos los productos','product.cta1':'Encuentra clínica','product.cta2':'Formación sobre este producto',
+    'compat.eyebrow':'— Compatibilidad —',
+    'compat.title1':'Combina','compat.title2':'con métodos.',
+    'compat.lead':'EVOXA potencia la mayoría de protocolos estéticos. Combina para un efecto sinérgico.',
+    'compat.1.name':'Biorrevitalización inyectable',
+    'compat.1.desc':'Tras el remodulador la piel está preparada. El ácido hialurónico se integra de forma óptima. Una visita, dos capas de renovación.',
+    'compat.2.name':'Exosomas',
+    'compat.2.desc':'Fibroblastos activados reciben moléculas de señalización. La regeneración se multiplica. Protocolo premium.',
+    'compat.3.name':'IPL fotorrejuvenecimiento',
+    'compat.3.desc':'Trabaja sobre componente vascular y pigmento a distintas profundidades. Intervalo de 14 días.',
+    'compat.4.name':'RF-lifting con agujas',
+    'compat.4.desc':'Impacto profundo en colágeno dérmico. EVOXA prepara la piel, RF trabaja la matriz. Intervalo de 21 días.',
+    'compat.5.name':'Limpieza facial ultrasónica',
+    'compat.5.desc':'Limpieza suave de poros antes del remodulador. En una visita — mejor textura y renovación.',
+    'compat.noteTag':'Importante',
+    'compat.noteText':'Las combinaciones se eligen individualmente por médico cosmetólogo. No prescribas protocolos combinados por tu cuenta. Intervalos y secuencia según tipo de piel y objetivos.',
     'cr.eyebrow':'— EVOXA Creators —','cr.title1':'Hazte creador','cr.title2':'de la marca.',
     'cr.subtitle':'Si quieres ser creador de EVOXA — envía tu solicitud. Estamos abiertos a médicos cosmetólogos, dermatólogos, esteticistas y especialistas de la industria de la belleza con audiencia propia.',
     'cr.whoTitle':'A quién buscamos',
@@ -2614,8 +2786,8 @@ const I18N = {
     'ed.cta':'Leer el diario',
     'gal.title':'Diario<br><span style="font-family:Cormorant Garamond,serif;font-style:italic;font-weight:300;text-transform:none;color:var(--amber)">visual.</span>',
     'gal.all':'Todos los materiales',
-    'prod.eyebrow':'— 18 productos / 3 líneas —','prod.title1':'Un sistema','prod.title2':'completo de cuidado.',
-    'prod.subtitle':'Desde la aplicación profesional en cabina hasta el ritual diario en casa. Cada producto está diseñado como parte de una única metodología.',
+    'prod.eyebrow':'— 18 productos / 3 líneas —','prod.title1':'Sistema','prod.title2':'profesional.',
+    'prod.subtitle':'Cuatro productos profesionales disponibles. Seis más en lanzamiento otoño 2026. Sistema completo de remodulación.',
     'prod.peel':'PEEL 1 — superficial. PEEL 2 — medio. PEEL 3 — profundo. TONIC — neutralización CO2. 4 productos, 3 niveles de profundidad, 1 principio de seguridad.',
     'prod.clinic':'Signal Serum, Bio Serum y activos. Usados por el médico para potenciar y dirigir el efecto del tratamiento. Packaging profesional con acentos lima.',
     'prod.pro':'C3 Radiance Serum, crema remoduladora, SPF. El protocolo completo en casa. Acentos vino. Vidrio premium. Lujo silencioso en la estantería del baño.',
@@ -4482,14 +4654,14 @@ const PRODUCTS = [
     num:'N° 01',
     img:'peel_1.jpeg',
     code:'EP-100',
-    level:{ru:'Поверхностный',en:'Superficial',es:'Superficial'},
+    level:{ru:'Поверхностный ремодулятор',en:'Superficial remodulator',es:'Remodulador superficial'},
     name:{ru:'EVOXA PEEL 1',en:'EVOXA PEEL 1',es:'EVOXA PEEL 1'},
     tagline:{ru:'Мягкий старт. Контролируемый сигнал. Ноль реабилитации.',
              en:'Gentle start. Controlled signal. Zero downtime.',
              es:'Inicio suave. Señal controlada. Sin recuperación.'},
-    desc:{ru:'Поверхностный пилинг линейки. Стартовый протокол для большинства пациентов.',
-          en:'The superficial peel of the range. The entry protocol for most patients.',
-          es:'El peeling superficial de la línea. Protocolo de entrada para la mayoría.'},
+    desc:{ru:'Поверхностный ремодулятор. Стартовый протокол для большинства пациентов.',
+          en:'The superficial remodulator. The entry protocol for most patients.',
+          es:'Remodulador superficial. Protocolo de entrada para la mayoría.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
       ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'3.2 – 3.6'},
@@ -4502,14 +4674,14 @@ const PRODUCTS = [
     num:'N° 02',
     img:'peel_2.jpeg',
     code:'EP-200',
-    level:{ru:'Срединный',en:'Medium',es:'Medio'},
+    level:{ru:'Срединный ремодулятор',en:'Medium remodulator',es:'Remodulador medio'},
     name:{ru:'EVOXA PEEL 2',en:'EVOXA PEEL 2',es:'EVOXA PEEL 2'},
     tagline:{ru:'Точный контроль глубины. Работа с пигментом и текстурой.',
              en:'Precise depth control. For pigment and texture.',
              es:'Control preciso de profundidad. Para pigmento y textura.'},
-    desc:{ru:'Срединный пилинг для гиперпигментации, постакне и мелких морщин.',
-          en:'Medium peel for hyperpigmentation, post-acne and fine lines.',
-          es:'Peeling medio para hiperpigmentación, post-acné y líneas finas.'},
+    desc:{ru:'Срединный ремодулятор для пигментации, постакне и мелких морщин.',
+          en:'Medium remodulator for pigmentation, post-acne and fine lines.',
+          es:'Remodulador medio para pigmentación, post-acné y líneas finas.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
       ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'2.4 – 2.8'},
@@ -4520,16 +4692,16 @@ const PRODUCTS = [
   {
     id:'evoxa-peel-3',
     num:'N° 03',
-    img:'peel_lab.jpeg',
+    img:'skin.jpeg',
     code:'EP-300',
-    level:{ru:'Глубокий',en:'Deep',es:'Profundo'},
+    level:{ru:'Глубокий ремодулятор',en:'Deep remodulator',es:'Remodulador profundo'},
     name:{ru:'EVOXA PEEL 3',en:'EVOXA PEEL 3',es:'EVOXA PEEL 3'},
     tagline:{ru:'Серьёзный инструмент. Серьёзные задачи. Только опыт.',
              en:'Serious tool. Serious tasks. Experience only.',
              es:'Herramienta seria. Tareas serias. Solo experiencia.'},
-    desc:{ru:'Глубокий пилинг для возрастных задач, рубцов и стойкой пигментации.',
-          en:'Deep peel for age-related tasks, scarring and stubborn pigmentation.',
-          es:'Peeling profundo para edad, cicatrices y pigmentación persistente.'},
+    desc:{ru:'Глубокий ремодулятор для возрастных задач, рубцов и стойкой пигментации.',
+          en:'Deep remodulator for age, scarring and stubborn pigmentation.',
+          es:'Remodulador profundo para edad, cicatrices y pigmentación persistente.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
       ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'1.8 – 2.2'},
@@ -4547,9 +4719,9 @@ const PRODUCTS = [
     tagline:{ru:'Карбокситерапия в момент встречи. Видимая нейтрализация.',
              en:'Carboxytherapy at contact. Visible neutralization.',
              es:'Carboxiterapia al contacto. Neutralización visible.'},
-    desc:{ru:'Карбонатный нейтрализатор. При контакте с PEEL даёт пену CO2 — реакция нейтрализации.',
-          en:'Carbonate neutralizer. Reacts with PEEL releasing CO2 foam — the neutralization reaction.',
-          es:'Neutralizador de carbonato. Reacciona con PEEL liberando espuma CO2.'},
+    desc:{ru:'Карбонатный нейтрализатор CO2. Завершает действие ремодулятора видимой пеной.',
+          en:'CO2 carbonate neutralizer. Completes the remodulator action with visible foam.',
+          es:'Neutralizador CO2. Completa el remodulador con espuma visible.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'50 ml'},
       reaction:{label:{ru:'Реакция',en:'Reaction',es:'Reacción'},value:{ru:'Пена CO2',en:'CO2 foam',es:'Espuma CO2'}},
@@ -4643,7 +4815,7 @@ const PRODUCT_CONTENT = {
 'evoxa-peel-1': {
 ru: `
 <h2>Что такое EVOXA PEEL 1</h2>
-<p class="lead">Поверхностный пилинг профессиональной линейки EVOXA. Стартовый протокол метода ремодуляции.</p>
+<p class="lead">Поверхностный ремодулятор профессиональной линейки EVOXA. Стартовый протокол метода.</p>
 <p>В отличие от классических AHA-пилингов, PEEL 1 не повреждает кожу — он передаёт ей биохимический сигнал к обновлению. Концентрация и pH рассчитаны так, чтобы инициировать каскад регенерации без формирования зоны некроза.</p>
 
 <h2>Состав</h2>
@@ -4673,7 +4845,7 @@ ru: `
 `,
 en: `
 <h2>What is EVOXA PEEL 1</h2>
-<p class="lead">The superficial peel of the professional EVOXA range. The entry protocol of the remodulation method.</p>
+<p class="lead">The superficial remodulator of the professional EVOXA range. The entry protocol of the method.</p>
 <p>Unlike classic AHA peels, PEEL 1 does not damage the skin — it delivers a biochemical signal to renew. Concentration and pH are calibrated to initiate the regeneration cascade without a zone of necrosis.</p>
 
 <h2>Formulation</h2>
@@ -4703,7 +4875,7 @@ en: `
 `,
 es: `
 <h2>Qué es EVOXA PEEL 1</h2>
-<p class="lead">Peeling superficial de la línea profesional EVOXA. Protocolo de entrada del método de remodulación.</p>
+<p class="lead">Remodulador superficial de la línea profesional EVOXA. Protocolo de entrada del método.</p>
 <p>A diferencia de los AHA clásicos, PEEL 1 no daña la piel — le entrega una señal bioquímica de renovación. Concentración y pH calibrados para iniciar la cascada regenerativa sin necrosis.</p>
 
 <h2>Formulación</h2>
@@ -4736,7 +4908,7 @@ es: `
 'evoxa-peel-2': {
 ru: `
 <h2>Что такое EVOXA PEEL 2</h2>
-<p class="lead">Срединный пилинг для работы с гиперпигментацией, постакне и мелкими морщинами. Уровень контролируемой глубины с обязательной нейтрализацией TONIC.</p>
+<p class="lead">Срединный ремодулятор для работы с пигментацией, постакне и мелкими морщинами. Контролируемая глубина с обязательной нейтрализацией TONIC.</p>
 <p>Используется как самостоятельный протокол после освоения PEEL 1, либо как этап в курсе ремоделирования.</p>
 
 <h2>Состав</h2>
@@ -4767,7 +4939,7 @@ ru: `
 `,
 en: `
 <h2>What is EVOXA PEEL 2</h2>
-<p class="lead">A medium peel for hyperpigmentation, post-acne and fine lines. A controlled-depth level with mandatory TONIC neutralization.</p>
+<p class="lead">A medium remodulator for hyperpigmentation, post-acne and fine lines. Controlled depth with mandatory TONIC neutralization.</p>
 
 <h2>Formulation</h2>
 <p>AHA + low-concentration TCA. pH 2.4–2.8. Depth — to the basal epidermal layer.</p>
@@ -4797,7 +4969,7 @@ en: `
 `,
 es: `
 <h2>Qué es EVOXA PEEL 2</h2>
-<p class="lead">Peeling medio para hiperpigmentación, post-acné y líneas finas. Profundidad controlada con neutralización TONIC obligatoria.</p>
+<p class="lead">Remodulador medio para hiperpigmentación, post-acné y líneas finas. Profundidad controlada con neutralización TONIC obligatoria.</p>
 
 <h2>Formulación</h2>
 <p>AHA + TCA en baja concentración. pH 2,4–2,8. Profundidad — capa basal de la epidermis.</p>
@@ -4830,7 +5002,7 @@ es: `
 'evoxa-peel-3': {
 ru: `
 <h2>Что такое EVOXA PEEL 3</h2>
-<p class="lead">Глубокий пилинг линейки. Серьёзный инструмент для серьёзных задач. Используется только врачом с опытом и только после освоения PEEL 1 и PEEL 2.</p>
+<p class="lead">Глубокий ремодулятор линейки. Серьёзный инструмент для серьёзных задач. Только врач с опытом и только после освоения PEEL 1 и PEEL 2.</p>
 
 <h2>Состав</h2>
 <p>TCA в средней концентрации в комбинации с AHA. pH 1.8–2.2. Глубина — сетчатый слой дермы.</p>
@@ -4860,7 +5032,7 @@ ru: `
 `,
 en: `
 <h2>What is EVOXA PEEL 3</h2>
-<p class="lead">The deep peel of the range. A serious tool for serious tasks. Used only by experienced practitioners and only after mastering PEEL 1 and PEEL 2.</p>
+<p class="lead">The deep remodulator of the range. A serious tool for serious tasks. Only experienced practitioners and only after mastering PEEL 1 and PEEL 2.</p>
 
 <h2>Formulation</h2>
 <p>Medium-concentration TCA with AHA. pH 1.8–2.2. Depth — reticular dermis.</p>
@@ -4890,7 +5062,7 @@ en: `
 `,
 es: `
 <h2>Qué es EVOXA PEEL 3</h2>
-<p class="lead">El peeling profundo de la línea. Herramienta seria para tareas serias. Solo profesionales con experiencia tras dominar PEEL 1 y PEEL 2.</p>
+<p class="lead">El remodulador profundo de la línea. Herramienta seria para tareas serias. Solo profesionales con experiencia tras dominar PEEL 1 y PEEL 2.</p>
 
 <h2>Formulación</h2>
 <p>TCA en concentración media combinada con AHA. pH 1,8–2,2. Profundidad — dermis reticular.</p>
