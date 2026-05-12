@@ -1866,6 +1866,640 @@ input,select{font-family:inherit;outline:none}
   margin-right:7px;
 }
 
+
+/* ============================================================
+   ФИНАЛЬНАЯ МОБИЛЬНАЯ АДАПТАЦИЯ
+   Этот блок идёт ПОСЛЕДНИМ в стилях и побеждает все предыдущие.
+   ============================================================ */
+
+/* Общие правила — глобально предотвращаем горизонтальный скролл */
+html, body {
+  overflow-x: hidden !important;
+  max-width: 100vw;
+}
+img, video, iframe {
+  max-width: 100%;
+}
+
+/* === TABLET 1024px === */
+@media (max-width: 1024px) {
+  .nav, .nav.scrolled { padding: 16px 24px; }
+  .nav-links { gap: 18px; }
+  .nav-link { font-size: 9px; letter-spacing: 1.8px; }
+
+  /* Все основные секции — паддинги */
+  .section, .page-header, .lines, .co2, .editorial-section,
+  .gallery, .manifesto, .compatibility-section, .course-hero,
+  .course-video-section, .course-content-section, .product-hero,
+  .product-content-section, .creators-section, .course-cta-section,
+  .footer { padding-left: 28px !important; padding-right: 28px !important; }
+
+  /* Двухколоночные блоки в одну */
+  .co2 { grid-template-columns: 1fr !important; gap: 48px; }
+  .co2-image-wrap { height: 480px; }
+  .editorial-grid { grid-template-columns: 1fr !important; gap: 48px; }
+  .editorial-image-wrap { height: 480px; }
+  .product-hero-grid { grid-template-columns: 1fr !important; gap: 40px; }
+  .product-hero-info { padding-left: 0 !important; }
+  .product-hero-img-wrap { height: 480px; }
+  .compatibility-grid { grid-template-columns: 1fr !important; }
+  .creators-grid { grid-template-columns: 1fr !important; gap: 48px; }
+  .creators-form-wrap { position: static !important; }
+  .creators-info { padding-right: 0 !important; }
+  .course-content-grid { grid-template-columns: 1fr !important; gap: 40px; }
+  .course-toc { display: none !important; }
+  .training-grid-8 { grid-template-columns: repeat(2, 1fr) !important; }
+  .products-grid-4 { grid-template-columns: repeat(2, 1fr) !important; }
+  .lines-grid { grid-template-columns: 1fr !important; }
+  .offline-list { grid-template-columns: 1fr !important; }
+}
+
+/* === MOBILE 768px === */
+@media (max-width: 768px) {
+  /* Кастомный курсор НЕ на тач */
+  .cursor { display: none !important; }
+
+  /* === Навигация === */
+  .nav, .nav.scrolled {
+    padding: 14px 18px !important;
+  }
+  .nav-logo {
+    font-size: 17px !important;
+    letter-spacing: 4px !important;
+  }
+  .nav-links { display: none !important; }
+  .menu-toggle {
+    display: flex !important;
+    align-items: center; justify-content: center;
+    width: 44px; height: 44px;
+    font-size: 22px;
+  }
+  .nav-right { gap: 8px !important; }
+  .lang-switcher { border: 1px solid var(--border-strong); }
+  .lang-btn {
+    padding: 8px 10px !important;
+    font-size: 9px !important;
+    min-width: 36px;
+    min-height: 36px;
+  }
+
+  /* === HERO === */
+  .hero { min-height: 100vh; min-height: 100svh; }
+  .hero-center {
+    padding: 130px 20px 220px !important;
+    min-height: 100vh; min-height: 100svh;
+  }
+  .hero-meta-top {
+    top: 78px !important;
+    left: 18px !important; right: 18px !important;
+    padding: 8px 12px !important;
+    font-size: 9px !important;
+    letter-spacing: 1.8px !important;
+    gap: 10px !important;
+    justify-content: center;
+  }
+  .hero-meta-top::before { width: 18px !important; }
+  .hero-meta-right { display: none !important; }
+  .hero-floating { display: none !important; }
+
+  .hero-eyebrow {
+    font-size: 10px !important;
+    letter-spacing: 4px !important;
+    margin-bottom: 22px !important;
+  }
+  .hero-headline {
+    font-size: clamp(40px, 12vw, 56px) !important;
+    line-height: 1 !important;
+    margin-bottom: 22px !important;
+    letter-spacing: -0.02em !important;
+  }
+  .hero-tagline {
+    font-size: 16px !important;
+    line-height: 1.5 !important;
+    margin-bottom: 32px !important;
+    padding: 0 12px;
+    max-width: 100%;
+  }
+  .hero-cta-row {
+    flex-direction: column !important;
+    width: 100%;
+    gap: 12px !important;
+  }
+  .hero-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+  }
+  .hero-bottom {
+    left: 18px !important; right: 18px !important;
+    bottom: 24px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 16px !important;
+  }
+  .hero-bottom-stats {
+    gap: 18px !important;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .hero-stat { gap: 4px !important; }
+  .hero-stat .v { font-size: 18px !important; }
+  .hero-stat span:not(.v):not(.em) { font-size: 9px !important; letter-spacing: 1.5px !important; }
+  .hero-bottom-left { font-size: 9px !important; letter-spacing: 2px !important; }
+  .scroll-line { width: 40px !important; }
+
+  /* === MARQUEE === */
+  .marquee { padding: 22px 0 !important; }
+  .marquee-item {
+    font-size: 22px !important;
+    gap: 28px !important;
+  }
+  .marquee-track { gap: 28px !important; }
+  .marquee-item .dot { width: 6px !important; height: 6px !important; }
+
+  /* === MANIFESTO === */
+  .manifesto { padding: 70px 20px !important; }
+  .manifesto-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 32px !important; }
+  .manifesto-text {
+    font-size: clamp(26px, 7vw, 36px) !important;
+    line-height: 1.15 !important;
+  }
+  .manifesto-cite {
+    font-size: 14px !important;
+    margin-top: 32px !important;
+    padding: 0 12px;
+  }
+
+  /* === SECTIONS PADDING === */
+  .section, .page-header, .lines, .co2, .editorial-section,
+  .gallery, .compatibility-section, .course-hero,
+  .course-video-section, .course-content-section, .product-hero,
+  .product-content-section, .creators-section, .course-cta-section,
+  .footer {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* === LINES / PRODUCTS HEADER === */
+  .lines, .gallery { padding-top: 70px !important; padding-bottom: 70px !important; }
+  .lines-header, .gallery-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 20px !important;
+    margin-bottom: 36px !important;
+  }
+  .lines-title, .gallery-title {
+    font-size: clamp(28px, 8vw, 40px) !important;
+    line-height: 1.05 !important;
+  }
+
+  /* === PRODUCT CARDS === */
+  .products-grid-4 { grid-template-columns: 1fr !important; gap: 1px; }
+  .product-card { min-height: auto !important; }
+  .product-card-img-wrap { height: 280px !important; }
+  .product-card-num { top: 16px !important; left: 16px !important; font-size: 12px !important; }
+  .product-card-body { padding: 22px 20px !important; min-height: auto !important; }
+  .product-card-tag { font-size: 9px !important; letter-spacing: 2px !important; margin-bottom: 10px !important; }
+  .product-card-name { font-size: 20px !important; margin-bottom: 10px !important; }
+  .product-card-desc { font-size: 13px !important; line-height: 1.6 !important; margin-bottom: 18px !important; }
+  .product-card-link { font-size: 10px !important; letter-spacing: 2px !important; min-height: 44px; align-items: center; }
+
+  /* === LINES CARDS (если ещё используются на других страницах) === */
+  .lines-grid { grid-template-columns: 1fr !important; }
+  .line-card { min-height: auto !important; }
+  .line-image { height: 240px !important; }
+  .line-body { padding: 24px 22px !important; }
+  .line-name { font-size: 22px !important; margin-bottom: 14px !important; }
+  .line-desc { font-size: 13px !important; line-height: 1.65 !important; margin-bottom: 18px !important; }
+
+  /* === CO2 SECTION === */
+  .co2 {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding: 70px 20px !important;
+  }
+  .co2-image-wrap { height: 300px !important; }
+  .co2-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 18px !important; }
+  .co2-title { font-size: clamp(30px, 7.5vw, 42px) !important; margin-bottom: 22px !important; }
+  .co2-text { font-size: 14px !important; line-height: 1.65 !important; }
+  .co2-stats {
+    grid-template-columns: 1fr !important;
+    gap: 20px !important;
+    margin-top: 32px !important;
+    padding-top: 28px !important;
+  }
+  .co2-stats > div { padding: 0; }
+  .stat-num { font-size: 38px !important; margin-bottom: 6px !important; }
+  .stat-label { font-size: 9px !important; letter-spacing: 1.5px !important; }
+
+  /* === EDITORIAL === */
+  .editorial-section { padding: 70px 20px !important; }
+  .editorial-grid { grid-template-columns: 1fr !important; gap: 30px !important; }
+  .editorial-image-wrap { height: 320px !important; }
+  .editorial-content { padding: 0 !important; }
+  .editorial-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 22px !important; }
+  .editorial-quote { font-size: clamp(22px, 5.5vw, 32px) !important; line-height: 1.3 !important; margin-bottom: 24px !important; }
+  .editorial-text { font-size: 14px !important; line-height: 1.7 !important; margin-bottom: 28px !important; }
+
+  /* === GALLERY === */
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    grid-auto-rows: 150px !important;
+    gap: 5px !important;
+  }
+  .span-2, .span-2v { grid-column: auto !important; grid-row: auto !important; }
+
+  /* === PAGE HEADERS === */
+  .page-header { padding: 110px 20px 50px !important; }
+  .page-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 18px !important; }
+  .page-title {
+    font-size: clamp(32px, 8.5vw, 52px) !important;
+    line-height: 1 !important;
+  }
+  .page-subtitle { font-size: 14px !important; line-height: 1.6 !important; margin-top: 22px !important; }
+
+  /* === PRODUCT PAGE === */
+  .product-hero { padding: 90px 20px 40px !important; }
+  .product-hero-grid { grid-template-columns: 1fr !important; gap: 28px !important; margin-top: 32px !important; }
+  .product-hero-img-wrap { height: 320px !important; }
+  .product-hero-info { padding: 0 !important; }
+  .product-meta-row { gap: 10px !important; margin-bottom: 22px !important; }
+  .course-meta-pill { padding: 5px 11px !important; font-size: 9px !important; letter-spacing: 1.5px !important; }
+  .product-title { font-size: clamp(32px, 8.5vw, 48px) !important; line-height: 1 !important; margin-bottom: 18px !important; }
+  .product-tagline { font-size: 16px !important; line-height: 1.4 !important; margin-bottom: 26px !important; }
+  .product-spec {
+    grid-template-columns: 1fr !important;
+    gap: 1px !important;
+    margin-bottom: 28px !important;
+  }
+  .product-spec-item { padding: 14px 18px !important; }
+  .product-spec-label { font-size: 9px !important; letter-spacing: 1.8px !important; margin-bottom: 4px !important; }
+  .product-spec-value { font-size: 14px !important; }
+  .product-cta-row { flex-direction: column !important; width: 100%; gap: 10px !important; }
+  .product-cta-row .btn { width: 100%; justify-content: center; min-height: 50px; }
+
+  /* === COMPATIBILITY === */
+  .compatibility-section { padding: 70px 20px !important; }
+  .compatibility-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 18px !important; }
+  .compatibility-title { font-size: clamp(28px, 7.5vw, 40px) !important; margin-bottom: 18px !important; }
+  .compatibility-lead { font-size: 14px !important; line-height: 1.6 !important; margin-bottom: 32px !important; }
+  .compatibility-grid { grid-template-columns: 1fr !important; }
+  .compat-item { padding: 22px 18px !important; gap: 16px !important; }
+  .compat-num { font-size: 20px !important; padding-top: 2px !important; }
+  .compat-name { font-size: 15px !important; margin-bottom: 8px !important; line-height: 1.3 !important; }
+  .compat-desc { font-size: 12.5px !important; line-height: 1.6 !important; }
+  .compatibility-note {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+    padding: 18px !important;
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+  }
+  .compat-note-tag { font-size: 9px !important; }
+
+  /* === COURSE PAGE === */
+  .course-hero { padding: 90px 20px 40px !important; }
+  .course-back { margin-bottom: 28px !important; font-size: 10px !important; letter-spacing: 2px !important; }
+  .course-meta-row { gap: 8px !important; margin-bottom: 22px !important; }
+  .course-title { font-size: clamp(28px, 8vw, 44px) !important; line-height: 1 !important; margin-bottom: 18px !important; }
+  .course-lead { font-size: 16px !important; line-height: 1.4 !important; }
+  .course-video-section { padding: 40px 20px !important; }
+  .course-content-section { padding: 50px 20px !important; }
+  .course-content-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+  .course-toc { display: none !important; }
+  .course-content { font-size: 14.5px !important; line-height: 1.75 !important; max-width: 100% !important; }
+  .course-content h2 {
+    font-size: clamp(20px, 6vw, 26px) !important;
+    margin-top: 40px !important; margin-bottom: 14px !important;
+    line-height: 1.2 !important;
+  }
+  .course-content h3 { font-size: 15px !important; margin-top: 24px !important; margin-bottom: 10px !important; }
+  .course-content p { margin-bottom: 18px !important; }
+  .course-content .lead { font-size: 17px !important; padding-left: 16px !important; margin: 22px 0 !important; }
+  .course-content ul, .course-content ol { margin-bottom: 22px !important; }
+  .course-content li { font-size: 14px !important; padding-left: 26px !important; margin-bottom: 10px !important; line-height: 1.6 !important; }
+  .course-content blockquote {
+    padding: 22px 18px !important;
+    font-size: 17px !important;
+    line-height: 1.35 !important;
+    margin: 28px 0 !important;
+  }
+  .course-content .callout {
+    padding: 16px 18px !important;
+    font-size: 12.5px !important;
+    line-height: 1.55 !important;
+    margin: 22px 0 !important;
+  }
+  .course-content .callout strong { font-size: 9px !important; letter-spacing: 1.8px !important; margin-bottom: 6px !important; }
+  .course-content .step-grid {
+    grid-template-columns: 1fr !important;
+    margin: 22px 0 !important;
+  }
+  .course-content .step { padding: 20px 18px !important; }
+  .course-content .step-num { font-size: 26px !important; margin-bottom: 10px !important; }
+  .course-content .step-name { font-size: 12px !important; letter-spacing: 1.2px !important; margin-bottom: 6px !important; }
+  .course-content .step-desc { font-size: 12.5px !important; line-height: 1.55 !important; }
+  .course-content table {
+    font-size: 12px !important;
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .course-content table th, .course-content table td {
+    padding: 8px 10px !important;
+    white-space: nowrap;
+  }
+
+  /* === COURSE CTA === */
+  .course-cta-section { padding: 60px 20px !important; }
+  .course-cta-title { font-size: clamp(24px, 6.5vw, 34px) !important; margin-bottom: 18px !important; }
+  .course-cta-text { font-size: 14px !important; margin-bottom: 28px !important; }
+  .course-cta-row { flex-direction: column !important; gap: 10px !important; }
+  .course-cta-row .btn { width: 100%; justify-content: center; min-height: 50px; }
+
+  /* === VIDEO POSTER / PLAYER === */
+  .course-video-wrap { aspect-ratio: 16/9; }
+  .play-btn {
+    width: 76px !important; height: 76px !important;
+    min-width: 76px;
+  }
+  .play-btn-tri {
+    border-left-width: 18px !important;
+    border-top-width: 12px !important;
+    border-bottom-width: 12px !important;
+    margin-left: 4px !important;
+  }
+  .course-video-meta {
+    padding-top: 14px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .course-video-tag { font-size: 9px !important; }
+  .course-video-duration { font-size: 10px !important; }
+  .course-video-host { font-size: 9px !important; letter-spacing: 2px !important; padding: 6px 10px !important; }
+
+  /* === TRAINING === */
+  .training-grid-8 {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+  }
+  .training-card-v2 .training-img-wrap { height: 220px !important; }
+  .training-card-v2 .training-body { padding: 22px 20px !important; }
+  .training-card-v2 .training-meta { font-size: 9px !important; letter-spacing: 1.5px !important; margin-bottom: 12px !important; }
+  .training-card-v2 .training-name { font-size: 17px !important; margin-bottom: 10px !important; line-height: 1.25 !important; }
+  .training-card-v2 .training-desc { font-size: 12.5px !important; line-height: 1.6 !important; margin-bottom: 16px !important; }
+  .training-card-v2 .training-foot { padding-top: 14px !important; }
+  .training-card-v2 .training-price-free { font-size: 11px !important; letter-spacing: 1.8px !important; }
+  .training-card-v2 .training-link { font-size: 10px !important; letter-spacing: 1.8px !important; min-height: 36px; align-items: center; }
+  .training-card-v2 .has-video { top: 12px !important; right: 12px !important; padding: 5px 9px !important; font-size: 8.5px !important; }
+
+  .training-tabs {
+    flex-direction: column !important;
+    gap: 8px !important;
+    border-bottom: none !important;
+    margin-bottom: 28px !important;
+  }
+  .training-tab {
+    text-align: center !important;
+    padding: 14px 18px !important;
+    border: 1px solid var(--border) !important;
+    margin-bottom: 0 !important;
+    font-size: 11px !important;
+    letter-spacing: 2px !important;
+    min-height: 48px;
+  }
+  .training-tab::after { display: none !important; }
+  .training-tab.active {
+    color: var(--amber) !important;
+    border-color: var(--amber) !important;
+    background: rgba(200, 144, 80, 0.05);
+  }
+  .training-tab-count { font-size: 9px !important; }
+
+  /* === OFFLINE LIST === */
+  .offline-list { grid-template-columns: 1fr !important; }
+  .offline-city { padding: 24px 20px !important; gap: 14px !important; }
+  .offline-city-head {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 10px !important;
+  }
+  .offline-city-name { font-size: 22px !important; letter-spacing: 0.5px !important; line-height: 1 !important; }
+  .offline-city-tag { font-size: 9px !important; letter-spacing: 1.5px !important; padding: 4px 8px !important; }
+  .offline-city-meta { font-size: 14px !important; line-height: 1.5 !important; }
+  .offline-city-courses { font-size: 12.5px !important; padding: 14px 0 !important; line-height: 1.6 !important; }
+  .offline-city-courses-label { font-size: 9px !important; letter-spacing: 1.5px !important; margin-bottom: 6px !important; }
+  .offline-manager {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 14px !important;
+  }
+  .offline-manager-label { font-size: 9px !important; letter-spacing: 1.5px !important; }
+  .offline-manager-name { font-size: 13px !important; }
+  .offline-manager-phone { font-size: 12px !important; }
+  .offline-manager-call {
+    text-align: center !important;
+    min-height: 48px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 16px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+  }
+
+  /* === NEWS / JOURNAL === */
+  .news-list { gap: 1px !important; }
+  .news-item {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    padding: 24px 20px !important;
+  }
+  .news-img-wrap { display: none !important; }
+  .news-date { font-size: 10px !important; letter-spacing: 1.5px !important; }
+  .news-date .cat { font-size: 9px !important; margin-top: 6px !important; }
+  .news-title { font-size: 16px !important; line-height: 1.3 !important; }
+
+  /* === CLINICS === */
+  .clinic-search-block { padding: 28px 20px !important; }
+  .clinic-search-row {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    gap: 22px !important;
+    margin-bottom: 32px !important;
+  }
+  .clinic-label { font-size: 9px !important; letter-spacing: 1.8px !important; margin-bottom: 10px !important; }
+  .clinic-select, .clinic-input {
+    font-size: 16px !important; /* НЕЛЬЗЯ меньше 16px на iOS - иначе зум */
+    padding: 12px 0 !important;
+    min-height: 44px;
+  }
+  .clinic-results-meta { font-size: 10px !important; letter-spacing: 1.5px !important; margin-bottom: 18px !important; }
+  .clinic-card {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    padding: 22px 20px !important;
+  }
+  .clinic-info-main { gap: 6px !important; }
+  .clinic-name-row { gap: 10px !important; flex-wrap: wrap !important; }
+  .clinic-name { font-size: 16px !important; line-height: 1.3 !important; }
+  .clinic-addr { font-size: 12px !important; }
+  .clinic-partner-badge { font-size: 8.5px !important; letter-spacing: 1.5px !important; padding: 2px 8px !important; }
+  .clinic-info-block { font-size: 12px !important; line-height: 1.5 !important; }
+  .clinic-info-block strong { font-size: 9px !important; letter-spacing: 1.5px !important; margin-bottom: 3px !important; }
+  .clinic-link-btn {
+    text-align: center !important;
+    min-height: 48px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+  }
+  .clinic-empty {
+    padding: 50px 16px !important;
+    font-size: 13px !important;
+    line-height: 1.6 !important;
+  }
+
+  /* === CREATORS FORM === */
+  .creators-section { padding: 40px 20px !important; }
+  .creators-grid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .creators-form-wrap { position: static !important; }
+  .creators-form { padding: 28px 20px !important; }
+  .creators-info { padding-right: 0 !important; }
+  .creators-block-title { font-size: 10px !important; letter-spacing: 2.2px !important; margin-top: 32px !important; margin-bottom: 18px !important; }
+  .creators-list li { font-size: 13.5px !important; padding-left: 22px !important; line-height: 1.5 !important; margin-bottom: 10px !important; }
+  .creators-list li::before { top: 12px !important; width: 12px !important; }
+  .creators-callout { padding: 18px 20px !important; font-size: 12.5px !important; }
+  .cf-title { font-size: 10px !important; letter-spacing: 2.2px !important; margin-bottom: 22px !important; padding-bottom: 16px !important; }
+  .cf-row { margin-bottom: 20px !important; }
+  .cf-row-2 { grid-template-columns: 1fr !important; gap: 20px !important; margin-bottom: 20px !important; }
+  .cf-label { font-size: 9px !important; letter-spacing: 1.5px !important; margin-bottom: 8px !important; }
+  .cf-input {
+    font-size: 16px !important; /* iOS zoom fix */
+    padding: 10px 0 !important;
+    min-height: 44px;
+  }
+  .cf-textarea { min-height: 90px !important; padding: 10px 0 !important; }
+  .cf-submit { margin-top: 12px !important; min-height: 52px !important; }
+  .cf-success { padding: 16px 18px !important; font-size: 12.5px !important; margin-top: 18px !important; }
+
+  /* === FOOTER === */
+  .footer { padding: 56px 20px 24px !important; }
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+    padding-bottom: 32px !important;
+  }
+  .footer-brand-name { font-size: 22px !important; letter-spacing: 5px !important; margin-bottom: 14px !important; }
+  .footer-brand-tag { font-size: 14px !important; margin-bottom: 22px !important; max-width: 100% !important; }
+  .footer-addr { font-size: 11px !important; line-height: 1.7 !important; }
+  .footer-col-title { font-size: 9px !important; letter-spacing: 2px !important; margin-bottom: 18px !important; }
+  .footer-col a {
+    font-size: 12.5px !important;
+    margin-bottom: 12px !important;
+    min-height: 32px;
+    display: flex; align-items: center;
+  }
+  .footer-bottom {
+    flex-direction: column !important;
+    gap: 14px !important;
+    text-align: center !important;
+    font-size: 10px !important;
+    padding-top: 26px !important;
+  }
+  .footer-cert {
+    gap: 14px !important;
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+
+  /* === BUTTONS GLOBAL === */
+  .btn {
+    padding: 14px 22px !important;
+    font-size: 10px !important;
+    letter-spacing: 2px !important;
+    min-height: 48px;
+  }
+
+  /* === MOBILE MENU === */
+  .mobile-menu { width: 86% !important; max-width: 340px !important; padding: 70px 26px 26px !important; }
+  .mobile-menu a {
+    padding: 16px 0 !important;
+    font-size: 13px !important;
+    letter-spacing: 2.5px !important;
+    min-height: 48px;
+    display: flex !important;
+    align-items: center;
+  }
+  .mobile-menu-close { font-size: 24px !important; top: 20px !important; right: 20px !important; width: 44px; height: 44px; }
+}
+
+/* === SMALL MOBILE 420px === */
+@media (max-width: 420px) {
+  .nav, .nav.scrolled { padding: 12px 14px !important; }
+  .nav-logo { font-size: 16px !important; letter-spacing: 3px !important; }
+  .lang-btn { padding: 6px 8px !important; font-size: 8px !important; }
+
+  .hero-center { padding: 120px 16px 200px !important; }
+  .hero-eyebrow { font-size: 9px !important; }
+  .hero-headline { font-size: 38px !important; }
+  .hero-tagline { font-size: 15px !important; padding: 0 8px; }
+  .hero-bottom { left: 14px !important; right: 14px !important; bottom: 20px !important; }
+  .hero-bottom-stats { gap: 12px !important; flex-wrap: wrap !important; }
+  .hero-stat .v { font-size: 16px !important; }
+
+  .section, .page-header, .lines, .co2, .editorial-section,
+  .gallery, .manifesto, .compatibility-section, .course-hero,
+  .course-video-section, .course-content-section, .product-hero,
+  .product-content-section, .creators-section, .course-cta-section,
+  .footer {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+
+  .manifesto-text { font-size: clamp(22px, 7vw, 30px) !important; }
+  .marquee-item { font-size: 18px !important; gap: 22px !important; }
+  .marquee-track { gap: 22px !important; }
+
+  .lines-title, .gallery-title { font-size: 24px !important; }
+  .page-title { font-size: clamp(28px, 9vw, 38px) !important; }
+  .product-title, .course-title { font-size: clamp(28px, 9vw, 36px) !important; }
+  .co2-title, .compatibility-title { font-size: clamp(26px, 8vw, 34px) !important; }
+
+  .gallery-grid {
+    grid-template-columns: 1fr !important;
+    grid-auto-rows: 200px !important;
+  }
+
+  .product-card-img-wrap { height: 240px !important; }
+  .product-hero-img-wrap { height: 260px !important; }
+  .editorial-image-wrap { height: 260px !important; }
+  .co2-image-wrap { height: 240px !important; }
+
+  .footer-brand-name { font-size: 20px !important; letter-spacing: 4px !important; }
+
+  /* Уменьшаем play-кнопку на маленьких */
+  .play-btn { width: 64px !important; height: 64px !important; }
+  .play-btn-tri {
+    border-left-width: 14px !important;
+    border-top-width: 10px !important;
+    border-bottom-width: 10px !important;
+  }
+}
+
+/* === LANDSCAPE PHONE (короткий по высоте) === */
+@media (max-width: 900px) and (max-height: 500px) and (orientation: landscape) {
+  .hero, .hero-center { min-height: auto !important; }
+  .hero-center { padding: 100px 24px 140px !important; }
+  .hero-headline { font-size: 38px !important; }
+  .hero-bottom { position: static !important; padding: 24px 24px !important; }
+}
+
 </style>
 </head>
 <body>
