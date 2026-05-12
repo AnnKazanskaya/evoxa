@@ -1847,6 +1847,25 @@ input,select{font-family:inherit;outline:none}
   white-space:nowrap;
 }
 
+
+/* ============ CLINICS UPDATED ============ */
+.clinic-info-main{display:flex;flex-direction:column;gap:8px}
+.clinic-name-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.clinic-partner-badge{
+  display:inline-flex;align-items:center;
+  padding:3px 10px;
+  border:1px solid var(--amber);
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--amber);
+  white-space:nowrap;
+}
+.clinic-partner-badge::before{
+  content:'';
+  width:5px;height:5px;border-radius:50%;
+  background:var(--amber);
+  margin-right:7px;
+}
+
 </style>
 </head>
 <body>
@@ -2591,10 +2610,10 @@ const I18N = {
     'prod.clinic':'Signal Serum, Bio Serum и активы. Используются врачом для усиления и направления эффекта процедуры. Профессиональная упаковка с лайм-акцентами.',
     'prod.pro':'C3 Radiance Serum, ремоделирующий крем, SPF. Полный домашний протокол. Бордо-акценты. Премиальное стекло. Роскошь на полке в ванной.',
     'clinics.eyebrow':'— Где сделать процедуру —','clinics.title1':'Сертифицированные','clinics.title2':'партнёры.',
-    'clinics.subtitle':'EVOXA — профессиональный продукт. Процедуру выполняет только врач-косметолог в сертифицированной клинике. Выберите ваш город — и мы покажем ближайшие точки.',
+    'clinics.subtitle':'EVOXA — профессиональный продукт. Работают сертифицированные специалисты в 10 городах России. Выберите ваш город — покажем всех специалистов и их контакты.',
     'clinics.label.country':'Страна','clinics.label.city':'Город','clinics.label.search':'Поиск по названию',
-    'clinics.found':'Найдено клиник','clinics.empty':'В выбранном городе клиник пока нет. Свяжитесь с нами — поможем подобрать ближайшую.',
-    'clinics.visit':'Перейти на сайт','clinics.phone':'Телефон',
+    'clinics.found':'Найдено специалистов','clinics.empty':'В выбранном городе специалистов пока нет. Свяжитесь с нами — поможем подобрать ближайшего.',
+    'clinics.visit':'Перейти на сайт','clinics.call':'Позвонить','clinics.phone':'Телефон','clinics.partner':'Партнёр',
     'train.eyebrow':'— EVOXA Academy —','train.title1':'Обучение','train.title2':'для врачей.',
     'train.subtitle':'Все курсы EVOXA Academy открыты бесплатно. Видео-уроки, протоколы и разборы клинических случаев. Только для медицинских специалистов.',
     'train.free':'Бесплатно','train.request':'По запросу','train.link':'Открыть курс →',
@@ -2692,10 +2711,10 @@ const I18N = {
     'prod.clinic':'Signal Serum, Bio Serum and actives. Used by physicians to amplify and direct the procedure effect. Professional packaging with lime accents.',
     'prod.pro':'C3 Radiance Serum, remodulating cream, SPF. The complete home protocol. Wine accents. Premium glass. Quiet luxury on the bathroom shelf.',
     'clinics.eyebrow':'— Where to book a procedure —','clinics.title1':'Certified','clinics.title2':'partners.',
-    'clinics.subtitle':'EVOXA is a professional product. The procedure is performed only by a licensed cosmetologist in a certified clinic. Pick your city — we will show the nearest options.',
+    'clinics.subtitle':'EVOXA is a professional product. Certified specialists work in 10 cities across Russia. Pick your city — we will show all specialists and their contacts.',
     'clinics.label.country':'Country','clinics.label.city':'City','clinics.label.search':'Search by name',
-    'clinics.found':'Clinics found','clinics.empty':'No clinics in this city yet. Contact us — we will help you find the nearest one.',
-    'clinics.visit':'Visit website','clinics.phone':'Phone',
+    'clinics.found':'Specialists found','clinics.empty':'No specialists in this city yet. Contact us — we will help you find the nearest one.',
+    'clinics.visit':'Visit website','clinics.call':'Call','clinics.phone':'Phone','clinics.partner':'Partner',
     'train.eyebrow':'— EVOXA Academy —','train.title1':'Training','train.title2':'for physicians.',
     'train.subtitle':'All EVOXA Academy courses are free. Video lessons, protocols and clinical case studies. For medical specialists only.',
     'train.free':'Free','train.request':'On request','train.link':'Open course →',
@@ -2792,10 +2811,10 @@ const I18N = {
     'prod.clinic':'Signal Serum, Bio Serum y activos. Usados por el médico para potenciar y dirigir el efecto del tratamiento. Packaging profesional con acentos lima.',
     'prod.pro':'C3 Radiance Serum, crema remoduladora, SPF. El protocolo completo en casa. Acentos vino. Vidrio premium. Lujo silencioso en la estantería del baño.',
     'clinics.eyebrow':'— Dónde reservar el tratamiento —','clinics.title1':'Socios','clinics.title2':'certificados.',
-    'clinics.subtitle':'EVOXA es un producto profesional. El tratamiento solo lo realiza un cosmetólogo titulado en una clínica certificada. Elige tu ciudad y te mostramos las opciones más cercanas.',
+    'clinics.subtitle':'EVOXA es un producto profesional. Especialistas certificados trabajan en 10 ciudades de Rusia. Elige tu ciudad — te mostramos todos los especialistas y sus contactos.',
     'clinics.label.country':'País','clinics.label.city':'Ciudad','clinics.label.search':'Buscar por nombre',
-    'clinics.found':'Clínicas encontradas','clinics.empty':'Aún no hay clínicas en esta ciudad. Contáctanos: te ayudamos a encontrar la más cercana.',
-    'clinics.visit':'Ir al sitio','clinics.phone':'Teléfono',
+    'clinics.found':'Especialistas encontrados','clinics.empty':'Aún no hay especialistas en esta ciudad. Contáctanos: te ayudamos a encontrar el más cercano.',
+    'clinics.visit':'Ir al sitio','clinics.call':'Llamar','clinics.phone':'Teléfono','clinics.partner':'Partner',
     'train.eyebrow':'— EVOXA Academy —','train.title1':'Formación','train.title2':'para médicos.',
     'train.subtitle':'Todos los cursos de EVOXA Academy son gratuitos. Vídeo-lecciones, protocolos y casos clínicos. Solo para profesionales sanitarios.',
     'train.free':'Gratis','train.request':'Bajo petición','train.link':'Abrir curso →',
@@ -2952,51 +2971,105 @@ const NEWS = [
 /* ============ CLINICS DATA ============ */
 const CLINICS = {
   ru: {
-    'Москва':[
-      {name:'Beauty Forma Clinic', addr:'ул. Тверская, 18', phone:'+7 495 123-45-67', url:'https://lk.beauty-forma.com'},
-      {name:'Nike-Med Premium', addr:'Кутузовский пр-т, 32', phone:'+7 495 234-56-78', url:'https://nike-med.com'},
-      {name:'Atelier Dermatology', addr:'Патриаршие Пруды, 4', phone:'+7 495 345-67-89', url:'#'},
-      {name:'Skin Code Lab', addr:'Никольская ул., 10', phone:'+7 495 456-78-90', url:'#'},
+    'Пермь':[
+      {name:'Некрасова Евгения Михайловна', phone:'+7 (909) 119-69-47', partner:'2 шт'},
+      {name:'Полянская Юлия Андреевна', phone:'+7 (919) 706-47-77', partner:'4 шт'},
+      {name:'Юдина Румия Ралифовна', phone:'+7 (912) 587-14-30', partner:'4 шт'},
+      {name:'Юсупова Дилафруз Абдунабизова', phone:'+7 (919) 706-16-68', partner:'2 шт'},
+      {name:'Арсланова Гузель Фанилевна', phone:'+7 (906) 886-06-16'},
+      {name:'Валиева Роза Ирековна', phone:'+7 (927) 927-16-67'},
+      {name:'Вальшина Татьяна', phone:'+7 (961) 703-73-33'},
+      {name:'Зайцева Ольга', phone:'+7 (919) 919-94-00'},
+      {name:'Изотова Татьяна Витальевна', phone:'+7 (908) 876-16-80'},
+      {name:'Микитюк Екатерина Александровна', phone:'+7 (992) 204-83-67'},
+      {name:'Носатенко Алена Сергеевна', phone:'+7 (982) 477-57-60'},
+      {name:'ООО Генетика', phone:'+7 (922) 317-03-16'},
+      {name:'Папаян Нарине Овсеповна', phone:'+7 (908) 246-29-89'},
+      {name:'Пичкалева Наталия Григорьевна', phone:'+7 (902) 800-95-09'},
+      {name:'Рашитова Татьяна Эдуардовна', phone:'+7 (964) 198-74-77'},
+      {name:'Тычинина Екатерина Александровна', phone:'+7 (992) 202-05-85'},
+      {name:'Шумилова Оксана Аркадьевна', phone:'+7 (982) 489-48-44'},
+      {name:'Юмагужина Валерия Владимировна', phone:'+7 (965) 577-77-49'},
+      {name:'Яровикова Ксения', phone:'+7 (909) 119-69-47'},
     ],
-    'Санкт-Петербург':[
-      {name:'Esthetic House', addr:'Невский пр-т, 88', phone:'+7 812 123-45-67', url:'#'},
-      {name:'Doctor Plastic SPb', addr:'наб. Мойки, 22', phone:'+7 812 234-56-78', url:'#'},
-      {name:'Nike-Med СПб', addr:'Большой пр-т П.С., 75', phone:'+7 812 345-67-89', url:'https://nike-med.com'},
-    ],
-    'Казань':[
-      {name:'Beauty Forma Казань', addr:'ул. Баумана, 12', phone:'+7 843 123-45-67', url:'https://lk.beauty-forma.com'},
-      {name:'Vita Cosmetology', addr:'ул. Профсоюзная, 56', phone:'+7 843 234-56-78', url:'#'},
-    ],
-    'Сочи':[
-      {name:'Riviera Med Spa', addr:'ул. Орджоникидзе, 9', phone:'+7 862 123-45-67', url:'#'},
-      {name:'Sea View Clinic', addr:'Курортный пр-т, 105', phone:'+7 862 234-56-78', url:'#'},
+    'Уфа':[
+      {name:'Жавнер Наталья', phone:'+7 (913) 597-17-17', partner:'2 шт'},
+      {name:'Зернина Людмила', phone:'+7 (952) 654-81-86'},
+      {name:'Каюпова Райся Рифатовна', phone:'+7 (927) 513-83-36'},
+      {name:'Кирста Анастасия Валерьевна', phone:'+7 (917) 415-10-66'},
+      {name:'Мулюкова Рита Равгатовна', phone:'+7 (987) 023-80-91'},
+      {name:'Низамутдинова Индира Зайнидиновна', phone:'+7 (917) 431-59-71'},
+      {name:'ООО Тоник', phone:'+7 (917) 426-63-33'},
+      {name:'Попова Елизавета Сергеевна', phone:'+7 (914) 873-50-66'},
+      {name:'Сидоренко Юлия Игоревна', phone:'+7 (917) 789-66-70'},
+      {name:'Субботина Светлана Евгеньевна', phone:'+7 (999) 623-37-62'},
+      {name:'Хабибуллина Лилия Башировна', phone:'+7 (927) 938-82-88'},
+      {name:'Хафизова Эльмира Хадмулловна', phone:'+7 (912) 849-01-62'},
     ],
     'Екатеринбург':[
-      {name:'Ural Beauty Lab', addr:'пр-т Ленина, 41', phone:'+7 343 123-45-67', url:'#'},
+      {name:'Баданина Валентина', phone:'+7 (902) 875-10-62', partner:'2 шт'},
+      {name:'Денисова Светлана Витальевна', phone:'+7 (908) 273-01-00', partner:'2 шт'},
+      {name:'Калинина Елена', phone:'+7 (982) 741-90-67'},
+      {name:'Мамаева Марина', phone:'+7 (965) 554-17-54'},
+      {name:'Нейжмак Яна', phone:'+7 (952) 729-29-04'},
     ],
-    'Новосибирск':[
-      {name:'Sibir Esthetic', addr:'Красный пр-т, 86', phone:'+7 383 123-45-67', url:'#'},
+    'Ижевск':[
+      {name:'Рябова Юлия', phone:'+7 (909) 066-51-08', partner:'8 шт'},
+      {name:'Серебренникова Елена Геннадьевна', phone:'+7 (963) 541-11-59', partner:'2 шт'},
+      {name:'Шарифуллина Елена', phone:'+7 (904) 318-23-75', partner:'4 шт'},
+      {name:'Азарова Людмила', phone:'+7 (913) 974-48-21'},
+      {name:'Камских Светлана', phone:'+7 (912) 852-65-81'},
+      {name:'Лагутина Екатерина Юрьевна', phone:'+7 (968) 748-12-38'},
+      {name:'Пыжьянова Надежда Петровна', phone:'+7 (922) 689-47-88'},
     ],
-    'Краснодар':[
-      {name:'Krasnodar Skin Clinic', addr:'ул. Красная, 124', phone:'+7 861 123-45-67', url:'#'},
+    'Иркутск':[
+      {name:'Дзюба Наталья Сергеевна', phone:'+7 (924) 604-90-80'},
+      {name:'Комарова Дарья', phone:'+7 (952) 616-36-50'},
+      {name:'Королькова Ксения', phone:'+7 (922) 222-75-55'},
+      {name:'Олина Екатерина Сергеевна', phone:'+7 (912) 049-49-99'},
+      {name:'Савина Оксана', phone:'+7 (924) 011-49-99'},
+      {name:'Фомина Екатерина Андреевна', phone:'+7 (983) 449-76-75'},
+      {name:'Шерстова Полина Геннадьевна', phone:'+7 (952) 621-06-21'},
     ],
-    'Ростов-на-Дону':[
-      {name:'Don Beauty Studio', addr:'Большая Садовая, 75', phone:'+7 863 123-45-67', url:'#'},
+    'Нижний Новгород':[
+      {name:'Жданова Елена Михайловна', phone:'+7 (910) 102-61-73', partner:'2 шт'},
+      {name:'Миронова Стелла Евгеньевна', phone:'+7 (910) 127-61-63', partner:'4 шт'},
+      {name:'Бескова Юлия', phone:'+7 (950) 455-54-65'},
+      {name:'Суханова Елена Юрьевна', phone:'+7 (920) 008-42-00'},
+      {name:'Тадевосян Марианна Нелсиковна', phone:'+7 (920) 052-02-83'},
+      {name:'Тюренкова Ирина Валерьевна', phone:'+7 (920) 073-90-34'},
+      {name:'Удалова Марина', phone:'+7 (920) 297-85-24'},
+    ],
+    'Омск':[
+      {name:'Гущанская Евгения Валельевна', phone:'+7 (951) 418-12-12', partner:'4 шт'},
+      {name:'Шавилова Наталья Владимировна', phone:'+7 (961) 849-74-93', partner:'2 шт'},
+      {name:'Вдовина Оксана Владимировна', phone:'+7 (967) 713-49-77'},
+      {name:'Игнатьева Светлана Викторовна', phone:'+7 (906) 918-71-97'},
+      {name:'Михайлюк Анфиса', phone:'+7 (962) 050-11-77'},
+      {name:'Смирнова Анастасия Анатольевна', phone:'+7 (904) 826-81-81'},
+    ],
+    'Кемерово':[
+      {name:'ООО Доктор Мирошниченко', phone:'+7 (909) 515-28-26', partner:'комплект'},
+      {name:'ООО ЦВК Савитри', phone:'+7 (951) 228-70-33', partner:'комплект'},
+      {name:'Бегенева Вера Владимировна', phone:'+7 (965) 849-46-67'},
+      {name:'Скрыниченко Светлана', phone:'+7 (913) 125-35-75'},
+    ],
+    'Тюмень':[
+      {name:'Белялова Мария', phone:'+7 (902) 176-11-09'},
+      {name:'Варыгина Ольга Владимировна', phone:'+7 (913) 620-77-94'},
+      {name:'Кравец Наталья Владимировна', phone:'+7 (905) 820-69-40'},
+      {name:'Малахова Светлана Геннадьевна', phone:'+7 (982) 775-79-99'},
+    ],
+    'Красноярск':[
+      {name:'Гвоздикова Дарья Юрьевна', phone:'+7 (909) 193-92-35'},
+      {name:'Казан Анастасия Георгиевна', phone:'+7 (923) 356-24-60'},
+      {name:'Суховалова Анна', phone:'+7 (913) 507-45-10'},
     ],
   },
   es: {
     'Barcelona':[
-      {name:'Gecanor Clinic', addr:'Calle Bailén 62', phone:'+34 933 12 45 67', url:'https://evoxa.es'},
-      {name:'Eixample Estética', addr:'Passeig de Gràcia 88', phone:'+34 933 23 56 78', url:'#'},
-      {name:'Sant Pau Dermatology', addr:'Carrer de Mallorca 401', phone:'+34 933 34 67 89', url:'#'},
+      {name:'Gecanor Clinic', phone:'+34 933 12 45 67', partner:'HQ', url:'https://evoxa.es'},
     ],
-    'Madrid':[
-      {name:'Salamanca Beauty Lab', addr:'Calle de Serrano 45', phone:'+34 911 12 45 67', url:'#'},
-      {name:'Chamberí Cosmetics', addr:'Calle de Sagasta 18', phone:'+34 911 23 56 78', url:'#'},
-    ],
-    'Valencia':[{name:'Valencia Skin Studio', addr:'Carrer de Colón 22', phone:'+34 963 12 45 67', url:'#'}],
-    'Sevilla':[{name:'Triana Estética', addr:'Calle Betis 14', phone:'+34 955 12 45 67', url:'#'}],
-    'Málaga':[{name:'Costa del Sol Clinic', addr:'Paseo Marítimo 8', phone:'+34 952 12 45 67', url:'#'}],
   }
 };
 
@@ -5238,7 +5311,7 @@ function renderClinics(){
   const search=(document.getElementById('clinicSearch').value||'').toLowerCase();
   const dict=I18N[currentLang];
   let list=(CLINICS[country]&&CLINICS[country][city])||[];
-  if(search) list=list.filter(c=>c.name.toLowerCase().includes(search)||c.addr.toLowerCase().includes(search));
+  if(search) list=list.filter(c=>c.name.toLowerCase().includes(search));
   const meta=document.getElementById('resultsMeta');
   const out=document.getElementById('clinicResults');
   if(list.length===0){
@@ -5247,19 +5320,27 @@ function renderClinics(){
     return;
   }
   meta.textContent=`${dict['clinics.found']}: ${list.length}`;
-  out.innerHTML=list.map(c=>`
+  out.innerHTML=list.map(c=>{
+    const tel=c.phone.replace(/[^+\d]/g,'');
+    const partnerBadge=c.partner?`<span class="clinic-partner-badge">${dict['clinics.partner']||'Партнёр'}</span>`:'';
+    const websiteBtn=c.url?`<a href="${c.url}" target="_blank" class="clinic-link-btn" data-cursor>${dict['clinics.visit']} →</a>`:'';
+    const callBtn=`<a href="tel:${tel}" class="clinic-link-btn" data-cursor>${dict['clinics.call']||'Позвонить'} →</a>`;
+    return `
     <div class="clinic-card">
-      <div>
-        <div class="clinic-name">${c.name}</div>
-        <div class="clinic-addr">${city}, ${c.addr}</div>
+      <div class="clinic-info-main">
+        <div class="clinic-name-row">
+          <div class="clinic-name">${c.name}</div>
+          ${partnerBadge}
+        </div>
+        <div class="clinic-addr">${city}</div>
       </div>
       <div class="clinic-info-block">
         <strong>${dict['clinics.phone']}</strong>
         ${c.phone}
       </div>
-      <a href="${c.url}" target="_blank" class="clinic-link-btn" data-cursor>${dict['clinics.visit']} →</a>
-    </div>
-  `).join('');
+      ${c.url?websiteBtn:callBtn}
+    </div>`;
+  }).join('');
   bindCursor();
 }
 
