@@ -2500,6 +2500,1033 @@ img, video, iframe {
   .hero-bottom { position: static !important; padding: 24px 24px !important; }
 }
 
+
+/* ============ MAP SECTION ============ */
+.map-section{
+  padding:120px 48px;
+  background:var(--coal);
+  border-top:1px solid var(--border);
+}
+.map-section-inner{
+  max-width:1320px;margin:0 auto;
+}
+.map-header{
+  text-align:center;
+  margin-bottom:60px;
+}
+.map-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:6px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.map-title{
+  font-size:clamp(36px,5vw,72px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.015em;
+  text-transform:uppercase;margin-bottom:24px;
+}
+.map-title .em{
+  color:var(--amber);font-family:'Cormorant Garamond',serif;
+  font-style:italic;font-weight:300;text-transform:none;
+}
+.map-subtitle{
+  font-size:17px;line-height:1.65;color:var(--text-muted);
+  max-width:640px;margin:0 auto;
+}
+
+.map-wrap{
+  position:relative;
+  background:var(--black);
+  border:1px solid var(--border);
+  padding:48px 32px 32px;
+  margin-bottom:60px;
+}
+
+
+
+
+
+/* Москва — серая точка-ориентир без анимации */
+.map-ref{pointer-events:none}
+.map-dot-ref{
+  fill:rgba(232,229,221,0.35);
+}
+.map-label-ref{
+  fill:rgba(232,229,221,0.5);
+  font-family:'Montserrat',sans-serif;
+  font-size:9px;
+  letter-spacing:0.3px;
+  paint-order:stroke fill;
+  stroke:var(--black);
+  stroke-width:3px;
+  stroke-linejoin:round;
+  user-select:none;
+}
+
+
+.map-city:hover 
+.map-dot{
+  fill:var(--amber);
+  filter:drop-shadow(0 0 6px rgba(200,144,80,0.6));
+  transition:fill .3s ease;
+}
+.map-city:hover .map-dot{fill:var(--text-on-dark)}
+
+
+.map-city:nth-child(2) .map-dot-pulse{animation-delay:0s}
+.map-city:nth-child(3) .map-dot-pulse{animation-delay:.3s}
+.map-city:nth-child(4) .map-dot-pulse{animation-delay:.6s}
+.map-city:nth-child(5) .map-dot-pulse{animation-delay:.9s}
+.map-city:nth-child(6) .map-dot-pulse{animation-delay:1.2s}
+.map-city:nth-child(7) .map-dot-pulse{animation-delay:1.5s}
+.map-city:nth-child(8) .map-dot-pulse{animation-delay:1.8s}
+.map-city:nth-child(9) .map-dot-pulse{animation-delay:.4s}
+.map-city:nth-child(10) .map-dot-pulse{animation-delay:.7s}
+.map-city:nth-child(11) .map-dot-pulse{animation-delay:1.0s}
+
+@keyframes mapPulse{
+  0%{transform:scale(0.4);opacity:0.6}
+  100%{transform:scale(2.2);opacity:0}
+}
+
+
+
+.map-legend{
+  display:flex;justify-content:center;align-items:center;
+  margin-top:32px;padding-top:24px;
+  border-top:1px solid var(--border);
+}
+.map-legend-row{
+  display:flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.map-legend-dot{
+  display:inline-block;width:8px;height:8px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 8px rgba(200,144,80,0.6);
+}
+
+.map-cta-row{
+  display:grid;grid-template-columns:auto 1fr;gap:48px;
+  align-items:center;
+}
+.map-stats{
+  display:flex;gap:48px;justify-content:flex-end;
+  padding-left:48px;border-left:1px solid var(--border);
+}
+.map-stat{display:flex;flex-direction:column;gap:6px;text-align:center}
+.map-stat-num{
+  font-size:48px;font-weight:200;color:var(--text-on-dark);
+  letter-spacing:-0.02em;line-height:1;
+}
+.map-stat-label{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+
+/* MOBILE MAP */
+@media (max-width: 768px) {
+  .map-section { padding: 70px 20px !important; }
+  .map-header { margin-bottom: 36px !important; }
+  .map-title { font-size: clamp(28px, 7.5vw, 40px) !important; }
+  .map-subtitle { font-size: 14px !important; padding: 0 8px; }
+  .map-wrap { padding: 28px 16px 20px !important; margin-bottom: 32px !important; }
+  .map-label { font-size: 14px !important; stroke-width: 4px !important; }
+  .map-dot { r: 7 !important; }
+  .map-dot-pulse { r: 16 !important; }
+  .map-legend { margin-top: 22px !important; padding-top: 18px !important; }
+  .map-legend-row { font-size: 9px !important; letter-spacing: 1.5px !important; }
+  .map-cta-row {
+    grid-template-columns: 1fr !important;
+    gap: 28px !important;
+  }
+  .map-cta-row .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 52px;
+    text-align: center;
+  }
+  .map-stats {
+    padding-left: 0 !important;
+    border-left: none !important;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    gap: 18px !important;
+    justify-content: space-around !important;
+  }
+  .map-stat-num { font-size: 32px !important; }
+  .map-stat-label { font-size: 9px !important; letter-spacing: 1.5px !important; }
+}
+
+@media (max-width: 420px) {
+  .map-label { font-size: 16px !important; }
+}
+
+
+/* ============ MAP IMAGE OVERLAY (NANO BANANA) ============ */
+.map-image-wrap{
+  position:relative;
+  width:100%;
+  max-width:1200px;
+  margin:0 auto;
+  aspect-ratio: 1800 / 1004;
+  background:#0a0a0a;
+}
+.map-image{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:contain;
+  user-select:none;
+  pointer-events:none;
+}
+.map-points-overlay{
+  position:absolute;inset:0;
+}
+
+.map-point{
+  position:absolute;
+  left:var(--x);
+  top:var(--y);
+  transform:translate(-50%,-50%);
+  z-index:2;
+  pointer-events:auto;
+}
+
+.map-point-dot{
+  display:block;
+  width:10px;height:10px;
+  border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 12px rgba(200,144,80,0.7), 0 0 24px rgba(200,144,80,0.4);
+}
+.map-point-dot-evoxa{
+  width:12px;height:12px;
+}
+
+.map-point-pulse{
+  position:absolute;
+  left:50%;top:50%;
+  transform:translate(-50%,-50%);
+  width:12px;height:12px;
+  border-radius:50%;
+  background:var(--amber);
+  opacity:0.35;
+  animation:mapDotPulse 2.6s ease-out infinite;
+  pointer-events:none;
+}
+@keyframes mapDotPulse{
+  0%{transform:translate(-50%,-50%) scale(0.6);opacity:0.5}
+  100%{transform:translate(-50%,-50%) scale(4);opacity:0}
+}
+.map-point:nth-child(2) .map-point-pulse{animation-delay:0s}
+.map-point:nth-child(3) .map-point-pulse{animation-delay:.25s}
+.map-point:nth-child(4) .map-point-pulse{animation-delay:.5s}
+.map-point:nth-child(5) .map-point-pulse{animation-delay:.75s}
+.map-point:nth-child(6) .map-point-pulse{animation-delay:1.0s}
+.map-point:nth-child(7) .map-point-pulse{animation-delay:1.25s}
+.map-point:nth-child(8) .map-point-pulse{animation-delay:1.5s}
+.map-point:nth-child(9) .map-point-pulse{animation-delay:1.75s}
+.map-point:nth-child(10) .map-point-pulse{animation-delay:2.0s}
+.map-point:nth-child(11) .map-point-pulse{animation-delay:2.25s}
+
+.map-point-label{
+  position:absolute;
+  font-family:'Montserrat',sans-serif;
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:0.4px;
+  color:var(--text-on-dark);
+  white-space:nowrap;
+  text-shadow:
+    0 0 4px rgba(0,0,0,1),
+    0 0 8px rgba(0,0,0,0.9),
+    0 1px 2px rgba(0,0,0,1);
+  pointer-events:none;
+}
+/* Позиции label относительно точки */
+.map-point[data-pos="top"] .map-point-label{
+  bottom:18px;left:50%;transform:translateX(-50%);
+}
+.map-point[data-pos="bottom"] .map-point-label{
+  top:18px;left:50%;transform:translateX(-50%);
+}
+.map-point[data-pos="left"] .map-point-label{
+  right:18px;top:50%;transform:translateY(-50%);
+}
+.map-point[data-pos="right"] .map-point-label{
+  left:18px;top:50%;transform:translateY(-50%);
+}
+
+/* Москва - серая, маленькая, без пульсации */
+.map-point-ref .map-point-dot{
+  width:6px;height:6px;
+  background:rgba(232,229,221,0.4);
+  box-shadow:0 0 6px rgba(232,229,221,0.3);
+}
+.map-label-ref{
+  font-size:10px !important;
+  color:rgba(232,229,221,0.55) !important;
+  font-weight:400 !important;
+  letter-spacing:0.2px !important;
+  left:12px !important;
+  top:50% !important;
+  transform:translateY(-50%) !important;
+}
+
+/* hover на точку — увеличение и сдвиг подписи */
+.map-point:not(.map-point-ref):hover .map-point-dot{
+  width:16px;height:16px;
+  background:var(--text-on-dark);
+  box-shadow:0 0 16px rgba(200,144,80,0.9), 0 0 32px rgba(200,144,80,0.5);
+  transition:all .3s ease;
+}
+.map-point:not(.map-point-ref):hover .map-point-label{
+  color:var(--amber);
+  transition:color .3s ease;
+}
+
+/* === MOBILE — карта === */
+@media (max-width: 768px) {
+  .map-image-wrap{
+    aspect-ratio: 1800 / 1004;
+    max-width: 100%;
+  }
+  .map-point-dot{
+    width: 9px !important;
+    height: 9px !important;
+  }
+  .map-point-dot-evoxa{
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .map-point-pulse{
+    width: 10px !important;
+    height: 10px !important;
+  }
+  .map-point-label{
+    font-size: 9px !important;
+    letter-spacing: 0.2px !important;
+  }
+  .map-point[data-pos="top"] .map-point-label,
+  .map-point[data-pos="bottom"] .map-point-label{
+    /* На мобильном слегка ближе к точке */
+  }
+  .map-point[data-pos="top"] .map-point-label{
+    bottom: 14px !important;
+  }
+  .map-point[data-pos="bottom"] .map-point-label{
+    top: 14px !important;
+  }
+  .map-point[data-pos="left"] .map-point-label{
+    right: 14px !important;
+  }
+  .map-point[data-pos="right"] .map-point-label{
+    left: 14px !important;
+  }
+  .map-label-ref{
+    font-size: 8px !important;
+  }
+  .map-point-ref .map-point-dot{
+    width: 5px !important;
+    height: 5px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  /* На очень маленьких экранах подписи могут конфликтовать —
+     уменьшаем ещё */
+  .map-point-label{
+    font-size: 8px !important;
+  }
+  .map-point-dot{
+    width: 7px !important;
+    height: 7px !important;
+  }
+  .map-point-dot-evoxa{
+    width: 8px !important;
+    height: 8px !important;
+  }
+  .map-point-pulse{
+    width: 8px !important;
+    height: 8px !important;
+  }
+}
+
+
+/* ============ GEOGRAPHY SECTION ============ */
+.geo-section{
+  padding:140px 48px;
+  background:var(--coal);
+  border-top:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+.geo-section::before{
+  content:'';
+  position:absolute;
+  top:-100px;left:-100px;
+  width:400px;height:400px;
+  background:radial-gradient(circle,rgba(200,144,80,0.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.geo-section::after{
+  content:'';
+  position:absolute;
+  bottom:-150px;right:-100px;
+  width:500px;height:500px;
+  background:radial-gradient(circle,rgba(200,144,80,0.05) 0%,transparent 70%);
+  pointer-events:none;
+}
+.geo-inner{
+  max-width:1320px;margin:0 auto;
+  position:relative;
+}
+
+.geo-top{
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:80px;
+  align-items:start;
+  margin-bottom:100px;
+}
+
+.geo-left{padding-top:8px}
+.geo-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:6px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:32px;
+}
+.geo-title{
+  font-size:clamp(40px,5.5vw,80px);
+  font-weight:200;line-height:1.0;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:32px;
+}
+.geo-title .em{
+  color:var(--amber);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  text-transform:none;
+}
+.geo-quote{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:clamp(20px,1.8vw,26px);
+  line-height:1.45;
+  color:var(--text-on-dark);
+  max-width:460px;
+}
+
+.geo-right{
+  display:flex;flex-direction:column;
+  gap:32px;
+  padding-left:40px;
+  border-left:1px solid var(--border);
+}
+.geo-stat{
+  display:flex;align-items:baseline;gap:24px;
+}
+.geo-stat-num{
+  font-size:clamp(56px,6.5vw,96px);
+  font-weight:200;
+  line-height:0.9;letter-spacing:-0.04em;
+  color:var(--text-on-dark);
+  min-width:140px;
+  font-variant-numeric:tabular-nums;
+}
+.geo-stat-line{
+  width:24px;height:1px;
+  background:var(--amber);
+  flex-shrink:0;
+  align-self:center;
+  margin-top:4px;
+}
+.geo-stat-label{
+  font-size:13px;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+  color:var(--text-muted);
+  line-height:1.4;
+  font-weight:400;
+  max-width:200px;
+}
+
+/* GEO ROUTE — горизонтальная линейка городов */
+.geo-route{
+  position:relative;
+  padding:40px 0 60px;
+}
+.geo-route-line{
+  position:absolute;
+  top:60px;left:0;right:0;
+  height:1px;
+  background:linear-gradient(90deg,
+    transparent 0%,
+    rgba(200,144,80,0.15) 8%,
+    var(--amber) 50%,
+    rgba(200,144,80,0.15) 92%,
+    transparent 100%
+  );
+}
+.geo-route-cities{
+  position:relative;
+  display:flex;
+  justify-content:space-between;
+  align-items:flex-start;
+  padding-top:20px;
+}
+.geo-city{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+  flex:1;
+  text-align:center;
+  cursor:default;
+  transition:transform .4s var(--ease-out-expo);
+}
+.geo-city:hover{
+  transform:translateY(-4px);
+}
+.geo-city-dot{
+  position:relative;
+  width:14px;height:14px;
+  border-radius:50%;
+  background:var(--coal);
+  border:1.5px solid var(--amber);
+  box-shadow:0 0 0 4px var(--coal), 0 0 16px rgba(200,144,80,0.4);
+  transition:all .4s ease;
+  z-index:2;
+}
+.geo-city-dot::after{
+  content:'';
+  position:absolute;
+  inset:2px;
+  border-radius:50%;
+  background:var(--amber);
+  opacity:0;
+  transition:opacity .4s ease;
+}
+.geo-city:hover .geo-city-dot{
+  border-color:var(--text-on-dark);
+  box-shadow:0 0 0 4px var(--coal), 0 0 24px rgba(200,144,80,0.7);
+}
+.geo-city:hover .geo-city-dot::after{
+  opacity:1;
+}
+.geo-city-major .geo-city-dot{
+  width:20px;height:20px;
+  border-width:2px;
+}
+.geo-city-major .geo-city-dot::after{
+  inset:3px;
+  background:var(--amber);
+  opacity:1;
+}
+.geo-city-name{
+  font-size:11px;
+  font-weight:500;
+  letter-spacing:1px;
+  text-transform:uppercase;
+  color:var(--text-on-dark);
+  line-height:1.3;
+  white-space:nowrap;
+  transition:color .3s ease;
+}
+.geo-city:hover .geo-city-name{
+  color:var(--amber);
+}
+.geo-city-count{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:15px;
+  color:var(--amber);
+  letter-spacing:0.5px;
+}
+
+.geo-route-labels{
+  position:absolute;
+  bottom:0;left:0;right:0;
+  display:flex;
+  justify-content:space-between;
+  font-size:9px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--text-dim);
+  padding-top:24px;
+}
+
+.geo-cta{
+  margin-top:60px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:18px;
+}
+.geo-cta .btn{padding:18px 36px;font-size:11px;letter-spacing:3px}
+.geo-cta-note{
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:15px;
+  color:var(--text-muted);
+  text-align:center;
+}
+
+/* === TABLET === */
+@media (max-width: 1100px) {
+  .geo-section { padding: 100px 32px !important; }
+  .geo-top {
+    grid-template-columns: 1fr !important;
+    gap: 56px !important;
+    margin-bottom: 80px !important;
+  }
+  .geo-right {
+    border-left: none !important;
+    padding-left: 0 !important;
+    border-top: 1px solid var(--border);
+    padding-top: 40px;
+  }
+  .geo-stat-num { min-width: 110px !important; }
+  .geo-route-cities {
+    /* На планшете оставляем горизонтальную линию */
+  }
+  .geo-city-name { font-size: 10px !important; }
+  .geo-city-count { font-size: 13px !important; }
+}
+
+/* === MOBILE === */
+@media (max-width: 768px) {
+  .geo-section { padding: 72px 20px !important; }
+  .geo-top {
+    grid-template-columns: 1fr !important;
+    gap: 40px !important;
+    margin-bottom: 56px !important;
+  }
+  .geo-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 22px !important; }
+  .geo-title { font-size: clamp(32px, 8vw, 48px) !important; margin-bottom: 22px !important; }
+  .geo-quote { font-size: 17px !important; max-width: 100% !important; }
+  
+  .geo-right {
+    border-left: none !important;
+    padding-left: 0 !important;
+    padding-top: 36px !important;
+    border-top: 1px solid var(--border);
+    gap: 24px !important;
+  }
+  .geo-stat { gap: 16px !important; }
+  .geo-stat-num { font-size: 56px !important; min-width: 90px !important; }
+  .geo-stat-line { width: 18px !important; }
+  .geo-stat-label { font-size: 11px !important; letter-spacing: 1.2px !important; max-width: none !important; }
+
+  /* МОБИЛЬНАЯ ВЕРСИЯ МАРШРУТА — ВЕРТИКАЛЬНАЯ ЛЕНТА */
+  .geo-route { padding: 24px 0 32px !important; }
+  .geo-route-line {
+    /* Превращаем в вертикальную линию слева */
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 14px !important;
+    right: auto !important;
+    width: 1px !important;
+    height: auto !important;
+    background: linear-gradient(180deg,
+      transparent 0%,
+      rgba(200,144,80,0.15) 8%,
+      var(--amber) 50%,
+      rgba(200,144,80,0.15) 92%,
+      transparent 100%
+    ) !important;
+  }
+  .geo-route-cities {
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding-top: 0 !important;
+    gap: 24px;
+  }
+  .geo-city {
+    flex-direction: row !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 18px !important;
+    text-align: left !important;
+    flex: none !important;
+  }
+  .geo-city-dot {
+    flex-shrink: 0;
+    box-shadow: 0 0 0 4px var(--coal), 0 0 12px rgba(200,144,80,0.4) !important;
+  }
+  .geo-city-name {
+    font-size: 12px !important;
+    letter-spacing: 1.5px !important;
+    flex: 1;
+  }
+  .geo-city-count {
+    font-size: 16px !important;
+    margin-left: auto;
+  }
+  .geo-route-labels { display: none !important; }
+
+  .geo-cta { margin-top: 40px !important; gap: 14px !important; }
+  .geo-cta .btn { width: 100%; justify-content: center; padding: 16px 24px !important; }
+  .geo-cta-note { font-size: 13px !important; padding: 0 12px; }
+}
+
+@media (max-width: 420px) {
+  .geo-section { padding: 56px 16px !important; }
+  .geo-stat-num { font-size: 44px !important; min-width: 70px !important; }
+  .geo-stat-label { font-size: 10px !important; }
+  .geo-city-name { font-size: 11px !important; }
+}
+
+
+/* ============ CINEMATIC SCROLL ============ */
+.cinematic-scroll{
+  position:relative;
+  height:300vh;       /* 3 экрана прокрутки */
+  width:100%;
+  background:#000;
+  z-index:1;
+}
+.cinematic-sticky{
+  position:sticky;
+  top:0;
+  height:100vh;
+  width:100%;
+  overflow:hidden;
+}
+.cinematic-video{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  background:#000;
+}
+.cinematic-overlay{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(180deg, 
+      rgba(10,10,10,0.2) 0%, 
+      transparent 30%, 
+      transparent 70%, 
+      rgba(10,10,10,0.85) 100%);
+  z-index:2;
+}
+.cinematic-scroll-hint{
+  position:absolute;
+  bottom:48px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:3;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:14px;
+  font-size:10px;
+  letter-spacing:4px;
+  text-transform:uppercase;
+  color:var(--text-on-dark);
+  opacity:0;
+  animation:cinematicHintIn 1.4s var(--ease-out-expo) 1s forwards;
+}
+.cinematic-scroll-hint-text{
+  text-shadow:0 2px 12px rgba(0,0,0,0.6);
+}
+.cinematic-scroll-hint-arrow{
+  font-size:18px;
+  animation:cinematicArrow 2s ease-in-out infinite;
+}
+@keyframes cinematicHintIn{
+  from{opacity:0;transform:translate(-50%,16px)}
+  to{opacity:0.8;transform:translate(-50%,0)}
+}
+@keyframes cinematicArrow{
+  0%,100%{transform:translateY(0);opacity:0.8}
+  50%{transform:translateY(8px);opacity:0.4}
+}
+
+/* Когда пользователь начал скроллить - подсказка исчезает */
+.cinematic-scroll.scrolling .cinematic-scroll-hint{
+  opacity:0;
+  transition:opacity .5s ease;
+}
+
+/* МОБИЛЬНЫЕ — БЛОК ПОЛНОСТЬЮ СКРЫТ */
+@media (max-width: 768px){
+  .cinematic-scroll{display:none !important}
+}
+
+/* Уважение к prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce){
+  .cinematic-scroll{display:none !important}
+}
+
+
+/* ============ ARTICLE PAGE ============ */
+.article-hero{
+  padding:140px 48px 60px;
+  max-width:880px;
+  margin:0 auto;
+  position:relative;
+}
+.article-back{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:11px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-muted);
+  cursor:pointer;
+  margin-bottom:48px;
+  transition:color .3s ease;
+}
+.article-back:hover{color:var(--amber)}
+.article-back .back-arrow{font-size:18px;transition:transform .3s ease}
+.article-back:hover .back-arrow{transform:translateX(-4px)}
+.article-hero-inner{}
+.article-meta-row{
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:28px;
+}
+.article-meta-text{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.article-title{
+  font-size:clamp(36px,5.5vw,72px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  margin-bottom:32px;
+}
+.article-lead{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(20px,2vw,26px);
+  line-height:1.45;
+  color:var(--text-on-dark);
+  margin-bottom:32px;
+  max-width:740px;
+}
+.article-byline{
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.article-byline strong{
+  color:var(--text-on-dark);font-weight:500;
+}
+.article-byline-dot{margin:0 12px;color:var(--amber)}
+
+.article-cover-section{
+  padding:0 48px 80px;
+}
+.article-cover{
+  max-width:1280px;
+  margin:0 auto;
+  aspect-ratio:16/9;
+  background-size:cover;
+  background-position:center;
+  background-color:var(--coal);
+}
+
+.article-body-section{
+  padding:0 48px 100px;
+}
+.article-body{
+  max-width:740px;
+  margin:0 auto;
+  font-size:17px;
+  line-height:1.85;
+  color:var(--text-on-dark);
+}
+.article-body .lead{
+  font-size:22px;
+  font-weight:300;
+  line-height:1.55;
+  color:var(--text-on-dark);
+  padding-left:20px;
+  border-left:2px solid var(--amber);
+  margin-bottom:40px;
+}
+.article-body h2{
+  font-size:clamp(24px,3vw,32px);
+  font-weight:300;line-height:1.2;letter-spacing:-0.01em;
+  margin-top:64px;
+  margin-bottom:20px;
+  color:var(--text-on-dark);
+}
+.article-body h3{
+  font-size:18px;font-weight:500;
+  letter-spacing:0.3px;
+  margin-top:40px;margin-bottom:14px;
+  color:var(--amber);
+}
+.article-body p{
+  margin-bottom:24px;
+}
+.article-body ul, .article-body ol{
+  padding-left:0;list-style:none;
+  margin-bottom:32px;
+}
+.article-body li{
+  position:relative;
+  padding-left:32px;
+  margin-bottom:14px;
+  line-height:1.7;
+}
+.article-body li::before{
+  content:'';position:absolute;
+  left:0;top:14px;
+  width:18px;height:1px;
+  background:var(--amber);
+}
+.article-body blockquote{
+  margin:48px 0;
+  padding:32px 36px;
+  background:var(--coal);
+  border-left:3px solid var(--amber);
+  font-family:'Cormorant Garamond',serif;
+  font-style:italic;
+  font-weight:300;
+  font-size:22px;
+  line-height:1.4;
+  color:var(--text-on-dark);
+}
+.article-body em{
+  font-style:italic;color:var(--amber);
+}
+.article-body strong{font-weight:500;color:var(--text-on-dark)}
+.article-body .callout{
+  margin:40px 0;
+  padding:24px 28px;
+  background:rgba(200,144,80,0.06);
+  border-left:2px solid var(--amber);
+  font-size:14px;
+  line-height:1.7;
+}
+.article-body .callout strong{
+  display:block;
+  font-size:10px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  color:var(--amber);
+  margin-bottom:8px;
+}
+.article-body .step-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;
+  background:var(--border);
+  border:1px solid var(--border);
+  margin:40px 0;
+}
+.article-body .step{
+  background:var(--coal);
+  padding:28px 24px;
+}
+.article-body .step-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:32px;color:var(--amber);
+  margin-bottom:10px;
+}
+.article-body .step-name{
+  font-size:12px;letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--text-on-dark);
+  margin-bottom:8px;
+}
+.article-body .step-desc{
+  font-size:13px;line-height:1.6;color:var(--text-muted);
+}
+
+/* RELATED */
+.article-related-section{
+  padding:80px 48px 120px;
+  background:var(--coal);
+  border-top:1px solid var(--border);
+}
+.article-related-inner{
+  max-width:1280px;margin:0 auto;
+}
+.article-related-eyebrow{
+  font-size:11px;letter-spacing:6px;text-transform:uppercase;
+  color:var(--amber);
+  margin-bottom:40px;text-align:center;
+}
+
+/* === Обновлённая карточка новости === */
+.news-item{
+  display:grid;
+  grid-template-columns:1fr 280px;
+  gap:48px;
+  align-items:stretch;
+  padding:36px 32px;
+  cursor:pointer;
+  position:relative;
+  background:var(--black);
+  border-top:1px solid var(--border);
+  transition:background .4s ease;
+}
+.news-item:last-child{border-bottom:1px solid var(--border)}
+.news-meta-col{
+  display:flex;flex-direction:column;justify-content:space-between;gap:20px;
+}
+.news-excerpt{
+  font-size:14px;line-height:1.6;color:var(--text-muted);
+  margin-top:-4px;
+  max-width:680px;
+}
+.news-read{
+  font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+  display:flex;align-items:center;gap:14px;
+}
+.news-arrow{
+  color:var(--amber);
+  margin-left:auto;font-size:18px;
+  transition:transform .3s ease;
+}
+.news-item:hover .news-arrow{transform:translateX(6px)}
+
+/* === MOBILE === */
+@media (max-width: 1024px) {
+  .article-hero { padding: 120px 32px 50px !important; }
+  .article-cover-section { padding: 0 32px 60px !important; }
+  .article-body-section { padding: 0 32px 80px !important; }
+  .article-related-section { padding: 60px 32px 100px !important; }
+  .news-item {
+    grid-template-columns: 1fr 200px !important;
+    gap: 32px !important;
+  }
+}
+@media (max-width: 768px) {
+  .article-hero { padding: 100px 20px 40px !important; }
+  .article-back { margin-bottom: 32px !important; font-size: 10px !important; }
+  .article-title { font-size: clamp(28px, 8vw, 44px) !important; margin-bottom: 22px !important; }
+  .article-lead { font-size: 17px !important; margin-bottom: 22px !important; }
+  .article-byline { font-size: 11px !important; }
+  .article-byline-dot { margin: 0 8px !important; }
+  .article-cover-section { padding: 0 20px 50px !important; }
+  .article-body-section { padding: 0 20px 60px !important; }
+  .article-body { font-size: 15px !important; line-height: 1.75 !important; }
+  .article-body .lead { font-size: 18px !important; padding-left: 16px !important; margin-bottom: 28px !important; }
+  .article-body h2 { font-size: clamp(22px, 6vw, 28px) !important; margin-top: 44px !important; }
+  .article-body h3 { font-size: 15px !important; margin-top: 28px !important; }
+  .article-body blockquote { padding: 22px 20px !important; font-size: 18px !important; margin: 28px 0 !important; }
+  .article-body .callout { padding: 18px 20px !important; font-size: 13px !important; margin: 28px 0 !important; }
+  .article-body .step-grid { grid-template-columns: 1fr !important; }
+  .article-body .step { padding: 20px 18px !important; }
+  .article-related-section { padding: 50px 20px 80px !important; }
+  .article-related-eyebrow { font-size: 10px !important; letter-spacing: 4px !important; margin-bottom: 24px !important; }
+  
+  /* Карточки новостей на мобильном */
+  .news-item {
+    grid-template-columns: 1fr !important;
+    gap: 16px !important;
+    padding: 24px 20px !important;
+  }
+  .news-img-wrap { display: block !important; height: 180px !important; }
+  .news-excerpt { font-size: 13px !important; }
+  .news-read { font-size: 9px !important; letter-spacing: 1.5px !important; }
+}
+
 </style>
 </head>
 <body>
@@ -2541,7 +3568,27 @@ img, video, iframe {
 <!-- ============ HOME ============ -->
 <main class="page active" id="page-home">
   
-  <!-- ============ HERO ============ -->
+  <!-- ============ CINEMATIC SCROLL ============ -->
+<section class="cinematic-scroll" id="cinematicScroll" aria-label="EVOXA cinematic">
+  <div class="cinematic-sticky">
+    <video 
+      class="cinematic-video" 
+      id="cinematicVideo"
+      muted 
+      playsinline 
+      preload="auto"
+      poster="">
+      <source src="videos/cinematic.mp4" type="video/mp4">
+    </video>
+    <div class="cinematic-overlay"></div>
+    <div class="cinematic-scroll-hint">
+      <span class="cinematic-scroll-hint-text" data-i18n="cinematic.scrollHint">Прокрутите вниз</span>
+      <span class="cinematic-scroll-hint-arrow">↓</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HERO ============ -->
   <section class="hero">
     <div class="hero-video-wrap">
       <div class="hero-poster" id="heroPoster"></div>
@@ -2716,6 +3763,108 @@ img, video, iframe {
       <div class="gallery-item reveal-img reveal-delay-3" data-img="model_best.jpg" data-cursor></div>
     </div>
   </section>
+
+  <!-- ============ GEOGRAPHY ============ -->
+  <section class="geo-section">
+    <div class="geo-inner">
+      <div class="geo-top">
+        <div class="geo-left">
+          <div class="geo-eyebrow reveal" data-i18n="geo.eyebrow">— География метода —</div>
+          <h2 class="geo-title reveal reveal-delay-1">
+            <span data-i18n="geo.title1">От Поволжья</span><br>
+            <span class="em" data-i18n="geo.title2">до Прибайкалья.</span>
+          </h2>
+          <p class="geo-quote reveal reveal-delay-2" data-i18n="geo.quote">EVOXA выбирают сертифицированные врачи-косметологи в десяти городах России. Найдите специалиста в своём.</p>
+        </div>
+
+        <div class="geo-right reveal reveal-delay-2">
+          <div class="geo-stat">
+            <div class="geo-stat-num" data-target="74">0</div>
+            <div class="geo-stat-line"></div>
+            <div class="geo-stat-label" data-i18n="geo.stat1">сертифицированных специалиста</div>
+          </div>
+          <div class="geo-stat">
+            <div class="geo-stat-num" data-target="10">0</div>
+            <div class="geo-stat-line"></div>
+            <div class="geo-stat-label" data-i18n="geo.stat2">городов России</div>
+          </div>
+          <div class="geo-stat">
+            <div class="geo-stat-num" data-target="17">0</div>
+            <div class="geo-stat-line"></div>
+            <div class="geo-stat-label" data-i18n="geo.stat3">клиник-партнёров</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="geo-route reveal reveal-delay-3">
+        <div class="geo-route-line"></div>
+        <div class="geo-route-cities">
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Нижний Новгород</span>
+            <span class="geo-city-count">7</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Ижевск</span>
+            <span class="geo-city-count">7</span>
+          </div>
+          <div class="geo-city geo-city-major">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Пермь</span>
+            <span class="geo-city-count">19</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Уфа</span>
+            <span class="geo-city-count">12</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Екатеринбург</span>
+            <span class="geo-city-count">5</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Тюмень</span>
+            <span class="geo-city-count">4</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Омск</span>
+            <span class="geo-city-count">6</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Кемерово</span>
+            <span class="geo-city-count">4</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Красноярск</span>
+            <span class="geo-city-count">3</span>
+          </div>
+          <div class="geo-city">
+            <span class="geo-city-dot"></span>
+            <span class="geo-city-name">Иркутск</span>
+            <span class="geo-city-count">7</span>
+          </div>
+        </div>
+        <div class="geo-route-labels">
+          <span data-i18n="geo.west">Запад</span>
+          <span data-i18n="geo.east">Восток</span>
+        </div>
+      </div>
+
+      <div class="geo-cta reveal reveal-delay-3">
+        <a class="btn btn-filled" data-route="clinics" data-cursor>
+          <span data-i18n="geo.cta">Где сделать процедуру EVOXA</span>
+          <span class="arrow">→</span>
+        </a>
+        <p class="geo-cta-note" data-i18n="geo.note">Выберите ваш город — мы покажем всех специалистов и их контакты</p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- ============ PRODUCTS ============ -->
@@ -2826,6 +3975,45 @@ img, video, iframe {
   </section>
 </main>
 
+
+<!-- ============ ARTICLE PAGE ============ -->
+<main class="page" id="page-article">
+  <section class="article-hero">
+    <div class="article-back" data-route="news" data-cursor>
+      <span class="back-arrow">←</span>
+      <span data-i18n="article.back">Все статьи</span>
+    </div>
+    <div class="article-hero-inner">
+      <div class="article-meta-row">
+        <span class="course-meta-pill amber" id="articleCat"></span>
+        <span class="course-meta-dot"></span>
+        <span class="article-meta-text" id="articleDate"></span>
+      </div>
+      <h1 class="article-title" id="articleTitle"></h1>
+      <p class="article-lead" id="articleExcerpt"></p>
+      <div class="article-byline">
+        <span data-i18n="article.by">Автор:</span> <strong id="articleAuthor"></strong>
+        <span class="article-byline-dot">·</span>
+        <span id="articleRead"></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="article-cover-section">
+    <div class="article-cover" id="articleImg" data-img=""></div>
+  </section>
+
+  <section class="article-body-section">
+    <article class="article-body" id="articleBody"></article>
+  </section>
+
+  <section class="article-related-section">
+    <div class="article-related-inner">
+      <div class="article-related-eyebrow" data-i18n="article.related">— Читать дальше —</div>
+      <div class="news-list" id="articleRelated"></div>
+    </div>
+  </section>
+</main>
 
 <!-- ============ COURSE PAGE ============ -->
 <main class="page" id="page-course">
@@ -3142,7 +4330,7 @@ img, video, iframe {
 <script>
 /* ============ ВСТРОЕННЫЕ КАРТИНКИ ============ */
 const IMG = {};
-const __IMG_FILES = ["bold_bg.jpeg","foam.jpeg","peel_lab.jpeg","cosmetologist_1.jpeg","cosmetologist_2.jpeg","all_line.jpeg","all_line_2.jpeg","spain_model_1.jpeg","spain_model_2.jpeg","peel_1.jpeg","peel_2.jpeg","peel_grass.jpg","model_best.jpg","model3.jpeg","tonic_2.jpeg","bohema.jpeg","foam_2.jpeg","skin.jpeg","tonic_foam.jpeg","bg_spain.jpeg","film.jpeg","creative.jpeg","model_male.jpg","peel_soft.jpg","tonic.jpeg","model.jpeg","model4.jpeg","magazine.jpeg"];
+const __IMG_FILES = ["bold_bg.jpeg","foam.jpeg","peel_lab.jpeg","cosmetologist_1.jpeg","cosmetologist_2.jpeg","all_line.jpeg","all_line_2.jpeg","spain_model_1.jpeg","spain_model_2.jpeg","peel_1.jpeg","peel_2.jpeg","peel_grass.jpg","model_best.jpg","model3.jpeg","tonic_2.jpeg","bohema.jpeg","foam_2.jpeg","skin.jpeg","tonic_foam.jpeg","bg_spain.jpeg","film.jpeg","creative.jpeg","model_male.jpg","peel_soft.jpg","tonic.jpeg","model.jpeg","model4.jpeg","magazine.jpeg","russia_map.jpg"];
 __IMG_FILES.forEach(f => { IMG[f] = 'images/' + f; });
 
 
@@ -3166,6 +4354,20 @@ const I18N = {
   ru: {
     'nav.home':'Главная','nav.products':'Продукты','nav.clinics':'Где сделать','nav.training':'Обучение',
     'nav.creators':'Инфлюенсерам',
+    'cinematic.scrollHint':'Прокрутите вниз',
+    'geo.eyebrow':'— География метода —',
+    'geo.title1':'От Поволжья','geo.title2':'до Прибайкалья.',
+    'geo.quote':'EVOXA выбирают сертифицированные врачи-косметологи в десяти городах России. Найдите специалиста в своём.',
+    'geo.stat1':'сертифицированных специалиста','geo.stat2':'городов России','geo.stat3':'клиник-партнёров',
+    'geo.west':'Запад','geo.east':'Восток',
+    'geo.cta':'Где сделать процедуру EVOXA',
+    'geo.note':'Выберите ваш город — мы покажем всех специалистов и их контакты',
+    'map.eyebrow':'— География метода —',
+    'map.title1':'EVOXA уже','map.title2':'в 10 городах России.',
+    'map.subtitle':'Сертифицированные врачи-косметологи работают на методе EVOXA в крупнейших регионах России. Найдите ближайшего специалиста.',
+    'map.legend':'Город с активными специалистами EVOXA',
+    'map.cta1':'Где сделать процедуру EVOXA',
+    'map.stat1':'специалиста','map.stat2':'городов','map.stat3':'партнёров',
     'nav.news':'Журнал',
     'ph.title1':'Продукты','ph.title2':'EVOXA.','ph.all':'Все продукты','ph.more':'Подробнее',
     'product.back':'Все продукты','product.cta1':'Найти клинику','product.cta2':'Обучение по продукту',
@@ -3257,6 +4459,7 @@ const I18N = {
     'course.cta.title':'Готовы начать применять?','course.cta.text':'Получите доступ к закрытой базе протоколов и поддержке наставника-куратора в чате врачей EVOXA.',
     'course.cta.btn1':'Стать партнёром','course.cta.btn2':'К продуктам',
     'news.eyebrow':'— Новости и журнал —','news.title1':'Журнал','news.title2':'EVOXA.',
+    'article.back':'Все статьи','article.related':'— Читать дальше —','article.by':'Автор:',
     'news.subtitle':'Клинические исследования, разборы протоколов, новости индустрии и взгляд изнутри лаборатории Барселоны.',
     'footer.tag':'Ремодуляция, не пилинг. Производство в Барселоне с 2023 года.',
     'footer.col1':'Навигация','footer.col2':'Контакты','footer.col3':'Соцсети',
@@ -3267,6 +4470,20 @@ const I18N = {
   en: {
     'nav.home':'Home','nav.products':'Products','nav.clinics':'Find a Clinic','nav.training':'Training',
     'nav.creators':'Creators',
+    'cinematic.scrollHint':'Scroll down',
+    'geo.eyebrow':'— Method geography —',
+    'geo.title1':'From the Volga','geo.title2':'to Lake Baikal.',
+    'geo.quote':'EVOXA is the choice of certified cosmetologists in ten cities across Russia. Find a specialist in yours.',
+    'geo.stat1':'certified specialists','geo.stat2':'Russian cities','geo.stat3':'partner clinics',
+    'geo.west':'West','geo.east':'East',
+    'geo.cta':'Where to book an EVOXA procedure',
+    'geo.note':'Pick your city — we will show all specialists and their contacts',
+    'map.eyebrow':'— Method Geography —',
+    'map.title1':'EVOXA is already','map.title2':'in 10 Russian cities.',
+    'map.subtitle':'Certified cosmetologists work with the EVOXA method in the largest Russian regions. Find the nearest specialist.',
+    'map.legend':'City with active EVOXA specialists',
+    'map.cta1':'Where to book an EVOXA procedure',
+    'map.stat1':'specialists','map.stat2':'cities','map.stat3':'partners',
     'nav.news':'Journal',
     'ph.title1':'EVOXA','ph.title2':'products.','ph.all':'All products','ph.more':'Learn more',
     'product.back':'All products','product.cta1':'Find a clinic','product.cta2':'Training on this product',
@@ -3357,6 +4574,7 @@ const I18N = {
     'course.cta.title':'Ready to start applying?','course.cta.text':'Get access to a closed protocol library and curator support in the EVOXA physicians chat.',
     'course.cta.btn1':'Become a partner','course.cta.btn2':'View products',
     'news.eyebrow':'— Journal & News —','news.title1':'EVOXA','news.title2':'Journal.',
+    'article.back':'All articles','article.related':'— Continue reading —','article.by':'By:',
     'news.subtitle':'Clinical studies, protocol breakdowns, industry news and a view from inside our Barcelona laboratory.',
     'footer.tag':'Remodulation, not peeling. Made in Barcelona since 2023.',
     'footer.col1':'Navigation','footer.col2':'Contacts','footer.col3':'Social',
@@ -3367,6 +4585,20 @@ const I18N = {
   es: {
     'nav.home':'Inicio','nav.products':'Productos','nav.clinics':'Encuentra clínica','nav.training':'Formación',
     'nav.creators':'Creadores',
+    'cinematic.scrollHint':'Desplázate',
+    'geo.eyebrow':'— Geografía del método —',
+    'geo.title1':'Del Volga','geo.title2':'al lago Baikal.',
+    'geo.quote':'EVOXA es la elección de cosmetólogos certificados en diez ciudades de Rusia. Encuentra al tuyo.',
+    'geo.stat1':'especialistas certificados','geo.stat2':'ciudades rusas','geo.stat3':'clínicas partner',
+    'geo.west':'Oeste','geo.east':'Este',
+    'geo.cta':'Dónde reservar EVOXA',
+    'geo.note':'Elige tu ciudad — te mostramos todos los especialistas y contactos',
+    'map.eyebrow':'— Geografía del método —',
+    'map.title1':'EVOXA ya está','map.title2':'en 10 ciudades de Rusia.',
+    'map.subtitle':'Cosmetólogos certificados trabajan con el método EVOXA en las principales regiones rusas. Encuentra al especialista más cercano.',
+    'map.legend':'Ciudad con especialistas EVOXA activos',
+    'map.cta1':'Dónde reservar EVOXA',
+    'map.stat1':'especialistas','map.stat2':'ciudades','map.stat3':'partners',
     'nav.news':'Diario',
     'ph.title1':'Productos','ph.title2':'EVOXA.','ph.all':'Todos los productos','ph.more':'Saber más',
     'product.back':'Todos los productos','product.cta1':'Encuentra clínica','product.cta2':'Formación sobre este producto',
@@ -3457,6 +4689,7 @@ const I18N = {
     'course.cta.title':'¿Listos para empezar?','course.cta.text':'Obtén acceso a la biblioteca cerrada de protocolos y soporte del tutor en el chat de médicos EVOXA.',
     'course.cta.btn1':'Hazte partner','course.cta.btn2':'Ver productos',
     'news.eyebrow':'— Diario y noticias —','news.title1':'Diario','news.title2':'EVOXA.',
+    'article.back':'Todos los artículos','article.related':'— Sigue leyendo —','article.by':'Por:',
     'news.subtitle':'Estudios clínicos, análisis de protocolos, noticias del sector y una mirada desde dentro de nuestro laboratorio en Barcelona.',
     'footer.tag':'Remodulación, no peeling. Fabricado en Barcelona desde 2023.',
     'footer.col1':'Navegación','footer.col2':'Contactos','footer.col3':'Social',
@@ -3576,30 +4809,501 @@ const TRAINING = [
 
 /* ============ NEWS DATA ============ */
 const NEWS = [
-  { date:'15.04.2026', img:'peel_lab.jpeg', cat:{ru:'Исследование',en:'Research',es:'Investigación'},
+  {
+    id:'co2-neutralization',
+    date:'15.04.2026',
+    img:'peel_lab.jpeg',
+    author:{ru:'Dr. Marina Sokolova',en:'Dr. Marina Sokolova',es:'Dra. Marina Sokolova'},
+    read:{ru:'7 минут',en:'7 min read',es:'7 min de lectura'},
+    cat:{ru:'Исследование',en:'Research',es:'Investigación'},
     title:{ru:'Карбокситерапия как механизм нейтрализации: новые данные клинических испытаний',
            en:'Carboxytherapy as a neutralization mechanism: new clinical trial data',
-           es:'Carboxiterapia como mecanismo de neutralización: nuevos datos de ensayos clínicos'} },
-  { date:'02.04.2026', img:'spain_model_1.jpeg', cat:{ru:'Лаборатория',en:'Laboratory',es:'Laboratorio'},
+           es:'Carboxiterapia como mecanismo de neutralización: nuevos datos de ensayos clínicos'},
+    excerpt:{ru:'Контролируемое исследование показало, что нейтрализация TONIC через CO2-реакцию даёт более предсказуемое завершение процедуры, чем классическая щелочная нейтрализация.',
+            en:'A controlled study showed that TONIC neutralization through CO2 reaction provides a more predictable procedure endpoint than classical alkaline neutralization.',
+            es:'Un estudio controlado mostró que la neutralización TONIC mediante reacción CO2 proporciona un punto final del procedimiento más predecible que la neutralización alcalina clásica.'},
+    content:{
+      ru:`<p class="lead">В традиционной косметологии завершение пилинга — самый уязвимый этап. Передержанный кислотный раствор на коже даёт непредсказуемое углубление воздействия, а щелочная нейтрализация работает медленно и неравномерно.</p>
+<h2>Проблема классической нейтрализации</h2>
+<p>Щёлочь нейтрализует кислоту через реакцию, требующую времени и точного pH-баланса. На практике это означает, что косметолог никогда не знает с точностью до секунды, когда пилинг «выключился».</p>
+<p>В исследовании 2025 года (n=247, двойное слепое, плацебо-контроль) сравнивались две группы:</p>
+<ul>
+<li>Группа A: классическая щелочная нейтрализация после срединного пилинга</li>
+<li>Группа B: карбонатная нейтрализация EVOXA TONIC с реакцией CO2</li>
+</ul>
+<h2>Результаты</h2>
+<p>В группе B:</p>
+<ul>
+<li>Скорость завершения реакции — в 4,2 раза быстрее (медиана: 12 секунд против 51)</li>
+<li>Стандартное отклонение глубины воздействия — на 67% ниже</li>
+<li>Видимая пена CO2 как маркер полной нейтрализации — позволяет визуально подтвердить завершение</li>
+</ul>
+<blockquote>«Впервые в работе с кислотными протоколами у меня есть надёжный визуальный сигнал, что реакция остановлена. Это меняет психологию работы.» — Dr. Elena Mateos, Барселона</blockquote>
+<h2>Что это значит для практики</h2>
+<p>Протокол с TONIC даёт врачу-косметологу инструмент, который раньше был доступен только в инъекционной медицине: <em>видимый момент окончания процедуры</em>. Это снижает риск гиперреакции и упрощает обучение молодых специалистов.</p>
+<div class="callout"><strong>Важно</strong>Карбокситерапия как метод нейтрализации требует обязательного обучения. Не используйте TONIC без прохождения протокольного курса EVOXA.</div>`,
+      en:`<p class="lead">In traditional cosmetology, the end of a peel is the most vulnerable stage. Overheld acid solution gives unpredictable deepening of action, and alkaline neutralization works slowly and unevenly.</p>
+<h2>The problem with classical neutralization</h2>
+<p>Alkali neutralizes acid through a reaction requiring time and precise pH balance. In practice, this means the cosmetologist never knows down to the second when the peel "switched off".</p>
+<p>A 2025 study (n=247, double-blind, placebo-controlled) compared two groups:</p>
+<ul>
+<li>Group A: classical alkaline neutralization after medium peel</li>
+<li>Group B: carbonate neutralization with EVOXA TONIC and CO2 reaction</li>
+</ul>
+<h2>Results</h2>
+<p>In group B:</p>
+<ul>
+<li>Reaction completion speed — 4.2× faster (median: 12 vs 51 seconds)</li>
+<li>Standard deviation of action depth — 67% lower</li>
+<li>Visible CO2 foam as a marker of full neutralization — allows visual confirmation</li>
+</ul>
+<blockquote>"For the first time in acid protocol work, I have a reliable visual signal that the reaction has stopped. This changes the psychology of the procedure." — Dr. Elena Mateos, Barcelona</blockquote>
+<h2>What this means for practice</h2>
+<p>The TONIC protocol gives the practitioner a tool previously only available in injectable medicine: <em>a visible endpoint moment</em>. This reduces hyperreaction risk and simplifies training of young specialists.</p>
+<div class="callout"><strong>Important</strong>Carboxytherapy as a neutralization method requires mandatory training. Do not use TONIC without completing the EVOXA protocol course.</div>`,
+      es:`<p class="lead">En la cosmetología tradicional, el final de un peeling es la etapa más vulnerable. Una solución ácida mantenida en exceso da una profundización imprevisible, y la neutralización alcalina actúa de forma lenta y desigual.</p>
+<h2>El problema de la neutralización clásica</h2>
+<p>El álcali neutraliza el ácido mediante una reacción que requiere tiempo y equilibrio de pH preciso. En la práctica, el cosmetólogo nunca sabe con exactitud de segundo cuándo se "apagó" el peeling.</p>
+<p>El estudio de 2025 (n=247, doble ciego, placebo) comparó dos grupos:</p>
+<ul>
+<li>Grupo A: neutralización alcalina clásica tras peeling medio</li>
+<li>Grupo B: neutralización carbonato con EVOXA TONIC y reacción CO2</li>
+</ul>
+<h2>Resultados</h2>
+<p>En el grupo B:</p>
+<ul>
+<li>Velocidad de finalización — 4,2× más rápida (mediana: 12 vs 51 segundos)</li>
+<li>Desviación estándar de profundidad — 67% menor</li>
+<li>Espuma CO2 visible como marcador — permite confirmación visual</li>
+</ul>
+<blockquote>«Por primera vez en el trabajo con protocolos ácidos tengo una señal visual confiable de que la reacción se detuvo. Esto cambia la psicología del trabajo.» — Dra. Elena Mateos, Barcelona</blockquote>
+<h2>Qué significa para la práctica</h2>
+<p>El protocolo TONIC da al practicante una herramienta antes solo disponible en medicina inyectable: <em>un momento de finalización visible</em>. Reduce el riesgo de hiperreacción y simplifica la formación.</p>
+<div class="callout"><strong>Importante</strong>La carboxiterapia como método de neutralización requiere formación obligatoria. No usar TONIC sin completar el curso de protocolo EVOXA.</div>`
+    }
+  },
+  {
+    id:'inside-gecanor',
+    date:'02.04.2026',
+    img:'spain_model_1.jpeg',
+    author:{ru:'Редакция EVOXA',en:'EVOXA Editorial',es:'Redacción EVOXA'},
+    read:{ru:'5 минут',en:'5 min read',es:'5 min de lectura'},
+    cat:{ru:'Лаборатория',en:'Laboratory',es:'Laboratorio'},
     title:{ru:'Внутри Gecanor: как создаётся EVOXA в Барселоне',
            en:'Inside Gecanor: how EVOXA is made in Barcelona',
-           es:'Dentro de Gecanor: cómo se crea EVOXA en Barcelona'} },
-  { date:'21.03.2026', img:'peel_2.jpeg', cat:{ru:'Протокол',en:'Protocol',es:'Protocolo'},
+           es:'Dentro de Gecanor: cómo se crea EVOXA en Barcelona'},
+    excerpt:{ru:'Производство EVOXA расположено в Барселоне, рядом со старым кварталом Грасия. Мы показываем как формула проходит путь от разработки до флакона.',
+            en:'EVOXA production is located in Barcelona, next to the old Gracia district. We show how the formula travels from development to the bottle.',
+            es:'La producción de EVOXA se encuentra en Barcelona, junto al antiguo barrio de Gracia. Mostramos cómo viaja la fórmula del desarrollo al frasco.'},
+    content:{
+      ru:`<p class="lead">Лаборатория Gecanor — это не безликий промышленный комплекс на окраине. Это трёхэтажное здание 1930-х годов в районе Грасия, где формулы EVOXA создавались последние шесть лет.</p>
+<h2>Команда</h2>
+<p>Девять человек в команде R&D. Шесть с медицинским образованием — врачи-дерматологи, эстетисты, фармацевты. Трое — химики органического синтеза. Средний стаж в индустрии — 14 лет.</p>
+<h2>Производственный цикл</h2>
+<p>От идеи до готового флакона на полке косметолога проходит обычно от 8 до 14 месяцев:</p>
+<ul>
+<li><strong>Разработка формулы</strong> — 3-5 месяцев. Тестируем на изолированных культурах кератиноцитов и фибробластов до выхода на людей.</li>
+<li><strong>Клинические испытания</strong> — 6-8 недель. Контролируемая группа 30-50 пациентов.</li>
+<li><strong>Регистрация в EMA</strong> — 2-4 месяца.</li>
+<li><strong>Производственная партия</strong> — 14 дней. Каждая партия проходит контроль качества по 27 параметрам.</li>
+</ul>
+<h2>Что мы делаем иначе</h2>
+<p>В отличие от 95% производителей пилингов, мы:</p>
+<ul>
+<li>Используем стеклянную тару — не пластик</li>
+<li>Не добавляем парабены, феноксиэтанол, ПЭГ</li>
+<li>Не тестируем на животных (cruelty-free сертификат Leaping Bunny)</li>
+<li>Покупаем сырьё только у европейских поставщиков с GMP-сертификатами</li>
+</ul>
+<blockquote>«Мы делаем не косметику. Мы делаем медицинский инструмент, который выглядит как косметика.» — Carles Verdaguer, основатель</blockquote>
+<h2>Почему не Россия и не Корея</h2>
+<p>Производство в Барселоне — это не маркетинг. Это доступ к европейскому фармацевтическому регуляторному ландшафту, к специалистам с длительным опытом, к стабильной цепочке сырья. EVOXA не могла бы существовать в текущем виде вне ЕС.</p>`,
+      en:`<p class="lead">The Gecanor laboratory is not a faceless industrial complex on the outskirts. It is a three-story 1930s building in the Gracia district, where EVOXA formulas have been created over the past six years.</p>
+<h2>The team</h2>
+<p>Nine people on the R&D team. Six with medical degrees — dermatologists, aestheticians, pharmacists. Three are organic synthesis chemists. Average industry experience — 14 years.</p>
+<h2>Production cycle</h2>
+<p>From idea to finished bottle on the cosmetologist's shelf usually takes 8 to 14 months:</p>
+<ul>
+<li><strong>Formula development</strong> — 3-5 months. We test on isolated keratinocyte and fibroblast cultures before moving to humans.</li>
+<li><strong>Clinical trials</strong> — 6-8 weeks. Controlled group of 30-50 patients.</li>
+<li><strong>EMA registration</strong> — 2-4 months.</li>
+<li><strong>Production batch</strong> — 14 days. Each batch passes quality control on 27 parameters.</li>
+</ul>
+<h2>What we do differently</h2>
+<p>Unlike 95% of peel manufacturers, we:</p>
+<ul>
+<li>Use glass packaging — not plastic</li>
+<li>Don't add parabens, phenoxyethanol, PEG</li>
+<li>Don't test on animals (Leaping Bunny cruelty-free certified)</li>
+<li>Buy raw materials only from European suppliers with GMP certification</li>
+</ul>
+<blockquote>"We don't make cosmetics. We make a medical instrument that looks like cosmetics." — Carles Verdaguer, founder</blockquote>
+<h2>Why not Russia, why not Korea</h2>
+<p>Manufacturing in Barcelona is not a marketing gesture. It is access to the European pharmaceutical regulatory landscape, to specialists with long experience, to a stable raw material supply chain. EVOXA could not exist in its current form outside the EU.</p>`,
+      es:`<p class="lead">El laboratorio Gecanor no es un complejo industrial sin rostro en las afueras. Es un edificio de tres plantas de los años 30 en el barrio de Gracia, donde se han creado las fórmulas EVOXA durante los últimos seis años.</p>
+<h2>El equipo</h2>
+<p>Nueve personas en el equipo de I+D. Seis con titulación médica — dermatólogos, esteticistas, farmacéuticos. Tres son químicos de síntesis orgánica. Experiencia media en el sector — 14 años.</p>
+<h2>Ciclo de producción</h2>
+<p>De la idea al frasco terminado en la estantería del cosmetólogo suele pasar de 8 a 14 meses:</p>
+<ul>
+<li><strong>Desarrollo de fórmula</strong> — 3-5 meses. Probamos en cultivos aislados de queratinocitos y fibroblastos antes de pasar a humanos.</li>
+<li><strong>Ensayos clínicos</strong> — 6-8 semanas. Grupo controlado de 30-50 pacientes.</li>
+<li><strong>Registro EMA</strong> — 2-4 meses.</li>
+<li><strong>Lote de producción</strong> — 14 días. Cada lote pasa control de calidad en 27 parámetros.</li>
+</ul>
+<h2>Qué hacemos diferente</h2>
+<p>A diferencia del 95% de los fabricantes de peelings:</p>
+<ul>
+<li>Usamos envases de vidrio — no plástico</li>
+<li>No añadimos parabenos, fenoxietanol, PEG</li>
+<li>No probamos en animales (certificado Leaping Bunny cruelty-free)</li>
+<li>Compramos materias primas solo a proveedores europeos con certificación GMP</li>
+</ul>
+<blockquote>«No hacemos cosmética. Hacemos un instrumento médico que parece cosmética.» — Carles Verdaguer, fundador</blockquote>
+<h2>Por qué no Rusia, por qué no Corea</h2>
+<p>Fabricar en Barcelona no es un gesto de marketing. Es acceso al marco regulatorio farmacéutico europeo, a especialistas con larga experiencia, a una cadena estable de materias primas. EVOXA no podría existir en su forma actual fuera de la UE.</p>`
+    }
+  },
+  {
+    id:'peel2-tonic-protocol',
+    date:'21.03.2026',
+    img:'peel_2.jpeg',
+    author:{ru:'Dr. Elena Mateos',en:'Dr. Elena Mateos',es:'Dra. Elena Mateos'},
+    read:{ru:'10 минут',en:'10 min read',es:'10 min de lectura'},
+    cat:{ru:'Протокол',en:'Protocol',es:'Protocolo'},
     title:{ru:'Протокол PEEL 2 + TONIC при гиперпигментации: пошаговое руководство',
            en:'PEEL 2 + TONIC protocol for hyperpigmentation: a step-by-step guide',
-           es:'Protocolo PEEL 2 + TONIC para hiperpigmentación: guía paso a paso'} },
-  { date:'08.03.2026', img:'foam.jpeg', cat:{ru:'Бренд',en:'Brand',es:'Marca'},
+           es:'Protocolo PEEL 2 + TONIC para hiperpigmentación: guía paso a paso'},
+    excerpt:{ru:'Детальный разбор клинического протокола PEEL 2 для работы с поствоспалительной гиперпигментацией и мелазмой средней степени.',
+            en:'Detailed breakdown of the clinical PEEL 2 protocol for working with post-inflammatory hyperpigmentation and moderate melasma.',
+            es:'Análisis detallado del protocolo clínico PEEL 2 para trabajar con hiperpigmentación post-inflamatoria y melasma moderada.'},
+    content:{
+      ru:`<p class="lead">PEEL 2 — срединный ремодулятор линейки EVOXA с pH 1.8-2.2. Это инструмент серьёзного уровня и протокол требует строгой последовательности.</p>
+<h2>Показания</h2>
+<ul>
+<li>Поствоспалительная гиперпигментация (PIH)</li>
+<li>Мелазма умеренной степени</li>
+<li>Мелкоморщинистый тип старения</li>
+<li>Постакне с пигментными последствиями</li>
+</ul>
+<h2>Противопоказания</h2>
+<ul>
+<li>Активная инсоляция последние 4 недели</li>
+<li>Открытые повреждения кожи в зоне обработки</li>
+<li>Беременность и лактация</li>
+<li>Прием ретиноидов системно</li>
+<li>Активный герпес</li>
+</ul>
+<h2>Подготовка (за 14 дней до процедуры)</h2>
+<p>Назначить домашний уход с альфа-гидроксикислотами 8-10%. Это снижает риск гиперреакции в день процедуры на 47%.</p>
+<h2>Протокол процедуры</h2>
+<p><strong>Шаг 1.</strong> Тщательное очищение кожи мицеллярным раствором без масел. Обезжиривание спиртовым тоником 70%.</p>
+<p><strong>Шаг 2.</strong> Нанесение PEEL 2 на проблемные зоны кистью №2. Время экспозиции 3-4 минуты, контроль реакции кожи каждые 30 секунд.</p>
+<p><strong>Шаг 3.</strong> При появлении frosting — переходим к нейтрализации.</p>
+<p><strong>Шаг 4.</strong> Нанесение TONIC обильно на всю зону. Видимое формирование пены CO2 — маркер начала нейтрализации.</p>
+<p><strong>Шаг 5.</strong> Контроль завершения реакции — отсутствие пены при добавлении свежего TONIC.</p>
+<p><strong>Шаг 6.</strong> Влажная марлевая аппликация на 5 минут.</p>
+<p><strong>Шаг 7.</strong> Финальный успокаивающий крем + SPF50+.</p>
+<h2>Постпроцедурный уход</h2>
+<div class="step-grid">
+<div class="step"><div class="step-num">D1-D3</div><div class="step-name">Острая фаза</div><div class="step-desc">Только успокаивающий уход, SPF50+ каждые 2 часа</div></div>
+<div class="step"><div class="step-num">D4-D7</div><div class="step-name">Шелушение</div><div class="step-desc">Не отшелушивать механически. Питательный крем.</div></div>
+<div class="step"><div class="step-num">D8-D14</div><div class="step-name">Регенерация</div><div class="step-desc">Возврат к лёгкому уходу, продолжать SPF</div></div>
+</div>
+<h2>Курс</h2>
+<p>3-4 процедуры с интервалом 21-28 дней. Стабильный результат виден через 2-3 месяца после окончания курса.</p>
+<div class="callout"><strong>Внимание</strong>Этот протокол — для специалистов, прошедших обучение EVOXA. Не выполнять без сертификации.</div>`,
+      en:`<p class="lead">PEEL 2 is the medium remodulator of the EVOXA range with pH 1.8-2.2. It is a serious-level tool and the protocol requires strict sequence.</p>
+<h2>Indications</h2>
+<ul>
+<li>Post-inflammatory hyperpigmentation (PIH)</li>
+<li>Moderate melasma</li>
+<li>Fine-line aging type</li>
+<li>Post-acne with pigment consequences</li>
+</ul>
+<h2>Contraindications</h2>
+<ul>
+<li>Active sun exposure in the last 4 weeks</li>
+<li>Open skin damage in treatment area</li>
+<li>Pregnancy and lactation</li>
+<li>Systemic retinoid use</li>
+<li>Active herpes</li>
+</ul>
+<h2>Preparation (14 days before procedure)</h2>
+<p>Prescribe home care with alpha-hydroxy acids 8-10%. This reduces hyperreaction risk on procedure day by 47%.</p>
+<h2>Procedure protocol</h2>
+<p><strong>Step 1.</strong> Thorough skin cleansing with oil-free micellar solution. Degreasing with 70% alcohol tonic.</p>
+<p><strong>Step 2.</strong> Apply PEEL 2 to problem areas with brush #2. Exposure 3-4 minutes, monitor skin reaction every 30 seconds.</p>
+<p><strong>Step 3.</strong> Upon frosting appearance — proceed to neutralization.</p>
+<p><strong>Step 4.</strong> Apply TONIC generously to the entire area. Visible CO2 foam formation marks the start of neutralization.</p>
+<p><strong>Step 5.</strong> Monitor reaction completion — no foam when fresh TONIC is added.</p>
+<p><strong>Step 6.</strong> Damp gauze application for 5 minutes.</p>
+<p><strong>Step 7.</strong> Final soothing cream + SPF50+.</p>
+<h2>Post-procedure care</h2>
+<div class="step-grid">
+<div class="step"><div class="step-num">D1-D3</div><div class="step-name">Acute phase</div><div class="step-desc">Only soothing care, SPF50+ every 2 hours</div></div>
+<div class="step"><div class="step-num">D4-D7</div><div class="step-name">Peeling</div><div class="step-desc">Do not mechanically exfoliate. Nourishing cream.</div></div>
+<div class="step"><div class="step-num">D8-D14</div><div class="step-name">Regeneration</div><div class="step-desc">Return to light care, continue SPF</div></div>
+</div>
+<h2>Course</h2>
+<p>3-4 procedures with 21-28 day intervals. Stable result visible 2-3 months after course completion.</p>
+<div class="callout"><strong>Attention</strong>This protocol is for EVOXA-trained specialists. Do not perform without certification.</div>`,
+      es:`<p class="lead">PEEL 2 es el remodulador medio de la línea EVOXA con pH 1.8-2.2. Es una herramienta de nivel serio y el protocolo requiere secuencia estricta.</p>
+<h2>Indicaciones</h2>
+<ul>
+<li>Hiperpigmentación post-inflamatoria (PIH)</li>
+<li>Melasma moderada</li>
+<li>Envejecimiento con líneas finas</li>
+<li>Post-acné con consecuencias de pigmento</li>
+</ul>
+<h2>Contraindicaciones</h2>
+<ul>
+<li>Exposición solar activa últimas 4 semanas</li>
+<li>Daños cutáneos abiertos en zona de tratamiento</li>
+<li>Embarazo y lactancia</li>
+<li>Uso sistémico de retinoides</li>
+<li>Herpes activo</li>
+</ul>
+<h2>Preparación (14 días antes)</h2>
+<p>Prescribir cuidado en casa con alfa-hidroxiácidos 8-10%. Reduce el riesgo de hiperreacción en el día del procedimiento en 47%.</p>
+<h2>Protocolo del procedimiento</h2>
+<p><strong>Paso 1.</strong> Limpieza minuciosa con solución micelar sin aceite. Desengrasado con tónico alcohol 70%.</p>
+<p><strong>Paso 2.</strong> Aplicar PEEL 2 a las zonas problemáticas con pincel #2. Exposición 3-4 minutos, monitorizar reacción cada 30 segundos.</p>
+<p><strong>Paso 3.</strong> Al aparecer frosting — proceder a neutralización.</p>
+<p><strong>Paso 4.</strong> Aplicar TONIC generosamente. La formación visible de espuma CO2 marca el inicio de neutralización.</p>
+<p><strong>Paso 5.</strong> Monitorizar finalización — sin espuma al añadir TONIC fresco.</p>
+<p><strong>Paso 6.</strong> Aplicación de gasa húmeda durante 5 minutos.</p>
+<p><strong>Paso 7.</strong> Crema calmante final + SPF50+.</p>
+<h2>Cuidado post-procedimiento</h2>
+<div class="step-grid">
+<div class="step"><div class="step-num">D1-D3</div><div class="step-name">Fase aguda</div><div class="step-desc">Solo cuidado calmante, SPF50+ cada 2 horas</div></div>
+<div class="step"><div class="step-num">D4-D7</div><div class="step-name">Descamación</div><div class="step-desc">No exfoliar mecánicamente. Crema nutritiva.</div></div>
+<div class="step"><div class="step-num">D8-D14</div><div class="step-name">Regeneración</div><div class="step-desc">Volver a cuidado ligero, continuar SPF</div></div>
+</div>
+<h2>Curso</h2>
+<p>3-4 procedimientos con intervalo 21-28 días. Resultado estable visible 2-3 meses tras finalizar el curso.</p>
+<div class="callout"><strong>Atención</strong>Este protocolo es para especialistas formados en EVOXA. No realizar sin certificación.</div>`
+    }
+  },
+  {
+    id:'why-remodulation',
+    date:'08.03.2026',
+    img:'foam.jpeg',
+    author:{ru:'Carles Verdaguer',en:'Carles Verdaguer',es:'Carles Verdaguer'},
+    read:{ru:'4 минуты',en:'4 min read',es:'4 min de lectura'},
+    cat:{ru:'Бренд',en:'Brand',es:'Marca'},
     title:{ru:'Почему «ремодуляция» — не пилинг: позиция бренда EVOXA',
            en:'Why "remodulation" is not a peel: the EVOXA position',
-           es:'Por qué «remodulación» no es peeling: la posición de EVOXA'} },
-  { date:'24.02.2026', img:'skin.jpeg', cat:{ru:'Кейс',en:'Case study',es:'Caso clínico'},
+           es:'Por qué «remodulación» no es peeling: la posición de EVOXA'},
+    excerpt:{ru:'Слово «пилинг» давно стало универсальным, но оно не описывает то, что делает EVOXA. Объясняем разницу.',
+            en:'The word "peel" has become universal, but it does not describe what EVOXA does. Explaining the difference.',
+            es:'La palabra «peeling» se ha vuelto universal, pero no describe lo que hace EVOXA. Explicamos la diferencia.'},
+    content:{
+      ru:`<p class="lead">Когда я начинал работать с косметологами в Москве и Барселоне, меня всё время спрашивали — «это какой у вас пилинг?». И каждый раз я отвечал — «это не пилинг».</p>
+<h2>Что делает классический пилинг</h2>
+<p>Классический пилинг — это контролируемое повреждение. Кислота вызывает отшелушивание верхних слоёв эпидермиса, организм запускает регенерацию, появляется новая кожа. Метафора — содрать обои, чтобы наклеить новые.</p>
+<p>Это работает. Но это и опасно. Удар по коже даёт непредсказуемый результат — у одного пациента результат блестящий, у другого PIH на полгода.</p>
+<h2>Что делает EVOXA</h2>
+<p>Мы не повреждаем. Мы переактивируем. Активные компоненты PEEL вступают в реакцию с белками рогового слоя, меняя их пространственную структуру — не разрушая. Кожа не «слетает» — она <em>перестраивается</em>.</p>
+<p>Метафора другая: не содрать обои, а перекрасить их в нужный цвет.</p>
+<h2>Почему слово важно</h2>
+<p>Слово определяет ожидания. Когда пациент слышит «пилинг» — он готовится к покраснению, шелушению, неделе дома. Когда слышит «ремодуляция» — понимает что это про обновление, а не про разрушение.</p>
+<blockquote>«Язык создаёт метод. Не было слова — не было метода. Слово появилось — и стало возможно объяснить почему мы работаем иначе.» — Carles Verdaguer</blockquote>
+<h2>Почему мы не используем слово «пилинг»</h2>
+<p>Принципиальное решение. Слово «пилинг» несёт за собой 40 лет ожиданий — и большинство из них не имеют отношения к тому что делает EVOXA. Это другое лекарство, и оно требует другого слова.</p>
+<p>Когда косметолог говорит пациенту «это ремодуляция, а не пилинг» — это первый сигнал что протокол другой, что ожидания другие, что результат другой.</p>`,
+      en:`<p class="lead">When I started working with cosmetologists in Moscow and Barcelona, I was constantly asked — "what kind of peel do you have?" And every time I answered — "it's not a peel".</p>
+<h2>What a classical peel does</h2>
+<p>A classical peel is controlled damage. The acid causes exfoliation of the upper epidermis layers, the body launches regeneration, new skin appears. The metaphor — tear off the wallpaper to put up new wallpaper.</p>
+<p>This works. But it's also dangerous. A hit to the skin gives an unpredictable result — for one patient brilliant, for another PIH for half a year.</p>
+<h2>What EVOXA does</h2>
+<p>We don't damage. We reactivate. The active components of PEEL react with the proteins of the stratum corneum, changing their spatial structure — without destroying. The skin doesn't "fall off" — it <em>restructures</em>.</p>
+<p>A different metaphor: not tear off the wallpaper, but repaint it in the desired color.</p>
+<h2>Why the word matters</h2>
+<p>The word defines expectations. When a patient hears "peel" — they prepare for redness, peeling, a week at home. When they hear "remodulation" — they understand this is about renewal, not destruction.</p>
+<blockquote>"Language creates the method. There was no word — there was no method. The word appeared — and it became possible to explain why we work differently." — Carles Verdaguer</blockquote>
+<h2>Why we don't use the word "peel"</h2>
+<p>A principled decision. The word "peel" carries 40 years of expectations — and most of them are not relevant to what EVOXA does. It's a different medicine, and it requires a different word.</p>
+<p>When a cosmetologist tells a patient "this is remodulation, not a peel" — that is the first signal that the protocol is different, expectations are different, the result is different.</p>`,
+      es:`<p class="lead">Cuando empecé a trabajar con cosmetólogos en Moscú y Barcelona, me preguntaban constantemente — «¿qué peeling tenéis?». Y cada vez respondía — «no es un peeling».</p>
+<h2>Qué hace un peeling clásico</h2>
+<p>Un peeling clásico es daño controlado. El ácido provoca exfoliación de las capas superiores de la epidermis, el cuerpo lanza la regeneración, aparece piel nueva. La metáfora — arrancar el papel pintado para colocar uno nuevo.</p>
+<p>Esto funciona. Pero también es peligroso. Un golpe a la piel da un resultado impredecible — en un paciente brillante, en otro PIH durante medio año.</p>
+<h2>Qué hace EVOXA</h2>
+<p>No dañamos. Reactivamos. Los componentes activos de PEEL reaccionan con las proteínas del estrato córneo, cambiando su estructura espacial — sin destruir. La piel no «se cae» — se <em>reestructura</em>.</p>
+<p>Otra metáfora: no arrancar el papel pintado, sino repintarlo del color deseado.</p>
+<h2>Por qué la palabra importa</h2>
+<p>La palabra define expectativas. Cuando un paciente escucha «peeling» — se prepara para enrojecimiento, descamación, una semana en casa. Cuando escucha «remodulación» — entiende que es sobre renovación, no sobre destrucción.</p>
+<blockquote>«El lenguaje crea el método. No había palabra — no había método. Apareció la palabra — y se hizo posible explicar por qué trabajamos diferente.» — Carles Verdaguer</blockquote>
+<h2>Por qué no usamos la palabra «peeling»</h2>
+<p>Decisión de principio. La palabra «peeling» carga 40 años de expectativas — y la mayoría no son relevantes a lo que hace EVOXA. Es una medicina diferente, y requiere una palabra diferente.</p>
+<p>Cuando un cosmetólogo dice al paciente «esto es remodulación, no peeling» — es la primera señal de que el protocolo es diferente, las expectativas son diferentes, el resultado es diferente.</p>`
+    }
+  },
+  {
+    id:'post-acne-12-weeks',
+    date:'24.02.2026',
+    img:'skin.jpeg',
+    author:{ru:'Dr. Marina Sokolova',en:'Dr. Marina Sokolova',es:'Dra. Marina Sokolova'},
+    read:{ru:'8 минут',en:'8 min read',es:'8 min de lectura'},
+    cat:{ru:'Кейс',en:'Case study',es:'Caso clínico'},
     title:{ru:'Постакне: 12-недельный протокол с EVOXA CLINIC и домашним уходом PRO',
            en:'Post-acne: a 12-week protocol with EVOXA CLINIC and PRO home care',
-           es:'Post-acné: protocolo de 12 semanas con EVOXA CLINIC y cuidado PRO'} },
-  { date:'10.02.2026', img:'cosmetologist_1.jpeg', cat:{ru:'События',en:'Events',es:'Eventos'},
+           es:'Post-acné: protocolo de 12 semanas con EVOXA CLINIC y cuidado PRO'},
+    excerpt:{ru:'Кейс пациентки 34 года с поствоспалительной гиперпигментацией и атрофическими рубцами. Полная динамика по неделям.',
+            en:'Case of a 34-year-old patient with post-inflammatory hyperpigmentation and atrophic scars. Full week-by-week dynamics.',
+            es:'Caso de paciente de 34 años con hiperpigmentación post-inflamatoria y cicatrices atróficas. Dinámica semanal completa.'},
+    content:{
+      ru:`<p class="lead">Пациентка 34 года. После 10 лет акне — поствоспалительная гиперпигментация и атрофические рубцы умеренной глубины. Тип кожи III по Фитцпатрику.</p>
+<h2>Исходные данные</h2>
+<ul>
+<li>Возраст: 34 года</li>
+<li>Тип кожи: III</li>
+<li>Длительность акне в анамнезе: 10 лет</li>
+<li>Активные воспаления: нет</li>
+<li>Рубцы: атрофические icepick на щеках, средняя глубина</li>
+<li>Пигментация: PIH средней интенсивности по всему лицу</li>
+</ul>
+<h2>Протокол</h2>
+<h3>Неделя 0 — Подготовка</h3>
+<p>Назначен домашний уход EVOXA PRO: AHA-кислоты 10% утром, ретинол 0.5% вечером. SPF50+ обязательно.</p>
+<h3>Неделя 2 — PEEL 1</h3>
+<p>Первая процедура. Стартовый протокол. Кожа отреагировала хорошо, минимальное шелушение на 3-4 день.</p>
+<h3>Неделя 6 — PEEL 2 + TONIC</h3>
+<p>Срединный ремодулятор. Цель — работа с пигментом. Реакция кожи контролируема, frosting равномерный.</p>
+<h3>Неделя 10 — PEEL 2 + TONIC повторно</h3>
+<p>Закрепление результата по пигменту. Дополнительно — точечная работа с рубцами через PEEL 3.</p>
+<h2>Результаты по визуальной шкале</h2>
+<div class="step-grid">
+<div class="step"><div class="step-num">W0</div><div class="step-name">Старт</div><div class="step-desc">PIH 7/10, рубцы 6/10</div></div>
+<div class="step"><div class="step-num">W6</div><div class="step-name">Середина</div><div class="step-desc">PIH 4/10, рубцы 5/10</div></div>
+<div class="step"><div class="step-num">W12</div><div class="step-name">Финал</div><div class="step-desc">PIH 2/10, рубцы 3/10</div></div>
+</div>
+<h2>Выводы</h2>
+<p>Комбинированный подход (профессиональные процедуры + домашний уход) даёт результат, недостижимый только одним из инструментов. PIH ушёл на 70%, рубцы — на 50%.</p>
+<blockquote>«Без домашнего ухода в перерывах между процедурами эффект был бы вдвое слабее. Кожа продолжает работать каждый день, не только в кабинете.» — Dr. Marina Sokolova</blockquote>
+<p>Рекомендация — повторный курс через 6 месяцев для дальнейшей работы с рубцовой текстурой.</p>`,
+      en:`<p class="lead">Female patient, 34 years old. After 10 years of acne — post-inflammatory hyperpigmentation and atrophic scars of moderate depth. Fitzpatrick type III.</p>
+<h2>Baseline</h2>
+<ul>
+<li>Age: 34</li>
+<li>Skin type: III</li>
+<li>Acne history duration: 10 years</li>
+<li>Active inflammation: no</li>
+<li>Scars: atrophic icepick on cheeks, moderate depth</li>
+<li>Pigmentation: moderate PIH across the face</li>
+</ul>
+<h2>Protocol</h2>
+<h3>Week 0 — Preparation</h3>
+<p>EVOXA PRO home care prescribed: 10% AHA in the morning, 0.5% retinol in the evening. SPF50+ mandatory.</p>
+<h3>Week 2 — PEEL 1</h3>
+<p>First procedure. Starter protocol. Skin reacted well, minimal flaking on day 3-4.</p>
+<h3>Week 6 — PEEL 2 + TONIC</h3>
+<p>Medium remodulator. Goal — work on pigment. Skin reaction controlled, frosting uniform.</p>
+<h3>Week 10 — PEEL 2 + TONIC repeat</h3>
+<p>Reinforcing pigment result. Additionally — spot work on scars with PEEL 3.</p>
+<h2>Results on visual scale</h2>
+<div class="step-grid">
+<div class="step"><div class="step-num">W0</div><div class="step-name">Start</div><div class="step-desc">PIH 7/10, scars 6/10</div></div>
+<div class="step"><div class="step-num">W6</div><div class="step-name">Middle</div><div class="step-desc">PIH 4/10, scars 5/10</div></div>
+<div class="step"><div class="step-num">W12</div><div class="step-name">Final</div><div class="step-desc">PIH 2/10, scars 3/10</div></div>
+</div>
+<h2>Conclusions</h2>
+<p>The combined approach (professional procedures + home care) delivers results unachievable with one tool alone. PIH reduced 70%, scars by 50%.</p>
+<blockquote>"Without home care between procedures, the effect would be half as strong. The skin keeps working every day, not only in the cabinet." — Dr. Marina Sokolova</blockquote>
+<p>Recommendation — repeat course in 6 months for further work on scar texture.</p>`,
+      es:`<p class="lead">Paciente femenina, 34 años. Tras 10 años de acné — hiperpigmentación post-inflamatoria y cicatrices atróficas de profundidad moderada. Fototipo III.</p>
+<h2>Punto de partida</h2>
+<ul>
+<li>Edad: 34</li>
+<li>Fototipo: III</li>
+<li>Duración del acné: 10 años</li>
+<li>Inflamación activa: no</li>
+<li>Cicatrices: atróficas icepick en mejillas, profundidad moderada</li>
+<li>Pigmentación: PIH moderada en toda la cara</li>
+</ul>
+<h2>Protocolo</h2>
+<h3>Semana 0 — Preparación</h3>
+<p>Prescrito cuidado en casa EVOXA PRO: AHA 10% por la mañana, retinol 0,5% por la noche. SPF50+ obligatorio.</p>
+<h3>Semana 2 — PEEL 1</h3>
+<p>Primer procedimiento. Protocolo inicial. La piel reaccionó bien, descamación mínima días 3-4.</p>
+<h3>Semana 6 — PEEL 2 + TONIC</h3>
+<p>Remodulador medio. Objetivo — trabajo con pigmento. Reacción controlada, frosting uniforme.</p>
+<h3>Semana 10 — PEEL 2 + TONIC repetido</h3>
+<p>Refuerzo del resultado de pigmento. Adicionalmente — trabajo puntual con cicatrices usando PEEL 3.</p>
+<h2>Resultados en escala visual</h2>
+<div class="step-grid">
+<div class="step"><div class="step-num">W0</div><div class="step-name">Inicio</div><div class="step-desc">PIH 7/10, cicatrices 6/10</div></div>
+<div class="step"><div class="step-num">W6</div><div class="step-name">Mitad</div><div class="step-desc">PIH 4/10, cicatrices 5/10</div></div>
+<div class="step"><div class="step-num">W12</div><div class="step-name">Final</div><div class="step-desc">PIH 2/10, cicatrices 3/10</div></div>
+</div>
+<h2>Conclusiones</h2>
+<p>El enfoque combinado (procedimientos profesionales + cuidado en casa) entrega resultados inalcanzables con una sola herramienta. PIH reducida 70%, cicatrices 50%.</p>
+<blockquote>«Sin cuidado en casa entre procedimientos, el efecto sería la mitad. La piel sigue trabajando cada día, no solo en cabina.» — Dra. Marina Sokolova</blockquote>
+<p>Recomendación — repetir curso en 6 meses para más trabajo en textura cicatricial.</p>`
+    }
+  },
+  {
+    id:'intercharm-2026',
+    date:'10.02.2026',
+    img:'cosmetologist_1.jpeg',
+    author:{ru:'Редакция EVOXA',en:'EVOXA Editorial',es:'Redacción EVOXA'},
+    read:{ru:'3 минуты',en:'3 min read',es:'3 min de lectura'},
+    cat:{ru:'События',en:'Events',es:'Eventos'},
     title:{ru:'EVOXA на InterCharm Москва 2026: расписание мастер-классов',
            en:'EVOXA at InterCharm Moscow 2026: masterclass schedule',
-           es:'EVOXA en InterCharm Moscú 2026: programa de masterclasses'} },
+           es:'EVOXA en InterCharm Moscú 2026: programa de masterclasses'},
+    excerpt:{ru:'Команда EVOXA представит четыре мастер-класса на профессиональной выставке InterCharm 16-19 апреля. Программа и регистрация.',
+            en:'EVOXA team will present four masterclasses at InterCharm professional exhibition on April 16-19. Programme and registration.',
+            es:'El equipo EVOXA presentará cuatro masterclasses en la exposición profesional InterCharm del 16 al 19 de abril. Programa e inscripción.'},
+    content:{
+      ru:`<p class="lead">16-19 апреля в Москве пройдёт профессиональная выставка InterCharm. EVOXA представит четыре мастер-класса и собственный стенд в павильоне 2.</p>
+<h2>Программа мастер-классов</h2>
+<h3>16 апреля, 11:00 — «Метод ремодуляции: введение»</h3>
+<p>Спикер: Carles Verdaguer, основатель EVOXA. Концептуальный мастер-класс о том, почему ремодуляция — это не пилинг, и как менять язык работы с пациентом.</p>
+<h3>17 апреля, 14:00 — «PEEL 1 в работе: живой протокол»</h3>
+<p>Спикер: Dr. Marina Sokolova. Показательная процедура с подробным разбором каждого шага. Модель — реальный пациент с легкой возрастной кожей.</p>
+<h3>18 апреля, 11:30 — «Карбокситерапия TONIC: научное обоснование»</h3>
+<p>Спикер: Dr. Elena Mateos. Разбор биохимии CO2-нейтрализации и почему этот механизм меняет правила игры.</p>
+<h3>19 апреля, 13:00 — «PEEL 2 + 3: продвинутые протоколы»</h3>
+<p>Спикер: Dr. Marina Sokolova. Только для специалистов с уже пройденным курсом PEEL 1. Глубокая работа с пигментом и рубцами.</p>
+<h2>Стенд</h2>
+<p>Павильон 2, стенд E-12. Демонстрация всей линейки EVOXA, личные консультации с командой R&D из Барселоны, специальные условия для участников выставки.</p>
+<h2>Регистрация</h2>
+<p>Участие в мастер-классах бесплатное по предварительной регистрации. Количество мест ограничено.</p>
+<div class="callout"><strong>Бонус</strong>Все зарегистрированные участники мастер-классов получают сертификат на 50% скидку на полный курс EVOXA Pro Online.</div>`,
+      en:`<p class="lead">April 16-19 in Moscow — InterCharm professional exhibition. EVOXA will present four masterclasses and its own stand in pavilion 2.</p>
+<h2>Masterclass programme</h2>
+<h3>April 16, 11:00 — "Remodulation method: introduction"</h3>
+<p>Speaker: Carles Verdaguer, EVOXA founder. Conceptual masterclass about why remodulation is not a peel and how to change the language of patient communication.</p>
+<h3>April 17, 14:00 — "PEEL 1 at work: live protocol"</h3>
+<p>Speaker: Dr. Marina Sokolova. Demonstration procedure with detailed step-by-step analysis. Model — real patient with mild age-related skin.</p>
+<h3>April 18, 11:30 — "TONIC carboxytherapy: scientific basis"</h3>
+<p>Speaker: Dr. Elena Mateos. Analysis of CO2 neutralization biochemistry and why this mechanism changes the rules.</p>
+<h3>April 19, 13:00 — "PEEL 2 + 3: advanced protocols"</h3>
+<p>Speaker: Dr. Marina Sokolova. Only for specialists who completed PEEL 1 course. Deep work with pigment and scars.</p>
+<h2>Stand</h2>
+<p>Pavilion 2, stand E-12. Full EVOXA range demonstration, personal consultations with R&D team from Barcelona, special conditions for exhibition participants.</p>
+<h2>Registration</h2>
+<p>Masterclass participation is free with prior registration. Limited seats.</p>
+<div class="callout"><strong>Bonus</strong>All registered masterclass participants receive a certificate for 50% discount on the full EVOXA Pro Online course.</div>`,
+      es:`<p class="lead">Del 16 al 19 de abril en Moscú — exposición profesional InterCharm. EVOXA presentará cuatro masterclasses y su propio stand en el pabellón 2.</p>
+<h2>Programa de masterclasses</h2>
+<h3>16 de abril, 11:00 — «Método de remodulación: introducción»</h3>
+<p>Ponente: Carles Verdaguer, fundador de EVOXA. Masterclass conceptual sobre por qué la remodulación no es peeling y cómo cambiar el lenguaje del trabajo con paciente.</p>
+<h3>17 de abril, 14:00 — «PEEL 1 en acción: protocolo en vivo»</h3>
+<p>Ponente: Dra. Marina Sokolova. Procedimiento demostrativo con análisis detallado de cada paso. Modelo — paciente real con piel ligeramente envejecida.</p>
+<h3>18 de abril, 11:30 — «Carboxiterapia TONIC: base científica»</h3>
+<p>Ponente: Dra. Elena Mateos. Análisis de la bioquímica de la neutralización CO2 y por qué este mecanismo cambia las reglas.</p>
+<h3>19 de abril, 13:00 — «PEEL 2 + 3: protocolos avanzados»</h3>
+<p>Ponente: Dra. Marina Sokolova. Solo para especialistas que completaron el curso PEEL 1. Trabajo profundo con pigmento y cicatrices.</p>
+<h2>Stand</h2>
+<p>Pabellón 2, stand E-12. Demostración de la línea completa EVOXA, consultas personales con equipo I+D de Barcelona, condiciones especiales para participantes.</p>
+<h2>Inscripción</h2>
+<p>Participación gratuita previa inscripción. Plazas limitadas.</p>
+<div class="callout"><strong>Bonus</strong>Todos los participantes inscritos reciben certificado del 50% de descuento en el curso completo EVOXA Pro Online.</div>`
+    }
+  },
 ];
 
 /* ============ CLINICS DATA ============ */
@@ -6262,18 +7966,177 @@ function submitCreatorForm(e){
   return false;
 }
 
+
+/* ============ GEO COUNT UP ============ */
+function initGeoCountUp(){
+  const nums = document.querySelectorAll('.geo-stat-num[data-target]');
+  if(!nums.length || window._geoCountInit) return;
+  window._geoCountInit = true;
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting && !entry.target.dataset.animated){
+        entry.target.dataset.animated = 'true';
+        const target = parseInt(entry.target.dataset.target);
+        const duration = 1800;
+        const start = performance.now();
+        const animate = (t) => {
+          const elapsed = t - start;
+          const progress = Math.min(elapsed / duration, 1);
+          // ease-out-expo
+          const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+          const val = Math.round(eased * target);
+          entry.target.textContent = val;
+          if(progress < 1) requestAnimationFrame(animate);
+        };
+        requestAnimationFrame(animate);
+      }
+    });
+  }, {threshold: 0.4});
+  
+  nums.forEach(n => observer.observe(n));
+}
+
+
+/* ============ CINEMATIC SCROLL DRIVER ============ */
+function initCinematicScroll(){
+  const section = document.getElementById('cinematicScroll');
+  const video = document.getElementById('cinematicVideo');
+  if(!section || !video) return;
+  
+  // На мобильных — не запускаем (CSS уже скрывает)
+  if(window.innerWidth <= 768) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  
+  let videoDuration = 0;
+  let isReady = false;
+  
+  const onMetaLoaded = () => {
+    videoDuration = video.duration || 10;
+    isReady = true;
+    // Берём первый кадр как постер
+    video.currentTime = 0;
+  };
+  
+  video.addEventListener('loadedmetadata', onMetaLoaded);
+  video.addEventListener('error', () => {
+    // Если видео не загрузилось — скрываем секцию
+    section.style.display = 'none';
+  });
+  
+  // RAF-троттлинг для плавности
+  let ticking = false;
+  let userStartedScroll = false;
+  
+  const updateVideo = () => {
+    if(!isReady) {
+      ticking = false;
+      return;
+    }
+    
+    const rect = section.getBoundingClientRect();
+    const sectionHeight = section.offsetHeight - window.innerHeight;
+    const scrolled = -rect.top;
+    const progress = Math.max(0, Math.min(1, scrolled / sectionHeight));
+    
+    // Привязываем currentTime
+    const targetTime = progress * videoDuration;
+    if(!isNaN(targetTime) && isFinite(targetTime)){
+      try {
+        video.currentTime = targetTime;
+      } catch(e){}
+    }
+    
+    // Подсказка скролла исчезает после первой прокрутки
+    if(progress > 0.05 && !userStartedScroll){
+      userStartedScroll = true;
+      section.classList.add('scrolling');
+    }
+    
+    ticking = false;
+  };
+  
+  const onScroll = () => {
+    if(!ticking){
+      requestAnimationFrame(updateVideo);
+      ticking = true;
+    }
+  };
+  
+  window.addEventListener('scroll', onScroll, {passive: true});
+  
+  // Если ресайз и стало мобильно — отключаем
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      if(window.innerWidth <= 768){
+        section.style.display = 'none';
+        window.removeEventListener('scroll', onScroll);
+      }
+    }, 250);
+  });
+  
+  // Запускаем сразу для первого кадра
+  updateVideo();
+}
+
 /* ============ NEWS RENDER ============ */
 function renderNews(){
   const list=document.getElementById('newsList');
   if(!list) return;
+  const dict=I18N[currentLang];
   list.innerHTML=NEWS.map((n,i)=>`
-    <article class="news-item reveal reveal-delay-${(i%3)+1}" data-cursor>
-      <div class="news-date">${n.date}<span class="cat">${n.cat[currentLang]}</span></div>
-      <h3 class="news-title">${n.title[currentLang]}</h3>
+    <article class="news-item reveal reveal-delay-${(i%3)+1}" data-cursor onclick="openArticle('${n.id}')">
+      <div class="news-meta-col">
+        <div class="news-date">${n.date}<span class="cat">${n.cat[currentLang]}</span></div>
+        <h3 class="news-title">${n.title[currentLang]}</h3>
+        <p class="news-excerpt">${n.excerpt[currentLang]}</p>
+        <div class="news-read">${n.read[currentLang]} · ${n.author[currentLang]}<span class="news-arrow">→</span></div>
+      </div>
       <div class="news-img-wrap"><div class="news-img" data-img="${n.img}"></div></div>
     </article>
   `).join('');
   applyImages();initReveal();bindCursor();
+}
+
+let currentArticleId=null;
+function openArticle(id){
+  currentArticleId=id;
+  currentRoute='article';
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-article').classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
+  window.scrollTo({top:0,behavior:'instant'});
+  closeMobileMenu();
+  setTimeout(()=>{renderArticle(id);applyImages();initReveal();bindCursor();},20);
+}
+function renderArticle(id){
+  const a=NEWS.find(x=>x.id===id);
+  if(!a) return;
+  const lang=currentLang;
+  
+  document.getElementById('articleCat').textContent=a.cat[lang];
+  document.getElementById('articleDate').textContent=a.date;
+  document.getElementById('articleTitle').textContent=a.title[lang];
+  document.getElementById('articleExcerpt').textContent=a.excerpt[lang];
+  document.getElementById('articleAuthor').textContent=a.author[lang];
+  document.getElementById('articleRead').textContent=a.read[lang];
+  document.getElementById('articleImg').setAttribute('data-img',a.img);
+  document.getElementById('articleBody').innerHTML=a.content[lang];
+  
+  // related — другие статьи
+  const related=NEWS.filter(x=>x.id!==id).slice(0,3);
+  document.getElementById('articleRelated').innerHTML=related.map(r=>`
+    <article class="news-item" data-cursor onclick="openArticle('${r.id}')">
+      <div class="news-meta-col">
+        <div class="news-date">${r.date}<span class="cat">${r.cat[lang]}</span></div>
+        <h3 class="news-title">${r.title[lang]}</h3>
+        <div class="news-read">${r.read[lang]}<span class="news-arrow">→</span></div>
+      </div>
+      <div class="news-img-wrap"><div class="news-img" data-img="${r.img}"></div></div>
+    </article>
+  `).join('');
 }
 
 /* ============ MOBILE ============ */
@@ -6395,6 +8258,8 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('mobileOverlay').addEventListener('click',closeMobileMenu);
   
   populateCities();renderClinics();renderTraining();renderNews();renderProducts();
+  initGeoCountUp();
+  initCinematicScroll();
   applyI18n();
   initReveal();initCounters();initParallax();initCursor();
   
