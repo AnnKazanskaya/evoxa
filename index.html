@@ -4186,57 +4186,55 @@ img, video, iframe {
   color:var(--amber);text-transform:none;
 }
 
-/* ============ ЗАКЛАДКА (на всех страницах) ============ */
+/* ============ ПЛАВАЮЩАЯ КНОПКА Глянец ============ */
 .glance-bookmark{
   position:fixed;
-  right:0;bottom:120px;
+  right:32px;
+  bottom:32px;
   z-index:99;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:10px;
-  width:54px;
-  padding:24px 8px;
-  background:linear-gradient(135deg,#1a1a1a 0%,#2a1f10 50%,#4a3215 100%);
-  border:1px solid var(--amber);
-  border-right:none;
-  color:var(--amber);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  padding:16px 28px;
+  background:rgba(255,255,255,0.1);
+  -webkit-backdrop-filter:blur(20px) saturate(180%);
+  backdrop-filter:blur(20px) saturate(180%);
+  border:1px solid rgba(255,255,255,0.7);
+  border-radius:999px;
+  color:#ffffff;
+  font-size:13px;
+  font-weight:500;
+  letter-spacing:1.2px;
   text-decoration:none;
+  text-transform:uppercase;
   cursor:pointer;
-  transition:all .4s var(--ease-out-expo);
-  box-shadow:-4px 0 24px rgba(0,0,0,0.4), inset 0 0 30px rgba(200,144,80,0.1);
   opacity:0;
-  transform:translateX(20px);
-  animation:glanceBookmarkIn 0.8s var(--ease-out-expo) 3s forwards;
+  transform:translateY(20px);
+  animation:glanceBookmarkIn 0.8s var(--ease-out-expo) 1.5s forwards;
+  transition:all .3s ease;
 }
 @keyframes glanceBookmarkIn{
-  to{opacity:1;transform:translateX(0)}
+  to{opacity:1;transform:translateY(0)}
 }
 .glance-bookmark:hover{
-  background:linear-gradient(135deg,#2a2a2a 0%,#3a2f20 50%,#5a4225 100%);
-  width:64px;
-  box-shadow:-8px 0 32px rgba(200,144,80,0.3), inset 0 0 30px rgba(200,144,80,0.2);
+  background:rgba(255,255,255,0.18);
+  border-color:rgba(255,255,255,0.9);
 }
-.glance-bookmark-arrow{
-  font-size:16px;color:var(--amber);
-  transform:rotate(-45deg);
-  transition:transform .3s ease;
-}
-.glance-bookmark:hover .glance-bookmark-arrow{transform:rotate(0deg)}
+
 .glance-bookmark-text{
-  font-size:10px;letter-spacing:3px;font-weight:600;
-  writing-mode:vertical-rl;
-  color:var(--amber);
-  text-transform:uppercase;
+  color:#ffffff;
 }
-.glance-bookmark-sub{
-  font-family:'Cormorant Garamond',serif;font-style:italic;
-  font-size:11px;
-  color:rgba(245,237,227,0.7);
-  writing-mode:vertical-rl;
-  text-transform:none;letter-spacing:0;
-}
-/* На самой странице Glance — скрываем закладку */
-.page#page-glance.active ~ .glance-bookmark,
-body.is-glance-page .glance-bookmark{display:none}
+
+/* Скрываем неиспользуемые подэлементы (если ещё в HTML) */
+.glance-bookmark-glow,
+.glance-bookmark-pill,
+.glance-bookmark-distort,
+.glance-bookmark-highlight,
+.glance-bookmark-dot,
+.glance-bookmark-sub,
+.glance-bookmark-arrow{display:none}
+
+/* Скрываем на самой странице Глянца — через JS (updateGlanceBookmarkVisibility) */
 
 /* === MOBILE === */
 @media (max-width: 768px){
@@ -4276,15 +4274,14 @@ body.is-glance-page .glance-bookmark{display:none}
   .glance-read-section{padding:60px 20px}
   .glance-read-title{font-size:clamp(26px,7vw,40px)!important;margin-bottom:40px!important}
   
-  /* Закладка на мобильном меньше */
+  /* Плавающая кнопка на мобильном */
   .glance-bookmark{
-    width:44px;
-    bottom:90px;
-    padding:18px 6px;
+    right:16px;
+    bottom:16px;
+    padding:13px 22px;
+    font-size:11px;
+    letter-spacing:1px;
   }
-  .glance-bookmark:hover{width:48px}
-  .glance-bookmark-text{font-size:9px;letter-spacing:2px}
-  .glance-bookmark-sub{font-size:10px}
 }
 @media (max-width: 420px){
   .glance-grid{grid-template-columns:1fr;gap:8px}
@@ -4488,28 +4485,6 @@ body.is-glance-page .glance-bookmark{display:none}
       </div>
     </div>
   </section>
-
-  <!-- ============ GALLERY ============ -->
-  <section class="gallery">
-    <div class="gallery-header">
-      <h2 class="gallery-title reveal" data-i18n="gal.title">Визуальный<br><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;text-transform:none;color:var(--amber)">журнал.</span></h2>
-      <a class="line-link reveal reveal-delay-1" data-route="glance" data-cursor>
-        <span data-i18n="gal.all">Все материалы</span> <span>→</span>
-      </a>
-    </div>
-    <div class="gallery-grid">
-      <div class="gallery-item span-2 span-2v reveal-img" data-img="model.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-1" data-img="magazine.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-2" data-img="foam.jpeg" data-cursor></div>
-      <div class="gallery-item span-2 reveal-img reveal-delay-1" data-img="model4.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-2" data-img="skin.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-3" data-img="tonic_2.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-1" data-img="cosmetologist_2.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-2" data-img="all_line.jpeg" data-cursor></div>
-      <div class="gallery-item reveal-img reveal-delay-3" data-img="model_best.jpg" data-cursor></div>
-    </div>
-  </section>
-
   <!-- ============ GEOGRAPHY ============ -->
   <section class="geo-section">
     <div class="geo-inner">
@@ -9751,9 +9726,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
 <!-- ============ GLANCE BOOKMARK (на всех страницах) ============ -->
 <a href="#" class="glance-bookmark" id="glanceBookmark" data-route="glance" data-cursor onclick="event.preventDefault();navigate('glance')">
-  <span class="glance-bookmark-arrow">↗</span>
-  <span class="glance-bookmark-text" data-i18n="glance.bookmark">ГЛЯНЕЦ</span>
-  <span class="glance-bookmark-sub" data-i18n="glance.bookmarkSub">Розыгрыш</span>
+  <span class="glance-bookmark-text">Глянец Evoxa</span>
 </a>
 
 </body>
