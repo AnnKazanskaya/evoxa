@@ -3527,6 +3527,346 @@ img, video, iframe {
   .news-read { font-size: 9px !important; letter-spacing: 1.5px !important; }
 }
 
+
+/* ============ CLUB / THERAPY ============ */
+.club-hero{
+  padding:140px 48px 80px;
+  min-height:80vh;
+  background:radial-gradient(circle at 50% 20%, rgba(200,144,80,0.08) 0%, transparent 60%), var(--black);
+  position:relative;
+}
+.club-hero-inner{max-width:1100px;margin:0 auto;text-align:center}
+.club-hero-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:32px;font-weight:500;
+}
+.club-hero-title{
+  font-size:clamp(40px,6vw,84px);
+  font-weight:200;line-height:1;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:32px;
+}
+.club-hero-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;letter-spacing:-0.01em;
+}
+.club-hero-lead{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(20px,2vw,26px);line-height:1.5;
+  color:var(--text-on-dark);
+  max-width:680px;margin:0 auto 48px;
+}
+.club-counter{
+  max-width:520px;margin:0 auto 48px;
+}
+.club-counter-progress{
+  height:2px;background:var(--border);
+  margin-bottom:16px;
+  position:relative;overflow:hidden;
+}
+.club-counter-fill{
+  position:absolute;left:0;top:0;height:100%;
+  background:linear-gradient(90deg, var(--amber) 0%, var(--amber-soft) 100%);
+  transition:width 1.2s var(--ease-out-expo);
+}
+.club-counter-text{
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);
+}
+.club-counter-issued{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:28px;color:var(--amber);
+  margin-right:6px;
+}
+.club-counter-of{margin:0 6px}
+.club-counter-limit{
+  font-weight:500;color:var(--text-on-dark);margin-right:12px;
+}
+.club-hero-cta{margin-top:8px}
+.club-hero-cta .btn{padding:20px 44px;font-size:11px;letter-spacing:3px}
+
+/* Benefits */
+.club-benefits{
+  padding:120px 48px;
+  background:var(--coal);
+  border-top:1px solid var(--border);
+}
+.club-benefits-inner{max-width:1280px;margin:0 auto}
+.club-benefits-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;text-align:center;
+}
+.club-benefits-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;text-align:center;margin-bottom:64px;
+}
+.club-benefits-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+.club-benefits-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--border);border:1px solid var(--border);
+}
+.club-benefit{
+  background:var(--black);padding:48px 32px;text-align:center;
+}
+.club-benefit-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:72px;line-height:1;color:var(--amber);
+  margin-bottom:24px;
+}
+.club-benefit-name{
+  font-size:13px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--text-on-dark);font-weight:500;margin-bottom:14px;
+}
+.club-benefit-desc{
+  font-size:14px;line-height:1.7;color:var(--text-muted);
+}
+
+/* Card preview */
+.club-card-preview-section{
+  padding:120px 48px;
+  background:var(--black);
+}
+.club-card-preview-inner{max-width:900px;margin:0 auto;text-align:center}
+.club-preview-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.club-preview-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:64px;
+}
+.club-preview-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+
+.club-card-mockup{
+  display:flex;justify-content:center;
+  margin-bottom:40px;
+}
+.club-card-visual{
+  width:520px;max-width:90vw;
+  aspect-ratio:1.586/1;
+  background:linear-gradient(135deg,#1a1a1a 0%,#2a1f10 35%,#4a3215 65%,#1a1a1a 100%);
+  position:relative;
+  box-sizing:border-box;
+  padding:32px 36px;
+  border:1px solid var(--amber);
+  box-shadow:0 30px 80px rgba(200,144,80,0.15), inset 0 0 80px rgba(200,144,80,0.12);
+  border-radius:4px;
+}
+.club-card-double-border{
+  position:absolute;top:8px;left:8px;right:8px;bottom:8px;
+  border:1px solid rgba(200,144,80,0.3);
+  border-radius:2px;
+}
+.club-card-brand{
+  text-align:center;
+  font-size:32px;font-weight:200;letter-spacing:12px;
+  color:var(--text-on-dark);
+  font-family:'Inter',sans-serif;
+}
+.club-card-subtitle{
+  text-align:center;
+  font-size:10px;letter-spacing:4px;text-transform:uppercase;
+  color:var(--amber);margin-top:4px;
+}
+.club-card-divider{
+  width:60px;height:1px;background:var(--amber);
+  margin:22px auto;
+}
+.club-card-tier{
+  text-align:center;
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:26px;color:var(--amber);
+  letter-spacing:1px;
+}
+.club-card-name{
+  text-align:center;margin-top:18px;
+  font-size:18px;font-weight:300;color:var(--text-on-dark);
+  letter-spacing:0.5px;opacity:0.7;
+}
+.club-card-footer{
+  position:absolute;bottom:24px;left:36px;right:36px;
+  display:flex;justify-content:space-between;align-items:flex-end;
+}
+.club-card-foot-label{
+  font-size:8px;letter-spacing:2px;text-transform:uppercase;
+  color:rgba(232,229,221,0.5);
+}
+.club-card-foot-value{
+  font-size:12px;color:var(--amber);margin-top:4px;
+  letter-spacing:1.5px;font-family:'Courier New',monospace;
+}
+.club-card-note{
+  font-size:14px;line-height:1.7;color:var(--text-muted);
+  max-width:520px;margin:0 auto;
+}
+
+/* Форма */
+.club-form-section{
+  padding:120px 48px;
+  background:var(--coal);
+  border-top:1px solid var(--border);
+}
+.club-form-inner{max-width:680px;margin:0 auto}
+.club-form-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;text-align:center;
+}
+.club-form-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;text-align:center;margin-bottom:56px;
+}
+.club-form-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+.club-form-row{margin-bottom:28px}
+.club-form-row.two{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.club-form-label{
+  display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;
+}
+.club-form-label .req{color:var(--amber);margin-left:4px}
+.club-form-input{
+  width:100%;background:transparent;border:none;
+  border-bottom:1px solid var(--border-strong);
+  padding:12px 0;font-size:16px;color:var(--text-on-dark);
+  font-weight:400;font-family:inherit;
+  transition:border-color .3s ease;
+}
+.club-form-input:focus{outline:none;border-color:var(--amber)}
+.club-form-input::placeholder{color:var(--text-dim)}
+
+.club-form-checkbox{
+  display:flex;align-items:flex-start;gap:12px;
+  margin:36px 0;cursor:pointer;
+}
+.club-form-cb{
+  flex-shrink:0;width:22px;height:22px;
+  border:1px solid var(--border-strong);background:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;transition:all .3s ease;
+}
+.club-form-cb.checked{background:var(--amber);border-color:var(--amber)}
+.club-form-cb.checked::after{content:'✓';color:var(--black);font-size:14px;font-weight:700}
+.club-form-cb-label{
+  font-size:13px;line-height:1.6;color:var(--text-muted);
+}
+
+.club-form-submit{
+  width:100%;padding:20px 32px;
+  background:var(--amber);color:var(--black);
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:600;
+  cursor:pointer;border:none;font-family:inherit;
+  transition:all .3s ease;min-height:56px;
+}
+.club-form-submit:hover:not(:disabled){background:var(--amber-soft)}
+.club-form-submit:disabled{opacity:0.5;cursor:not-allowed}
+
+.club-form-error{
+  display:none;margin-top:20px;
+  padding:14px 18px;
+  background:rgba(224,112,80,0.1);border:1px solid #e07050;
+  color:#e07050;font-size:13px;
+}
+.club-form-error.visible{display:block}
+
+.club-form-closed{
+  display:none;margin-top:32px;
+  padding:24px;border:1px solid var(--border-strong);
+  background:var(--carbon);
+  text-align:center;
+}
+.club-form-closed.visible{display:block}
+.club-form-closed strong{
+  display:block;color:var(--amber);
+  font-size:13px;letter-spacing:2px;text-transform:uppercase;
+  margin-bottom:8px;
+}
+.club-form-closed span{font-size:14px;color:var(--text-muted);line-height:1.6}
+
+.club-success{
+  display:none;text-align:center;
+  padding:48px 32px;
+}
+.club-success.visible{display:block}
+.club-success-icon{
+  width:80px;height:80px;margin:0 auto 32px;
+  border-radius:50%;border:1px solid var(--amber);
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;color:var(--amber);
+}
+.club-success-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:18px;
+}
+.club-success-title{
+  font-size:clamp(28px,4vw,42px);
+  font-weight:200;letter-spacing:-0.01em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.club-success-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:24px;color:var(--amber);
+  margin-bottom:24px;letter-spacing:1px;
+}
+.club-success-desc{
+  font-size:15px;color:var(--text-muted);line-height:1.6;
+  max-width:480px;margin:0 auto;
+}
+
+/* === MOBILE === */
+@media (max-width: 768px){
+  .club-hero{padding:100px 20px 60px;min-height:auto}
+  .club-hero-title{font-size:clamp(32px,8vw,52px)!important;word-break:break-word}
+  .club-hero-lead{font-size:17px!important;margin-bottom:36px}
+  .club-counter{margin-bottom:36px}
+  .club-counter-issued{font-size:22px}
+  .club-counter-text{font-size:10px;letter-spacing:1.5px}
+  .club-hero-cta .btn{width:100%;justify-content:center;padding:16px 28px}
+  
+  .club-benefits{padding:60px 20px}
+  .club-benefits-title{font-size:clamp(26px,7vw,40px)!important;margin-bottom:40px!important}
+  .club-benefits-grid{grid-template-columns:1fr;gap:1px}
+  .club-benefit{padding:32px 24px}
+  .club-benefit-num{font-size:54px;margin-bottom:16px}
+  .club-benefit-name{font-size:12px;letter-spacing:2px}
+  .club-benefit-desc{font-size:13px}
+  
+  .club-card-preview-section{padding:60px 20px}
+  .club-preview-title{font-size:clamp(26px,7vw,40px)!important;margin-bottom:40px!important}
+  .club-card-visual{width:100%;padding:24px 22px}
+  .club-card-brand{font-size:24px;letter-spacing:8px}
+  .club-card-subtitle{font-size:8px;letter-spacing:3px}
+  .club-card-divider{margin:16px auto}
+  .club-card-tier{font-size:20px}
+  .club-card-name{font-size:15px;margin-top:12px}
+  .club-card-footer{bottom:18px;left:24px;right:24px}
+  .club-card-foot-label{font-size:7px}
+  .club-card-foot-value{font-size:10px}
+  
+  .club-form-section{padding:60px 20px}
+  .club-form-title{font-size:clamp(26px,7vw,40px)!important;margin-bottom:40px!important}
+  .club-form-row.two{grid-template-columns:1fr;gap:0}
+  .club-form-row.two > div{margin-bottom:28px}
+  .club-form-row.two > div:last-child{margin-bottom:0}
+  .club-form-input{font-size:16px}
+}
+
+@media (max-width: 420px){
+  .club-hero{padding:90px 16px 50px}
+  .club-benefits,.club-card-preview-section,.club-form-section{padding-left:16px;padding-right:16px}
+}
+
 </style>
 </head>
 <body>
@@ -3543,6 +3883,7 @@ img, video, iframe {
     <a class="nav-link" data-route="training" data-cursor data-i18n="nav.training">Обучение</a>
     <a class="nav-link" data-route="creators" data-cursor data-i18n="nav.creators">Инфлюенсерам</a>
     <a class="nav-link" data-route="news" data-cursor data-i18n="nav.news">Журнал</a>
+    <a class="nav-link nav-link-club" data-route="club" data-cursor data-i18n="nav.club">Карта</a>
   </div>
   <div class="nav-right">
     <div class="lang-switcher">
@@ -3563,6 +3904,7 @@ img, video, iframe {
   <a data-route="training" data-i18n="nav.training">Обучение</a>
   <a data-route="creators" data-i18n="nav.creators">Инфлюенсерам</a>
   <a data-route="news" data-i18n="nav.news">Журнал</a>
+  <a data-route="club" data-i18n="nav.club">Карта</a>
 </div>
 
 <!-- ============ HOME ============ -->
@@ -4261,6 +4603,158 @@ img, video, iframe {
   </section>
 </main>
 
+
+<!-- ============ CLUB / THERAPY CARD ============ -->
+<main class="page" id="page-club">
+  <!-- Hero -->
+  <section class="club-hero">
+    <div class="club-hero-inner">
+      <div class="club-hero-eyebrow reveal" data-i18n="club.eyebrow">— Закрытый клуб EVOXA Therapy —</div>
+      <h1 class="club-hero-title reveal reveal-delay-1">
+        <span data-i18n="club.title1">Золотая карта</span><br>
+        <span class="em" data-i18n="club.title2">первой тысячи.</span>
+      </h1>
+      <p class="club-hero-lead reveal reveal-delay-2" data-i18n="club.lead">Закрытый клуб для тех, кто выбирает здоровую и сияющую кожу. Первые 1000 клиентов получают именную золотую карту с привилегиями навсегда.</p>
+      
+      <!-- Счётчик -->
+      <div class="club-counter reveal reveal-delay-2">
+        <div class="club-counter-progress">
+          <div class="club-counter-fill" id="clubCounterFill" style="width:0%"></div>
+        </div>
+        <div class="club-counter-text">
+          <span class="club-counter-issued" id="clubIssued">0</span>
+          <span class="club-counter-of" data-i18n="club.of">из</span>
+          <span class="club-counter-limit">1000</span>
+          <span class="club-counter-label" data-i18n="club.issued">карт выпущено</span>
+        </div>
+      </div>
+      
+      <div class="club-hero-cta reveal reveal-delay-3">
+        <a href="#clubForm" class="btn btn-filled btn-large" data-cursor>
+          <span data-i18n="club.cta">Получить карту бесплатно</span>
+          <span class="arrow">↓</span>
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Преимущества -->
+  <section class="club-benefits">
+    <div class="club-benefits-inner">
+      <div class="club-benefits-eyebrow reveal" data-i18n="club.benefitsEyebrow">— Привилегии Gold —</div>
+      <h2 class="club-benefits-title reveal reveal-delay-1">
+        <span data-i18n="club.benefitsTitle1">Что даёт</span>
+        <span class="em" data-i18n="club.benefitsTitle2">золотая карта.</span>
+      </h2>
+      
+      <div class="club-benefits-grid">
+        <div class="club-benefit reveal reveal-delay-1">
+          <div class="club-benefit-num">15%</div>
+          <div class="club-benefit-name" data-i18n="club.benefit1Name">Процедуры EVOXA</div>
+          <div class="club-benefit-desc" data-i18n="club.benefit1Desc">Скидка на любую процедуру EVOXA Therapy в клиниках-партнёрах</div>
+        </div>
+        <div class="club-benefit reveal reveal-delay-2">
+          <div class="club-benefit-num">10%</div>
+          <div class="club-benefit-name" data-i18n="club.benefit2Name">Домашняя линейка</div>
+          <div class="club-benefit-desc" data-i18n="club.benefit2Desc">Скидка на всю розничную линейку для домашнего ухода EVOXA</div>
+        </div>
+        <div class="club-benefit reveal reveal-delay-3">
+          <div class="club-benefit-num">∞</div>
+          <div class="club-benefit-name" data-i18n="club.benefit3Name">Срок действия</div>
+          <div class="club-benefit-desc" data-i18n="club.benefit3Desc">Карта работает бессрочно. Раз получили — пользуетесь всегда</div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Превью карты -->
+  <section class="club-card-preview-section">
+    <div class="club-card-preview-inner">
+      <div class="club-preview-eyebrow reveal" data-i18n="club.previewEyebrow">— Как выглядит карта —</div>
+      <h2 class="club-preview-title reveal reveal-delay-1">
+        <span data-i18n="club.previewTitle1">Персональный</span>
+        <span class="em" data-i18n="club.previewTitle2">золотой стандарт.</span>
+      </h2>
+      
+      <div class="club-card-mockup reveal reveal-delay-2">
+        <div class="club-card-visual">
+          <div class="club-card-double-border"></div>
+          <div class="club-card-brand">EVOXA</div>
+          <div class="club-card-subtitle" data-i18n="club.cardSubtitle">Therapy · Closed Club</div>
+          <div class="club-card-divider"></div>
+          <div class="club-card-tier" data-i18n="club.cardTier">Gold Member</div>
+          <div class="club-card-name" data-i18n="club.cardName">Ваше имя</div>
+          <div class="club-card-footer">
+            <div>
+              <div class="club-card-foot-label" data-i18n="club.cardNum">Card Number</div>
+              <div class="club-card-foot-value">EVOXA-GOLD-XXXXXX</div>
+            </div>
+            <div style="text-align:right">
+              <div class="club-card-foot-label" data-i18n="club.cardSince">Member since</div>
+              <div class="club-card-foot-value">XX.XX.2026</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <p class="club-card-note reveal reveal-delay-3" data-i18n="club.cardNote">Карта приходит на email в формате PDF сразу после заполнения формы. Сохраните её в телефон или распечатайте.</p>
+    </div>
+  </section>
+  
+  <!-- Форма -->
+  <section class="club-form-section" id="clubForm">
+    <div class="club-form-inner">
+      <div class="club-form-eyebrow reveal" data-i18n="club.formEyebrow">— Выпуск карты —</div>
+      <h2 class="club-form-title reveal reveal-delay-1">
+        <span data-i18n="club.formTitle1">Получите</span>
+        <span class="em" data-i18n="club.formTitle2">свою золотую карту.</span>
+      </h2>
+      
+      <form class="club-form reveal reveal-delay-2" id="clubFormEl" onsubmit="submitClubForm(event)">
+        <div class="club-form-row">
+          <label class="club-form-label" data-i18n="club.fldName">ФИО полностью <span class="req">*</span></label>
+          <input type="text" class="club-form-input" id="club-fld-name" required placeholder="Иванова Анна Сергеевна">
+        </div>
+        
+        <div class="club-form-row two">
+          <div>
+            <label class="club-form-label" data-i18n="club.fldPhone">Телефон <span class="req">*</span></label>
+            <input type="tel" class="club-form-input" id="club-fld-phone" required placeholder="+7 999 000 00 00">
+          </div>
+          <div>
+            <label class="club-form-label" data-i18n="club.fldEmail">Email <span class="req">*</span></label>
+            <input type="email" class="club-form-input" id="club-fld-email" required placeholder="your@email.com">
+          </div>
+        </div>
+        
+        <label class="club-form-checkbox" onclick="toggleClubConsent()">
+          <span class="club-form-cb" id="clubConsentBox"></span>
+          <span class="club-form-cb-label" data-i18n="club.consent">Я согласен(а) на обработку персональных данных EVOXA Studio SL для оформления и сопровождения карты лояльности</span>
+        </label>
+        
+        <button type="submit" class="club-form-submit" id="clubSubmitBtn" data-i18n="club.submit">
+          Получить золотую карту
+        </button>
+        
+        <div class="club-form-error" id="clubFormError"></div>
+        <div class="club-form-closed" id="clubFormClosed">
+          <strong data-i18n="club.closedTitle">Лимит выпуска достигнут</strong>
+          <span data-i18n="club.closedDesc">Все 1000 золотых карт уже выпущены. Спасибо за интерес — следите за нашими анонсами.</span>
+        </div>
+      </form>
+      
+      <!-- Успех -->
+      <div class="club-success" id="clubSuccess">
+        <div class="club-success-icon">✓</div>
+        <div class="club-success-eyebrow" data-i18n="club.successEyebrow">— Карта выпущена —</div>
+        <h3 class="club-success-title" data-i18n="club.successTitle">Добро пожаловать в клуб</h3>
+        <div class="club-success-num" id="clubSuccessNum"></div>
+        <p class="club-success-desc" data-i18n="club.successDesc">PDF карты отправлен на ваш email. Если письмо не пришло в течение 5 минут — проверьте папку «Спам».</p>
+      </div>
+    </div>
+  </section>
+</main>
+
 <!-- ============ FOOTER ============ -->
 <footer class="footer">
   <div class="footer-inner">
@@ -4334,6 +4828,37 @@ const I18N = {
   ru: {
     'nav.home':'Главная','nav.products':'Продукты','nav.clinics':'Где сделать','nav.training':'Обучение',
     'nav.creators':'Инфлюенсерам',
+    'nav.club':'Карта',
+    'club.eyebrow':'— Закрытый клуб EVOXA Therapy —',
+    'club.title1':'Золотая карта','club.title2':'первой тысячи.',
+    'club.lead':'Закрытый клуб для тех, кто выбирает здоровую и сияющую кожу. Первые 1000 клиентов получают именную золотую карту с привилегиями навсегда.',
+    'club.of':'из','club.issued':'карт выпущено',
+    'club.cta':'Получить карту бесплатно',
+    'club.benefitsEyebrow':'— Привилегии Gold —',
+    'club.benefitsTitle1':'Что даёт','club.benefitsTitle2':'золотая карта.',
+    'club.benefit1Name':'Процедуры EVOXA',
+    'club.benefit1Desc':'Скидка на любую процедуру EVOXA Therapy в клиниках-партнёрах',
+    'club.benefit2Name':'Домашняя линейка',
+    'club.benefit2Desc':'Скидка на всю розничную линейку для домашнего ухода EVOXA',
+    'club.benefit3Name':'Срок действия',
+    'club.benefit3Desc':'Карта работает бессрочно. Раз получили — пользуетесь всегда',
+    'club.previewEyebrow':'— Как выглядит карта —',
+    'club.previewTitle1':'Персональный','club.previewTitle2':'золотой стандарт.',
+    'club.cardSubtitle':'Therapy · Closed Club',
+    'club.cardTier':'Gold Member',
+    'club.cardName':'Ваше имя',
+    'club.cardNum':'Card Number','club.cardSince':'Member since',
+    'club.cardNote':'Карта приходит на email в формате PDF сразу после заполнения формы. Сохраните её в телефон или распечатайте.',
+    'club.formEyebrow':'— Выпуск карты —',
+    'club.formTitle1':'Получите','club.formTitle2':'свою золотую карту.',
+    'club.fldName':'ФИО полностью','club.fldPhone':'Телефон','club.fldEmail':'Email',
+    'club.consent':'Я согласен(а) на обработку персональных данных EVOXA Studio SL для оформления и сопровождения карты лояльности',
+    'club.submit':'Получить золотую карту',
+    'club.closedTitle':'Лимит выпуска достигнут',
+    'club.closedDesc':'Все 1000 золотых карт уже выпущены. Спасибо за интерес — следите за нашими анонсами.',
+    'club.successEyebrow':'— Карта выпущена —',
+    'club.successTitle':'Добро пожаловать в клуб',
+    'club.successDesc':'PDF карты отправлен на ваш email. Если письмо не пришло в течение 5 минут — проверьте папку «Спам».',
     'cinematic.scrollHint':'Прокрутите вниз',
     'geo.eyebrow':'— География метода —',
     'geo.title1':'От Поволжья','geo.title2':'до Прибайкалья.',
@@ -4450,6 +4975,37 @@ const I18N = {
   en: {
     'nav.home':'Home','nav.products':'Products','nav.clinics':'Find a Clinic','nav.training':'Training',
     'nav.creators':'Creators',
+    'nav.club':'Card',
+    'club.eyebrow':'— EVOXA Therapy Closed Club —',
+    'club.title1':'Gold card','club.title2':'of the first thousand.',
+    'club.lead':'A closed club for those who choose healthy radiant skin. The first 1000 clients receive a personal gold card with lifetime privileges.',
+    'club.of':'of','club.issued':'cards issued',
+    'club.cta':'Get card for free',
+    'club.benefitsEyebrow':'— Gold privileges —',
+    'club.benefitsTitle1':'What the gold card','club.benefitsTitle2':'gives you.',
+    'club.benefit1Name':'EVOXA procedures',
+    'club.benefit1Desc':'Discount on any EVOXA Therapy procedure at partner clinics',
+    'club.benefit2Name':'Home range',
+    'club.benefit2Desc':'Discount on the entire EVOXA retail home care range',
+    'club.benefit3Name':'Validity',
+    'club.benefit3Desc':'The card works forever. Once issued — yours always',
+    'club.previewEyebrow':'— How the card looks —',
+    'club.previewTitle1':'Personal','club.previewTitle2':'gold standard.',
+    'club.cardSubtitle':'Therapy · Closed Club',
+    'club.cardTier':'Gold Member',
+    'club.cardName':'Your name',
+    'club.cardNum':'Card Number','club.cardSince':'Member since',
+    'club.cardNote':'The card arrives on your email as PDF right after submitting the form. Save it to your phone or print.',
+    'club.formEyebrow':'— Card issue —',
+    'club.formTitle1':'Get','club.formTitle2':'your gold card.',
+    'club.fldName':'Full name','club.fldPhone':'Phone','club.fldEmail':'Email',
+    'club.consent':'I consent to EVOXA Studio SL processing my personal data for loyalty card issuance and management',
+    'club.submit':'Get gold card',
+    'club.closedTitle':'Issue limit reached',
+    'club.closedDesc':'All 1000 gold cards have been issued. Thank you for your interest — follow our announcements.',
+    'club.successEyebrow':'— Card issued —',
+    'club.successTitle':'Welcome to the club',
+    'club.successDesc':'Your card PDF has been sent to your email. If it does not arrive within 5 minutes — check Spam folder.',
     'cinematic.scrollHint':'Scroll down',
     'geo.eyebrow':'— Method geography —',
     'geo.title1':'From the Volga','geo.title2':'to Lake Baikal.',
@@ -4565,6 +5121,37 @@ const I18N = {
   es: {
     'nav.home':'Inicio','nav.products':'Productos','nav.clinics':'Encuentra clínica','nav.training':'Formación',
     'nav.creators':'Creadores',
+    'nav.club':'Tarjeta',
+    'club.eyebrow':'— Club cerrado EVOXA Therapy —',
+    'club.title1':'Tarjeta dorada','club.title2':'de los primeros mil.',
+    'club.lead':'Club cerrado para quienes eligen una piel sana y radiante. Los primeros 1000 clientes reciben una tarjeta dorada personal con privilegios para siempre.',
+    'club.of':'de','club.issued':'tarjetas emitidas',
+    'club.cta':'Obtener tarjeta gratis',
+    'club.benefitsEyebrow':'— Privilegios Gold —',
+    'club.benefitsTitle1':'Qué da','club.benefitsTitle2':'la tarjeta dorada.',
+    'club.benefit1Name':'Procedimientos EVOXA',
+    'club.benefit1Desc':'Descuento en cualquier procedimiento EVOXA Therapy en clínicas partner',
+    'club.benefit2Name':'Línea para casa',
+    'club.benefit2Desc':'Descuento en toda la línea retail de cuidado en casa EVOXA',
+    'club.benefit3Name':'Vigencia',
+    'club.benefit3Desc':'La tarjeta es para siempre. Una vez emitida — es tuya',
+    'club.previewEyebrow':'— Cómo es la tarjeta —',
+    'club.previewTitle1':'Estándar dorado','club.previewTitle2':'personal.',
+    'club.cardSubtitle':'Therapy · Closed Club',
+    'club.cardTier':'Gold Member',
+    'club.cardName':'Tu nombre',
+    'club.cardNum':'Card Number','club.cardSince':'Member since',
+    'club.cardNote':'La tarjeta llega a tu email en formato PDF justo tras enviar el formulario. Guárdala en el móvil o imprímela.',
+    'club.formEyebrow':'— Emisión de tarjeta —',
+    'club.formTitle1':'Recibe','club.formTitle2':'tu tarjeta dorada.',
+    'club.fldName':'Nombre completo','club.fldPhone':'Teléfono','club.fldEmail':'Email',
+    'club.consent':'Doy mi consentimiento a EVOXA Studio SL para tratar mis datos para la emisión y gestión de la tarjeta',
+    'club.submit':'Obtener tarjeta dorada',
+    'club.closedTitle':'Límite alcanzado',
+    'club.closedDesc':'Las 1000 tarjetas doradas ya fueron emitidas. Gracias por tu interés — sigue nuestros anuncios.',
+    'club.successEyebrow':'— Tarjeta emitida —',
+    'club.successTitle':'Bienvenido al club',
+    'club.successDesc':'El PDF de tu tarjeta se ha enviado a tu email. Si no llega en 5 minutos — revisa la carpeta de Spam.',
     'cinematic.scrollHint':'Desplázate',
     'geo.eyebrow':'— Geografía del método —',
     'geo.title1':'Del Volga','geo.title2':'al lago Baikal.',
@@ -7584,6 +8171,7 @@ function applyI18n(){
   if(currentRoute==='clinics') renderClinics();
   if(currentRoute==='training') renderTraining();
   if(currentRoute==='news') renderNews();
+  if(currentRoute==='club'){loadClubStats();}
 }
 function setLang(lang){
   currentLang=lang;
@@ -8059,6 +8647,129 @@ function initCinematicScroll(){
   
   // Запускаем сразу для первого кадра
   updateVideo();
+}
+
+
+/* ============ CLUB / THERAPY ============ */
+const CLUB_API_URL = 'https://script.google.com/macros/s/AKfycbzKUpbMoqHyexKAo6dfqMBvg1S2PldImgFZ_l1qUEI0chaMYDSjiRLkfTeONG3-12Vi/exec';
+const CLUB_TOKEN = 'EvoxaProAcademy2026Anna';
+let clubConsent = false;
+let clubStatsLoaded = false;
+
+async function loadClubStats(){
+  try {
+    const res = await fetch(CLUB_API_URL + '?action=club_stats', {method:'GET', mode:'cors'});
+    const data = await res.json();
+    if(data.ok){
+      const issued = data.issued || 0;
+      const limit = data.limit || 1000;
+      const pct = Math.min(100, (issued / limit) * 100);
+      const issuedEl = document.getElementById('clubIssued');
+      const fillEl = document.getElementById('clubCounterFill');
+      if(issuedEl) animateClubNumber(issuedEl, 0, issued, 1400);
+      if(fillEl) setTimeout(() => fillEl.style.width = pct + '%', 100);
+      
+      // Если лимит достигнут — закрываем форму
+      if(issued >= limit){
+        const formEl = document.getElementById('clubFormEl');
+        const closedEl = document.getElementById('clubFormClosed');
+        if(formEl){
+          formEl.querySelectorAll('input,button').forEach(el => el.disabled = true);
+        }
+        if(closedEl) closedEl.classList.add('visible');
+      }
+    }
+  } catch(err){
+    console.log('Club stats error:', err);
+  }
+  clubStatsLoaded = true;
+}
+
+function animateClubNumber(el, from, to, duration){
+  const start = performance.now();
+  const step = (t) => {
+    const elapsed = t - start;
+    const progress = Math.min(elapsed / duration, 1);
+    const eased = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
+    el.textContent = Math.round(from + (to - from) * eased);
+    if(progress < 1) requestAnimationFrame(step);
+  };
+  requestAnimationFrame(step);
+}
+
+function toggleClubConsent(){
+  clubConsent = !clubConsent;
+  const box = document.getElementById('clubConsentBox');
+  if(box) box.classList.toggle('checked', clubConsent);
+}
+
+function showClubError(msg){
+  const el = document.getElementById('clubFormError');
+  if(!el) return;
+  el.textContent = msg;
+  el.classList.add('visible');
+}
+
+function hideClubError(){
+  const el = document.getElementById('clubFormError');
+  if(el) el.classList.remove('visible');
+}
+
+async function submitClubForm(e){
+  e.preventDefault();
+  hideClubError();
+  
+  if(!clubConsent){
+    showClubError('Необходимо согласие на обработку персональных данных');
+    return;
+  }
+  
+  const payload = {
+    token: CLUB_TOKEN,
+    action: 'club_register',
+    fullName: document.getElementById('club-fld-name').value.trim(),
+    phone: document.getElementById('club-fld-phone').value.trim(),
+    email: document.getElementById('club-fld-email').value.trim(),
+    consent: clubConsent
+  };
+  
+  const submitBtn = document.getElementById('clubSubmitBtn');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Отправляем...';
+  
+  try {
+    const res = await fetch(CLUB_API_URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    });
+    const data = await res.json();
+    
+    if(data.ok){
+      document.getElementById('clubFormEl').style.display = 'none';
+      const success = document.getElementById('clubSuccess');
+      document.getElementById('clubSuccessNum').textContent = '№ ' + data.cardNumber;
+      success.classList.add('visible');
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+      // обновим счётчик
+      setTimeout(loadClubStats, 1000);
+    } else if(data.error === 'limit_reached'){
+      showClubError('К сожалению, все 1000 карт уже выпущены.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    } else {
+      showClubError('Ошибка: ' + (data.error || 'неизвестная'));
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  } catch(err){
+    showClubError('Ошибка соединения. Попробуйте ещё раз.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
 }
 
 /* ============ NEWS RENDER ============ */
