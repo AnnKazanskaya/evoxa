@@ -3867,6 +3867,430 @@ img, video, iframe {
   .club-benefits,.club-card-preview-section,.club-form-section{padding-left:16px;padding-right:16px}
 }
 
+
+/* ============ GLANCE / СТУДИЯ ============ */
+
+/* HERO with video bg */
+.glance-hero{
+  position:relative;
+  min-height:100vh;min-height:100svh;
+  padding:140px 48px 80px;
+  display:flex;align-items:center;
+  overflow:hidden;
+  background:var(--black);
+}
+.glance-hero-video-wrap{
+  position:absolute;inset:0;
+  z-index:0;
+  background:var(--black);
+}
+.glance-hero-video{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  object-fit:cover;
+  opacity:0.55;
+}
+.glance-hero-overlay{
+  position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 30% 40%, transparent 0%, rgba(10,10,10,0.5) 70%),
+    linear-gradient(to bottom, rgba(10,10,10,0.4) 0%, transparent 35%, transparent 65%, rgba(10,10,10,0.85) 100%);
+}
+.glance-hero-inner{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;width:100%;
+}
+.glance-hero-eyebrow{
+  font-size:11px;font-weight:500;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:32px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.5);
+}
+.glance-hero-title{
+  font-size:clamp(48px,8vw,120px);
+  font-weight:200;line-height:0.95;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:32px;
+  text-shadow:0 4px 24px rgba(0,0,0,0.6);
+}
+.glance-hero-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;letter-spacing:-0.01em;
+}
+.glance-hero-lead{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  font-size:clamp(20px,2vw,26px);line-height:1.5;
+  color:var(--text-on-dark);
+  max-width:620px;margin-bottom:48px;
+  text-shadow:0 2px 12px rgba(0,0,0,0.5);
+}
+
+/* Промо плашка */
+.glance-promo{
+  display:flex;align-items:center;gap:24px;
+  background:linear-gradient(135deg, rgba(200,144,80,0.95) 0%, rgba(212,160,106,0.92) 100%);
+  padding:24px 28px;
+  border:1px solid rgba(245,237,227,0.3);
+  max-width:760px;
+  backdrop-filter:blur(8px);
+  box-shadow:0 20px 60px rgba(0,0,0,0.4);
+}
+.glance-promo-badge{
+  font-size:10px;letter-spacing:3px;text-transform:uppercase;
+  color:var(--black);font-weight:700;
+  padding:8px 14px;
+  border:1px solid var(--black);
+  flex-shrink:0;
+}
+.glance-promo-text{flex:1}
+.glance-promo-text strong{
+  display:block;
+  font-size:17px;font-weight:600;color:var(--black);
+  margin-bottom:4px;letter-spacing:0.5px;
+}
+.glance-promo-text span{
+  display:block;font-size:13px;color:rgba(10,10,10,0.85);line-height:1.5;
+}
+.glance-promo-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--black);color:var(--amber);
+  padding:14px 22px;
+  font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+  cursor:pointer;flex-shrink:0;
+  transition:all .3s ease;
+}
+.glance-promo-btn:hover{background:#222;transform:translateY(-2px)}
+
+/* MEDIA GRID */
+.glance-grid-section{
+  padding:120px 48px;
+  background:var(--coal);
+}
+.glance-grid-inner{max-width:1400px;margin:0 auto}
+.glance-grid-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;
+}
+.glance-grid-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;margin-bottom:24px;
+}
+.glance-grid-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+.glance-grid-desc{
+  font-size:16px;line-height:1.65;color:var(--text-muted);
+  max-width:620px;margin-bottom:60px;
+}
+
+.glance-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.glance-tile{
+  position:relative;
+  aspect-ratio:3/4;
+  overflow:hidden;
+  background:var(--black);
+  cursor:pointer;
+  group:hover;
+}
+.glance-tile img,
+.glance-tile video{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform .8s var(--ease-out-expo);
+}
+.glance-tile:hover img,
+.glance-tile:hover video{
+  transform:scale(1.04);
+}
+.glance-tile-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg, transparent 50%, rgba(10,10,10,0.85) 100%);
+  opacity:0;
+  transition:opacity .4s ease;
+  display:flex;flex-direction:column;justify-content:flex-end;
+  padding:24px;
+  pointer-events:none;
+}
+.glance-tile:hover .glance-tile-overlay{opacity:1}
+.glance-tile-type{
+  position:absolute;top:14px;left:14px;
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-on-dark);
+  background:rgba(10,10,10,0.6);
+  padding:6px 10px;
+  backdrop-filter:blur(8px);
+  z-index:2;
+}
+.glance-tile-type.video{color:var(--amber)}
+.glance-tile-download{
+  pointer-events:auto;
+  position:absolute;top:14px;right:14px;
+  width:40px;height:40px;
+  background:rgba(200,144,80,0.95);
+  color:var(--black);
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;
+  border:none;cursor:pointer;
+  border-radius:50%;
+  opacity:0;
+  transition:all .3s ease;
+  z-index:3;
+}
+.glance-tile:hover .glance-tile-download{opacity:1}
+.glance-tile-download:hover{background:var(--amber-soft);transform:scale(1.1)}
+.glance-tile-caption{
+  font-size:13px;color:var(--text-on-dark);
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+}
+
+/* CONTEST */
+.glance-contest-section{
+  padding:120px 48px;
+  background:var(--black);
+}
+.glance-contest-inner{max-width:780px;margin:0 auto}
+.glance-contest-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;text-align:center;
+}
+.glance-contest-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;text-align:center;margin-bottom:56px;
+}
+.glance-contest-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+
+.glance-contest-steps{
+  list-style:none;padding:0;margin:0 0 64px;
+  display:flex;flex-direction:column;gap:20px;
+}
+.glance-contest-steps li{
+  display:flex;gap:24px;align-items:flex-start;
+  padding:24px 28px;
+  background:var(--coal);
+  border-left:2px solid var(--amber);
+}
+.glance-step-num{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:32px;color:var(--amber);
+  flex-shrink:0;line-height:1;
+}
+.glance-step-text{
+  font-size:15px;line-height:1.6;color:var(--text-on-dark);
+  padding-top:4px;
+}
+
+/* FORM (общий стиль) */
+.glance-form-row{margin-bottom:28px}
+.glance-form-row.two{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.glance-form-label{
+  display:block;font-size:10px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text-muted);margin-bottom:10px;
+}
+.glance-form-label .req{color:var(--amber);margin-left:4px}
+.glance-form-input{
+  width:100%;background:transparent;border:none;
+  border-bottom:1px solid var(--border-strong);
+  padding:12px 0;font-size:16px;color:var(--text-on-dark);
+  font-weight:400;font-family:inherit;
+  transition:border-color .3s ease;
+}
+.glance-form-input:focus{outline:none;border-color:var(--amber)}
+.glance-form-input::placeholder{color:var(--text-dim)}
+
+.glance-form-checkbox{
+  display:flex;align-items:flex-start;gap:12px;
+  margin:36px 0;cursor:pointer;
+}
+.glance-form-cb{
+  flex-shrink:0;width:22px;height:22px;
+  border:1px solid var(--border-strong);background:var(--coal);
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;transition:all .3s ease;
+}
+.glance-form-cb.checked{background:var(--amber);border-color:var(--amber)}
+.glance-form-cb.checked::after{content:'✓';color:var(--black);font-size:14px;font-weight:700}
+.glance-form-cb-label{
+  font-size:13px;line-height:1.6;color:var(--text-muted);
+}
+
+.glance-form-submit{
+  width:100%;padding:20px 32px;
+  background:var(--amber);color:var(--black);
+  font-size:12px;letter-spacing:3px;text-transform:uppercase;font-weight:600;
+  cursor:pointer;border:none;font-family:inherit;
+  transition:all .3s ease;min-height:56px;
+}
+.glance-form-submit:hover:not(:disabled){background:var(--amber-soft)}
+.glance-form-submit:disabled{opacity:0.5;cursor:not-allowed}
+
+.glance-form-error{
+  display:none;margin-top:20px;
+  padding:14px 18px;
+  background:rgba(224,112,80,0.1);border:1px solid #e07050;
+  color:#e07050;font-size:13px;
+}
+.glance-form-error.visible{display:block}
+
+.glance-success{
+  display:none;text-align:center;
+  padding:48px 32px;
+}
+.glance-success.visible{display:block}
+.glance-success-icon{
+  width:80px;height:80px;margin:0 auto 32px;
+  border-radius:50%;border:1px solid var(--amber);
+  display:flex;align-items:center;justify-content:center;
+  font-size:36px;color:var(--amber);
+}
+.glance-success-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:18px;
+}
+.glance-success-title{
+  font-size:clamp(28px,4vw,42px);
+  font-weight:200;letter-spacing:-0.01em;text-transform:uppercase;
+  margin-bottom:16px;
+}
+.glance-success-desc{
+  font-size:15px;color:var(--text-muted);line-height:1.7;
+  max-width:480px;margin:0 auto;
+}
+
+/* READ section */
+.glance-read-section{
+  padding:120px 48px;
+  background:var(--coal);
+  border-top:1px solid var(--border);
+}
+.glance-read-inner{max-width:1280px;margin:0 auto}
+.glance-read-eyebrow{
+  font-size:11px;letter-spacing:5px;text-transform:uppercase;
+  color:var(--amber);margin-bottom:24px;text-align:center;
+}
+.glance-read-title{
+  font-size:clamp(32px,4.5vw,56px);
+  font-weight:200;line-height:1.05;letter-spacing:-0.02em;
+  text-transform:uppercase;text-align:center;margin-bottom:64px;
+}
+.glance-read-title .em{
+  font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;
+  color:var(--amber);text-transform:none;
+}
+
+/* ============ ЗАКЛАДКА (на всех страницах) ============ */
+.glance-bookmark{
+  position:fixed;
+  right:0;bottom:120px;
+  z-index:99;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;
+  width:54px;
+  padding:24px 8px;
+  background:linear-gradient(135deg,#1a1a1a 0%,#2a1f10 50%,#4a3215 100%);
+  border:1px solid var(--amber);
+  border-right:none;
+  color:var(--amber);
+  text-decoration:none;
+  cursor:pointer;
+  transition:all .4s var(--ease-out-expo);
+  box-shadow:-4px 0 24px rgba(0,0,0,0.4), inset 0 0 30px rgba(200,144,80,0.1);
+  opacity:0;
+  transform:translateX(20px);
+  animation:glanceBookmarkIn 0.8s var(--ease-out-expo) 3s forwards;
+}
+@keyframes glanceBookmarkIn{
+  to{opacity:1;transform:translateX(0)}
+}
+.glance-bookmark:hover{
+  background:linear-gradient(135deg,#2a2a2a 0%,#3a2f20 50%,#5a4225 100%);
+  width:64px;
+  box-shadow:-8px 0 32px rgba(200,144,80,0.3), inset 0 0 30px rgba(200,144,80,0.2);
+}
+.glance-bookmark-arrow{
+  font-size:16px;color:var(--amber);
+  transform:rotate(-45deg);
+  transition:transform .3s ease;
+}
+.glance-bookmark:hover .glance-bookmark-arrow{transform:rotate(0deg)}
+.glance-bookmark-text{
+  font-size:10px;letter-spacing:3px;font-weight:600;
+  writing-mode:vertical-rl;
+  color:var(--amber);
+  text-transform:uppercase;
+}
+.glance-bookmark-sub{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:11px;
+  color:rgba(245,237,227,0.7);
+  writing-mode:vertical-rl;
+  text-transform:none;letter-spacing:0;
+}
+/* На самой странице Glance — скрываем закладку */
+.page#page-glance.active ~ .glance-bookmark,
+body.is-glance-page .glance-bookmark{display:none}
+
+/* === MOBILE === */
+@media (max-width: 768px){
+  .glance-hero{padding:100px 20px 60px;min-height:90vh}
+  .glance-hero-title{font-size:clamp(40px,11vw,72px)!important}
+  .glance-hero-lead{font-size:17px!important;margin-bottom:36px}
+  
+  .glance-promo{
+    flex-direction:column;align-items:flex-start;gap:18px;
+    padding:20px;
+  }
+  .glance-promo-btn{width:100%;justify-content:center}
+  .glance-promo-text strong{font-size:15px}
+  .glance-promo-text span{font-size:12px}
+  
+  .glance-grid-section{padding:60px 20px}
+  .glance-grid-title{font-size:clamp(26px,7vw,40px)!important}
+  .glance-grid-desc{font-size:14px;margin-bottom:36px!important}
+  .glance-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+  .glance-tile-download{
+    opacity:1!important;
+    width:36px;height:36px;font-size:16px;
+    top:10px;right:10px;
+  }
+  .glance-tile-type{font-size:8px;letter-spacing:1.5px;padding:5px 8px;top:10px;left:10px}
+  
+  .glance-contest-section{padding:60px 20px}
+  .glance-contest-title{font-size:clamp(26px,7vw,40px)!important;margin-bottom:40px!important}
+  .glance-contest-steps{gap:14px;margin-bottom:48px!important}
+  .glance-contest-steps li{padding:18px 20px;gap:16px}
+  .glance-step-num{font-size:24px}
+  .glance-step-text{font-size:13px}
+  .glance-form-row.two{grid-template-columns:1fr;gap:0}
+  .glance-form-row.two > div{margin-bottom:28px}
+  .glance-form-row.two > div:last-child{margin-bottom:0}
+  
+  .glance-read-section{padding:60px 20px}
+  .glance-read-title{font-size:clamp(26px,7vw,40px)!important;margin-bottom:40px!important}
+  
+  /* Закладка на мобильном меньше */
+  .glance-bookmark{
+    width:44px;
+    bottom:90px;
+    padding:18px 6px;
+  }
+  .glance-bookmark:hover{width:48px}
+  .glance-bookmark-text{font-size:9px;letter-spacing:2px}
+  .glance-bookmark-sub{font-size:10px}
+}
+@media (max-width: 420px){
+  .glance-grid{grid-template-columns:1fr;gap:8px}
+  .glance-hero,.glance-grid-section,.glance-contest-section,.glance-read-section{padding-left:16px;padding-right:16px}
+}
+
 </style>
 </head>
 <body>
@@ -3882,7 +4306,7 @@ img, video, iframe {
     <a class="nav-link" data-route="clinics" data-cursor data-i18n="nav.clinics">Где сделать</a>
     <a class="nav-link" data-route="training" data-cursor data-i18n="nav.training">Обучение</a>
     <a class="nav-link" data-route="creators" data-cursor data-i18n="nav.creators">Инфлюенсерам</a>
-    <a class="nav-link" data-route="news" data-cursor data-i18n="nav.news">Журнал</a>
+    <a class="nav-link" data-route="glance" data-cursor data-i18n="nav.glance">Глянец</a>
     <a class="nav-link nav-link-club" data-route="club" data-cursor data-i18n="nav.club">Карта</a>
   </div>
   <div class="nav-right">
@@ -3903,7 +4327,7 @@ img, video, iframe {
   <a data-route="clinics" data-i18n="nav.clinics">Где сделать</a>
   <a data-route="training" data-i18n="nav.training">Обучение</a>
   <a data-route="creators" data-i18n="nav.creators">Инфлюенсерам</a>
-  <a data-route="news" data-i18n="nav.news">Журнал</a>
+  <a data-route="glance" data-i18n="nav.glance">Глянец</a>
   <a data-route="club" data-i18n="nav.club">Карта</a>
 </div>
 
@@ -4057,7 +4481,7 @@ img, video, iframe {
         <div class="editorial-eyebrow reveal" data-i18n="ed.eyebrow">— Философия —</div>
         <h2 class="editorial-quote reveal reveal-delay-1" data-i18n="ed.quote">«Старение — не проблема. Это процесс, который можно модулировать.»</h2>
         <p class="editorial-text reveal reveal-delay-2" data-i18n="ed.text">EVOXA — это не косметика, это методология. Производство в Барселоне, сертификация ЕС и РФ, формулы на основе клинических данных, а не маркетинговых обещаний.</p>
-        <a class="btn btn-dark reveal reveal-delay-3" data-route="news" data-cursor>
+        <a class="btn btn-dark reveal reveal-delay-3" data-route="glance" data-cursor>
           <span data-i18n="ed.cta">Читать журнал</span>
           <span class="arrow">→</span>
         </a>
@@ -4069,7 +4493,7 @@ img, video, iframe {
   <section class="gallery">
     <div class="gallery-header">
       <h2 class="gallery-title reveal" data-i18n="gal.title">Визуальный<br><span style="font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;text-transform:none;color:var(--amber)">журнал.</span></h2>
-      <a class="line-link reveal reveal-delay-1" data-route="news" data-cursor>
+      <a class="line-link reveal reveal-delay-1" data-route="glance" data-cursor>
         <span data-i18n="gal.all">Все материалы</span> <span>→</span>
       </a>
     </div>
@@ -4280,28 +4704,143 @@ img, video, iframe {
 </main>
 
 <!-- ============ NEWS ============ -->
-<main class="page" id="page-news">
-  <section class="page-header">
-    <div class="page-header-inner">
-      <div class="page-eyebrow" data-i18n="news.eyebrow">— Новости и журнал —</div>
-      <h1 class="page-title">
-        <span data-i18n="news.title1">Журнал</span><br>
-        <span class="em" data-i18n="news.title2">EVOXA.</span>
+<main class="page" id="page-glance">
+  <!-- HERO with background video -->
+  <section class="glance-hero">
+    <div class="glance-hero-video-wrap">
+      <video class="glance-hero-video" autoplay muted loop playsinline preload="auto">
+        <source src="videos/glance-hero.mp4" type="video/mp4">
+      </video>
+      <div class="glance-hero-overlay"></div>
+    </div>
+    
+    <div class="glance-hero-inner">
+      <div class="glance-hero-eyebrow reveal" data-i18n="glance.eyebrow">— EVOXA Studio —</div>
+      <h1 class="glance-hero-title reveal reveal-delay-1">
+        <span data-i18n="glance.title1">Глянец</span>
+        <span class="em" data-i18n="glance.title2">Evoxa.</span>
       </h1>
-      <p class="page-subtitle" data-i18n="news.subtitle">Клинические исследования, разборы протоколов, новости индустрии и взгляд изнутри лаборатории Барселоны.</p>
+      <p class="glance-hero-lead reveal reveal-delay-2" data-i18n="glance.lead">Редакторская витрина бренда: видео, фото, статьи. Скачивайте контент в свою галерею, выкладывайте в социальных сетях.</p>
+      
+      <!-- Розыгрыш плашка -->
+      <div class="glance-promo reveal reveal-delay-3">
+        <div class="glance-promo-badge" data-i18n="glance.promoBadge">— Розыгрыш —</div>
+        <div class="glance-promo-text">
+          <strong data-i18n="glance.promoTitle">Корзина косметики EVOXA</strong>
+          <span data-i18n="glance.promoDesc">Размести контент из «Глянца» в своих соцсетях с отметкой @evoxa.es — участвуй в розыгрыше.</span>
+        </div>
+        <a href="#glanceContest" class="glance-promo-btn" data-cursor>
+          <span data-i18n="glance.promoCta">Участвовать</span>
+          <span>↓</span>
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="section">
-    <div class="news-list" id="newsList"></div>
+  <!-- MEDIA GRID -->
+  <section class="glance-grid-section">
+    <div class="glance-grid-inner">
+      <div class="glance-grid-eyebrow reveal" data-i18n="glance.gridEyebrow">— Контент к публикации —</div>
+      <h2 class="glance-grid-title reveal reveal-delay-1">
+        <span data-i18n="glance.gridTitle1">Готовое</span>
+        <span class="em" data-i18n="glance.gridTitle2">для ваших соцсетей.</span>
+      </h2>
+      <p class="glance-grid-desc reveal reveal-delay-2" data-i18n="glance.gridDesc">Кликните по любому материалу — скачайте в галерею. Подпишите как считаете нужным, не забудьте отметить @evoxa.es.</p>
+      
+      <div class="glance-grid" id="glanceGrid"></div>
+    </div>
+  </section>
+
+  <!-- CONTEST FORM -->
+  <section class="glance-contest-section" id="glanceContest">
+    <div class="glance-contest-inner">
+      <div class="glance-contest-eyebrow reveal" data-i18n="glance.contestEyebrow">— Условия розыгрыша —</div>
+      <h2 class="glance-contest-title reveal reveal-delay-1">
+        <span data-i18n="glance.contestTitle1">Корзина EVOXA</span>
+        <span class="em" data-i18n="glance.contestTitle2">за публикацию.</span>
+      </h2>
+      
+      <ol class="glance-contest-steps reveal reveal-delay-2">
+        <li>
+          <span class="glance-step-num">01</span>
+          <span class="glance-step-text" data-i18n="glance.step1">Скачайте любое видео или фото из ленты «Глянец» выше.</span>
+        </li>
+        <li>
+          <span class="glance-step-num">02</span>
+          <span class="glance-step-text" data-i18n="glance.step2">Выложите в свои соцсети (Instagram, TikTok, Telegram) с упоминанием @evoxa.es.</span>
+        </li>
+        <li>
+          <span class="glance-step-num">03</span>
+          <span class="glance-step-text" data-i18n="glance.step3">Заполните форму ниже — мы свяжемся с победителями в Telegram.</span>
+        </li>
+      </ol>
+      
+      <form class="glance-form reveal reveal-delay-3" id="glanceForm" onsubmit="submitGlanceForm(event)">
+        <div class="glance-form-row">
+          <label class="glance-form-label" data-i18n="glance.fldName">ФИО <span class="req">*</span></label>
+          <input type="text" class="glance-form-input" id="glance-fld-name" required placeholder="Иванова Анна">
+        </div>
+        
+        <div class="glance-form-row two">
+          <div>
+            <label class="glance-form-label" data-i18n="glance.fldPhone">Телефон <span class="req">*</span></label>
+            <input type="tel" class="glance-form-input" id="glance-fld-phone" required placeholder="+7 999 000 00 00">
+          </div>
+          <div>
+            <label class="glance-form-label" data-i18n="glance.fldEmail">Email <span class="req">*</span></label>
+            <input type="email" class="glance-form-input" id="glance-fld-email" required placeholder="your@email.com">
+          </div>
+        </div>
+        
+        <div class="glance-form-row">
+          <label class="glance-form-label" data-i18n="glance.fldSocial">Ваш ник в соцсети <span class="req">*</span></label>
+          <input type="text" class="glance-form-input" id="glance-fld-social" required placeholder="@your_account">
+        </div>
+        
+        <div class="glance-form-row">
+          <label class="glance-form-label" data-i18n="glance.fldLink">Ссылка на публикацию</label>
+          <input type="text" class="glance-form-input" id="glance-fld-link" placeholder="https://instagram.com/p/...">
+        </div>
+        
+        <label class="glance-form-checkbox" onclick="toggleGlanceConsent()">
+          <span class="glance-form-cb" id="glanceConsentBox"></span>
+          <span class="glance-form-cb-label" data-i18n="glance.consent">Согласен(а) на обработку персональных данных и связь по Telegram @annkazanskaya для информирования о розыгрыше</span>
+        </label>
+        
+        <button type="submit" class="glance-form-submit" id="glanceSubmitBtn" data-i18n="glance.submit">
+          Отправить заявку
+        </button>
+        
+        <div class="glance-form-error" id="glanceFormError"></div>
+      </form>
+      
+      <div class="glance-success" id="glanceSuccess">
+        <div class="glance-success-icon">✓</div>
+        <div class="glance-success-eyebrow" data-i18n="glance.successEyebrow">— Заявка принята —</div>
+        <h3 class="glance-success-title" data-i18n="glance.successTitle">Спасибо за участие</h3>
+        <p class="glance-success-desc" data-i18n="glance.successDesc">Мы свяжемся с победителями в Telegram после окончания розыгрыша. Следите за анонсами на нашем сайте.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- READ / ARTICLES SUB-SECTION -->
+  <section class="glance-read-section">
+    <div class="glance-read-inner">
+      <div class="glance-read-eyebrow reveal" data-i18n="glance.readEyebrow">— Читать —</div>
+      <h2 class="glance-read-title reveal reveal-delay-1">
+        <span data-i18n="glance.readTitle1">Статьи о методе</span>
+        <span class="em" data-i18n="glance.readTitle2">и науке EVOXA.</span>
+      </h2>
+      
+      <div class="news-list" id="newsList"></div>
+    </div>
   </section>
 </main>
-
 
 <!-- ============ ARTICLE PAGE ============ -->
 <main class="page" id="page-article">
   <section class="article-hero">
-    <div class="article-back" data-route="news" data-cursor>
+    <div class="article-back" data-route="glance" data-cursor>
       <span class="back-arrow">←</span>
       <span data-i18n="article.back">Все статьи</span>
     </div>
@@ -4774,7 +5313,7 @@ img, video, iframe {
         <a data-route="products" data-cursor data-i18n="nav.products">Продукты</a>
         <a data-route="clinics" data-cursor data-i18n="nav.clinics">Где сделать</a>
         <a data-route="training" data-cursor data-i18n="nav.training">Обучение</a>
-        <a data-route="news" data-cursor data-i18n="nav.news">Журнал</a>
+        <a data-route="glance" data-cursor data-i18n="nav.glance">Глянец</a>
       </div>
       <div class="footer-col">
         <div class="footer-col-title" data-i18n="footer.col2">Контакты</div>
@@ -4828,6 +5367,33 @@ const I18N = {
   ru: {
     'nav.home':'Главная','nav.products':'Продукты','nav.clinics':'Где сделать','nav.training':'Обучение',
     'nav.creators':'Инфлюенсерам',
+        'nav.glance':'Глянец',
+    'glance.eyebrow':'— EVOXA Studio —',
+    'glance.title1':'Глянец','glance.title2':'Evoxa.',
+    'glance.lead':'Редакторская витрина бренда: видео, фото, статьи. Скачивайте контент в свою галерею, выкладывайте в социальных сетях.',
+    'glance.promoBadge':'— Розыгрыш —',
+    'glance.promoTitle':'Корзина косметики EVOXA',
+    'glance.promoDesc':'Размести контент из «Глянца» в своих соцсетях с отметкой @evoxa.es — участвуй в розыгрыше.',
+    'glance.promoCta':'Участвовать',
+    'glance.gridEyebrow':'— Контент к публикации —',
+    'glance.gridTitle1':'Готовое','glance.gridTitle2':'для ваших соцсетей.',
+    'glance.gridDesc':'Кликните по любому материалу — скачайте в галерею. Подпишите как считаете нужным, не забудьте отметить @evoxa.es.',
+    'glance.contestEyebrow':'— Условия розыгрыша —',
+    'glance.contestTitle1':'Корзина EVOXA','glance.contestTitle2':'за публикацию.',
+    'glance.step1':'Скачайте любое видео или фото из ленты «Глянец» выше.',
+    'glance.step2':'Выложите в свои соцсети (Instagram, TikTok, Telegram) с упоминанием @evoxa.es.',
+    'glance.step3':'Заполните форму ниже — мы свяжемся с победителями в Telegram.',
+    'glance.fldName':'ФИО','glance.fldPhone':'Телефон','glance.fldEmail':'Email',
+    'glance.fldSocial':'Ваш ник в соцсети','glance.fldLink':'Ссылка на публикацию',
+    'glance.consent':'Согласен(а) на обработку персональных данных и связь по Telegram @annkazanskaya для информирования о розыгрыше',
+    'glance.submit':'Отправить заявку',
+    'glance.successEyebrow':'— Заявка принята —',
+    'glance.successTitle':'Спасибо за участие',
+    'glance.successDesc':'Мы свяжемся с победителями в Telegram после окончания розыгрыша. Следите за анонсами на нашем сайте.',
+    'glance.readEyebrow':'— Читать —',
+    'glance.readTitle1':'Статьи о методе','glance.readTitle2':'и науке EVOXA.',
+    'glance.bookmark':'ГЛЯНЕЦ','glance.bookmarkSub':'Розыгрыш',
+    'glance.tileVideo':'Видео','glance.tilePhoto':'Фото',
     'nav.club':'Карта',
     'club.eyebrow':'— Закрытый клуб EVOXA Therapy —',
     'club.title1':'Золотая карта','club.title2':'первой тысячи.',
@@ -4975,6 +5541,33 @@ const I18N = {
   en: {
     'nav.home':'Home','nav.products':'Products','nav.clinics':'Find a Clinic','nav.training':'Training',
     'nav.creators':'Creators',
+        'nav.glance':'Glance',
+    'glance.eyebrow':'— EVOXA Studio —',
+    'glance.title1':'Evoxa','glance.title2':'Glance.',
+    'glance.lead':"The brand's editorial showcase: video, photo, articles. Download content to your gallery, share it on social media.",
+    'glance.promoBadge':'— Giveaway —',
+    'glance.promoTitle':'EVOXA cosmetics basket',
+    'glance.promoDesc':'Post content from Glance to your social media tagging @evoxa.es — enter the giveaway.',
+    'glance.promoCta':'Take part',
+    'glance.gridEyebrow':'— Content to publish —',
+    'glance.gridTitle1':'Ready','glance.gridTitle2':'for your socials.',
+    'glance.gridDesc':"Click any item — download it to your gallery. Caption it how you like, don't forget to tag @evoxa.es.",
+    'glance.contestEyebrow':'— Giveaway rules —',
+    'glance.contestTitle1':'EVOXA basket','glance.contestTitle2':'for a post.',
+    'glance.step1':'Download any video or photo from the Glance feed above.',
+    'glance.step2':'Post it on your socials (Instagram, TikTok, Telegram) tagging @evoxa.es.',
+    'glance.step3':"Fill the form below — we'll contact winners on Telegram.",
+    'glance.fldName':'Full name','glance.fldPhone':'Phone','glance.fldEmail':'Email',
+    'glance.fldSocial':'Your social handle','glance.fldLink':'Link to your post',
+    'glance.consent':'I consent to personal data processing and contact via Telegram @annkazanskaya for giveaway updates',
+    'glance.submit':'Submit',
+    'glance.successEyebrow':'— Application received —',
+    'glance.successTitle':'Thank you for taking part',
+    'glance.successDesc':"We'll contact winners on Telegram after the giveaway ends. Follow updates on our site.",
+    'glance.readEyebrow':'— Read —',
+    'glance.readTitle1':'Articles about the method','glance.readTitle2':'and the science of EVOXA.',
+    'glance.bookmark':'GLANCE','glance.bookmarkSub':'Giveaway',
+    'glance.tileVideo':'Video','glance.tilePhoto':'Photo',
     'nav.club':'Card',
     'club.eyebrow':'— EVOXA Therapy Closed Club —',
     'club.title1':'Gold card','club.title2':'of the first thousand.',
@@ -5121,6 +5714,33 @@ const I18N = {
   es: {
     'nav.home':'Inicio','nav.products':'Productos','nav.clinics':'Encuentra clínica','nav.training':'Formación',
     'nav.creators':'Creadores',
+        'nav.glance':'Glance',
+    'glance.eyebrow':'— EVOXA Studio —',
+    'glance.title1':'Glance','glance.title2':'Evoxa.',
+    'glance.lead':'Escaparate editorial de la marca: vídeo, foto, artículos. Descarga el contenido a tu galería y compártelo en redes.',
+    'glance.promoBadge':'— Sorteo —',
+    'glance.promoTitle':'Cesta de cosmética EVOXA',
+    'glance.promoDesc':'Publica contenido de «Glance» en tus redes con la mención @evoxa.es — participa en el sorteo.',
+    'glance.promoCta':'Participar',
+    'glance.gridEyebrow':'— Contenido para publicar —',
+    'glance.gridTitle1':'Listo','glance.gridTitle2':'para tus redes.',
+    'glance.gridDesc':'Haz clic en cualquier material — descárgalo a tu galería. Pon el copy que quieras, no olvides etiquetar @evoxa.es.',
+    'glance.contestEyebrow':'— Bases del sorteo —',
+    'glance.contestTitle1':'Cesta EVOXA','glance.contestTitle2':'por publicar.',
+    'glance.step1':'Descarga cualquier vídeo o foto del feed Glance arriba.',
+    'glance.step2':'Publícalo en tus redes (Instagram, TikTok, Telegram) mencionando @evoxa.es.',
+    'glance.step3':'Rellena el formulario abajo — contactaremos a los ganadores por Telegram.',
+    'glance.fldName':'Nombre completo','glance.fldPhone':'Teléfono','glance.fldEmail':'Email',
+    'glance.fldSocial':'Tu usuario en redes','glance.fldLink':'Enlace a la publicación',
+    'glance.consent':'Doy consentimiento al tratamiento de datos y contacto por Telegram @annkazanskaya para informar del sorteo',
+    'glance.submit':'Enviar solicitud',
+    'glance.successEyebrow':'— Solicitud recibida —',
+    'glance.successTitle':'Gracias por participar',
+    'glance.successDesc':'Contactaremos a los ganadores por Telegram al terminar el sorteo. Sigue las novedades en nuestro sitio.',
+    'glance.readEyebrow':'— Leer —',
+    'glance.readTitle1':'Artículos sobre el método','glance.readTitle2':'y la ciencia de EVOXA.',
+    'glance.bookmark':'GLANCE','glance.bookmarkSub':'Sorteo',
+    'glance.tileVideo':'Vídeo','glance.tilePhoto':'Foto',
     'nav.club':'Tarjeta',
     'club.eyebrow':'— Club cerrado EVOXA Therapy —',
     'club.title1':'Tarjeta dorada','club.title2':'de los primeros mil.',
@@ -8172,6 +8792,8 @@ function applyI18n(){
   if(currentRoute==='training') renderTraining();
   if(currentRoute==='news') renderNews();
   if(currentRoute==='club'){loadClubStats();}
+  if(currentRoute==='glance'){renderGlanceGrid();renderNews();}
+  updateGlanceBookmarkVisibility();
 }
 function setLang(lang){
   currentLang=lang;
@@ -8651,6 +9273,167 @@ function initCinematicScroll(){
 
 
 /* ============ CLUB / THERAPY ============ */
+
+/* ============ GLANCE / СТУДИЯ ============ */
+const GLANCE_MEDIA = [
+  // VIDEO
+  {type:'video', src:'videos/glance-hero.mp4', poster:'images/glance-back.jpeg', caption:'EVOXA Method'},
+  {type:'video', src:'videos/glance-clip-1.mp4', poster:'images/glance-peach.jpeg', caption:'Slow ritual'},
+  {type:'video', src:'videos/glance-clip-2.mp4', poster:'images/glance-row.jpeg', caption:'Texture story'},
+  {type:'video', src:'videos/glance-clip-3.mp4', poster:'images/glance-beach.jpeg', caption:'Summer skin'},
+  {type:'video', src:'videos/glance-clip-4.mp4', poster:'images/glance-floating.jpeg', caption:'Product spin'},
+  {type:'video', src:'videos/glance-clip-5.mp4', poster:'images/glance-allline.jpeg', caption:'Full range'},
+  
+  // PHOTO
+  {type:'image', src:'images/glance-back.jpeg', caption:'EVOXA on skin'},
+  {type:'image', src:'images/glance-footprints.jpeg', caption:'EVOXA footprints'},
+  {type:'image', src:'images/glance-beach.jpeg', caption:'Peel by the sea'},
+  {type:'image', src:'images/glance-peach.jpeg', caption:'Soft as a peach'},
+  {type:'image', src:'images/glance-newspaper.jpeg', caption:'Peeling waits for autumn'},
+  {type:'image', src:'images/glance-row.jpeg', caption:'In a row'},
+  {type:'image', src:'images/glance-allline.jpeg', caption:'Full range'},
+  {type:'image', src:'images/glance-floating.jpeg', caption:'Floating PEEL'},
+  {type:'image', src:'images/glance-mag01.jpeg', caption:'Editorial #01'},
+  {type:'image', src:'images/glance-mag03.jpeg', caption:'Editorial #03'},
+  {type:'image', src:'images/glance-mag06.jpeg', caption:'Editorial #06'},
+  {type:'image', src:'images/glance-mag07.jpeg', caption:'Editorial #07'},
+];
+
+function renderGlanceGrid(){
+  const grid = document.getElementById('glanceGrid');
+  if(!grid) return;
+  const dict = I18N[currentLang];
+  
+  grid.innerHTML = GLANCE_MEDIA.map((m,i) => {
+    const typeLabel = m.type==='video' ? dict['glance.tileVideo'] : dict['glance.tilePhoto'];
+    const filename = m.src.split('/').pop();
+    if(m.type==='video'){
+      return `
+        <div class="glance-tile" data-cursor onmouseenter="this.querySelector('video').play()" onmouseleave="(function(v){v.pause();v.currentTime=0;})(this.querySelector('video'))">
+          <span class="glance-tile-type video">▶ ${typeLabel}</span>
+          <button class="glance-tile-download" onclick="event.stopPropagation();downloadMedia('${m.src}','${filename}')" title="Скачать">↓</button>
+          <video muted loop playsinline preload="metadata" poster="${m.poster||''}">
+            <source src="${m.src}" type="video/mp4">
+          </video>
+          <div class="glance-tile-overlay">
+            <div class="glance-tile-caption">${m.caption}</div>
+          </div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="glance-tile" data-cursor>
+          <span class="glance-tile-type">${typeLabel}</span>
+          <button class="glance-tile-download" onclick="event.stopPropagation();downloadMedia('${m.src}','${filename}')" title="Скачать">↓</button>
+          <img src="${m.src}" alt="${m.caption}" loading="lazy">
+          <div class="glance-tile-overlay">
+            <div class="glance-tile-caption">${m.caption}</div>
+          </div>
+        </div>
+      `;
+    }
+  }).join('');
+}
+
+async function downloadMedia(url, filename){
+  try {
+    const res = await fetch(url);
+    const blob = await res.blob();
+    const blobUrl = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = blobUrl;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(() => URL.revokeObjectURL(blobUrl), 1000);
+  } catch(err){
+    // Fallback — открываем в новом окне
+    window.open(url, '_blank');
+  }
+}
+
+let glanceConsent = false;
+function toggleGlanceConsent(){
+  glanceConsent = !glanceConsent;
+  const box = document.getElementById('glanceConsentBox');
+  if(box) box.classList.toggle('checked', glanceConsent);
+}
+
+function showGlanceError(msg){
+  const el = document.getElementById('glanceFormError');
+  if(!el) return;
+  el.textContent = msg;
+  el.classList.add('visible');
+}
+function hideGlanceError(){
+  const el = document.getElementById('glanceFormError');
+  if(el) el.classList.remove('visible');
+}
+
+async function submitGlanceForm(e){
+  e.preventDefault();
+  hideGlanceError();
+  
+  if(!glanceConsent){
+    showGlanceError('Необходимо согласие на обработку персональных данных');
+    return;
+  }
+  
+  const payload = {
+    token: CLUB_TOKEN,
+    action: 'glance_register',
+    fullName: document.getElementById('glance-fld-name').value.trim(),
+    phone: document.getElementById('glance-fld-phone').value.trim(),
+    email: document.getElementById('glance-fld-email').value.trim(),
+    social: document.getElementById('glance-fld-social').value.trim(),
+    link: document.getElementById('glance-fld-link').value.trim() || '',
+    consent: glanceConsent
+  };
+  
+  const submitBtn = document.getElementById('glanceSubmitBtn');
+  const originalText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Отправляем...';
+  
+  try {
+    const res = await fetch(CLUB_API_URL, {
+      method: 'POST',
+      mode: 'cors',
+      headers: {'Content-Type': 'text/plain;charset=utf-8'},
+      body: JSON.stringify(payload),
+      redirect: 'follow'
+    });
+    const data = await res.json();
+    
+    if(data.ok){
+      document.getElementById('glanceForm').style.display = 'none';
+      const success = document.getElementById('glanceSuccess');
+      success.classList.add('visible');
+      success.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      showGlanceError('Ошибка: ' + (data.error || 'неизвестная'));
+      submitBtn.disabled = false;
+      submitBtn.textContent = originalText;
+    }
+  } catch(err){
+    showGlanceError('Ошибка соединения. Попробуйте ещё раз.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalText;
+  }
+}
+
+// Управление видимостью закладки в зависимости от текущей страницы
+function updateGlanceBookmarkVisibility(){
+  const bookmark = document.getElementById('glanceBookmark');
+  if(!bookmark) return;
+  if(currentRoute === 'glance' || currentRoute === 'article'){
+    bookmark.style.display = 'none';
+  } else {
+    bookmark.style.display = '';
+  }
+}
+
 const CLUB_API_URL = 'https://script.google.com/macros/s/AKfycbzKUpbMoqHyexKAo6dfqMBvg1S2PldImgFZ_l1qUEI0chaMYDSjiRLkfTeONG3-12Vi/exec';
 const CLUB_TOKEN = 'EvoxaProAcademy2026Anna';
 let clubConsent = false;
@@ -8948,7 +9731,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('menuClose').addEventListener('click',closeMobileMenu);
   document.getElementById('mobileOverlay').addEventListener('click',closeMobileMenu);
   
-  populateCities();renderClinics();renderTraining();renderNews();renderProducts();
+  populateCities();renderClinics();renderTraining();renderNews();renderProducts();renderGlanceGrid();updateGlanceBookmarkVisibility();
   initGeoCountUp();
   initCinematicScroll();
   applyI18n();
@@ -8964,6 +9747,14 @@ document.addEventListener('DOMContentLoaded',()=>{
   window.addEventListener('scroll',()=>{handleNavScroll();updateParallax()},{passive:true});
 });
 </script>
+
+
+<!-- ============ GLANCE BOOKMARK (на всех страницах) ============ -->
+<a href="#" class="glance-bookmark" id="glanceBookmark" data-route="glance" data-cursor onclick="event.preventDefault();navigate('glance')">
+  <span class="glance-bookmark-arrow">↗</span>
+  <span class="glance-bookmark-text" data-i18n="glance.bookmark">ГЛЯНЕЦ</span>
+  <span class="glance-bookmark-sub" data-i18n="glance.bookmarkSub">Розыгрыш</span>
+</a>
 
 </body>
 </html>
