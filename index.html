@@ -1289,6 +1289,36 @@ input,select{font-family:inherit;outline:none}
   color:var(--text-on-dark);
   border-bottom:1px solid var(--border-strong);
 }
+/* ===== Подбор препарата (алгоритмы) ===== */
+.algo-section{padding:0 48px 120px;background:var(--black,#0a0a0a)}
+.algo-inner{max-width:1100px;margin:0 auto}
+.algo-eyebrow{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--amber,#c89050);margin-bottom:18px}
+.algo-title{font-size:clamp(28px,4vw,46px);font-weight:300;line-height:1.05;margin-bottom:14px;color:var(--text-on-dark,#f5f5f5)}
+.algo-title .em{font-style:italic;color:var(--amber,#c89050)}
+.algo-lead{font-size:15px;color:#aaa;max-width:680px;margin-bottom:48px;line-height:1.6}
+.algo-block{margin-bottom:56px}
+.algo-block-h{font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--text-on-dark,#f5f5f5);margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--border-strong,#333)}
+.algo-table{width:100%;border-collapse:collapse;font-size:13px}
+.algo-table th,.algo-table td{padding:14px 16px;border-bottom:1px solid var(--border,#222);text-align:left;color:#bbb;vertical-align:top}
+.algo-table th{font-size:10px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-on-dark,#f5f5f5);border-bottom:1px solid var(--border-strong,#333)}
+.algo-table td strong{color:var(--amber,#c89050);font-weight:600}
+.algo-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.algo-card{border:1px solid var(--border,#222);padding:24px;border-radius:2px}
+.algo-card-h{font-size:12px;letter-spacing:1px;text-transform:uppercase;color:var(--amber,#c89050);margin-bottom:14px}
+.algo-card p{font-size:13px;color:#bbb;line-height:1.55;margin:0 0 10px}
+.algo-card p:last-child{margin-bottom:0}
+.algo-note{margin-top:8px;padding:20px 24px;border-left:2px solid var(--amber,#c89050);background:rgba(200,144,80,0.06);font-size:13px;color:#ccc;line-height:1.6}
+.algo-check{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px}
+.algo-check li{position:relative;padding-left:26px;font-size:13px;color:#bbb;line-height:1.5}
+.algo-check li:before{content:"✓";position:absolute;left:0;top:0;color:var(--amber,#c89050);font-weight:700}
+@media(max-width:720px){
+  .algo-section{padding:0 20px 70px}
+  .algo-cards{grid-template-columns:1fr}
+  .algo-check{grid-template-columns:1fr}
+  .algo-table{font-size:12px}
+  .algo-table th,.algo-table td{padding:10px 10px}
+}
+
 
 .course-content .step-grid{
   display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
@@ -4634,6 +4664,8 @@ img, video, iframe {
   <section class="section">
     <div class="products-grid-4" id="productsGrid"></div>
   </section>
+
+  <section class="algo-section" id="algoContent"></section>
 </main>
 
 <!-- ============ CLINICS ============ -->
@@ -5515,7 +5547,7 @@ const I18N = {
     'manifesto.cite':'— Подход EVOXA к ремодуляции кожи',
     'lines.title':'Три линейки.<br><span class="em">Одна система.</span>',
     'lines.all':'Все 18 продуктов','lines.more':'Подробнее',
-    'lines.peel':'PEEL 1, PEEL 2, PEEL 3 и TONIC. Профессиональные пилинги с нейтрализацией через карбокситерапию. Применяется только врачом-косметологом.',
+    'lines.peel':'PEEL 1, PEEL 2, PEEL 3 и TONIC. Селективные двухфазные дермальные ремодуляторы с нейтрализацией через карбокситерапию. Только врач-косметолог.',
     'lines.clinic':'Сыворотки и активы для применения врачом в кабинете. Усиление эффекта процедуры. Только профессиональное использование.',
     'lines.pro':'Домашний уход пациента. Сыворотки, кремы, SPF. Поддержание результата процедуры между визитами в клинику.',
     'co2.eyebrow':'— Главный момент —','co2.title1':'Карбокситерапия','co2.title2':'в момент встречи.',
@@ -5530,7 +5562,7 @@ const I18N = {
     'gal.all':'Все материалы',
     'prod.eyebrow':'— 18 продуктов / 3 линейки —','prod.title1':'Профессиональная','prod.title2':'система.',
     'prod.subtitle':'Сейчас доступно 4 профессиональных продукта. Ещё 6 — запуск осенью 2026. Полная система ремодуляции для специалистов и пациентов.',
-    'prod.peel':'PEEL 1 — поверхностный. PEEL 2 — срединный. PEEL 3 — глубокий. TONIC — нейтрализация CO2. 4 продукта, 3 уровня глубины, 1 принцип безопасности.',
+    'prod.peel':'PEEL 1 — проблемная кожа. PEEL 2 — сухая кожа и антивозраст. PEEL 3 — розацеа и сложные случаи. TONIC — нейтрализация через карбокситерапию. 4 препарата, 1 принцип: ремодуляция, не пилинг.',
     'prod.clinic':'Signal Serum, Bio Serum и активы. Используются врачом для усиления и направления эффекта процедуры. Профессиональная упаковка с лайм-акцентами.',
     'prod.pro':'C3 Radiance Serum, ремоделирующий крем, SPF. Полный домашний протокол. Бордо-акценты. Премиальное стекло. Роскошь на полке в ванной.',
     'clinics.eyebrow':'— Где сделать процедуру —','clinics.title1':'Сертифицированные','clinics.title2':'партнёры.',
@@ -5689,7 +5721,7 @@ const I18N = {
     'manifesto.cite':'— EVOXA approach to skin remodulation',
     'lines.title':'Three lines.<br><span class="em">One system.</span>',
     'lines.all':'All 18 products','lines.more':'Learn more',
-    'lines.peel':'PEEL 1, PEEL 2, PEEL 3 and TONIC. Professional peels with carboxytherapy neutralization. For licensed cosmetologists only.',
+    'lines.peel':'PEEL 1, PEEL 2, PEEL 3 and TONIC. Selective two-phase dermal remodulators with carboxytherapy neutralization. Licensed cosmetologists only.',
     'lines.clinic':'Serums and actives for in-office use by physicians. Amplifies the effect of the procedure. Professional use only.',
     'lines.pro':'Patient home care. Serums, creams, SPF. Maintains procedure results between clinic visits.',
     'co2.eyebrow':'— The main moment —','co2.title1':'Carboxytherapy','co2.title2':'at the moment of contact.',
@@ -5704,7 +5736,7 @@ const I18N = {
     'gal.all':'All materials',
     'prod.eyebrow':'— 18 products / 3 lines —','prod.title1':'A professional','prod.title2':'system.',
     'prod.subtitle':'Four professional products available now. Six more launching in autumn 2026. A full remodulation system for specialists and patients.',
-    'prod.peel':'PEEL 1 — superficial. PEEL 2 — medium. PEEL 3 — deep. TONIC — CO2 neutralization. 4 products, 3 depth levels, 1 safety principle.',
+    'prod.peel':'PEEL 1 — problem skin. PEEL 2 — dry skin & anti-age. PEEL 3 — rosacea & complex cases. TONIC — carboxytherapy neutralization. 4 products, 1 principle: remodulation, not peeling.',
     'prod.clinic':'Signal Serum, Bio Serum and actives. Used by physicians to amplify and direct the procedure effect. Professional packaging with lime accents.',
     'prod.pro':'C3 Radiance Serum, remodulating cream, SPF. The complete home protocol. Wine accents. Premium glass. Quiet luxury on the bathroom shelf.',
     'clinics.eyebrow':'— Where to book a procedure —','clinics.title1':'Certified','clinics.title2':'partners.',
@@ -5862,7 +5894,7 @@ const I18N = {
     'manifesto.cite':'— El enfoque EVOXA de remodulación cutánea',
     'lines.title':'Tres líneas.<br><span class="em">Un sistema.</span>',
     'lines.all':'Los 18 productos','lines.more':'Saber más',
-    'lines.peel':'PEEL 1, PEEL 2, PEEL 3 y TONIC. Peelings profesionales con neutralización por carboxiterapia. Solo para uso médico.',
+    'lines.peel':'PEEL 1, PEEL 2, PEEL 3 y TONIC. Remoduladores dérmicos bifásicos selectivos con neutralización por carboxiterapia. Solo uso médico.',
     'lines.clinic':'Sueros y activos para uso del médico en cabina. Potencia el efecto del tratamiento. Solo uso profesional.',
     'lines.pro':'Cuidado domiciliario para el paciente. Sueros, cremas, SPF. Mantiene el resultado del tratamiento entre visitas.',
     'co2.eyebrow':'— El momento clave —','co2.title1':'Carboxiterapia','co2.title2':'en el momento del contacto.',
@@ -5877,7 +5909,7 @@ const I18N = {
     'gal.all':'Todos los materiales',
     'prod.eyebrow':'— 18 productos / 3 líneas —','prod.title1':'Sistema','prod.title2':'profesional.',
     'prod.subtitle':'Cuatro productos profesionales disponibles. Seis más en lanzamiento otoño 2026. Sistema completo de remodulación.',
-    'prod.peel':'PEEL 1 — superficial. PEEL 2 — medio. PEEL 3 — profundo. TONIC — neutralización CO2. 4 productos, 3 niveles de profundidad, 1 principio de seguridad.',
+    'prod.peel':'PEEL 1 — piel problemática. PEEL 2 — piel seca y antiedad. PEEL 3 — rosácea y casos complejos. TONIC — neutralización por carboxiterapia. 4 productos, 1 principio: remodulación, no peeling.',
     'prod.clinic':'Signal Serum, Bio Serum y activos. Usados por el médico para potenciar y dirigir el efecto del tratamiento. Packaging profesional con acentos lima.',
     'prod.pro':'C3 Radiance Serum, crema remoduladora, SPF. El protocolo completo en casa. Acentos vino. Vidrio premium. Lujo silencioso en la estantería del baño.',
     'clinics.eyebrow':'— Dónde reservar el tratamiento —','clinics.title1':'Socios','clinics.title2':'certificados.',
@@ -5914,9 +5946,9 @@ const TRAINING = [
     format:{ru:'Видео-урок',en:'Video lesson',es:'Lección en vídeo'},
     level:{ru:'Базовый',en:'Basic',es:'Básico'},
     name:{ru:'EVOXA PEEL 1',en:'EVOXA PEEL 1',es:'EVOXA PEEL 1'},
-    desc:{ru:'Поверхностный пилинг. Показания, протокол, ошибки. Полный разбор первого уровня линейки.',
-          en:'Superficial peel. Indications, protocol, common mistakes. The complete walkthrough of the first level.',
-          es:'Peeling superficial. Indicaciones, protocolo, errores. Desglose completo del primer nivel.'}
+    desc:{ru:'Дермальный ремодулятор для проблемной кожи. Состав, показания, протокол, ошибки.',
+          en:'Dermal remodulator for problem skin. Formulation, indications, protocol, mistakes.',
+          es:'Remodulador dérmico para piel problemática. Composición, indicaciones, protocolo, errores.'}
   },
   {
     id:'peel-2',
@@ -5927,9 +5959,9 @@ const TRAINING = [
     format:{ru:'Видео-урок',en:'Video lesson',es:'Lección en vídeo'},
     level:{ru:'Средний',en:'Intermediate',es:'Intermedio'},
     name:{ru:'EVOXA PEEL 2',en:'EVOXA PEEL 2',es:'EVOXA PEEL 2'},
-    desc:{ru:'Срединный пилинг. Работа с гиперпигментацией, постакне, мелкими морщинами. Точный контроль глубины.',
-          en:'Medium peel. Working with hyperpigmentation, post-acne, fine lines. Precise depth control.',
-          es:'Peeling medio. Trabajo con hiperpigmentación, post-acné, líneas finas. Control preciso de profundidad.'}
+    desc:{ru:'Антивозрастной ремодулятор с поддержкой NMF. Сухая кожа, фотостарение, пигмент, мелкие морщины.',
+          en:'Anti-age remodulator with NMF support. Dry skin, photo-ageing, pigment, fine lines.',
+          es:'Remodulador antiedad con soporte NMF. Piel seca, fotoenvejecimiento, pigmento, líneas finas.'}
   },
   {
     id:'peel-3',
@@ -5940,9 +5972,9 @@ const TRAINING = [
     format:{ru:'Видео-урок',en:'Video lesson',es:'Lección en vídeo'},
     level:{ru:'Продвинутый',en:'Advanced',es:'Avanzado'},
     name:{ru:'EVOXA PEEL 3',en:'EVOXA PEEL 3',es:'EVOXA PEEL 3'},
-    desc:{ru:'Глубокий пилинг. Серьёзные эстетические задачи. Расширенные показания и обязательная нейтрализация TONIC.',
-          en:'Deep peel. Serious aesthetic tasks. Expanded indications and mandatory TONIC neutralization.',
-          es:'Peeling profundo. Tareas estéticas serias. Indicaciones ampliadas y neutralización obligatoria con TONIC.'}
+    desc:{ru:'Сверхконцентрированный ремодулятор для сложных случаев: розацеа, купероз, тяжёлое акне, постакне.',
+          en:'Super-concentrated remodulator for complex cases: rosacea, couperose, severe acne, post-acne.',
+          es:'Remodulador superconcentrado para casos complejos: rosácea, couperosis, acné grave, post-acné.'}
   },
   {
     id:'bio-peel',
@@ -6622,597 +6654,405 @@ const COURSE_CONTENT = {
 'peel-1': {
 ru: `
 <h2>О чём этот курс</h2>
-<p class="lead">EVOXA PEEL 1 — поверхностный пилинг линейки. Стартовый протокол для большинства пациентов и обязательный шаг в обучении методу.</p>
-<p>Здесь разбираем химический состав, механизм действия, показания, противопоказания, пошаговый протокол нанесения и нейтрализацию TONIC. Курс рассчитан на врача-косметолога без предшествующего опыта работы с EVOXA.</p>
+<p class="lead">EVOXA PEEL 1 — селективный двухфазный дермальный ремодулятор, не классический пилинг. Мощный тандем для проблемной кожи и стартовый уровень линейки. Курс рассчитан на врача-косметолога, осваивающего метод.</p>
+<p>Разбираем состав и механизм, эффект Вериго–Бора в паре с TONIC, показания и противопоказания, пошаговый протокол и нейтрализацию.</p>
 
 <h2>Состав и механизм</h2>
-<p><strong>Активные компоненты:</strong> комбинация альфа-гидроксикислот (AHA) низкой концентрации с молочной и миндальной кислотами. pH 3.2–3.6.</p>
-<p>Принцип работы — не повреждение, а биохимический сигнал кератиноцитам. Кожа получает контролируемый стимул к обновлению без формирования зоны некроза.</p>
-<div class="callout"><strong>Ключевое отличие</strong>Классический пилинг повреждает. EVOXA PEEL 1 модулирует. Концентрация и pH рассчитаны так, чтобы инициировать каскад регенерации без эпидермолиза.</div>
+<p><strong>Salicilico 15% + Piruvico 8% + Lactico 5,5%</strong>, ундеценоил фенилаланин, ретинил пальмитат, диацетилболдин, токоферол. pH 1.5–1.7, объём 20 ml.</p>
+<ul>
+  <li>Салициловая (15%) — BHA: глубокое очищение пор, комедонолитик, противовоспалительное</li>
+  <li>Пировиноградная (8%) — альфа-кето: стимуляция коллагена, себорегуляция, антиоксидант</li>
+  <li>Молочная (5,5%) — AHA: увлажнение, осветление</li>
+  <li>Ундеценоил фенилаланин — выравнивает тон, работает с пигментацией и мелазмой</li>
+  <li>Ретинил пальмитат — регенерация и синтез коллагена; диацетилболдин и токоферол — антиоксиданты</li>
+</ul>
+<div class="callout"><strong>Эффект Вериго–Бора</strong>В паре с EVOXA TONIC улучшается микроциркуляция в устьях фолликулов и оксигенация тканей. Карбокси-активация усиливает ответ без покраснения и реактивности — это особенно ценно при жирной и проблемной коже.</div>
 
 <h2>Показания</h2>
 <ul>
-  <li>Тусклый цвет лица, нарушение текстуры кожи</li>
-  <li>Лёгкая постакне-симптоматика, расширенные поры</li>
-  <li>Первые мимические морщины (25–35 лет)</li>
-  <li>Подготовка кожи к более глубоким протоколам PEEL 2 и 3</li>
-  <li>Профилактика возрастных изменений</li>
-  <li>Чувствительная кожа, не переносящая агрессивных пилингов</li>
+  <li>Жирная и комбинированная кожа</li>
+  <li>Гиперкератоз, себорея</li>
+  <li>Акне, постакне</li>
+  <li>Плотные сальные пробки, расширенные поры</li>
+  <li>Поствоспалительная гиперпигментация, мелазма</li>
+  <li>Потеря тургора, тонуса и эластичности</li>
 </ul>
 
 <h2>Противопоказания</h2>
-<ul>
-  <li>Активные воспалительные элементы в зоне обработки</li>
-  <li>Герпес в активной фазе</li>
-  <li>Беременность и лактация</li>
-  <li>Приём изотретиноина в течение последних 6 месяцев</li>
-  <li>Открытые повреждения кожи, дерматиты</li>
-  <li>Индивидуальная непереносимость компонентов</li>
-</ul>
+<p><strong>Абсолютные:</strong> нарушение целостности кожи; повышенная температура, ОРЗ/ОРВИ и любые обострения; острые воспаления и герпес в обострении; беременность и лактация; онкология и предонкология; аллергия на компоненты; приём ретиноидов и антибиотиков.</p>
+<p><strong>С осторожностью</strong> при приёме фотосенсибилизирующих препаратов: НПВС, антигистаминные, антидепрессанты, анксиолитики, противосудорожные.</p>
 
 <h2>Протокол <span class="em">шаг за шагом</span></h2>
 <div class="step-grid">
-  <div class="step"><div class="step-num">01</div><div class="step-name">Очищение</div><div class="step-desc">Молочко или мицеллярный раствор. Удаление макияжа, себума, загрязнений. Высушить кожу полностью.</div></div>
-  <div class="step"><div class="step-num">02</div><div class="step-name">Обезжиривание</div><div class="step-desc">Подготовительный лосьон. Выравнивание pH. Кожа должна быть сухой и обезжиренной.</div></div>
-  <div class="step"><div class="step-num">03</div><div class="step-name">Нанесение PEEL 1</div><div class="step-desc">Кистью, в 1–2 слоя, по массажным линиям. Время экспозиции — 3–7 минут в зависимости от чувствительности.</div></div>
-  <div class="step"><div class="step-num">04</div><div class="step-name">Нейтрализация TONIC</div><div class="step-desc">На коже появляется пена CO2 — реакция нейтрализации. Это визуальный маркер завершения процедуры.</div></div>
-  <div class="step"><div class="step-num">05</div><div class="step-name">Постпилинговый уход</div><div class="step-desc">Успокаивающая сыворотка, увлажняющий крем, обязательно SPF 50+ на выход.</div></div>
-  <div class="step"><div class="step-num">06</div><div class="step-name">Рекомендации домой</div><div class="step-desc">Назначение EVOXA PRO на 14 дней. Запрет на сауну, бассейн, активный загар.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Очищение</div><div class="step-desc">На увлажнённое лицо нанести очищающее средство, очищать 3 минуты, тщательно смыть тёплой водой.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Предпилинговый лосьон</div><div class="step-desc">Пропитать ватные диски, протереть кожу по массажным линиям. Кожа должна быть просушена.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Нанесение PEEL 1</div><div class="step-desc">По схеме: лоб → подбородок → нижняя челюсть → скулы и щёки → нос → виски. Экспозиция 2–3 мин на первой процедуре, далее до 7–8 мин.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">Нейтрализация TONIC</div><div class="step-desc">Не смывая, нанести TONIC в обратном порядке (6→1) по массажным линиям на 1–2 мин. Появляется пена CO2.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Смывание и тоник</div><div class="step-desc">Смыть прохладной водой, особое внимание зонам вокруг глаз и крыльям носа. Тонизировать успокаивающим или увлажняющим тоником.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Уход и SPF</div><div class="step-desc">Успокаивающий или восстанавливающий крем. При утренней или дневной процедуре — SPF 50.</div></div>
 </div>
 
 <h2>Курс процедур</h2>
-<p>Стандартный курс — <strong>4–6 процедур с интервалом 7–10 дней</strong>. Поддерживающие процедуры — 1 раз в месяц.</p>
-<table>
-<thead><tr><th>Тип кожи</th><th>Кол-во процедур</th><th>Интервал</th></tr></thead>
-<tbody>
-<tr><td>Нормальная</td><td>4–5</td><td>10 дней</td></tr>
-<tr><td>Жирная / комби</td><td>5–6</td><td>7 дней</td></tr>
-<tr><td>Сухая / чувствительная</td><td>4</td><td>14 дней</td></tr>
-</tbody></table>
+<p>Стандартный курс — <strong>2–4 процедуры с интервалом 7–12 дней</strong> в зависимости от состояния кожи. Поддерживающие процедуры — со второго месяца после курса, раз в 1–2 месяца. Обязательная пара — EVOXA TONIC.</p>
 
-<h2>Типичные ошибки</h2>
-<ol>
-  <li>Превышение времени экспозиции «для усиления эффекта». Эффект достигается не временем, а корректным протоколом.</li>
-  <li>Пропуск этапа обезжиривания — pH кожи мешает работе кислот.</li>
-  <li>Отсутствие SPF в первую неделю после процедуры.</li>
-  <li>Назначение на фоне активного герпеса или воспалений.</li>
-  <li>Использование без TONIC. Нейтрализация — обязательный этап метода.</li>
-</ol>
-
-<blockquote>Пилинг повреждает. Ремодуляция обучает. PEEL 1 — это первый разговор кожи с методом EVOXA.</blockquote>
-
-<h2>Что дальше</h2>
-<p>После освоения PEEL 1 переходите к курсу EVOXA PEEL 2 — срединный пилинг для работы с пигментацией и мелкими морщинами. Также рекомендуем «TONIC и карбокситерапия» — раскрытие главной технологической особенности линейки.</p>
+<blockquote>EVOXA PEEL 1 — революция в уходе за проблемной и уставшей кожей.</blockquote>
 `,
 en: `
 <h2>About this course</h2>
-<p class="lead">EVOXA PEEL 1 is the superficial peel of the range. The entry protocol for most patients and a mandatory step when learning the method.</p>
-<p>We cover formulation, mechanism of action, indications, contraindications, step-by-step application, and TONIC neutralization. Designed for cosmetologists with no prior EVOXA experience.</p>
+<p class="lead">EVOXA PEEL 1 is a selective two-phase dermal remodulator — not a classic peel. A powerful tandem for problem skin and the entry level of the range. Designed for cosmetologists learning the method.</p>
+<p>We cover the formulation and mechanism, the Verigo–Bohr effect with TONIC, indications and contraindications, the step-by-step protocol and neutralisation.</p>
 
 <h2>Formulation & mechanism</h2>
-<p><strong>Active ingredients:</strong> a combination of low-concentration AHA acids — lactic and mandelic. pH 3.2–3.6.</p>
-<p>The principle is not damage but a biochemical signal to keratinocytes. The skin receives a controlled stimulus to renewal without a zone of necrosis.</p>
-<div class="callout"><strong>Key difference</strong>Classic peels damage. EVOXA PEEL 1 modulates. Concentration and pH are calibrated to initiate the regeneration cascade without epidermolysis.</div>
+<p><strong>Salicylic 15% + Pyruvic 8% + Lactic 5.5%</strong>, undecenoyl phenylalanine, retinyl palmitate, diacetyl boldine, tocopherol. pH 1.5–1.7, 20 ml.</p>
+<ul>
+  <li>Salicylic (15%) — BHA: deep pore cleansing, comedolytic, anti-inflammatory</li>
+  <li>Pyruvic (8%) — alpha-keto: collagen stimulation, sebum regulation, antioxidant</li>
+  <li>Lactic (5.5%) — AHA: hydration, brightening</li>
+  <li>Undecenoyl phenylalanine — evens tone, addresses pigmentation and melasma</li>
+  <li>Retinyl palmitate — regeneration and collagen synthesis; diacetyl boldine and tocopherol — antioxidants</li>
+</ul>
+<div class="callout"><strong>Verigo–Bohr effect</strong>With EVOXA TONIC, microcirculation at the follicular openings and tissue oxygenation improve. Carboxy-activation strengthens the response without redness or reactivity — valuable for oily, problem skin.</div>
 
 <h2>Indications</h2>
 <ul>
-<li>Dull complexion, uneven skin texture</li>
-<li>Mild post-acne, enlarged pores</li>
-<li>Early expression lines (age 25–35)</li>
-<li>Skin preparation for deeper PEEL 2 and 3 protocols</li>
-<li>Anti-aging prevention</li>
-<li>Sensitive skin intolerant of aggressive peels</li>
+  <li>Oily and combination skin</li>
+  <li>Hyperkeratosis, seborrhoea</li>
+  <li>Acne, post-acne</li>
+  <li>Dense sebaceous plugs, enlarged pores</li>
+  <li>Post-inflammatory hyperpigmentation, melasma</li>
+  <li>Loss of turgor, tone and elasticity</li>
 </ul>
 
 <h2>Contraindications</h2>
-<ul>
-<li>Active inflammatory lesions in the treatment area</li>
-<li>Active herpes</li>
-<li>Pregnancy and lactation</li>
-<li>Isotretinoin use within the last 6 months</li>
-<li>Open skin damage, dermatitis</li>
-<li>Component intolerance</li>
-</ul>
+<p><strong>Absolute:</strong> broken skin barrier; fever, respiratory infection or any flare-up; acute inflammation and active herpes; pregnancy and lactation; oncology and pre-oncology; allergy to components; current retinoids or antibiotics.</p>
+<p><strong>With caution</strong> on photosensitising medication: NSAIDs, antihistamines, antidepressants, anxiolytics, anticonvulsants.</p>
 
-<h2>The protocol <span class="em">step by step</span></h2>
+<h2>Protocol <span class="em">step by step</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Cleansing</div><div class="step-desc">Milk or micellar solution. Remove makeup, sebum, debris. Dry the skin completely.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Degreasing</div><div class="step-desc">Prep lotion. pH normalization. The skin must be dry and degreased.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Applying PEEL 1</div><div class="step-desc">Brush, 1–2 layers, along massage lines. Exposure 3–7 minutes depending on sensitivity.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">TONIC neutralization</div><div class="step-desc">CO2 foam appears on the skin — the neutralization reaction. A visual marker of procedure completion.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Post-peel care</div><div class="step-desc">Soothing serum, hydrating cream, mandatory SPF 50+ before going out.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Home recommendations</div><div class="step-desc">EVOXA PRO for 14 days. No sauna, pool, or active sun exposure.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Cleansing</div><div class="step-desc">Apply cleanser to dampened skin, cleanse for 3 minutes, rinse thoroughly with warm water.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Pre-peel lotion</div><div class="step-desc">Soak cotton pads, wipe along massage lines. The skin must be dried.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Apply PEEL 1</div><div class="step-desc">Order: forehead → chin → jaw → cheekbones and cheeks → nose → temples. Exposure 2–3 min on the first session, then up to 7–8 min.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">TONIC neutralisation</div><div class="step-desc">Without rinsing, apply TONIC in reverse order (6→1) along massage lines for 1–2 min. CO2 foam appears.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Rinse and tone</div><div class="step-desc">Rinse with cool water, taking care around the eyes and nose wings. Tone with a soothing or hydrating toner.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Care and SPF</div><div class="step-desc">Soothing or restorative cream. For a morning or daytime session — SPF 50.</div></div>
 </div>
 
-<h2>Treatment course</h2>
-<p>Standard course — <strong>4–6 procedures with 7–10 day intervals</strong>. Maintenance — once a month.</p>
-<table>
-<thead><tr><th>Skin type</th><th>Sessions</th><th>Interval</th></tr></thead>
-<tbody>
-<tr><td>Normal</td><td>4–5</td><td>10 days</td></tr>
-<tr><td>Oily / combo</td><td>5–6</td><td>7 days</td></tr>
-<tr><td>Dry / sensitive</td><td>4</td><td>14 days</td></tr>
-</tbody></table>
+<h2>Course</h2>
+<p>Standard course — <strong>2–4 sessions, 7–12 days apart</strong>, depending on skin condition. Maintenance from month 2 after the course, once every 1–2 months. Mandatory pairing — EVOXA TONIC.</p>
 
-<h2>Common mistakes</h2>
-<ol>
-<li>Extending exposure time "for stronger effect". The result comes from the correct protocol, not time.</li>
-<li>Skipping the degreasing step — skin pH interferes with acid action.</li>
-<li>No SPF in the first week post-procedure.</li>
-<li>Treating with active herpes or inflammation present.</li>
-<li>Using without TONIC. Neutralization is mandatory.</li>
-</ol>
-
-<blockquote>Peeling damages. Remodulation teaches. PEEL 1 is the skin's first conversation with the EVOXA method.</blockquote>
-
-<h2>What's next</h2>
-<p>After mastering PEEL 1, move to EVOXA PEEL 2 — the medium peel for pigmentation and fine lines. We also recommend "TONIC and Carboxytherapy" to unpack the signature technology of the range.</p>
+<blockquote>EVOXA PEEL 1 — a revolution in care for problem and tired skin.</blockquote>
 `,
 es: `
 <h2>Sobre este curso</h2>
-<p class="lead">EVOXA PEEL 1 es el peeling superficial de la línea. El protocolo de entrada para la mayoría de pacientes y un paso obligatorio para aprender el método.</p>
-<p>Cubrimos formulación, mecanismo de acción, indicaciones, contraindicaciones, aplicación paso a paso y neutralización con TONIC. Diseñado para cosmetólogos sin experiencia previa con EVOXA.</p>
+<p class="lead">EVOXA PEEL 1 es un remodulador dérmico bifásico selectivo — no un peeling clásico. Un tándem potente para la piel problemática y el nivel inicial de la línea. Pensado para cosmetólogos que aprenden el método.</p>
+<p>Vemos composición y mecanismo, el efecto Verigo–Bohr con TONIC, indicaciones y contraindicaciones, el protocolo paso a paso y la neutralización.</p>
 
-<h2>Formulación y mecanismo</h2>
-<p><strong>Activos:</strong> combinación de AHA de baja concentración — ácido láctico y mandélico. pH 3,2–3,6.</p>
-<p>El principio no es el daño sino una señal bioquímica a los queratinocitos. La piel recibe un estímulo controlado de renovación sin zona de necrosis.</p>
-<div class="callout"><strong>Diferencia clave</strong>El peeling clásico daña. EVOXA PEEL 1 modula. Concentración y pH calibrados para iniciar la cascada de regeneración sin epidermólisis.</div>
+<h2>Composición y mecanismo</h2>
+<p><strong>Salicílico 15% + Pirúvico 8% + Láctico 5,5%</strong>, undecenoil fenilalanina, palmitato de retinilo, diacetil boldina, tocoferol. pH 1.5–1.7, 20 ml.</p>
+<ul>
+  <li>Salicílico (15%) — BHA: limpieza profunda de poros, comedolítico, antiinflamatorio</li>
+  <li>Pirúvico (8%) — alfa-ceto: estimulación del colágeno, seborregulación, antioxidante</li>
+  <li>Láctico (5,5%) — AHA: hidratación, luminosidad</li>
+  <li>Undecenoil fenilalanina — unifica el tono, actúa sobre pigmentación y melasma</li>
+  <li>Palmitato de retinilo — regeneración y colágeno; diacetil boldina y tocoferol — antioxidantes</li>
+</ul>
+<div class="callout"><strong>Efecto Verigo–Bohr</strong>Con EVOXA TONIC mejora la microcirculación en los orificios foliculares y la oxigenación. La carboxi-activación refuerza la respuesta sin enrojecimiento ni reactividad — valioso en piel grasa y problemática.</div>
 
 <h2>Indicaciones</h2>
 <ul>
-<li>Tez apagada, textura irregular</li>
-<li>Post-acné leve, poros dilatados</li>
-<li>Primeras líneas de expresión (25–35 años)</li>
-<li>Preparación para protocolos PEEL 2 y 3</li>
-<li>Prevención antiedad</li>
-<li>Pieles sensibles que no toleran peelings agresivos</li>
+  <li>Piel grasa y mixta</li>
+  <li>Hiperqueratosis, seborrea</li>
+  <li>Acné, post-acné</li>
+  <li>Tapones sebáceos densos, poros dilatados</li>
+  <li>Hiperpigmentación postinflamatoria, melasma</li>
+  <li>Pérdida de turgencia, tono y elasticidad</li>
 </ul>
 
 <h2>Contraindicaciones</h2>
-<ul>
-<li>Lesiones inflamatorias activas en zona de tratamiento</li>
-<li>Herpes en fase activa</li>
-<li>Embarazo y lactancia</li>
-<li>Isotretinoína en los últimos 6 meses</li>
-<li>Heridas abiertas, dermatitis</li>
-<li>Intolerancia a los componentes</li>
-</ul>
+<p><strong>Absolutas:</strong> barrera cutánea dañada; fiebre, infección respiratoria o cualquier brote; inflamación aguda y herpes activo; embarazo y lactancia; oncología y preoncología; alergia a los componentes; retinoides o antibióticos en curso.</p>
+<p><strong>Con precaución</strong> con fármacos fotosensibilizantes: AINE, antihistamínicos, antidepresivos, ansiolíticos, anticonvulsivos.</p>
 
-<h2>El protocolo <span class="em">paso a paso</span></h2>
+<h2>Protocolo <span class="em">paso a paso</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Limpieza</div><div class="step-desc">Leche o solución micelar. Eliminar maquillaje, sebo, impurezas. Secar la piel por completo.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Desengrase</div><div class="step-desc">Loción preparatoria. Normalización del pH. Piel seca y desengrasada.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Aplicar PEEL 1</div><div class="step-desc">Pincel, 1–2 capas, líneas de masaje. Exposición 3–7 minutos según sensibilidad.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Neutralización TONIC</div><div class="step-desc">Aparece espuma de CO2 — la reacción de neutralización. Marcador visual de fin del tratamiento.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Cuidado post-peeling</div><div class="step-desc">Sérum calmante, crema hidratante, SPF 50+ obligatorio al salir.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Recomendaciones domiciliarias</div><div class="step-desc">EVOXA PRO durante 14 días. Prohibido sauna, piscina, sol activo.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Limpieza</div><div class="step-desc">Aplicar limpiador sobre piel humedecida, limpiar 3 minutos, aclarar bien con agua tibia.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Loción pre-peeling</div><div class="step-desc">Empapar discos de algodón, pasar siguiendo las líneas de masaje. La piel debe quedar seca.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Aplicar PEEL 1</div><div class="step-desc">Orden: frente → mentón → mandíbula → pómulos y mejillas → nariz → sienes. Exposición 2–3 min en la primera sesión, luego hasta 7–8 min.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">Neutralización TONIC</div><div class="step-desc">Sin aclarar, aplicar TONIC en orden inverso (6→1) por las líneas de masaje, 1–2 min. Aparece espuma de CO2.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Aclarado y tónico</div><div class="step-desc">Aclarar con agua fresca, con cuidado alrededor de ojos y alas de la nariz. Tonificar con un tónico calmante o hidratante.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Cuidado y SPF</div><div class="step-desc">Crema calmante o reparadora. En sesión de mañana o de día — SPF 50.</div></div>
 </div>
 
-<h2>Curso de tratamientos</h2>
-<p>Curso estándar — <strong>4–6 sesiones cada 7–10 días</strong>. Mantenimiento — una vez al mes.</p>
-<table>
-<thead><tr><th>Tipo de piel</th><th>Sesiones</th><th>Intervalo</th></tr></thead>
-<tbody>
-<tr><td>Normal</td><td>4–5</td><td>10 días</td></tr>
-<tr><td>Grasa / mixta</td><td>5–6</td><td>7 días</td></tr>
-<tr><td>Seca / sensible</td><td>4</td><td>14 días</td></tr>
-</tbody></table>
+<h2>Curso</h2>
+<p>Curso estándar — <strong>2–4 sesiones con 7–12 días de intervalo</strong>, según el estado de la piel. Mantenimiento desde el mes 2 tras el curso, 1 vez cada 1–2 meses. Pareja obligatoria — EVOXA TONIC.</p>
 
-<h2>Errores comunes</h2>
-<ol>
-<li>Extender el tiempo de exposición "para más efecto". El resultado viene del protocolo correcto, no del tiempo.</li>
-<li>Saltar el desengrase — el pH de la piel interfiere con los ácidos.</li>
-<li>No usar SPF la primera semana post-tratamiento.</li>
-<li>Tratar con herpes activo o inflamaciones presentes.</li>
-<li>Usar sin TONIC. La neutralización es obligatoria.</li>
-</ol>
-
-<blockquote>El peeling daña. La remodulación enseña. PEEL 1 es la primera conversación de la piel con el método EVOXA.</blockquote>
-
-<h2>Qué viene después</h2>
-<p>Tras dominar PEEL 1, pasa a EVOXA PEEL 2 — peeling medio para pigmentación y líneas finas. También recomendamos "TONIC y carboxiterapia" para descubrir la firma tecnológica de la línea.</p>
+<blockquote>EVOXA PEEL 1 — una revolución en el cuidado de la piel problemática y cansada.</blockquote>
 `
 },
 
 'peel-2': {
 ru: `
 <h2>О чём этот курс</h2>
-<p class="lead">EVOXA PEEL 2 — срединный пилинг для работы с гиперпигментацией, постакне и мелкими морщинами. Уровень контролируемой глубины с обязательной нейтрализацией TONIC.</p>
-<p>Курс предполагает, что вы уже освоили PEEL 1. Мы разбираем расширенный протокол, работу с разными фототипами, тактику при сложных пациентах.</p>
+<p class="lead">EVOXA PEEL 2 — селективный двухфазный дермальный ремодулятор. Мощный интеллектуальный антивозрастной ремодулятор с поддержкой NMF.</p>
+<p>Разбираем синергию AHA и аминокислот, эффект карбокситерапии в паре с TONIC, показания, противопоказания и протокол.</p>
 
 <h2>Состав и механизм</h2>
-<p><strong>Активные компоненты:</strong> комбинация AHA + TCA низкой концентрации. pH 2.4–2.8. Глубина воздействия — до базального слоя эпидермиса.</p>
-<p>За счёт более низкого pH и наличия TCA в малой дозе кожа получает более выраженный сигнал. Активируется неоколлагеногенез, ускоряется обновление меланоцитов, регулируется выработка меланина.</p>
+<p><strong>Glicolico 35%</strong>, пропиленгликоль 10%, NMF-бустер (Sodium PCA, Sodium Lactate PCA), аргинин, аспарагиновая кислота. pH 1.8–2.2, объём 30 ml.</p>
+<ul>
+  <li>Гликолевая (35%) — мощное отшелушивание и стимуляция неоколлагенеза</li>
+  <li>Пропиленгликоль (10%) — увлажнитель, улучшает проникновение</li>
+  <li>NMF-бустер — поддержка гидро-липидного барьера во время процедуры</li>
+  <li>Аргинин — контролируемый кератолиз без раздражения: эффект глубокого пилинга при ощущениях поверхностного</li>
+  <li>Аспарагиновая — регенерация и пластический материал для восстановления</li>
+</ul>
+<div class="callout"><strong>Карбокситерапия</strong>В паре с TONIC создаётся резкий pH-градиент, гликолевая кислота проникает диффузно и быстро, временно повышается локальный CO₂ и усиливается микроциркуляция. «Уставшая» кожа становится розовой и наполненной.</div>
 
 <h2>Показания</h2>
 <ul>
-<li>Гиперпигментация (мелазма, постакне-пигментация, поствоспалительная)</li>
-<li>Постакне-рубцы лёгкой и средней степени</li>
-<li>Мелкие и средние мимические морщины</li>
-<li>Жирная кожа с расширенными порами</li>
-<li>Подготовка к лазерным процедурам</li>
-<li>Возрастные изменения 35–55 лет</li>
+  <li>Сухая кожа, мелкоморщинистый тип старения</li>
+  <li>Тусклая кожа, неровный тон и текстура</li>
+  <li>Обезвоженность</li>
+  <li>Фотостарение</li>
+  <li>Гиперпигментация</li>
+  <li>Чувствительная кожа; потеря тургора, тонуса и эластичности</li>
 </ul>
 
 <h2>Противопоказания</h2>
-<ul>
-<li>Все противопоказания PEEL 1</li>
-<li>Купероз, активная розацеа</li>
-<li>Тонкая, истончённая кожа</li>
-<li>Фототип V–VI без подготовки</li>
-<li>Свежий загар (менее 4 недель)</li>
-<li>Прохождение курса любых пилингов в последние 14 дней</li>
-</ul>
+<p><strong>Абсолютные:</strong> нарушение целостности кожи; повышенная температура, ОРЗ/ОРВИ и любые обострения; острые воспаления и герпес <strong>(строго — аргинин может спровоцировать рецидив)</strong>; беременность и лактация; онкология и предонкология; аллергия на компоненты; приём ретиноидов и антибиотиков.</p>
+<p><strong>С осторожностью</strong> при приёме фотосенсибилизирующих препаратов: НПВС, антигистаминные, антидепрессанты, анксиолитики, противосудорожные.</p>
 
 <h2>Протокол <span class="em">шаг за шагом</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Подготовка кожи</div><div class="step-desc">За 14 дней — назначение PRO с ниацинамидом для подготовки. Снижает риск ПВГ.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Очищение и обезжиривание</div><div class="step-desc">Протокол идентичен PEEL 1. Кожа полностью сухая.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Нанесение PEEL 2</div><div class="step-desc">Кистью или ватной палочкой, 1 слой. Время экспозиции 2–4 минуты. Контроль реакции — лёгкое побеление (frosting).</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Нейтрализация TONIC</div><div class="step-desc">Обильная пена CO2. Длительность — до прекращения реакции. Не торопитесь.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Постпилинговое успокоение</div><div class="step-desc">Холодные компрессы, успокаивающая маска, регенерирующая сыворотка.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Домашний протокол</div><div class="step-desc">EVOXA PRO на 21 день. SPF 50+ обязательно. Запрет на активный загар на 4 недели.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Очищение</div><div class="step-desc">На увлажнённое лицо нанести очищающее средство, очищать 3 минуты, тщательно смыть тёплой водой.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Предпилинговый лосьон</div><div class="step-desc">Пропитать ватные диски, протереть кожу по массажным линиям. Кожа должна быть просушена.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Нанесение PEEL 2</div><div class="step-desc">По схеме: лоб → подбородок → нижняя челюсть → скулы и щёки → нос → виски. Экспозиция 2–3 мин на первой процедуре, далее до 8–10 мин.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">Нейтрализация TONIC</div><div class="step-desc">Не смывая, нанести TONIC в обратном порядке (6→1) по массажным линиям на 1–2 мин. Появляется пена CO2.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Смывание и тоник</div><div class="step-desc">Смыть прохладной водой, особое внимание зонам вокруг глаз и крыльям носа. Тонизировать успокаивающим или увлажняющим тоником.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Уход и SPF</div><div class="step-desc">Успокаивающий или восстанавливающий крем. При утренней или дневной процедуре — SPF 50.</div></div>
 </div>
 
 <h2>Курс процедур</h2>
-<p>Стандартный курс — <strong>3–4 процедуры с интервалом 21 день</strong>. Поддерживающие — 1 раз в 2 месяца.</p>
+<p>Стандартный курс — <strong>3–4 процедуры с интервалом 7–14 дней</strong>. Возможны сочетанные протоколы с биоревитализацией с интервалом от 48 часов. Обязательная пара — EVOXA TONIC.</p>
 
-<h2>Работа с фототипами</h2>
-<table>
-<thead><tr><th>Фототип</th><th>Подготовка</th><th>Время экспозиции</th></tr></thead>
-<tbody>
-<tr><td>I–II</td><td>7 дней</td><td>3–4 мин</td></tr>
-<tr><td>III–IV</td><td>14 дней</td><td>2–3 мин</td></tr>
-<tr><td>V–VI</td><td>21+ день</td><td>1–2 мин</td></tr>
-</tbody></table>
-
-<div class="callout"><strong>Важно</strong>На IV–VI фототипах протокол требует усиленной подготовки и более коротких экспозиций. Без подготовки — высокий риск ПВГ.</div>
-
-<h2>Типичные ошибки</h2>
-<ol>
-<li>Назначение без предшествующей подготовки кожи на тёмных фототипах.</li>
-<li>Пропуск frosting-контроля — глубина воздействия не контролируется.</li>
-<li>Слишком короткая нейтрализация. Пена должна полностью прекратиться.</li>
-<li>Отсутствие назначения PRO в постпилинговом периоде.</li>
-<li>Сокращение интервала между процедурами для «быстрого результата».</li>
-</ol>
-
-<blockquote>Срединный пилинг — это разговор на повышенных тонах. EVOXA PEEL 2 — разговор громкий, но всегда безопасный.</blockquote>
-
-<h2>Что дальше</h2>
-<p>После уверенного освоения PEEL 2 — переходите на курс EVOXA PEEL 3 для работы с глубокими задачами. Также изучите комбинированный протокол «Биоревитализация + EVOXA Peel» для усиления результата.</p>
+<blockquote>Срединный пилинг — разговор на повышенных тонах. EVOXA PEEL 2 — разговор громкий, но всегда безопасный.</blockquote>
 `,
 en: `
 <h2>About this course</h2>
-<p class="lead">EVOXA PEEL 2 is the medium peel for hyperpigmentation, post-acne and fine lines. A controlled-depth level with mandatory TONIC neutralization.</p>
-<p>The course assumes you already mastered PEEL 1. We cover the extended protocol, work with different phototypes, and tactics for complex patients.</p>
+<p class="lead">EVOXA PEEL 2 is a selective two-phase dermal remodulator. A powerful, intelligent anti-age remodulator with NMF support.</p>
+<p>We cover the AHA–amino-acid synergy, the carboxytherapy effect with TONIC, indications, contraindications and the protocol.</p>
 
 <h2>Formulation & mechanism</h2>
-<p><strong>Active ingredients:</strong> AHA + low-concentration TCA. pH 2.4–2.8. Depth — to the basal layer of the epidermis.</p>
-<p>Lower pH and small-dose TCA deliver a stronger signal. Neocollagenogenesis is triggered, melanocyte renewal accelerates, melanin production is regulated.</p>
+<p><strong>Glycolic 35%</strong>, propylene glycol 10%, NMF booster (Sodium PCA, Sodium Lactate PCA), arginine, aspartic acid. pH 1.8–2.2, 30 ml.</p>
+<ul>
+  <li>Glycolic (35%) — powerful exfoliation and neocollagenesis</li>
+  <li>Propylene glycol (10%) — humectant, improves penetration</li>
+  <li>NMF booster — supports the hydro-lipid barrier during the procedure</li>
+  <li>Arginine — controlled keratolysis without irritation: a deep-peel effect with superficial sensations</li>
+  <li>Aspartic acid — regeneration and building material for repair</li>
+</ul>
+<div class="callout"><strong>Carboxytherapy</strong>With TONIC a sharp pH gradient forms, glycolic acid penetrates diffusely and fast, local CO₂ rises temporarily and microcirculation increases. Tired skin becomes pink and plumped.</div>
 
 <h2>Indications</h2>
 <ul>
-<li>Hyperpigmentation (melasma, post-acne, post-inflammatory)</li>
-<li>Mild to moderate post-acne scarring</li>
-<li>Fine and medium expression lines</li>
-<li>Oily skin with enlarged pores</li>
-<li>Pre-laser preparation</li>
-<li>Age-related changes 35–55</li>
+  <li>Dry skin, fine-wrinkle ageing type</li>
+  <li>Dull skin, uneven tone and texture</li>
+  <li>Dehydration</li>
+  <li>Photo-ageing</li>
+  <li>Hyperpigmentation</li>
+  <li>Sensitive skin; loss of turgor, tone and elasticity</li>
 </ul>
 
 <h2>Contraindications</h2>
-<ul>
-<li>All PEEL 1 contraindications</li>
-<li>Couperose, active rosacea</li>
-<li>Thin, atrophic skin</li>
-<li>Phototype V–VI without preparation</li>
-<li>Recent tan (less than 4 weeks)</li>
-<li>Any peel within the past 14 days</li>
-</ul>
+<p><strong>Absolute:</strong> broken skin barrier; fever, respiratory infection or any flare-up; acute inflammation and herpes <strong>(strict — arginine may trigger a relapse)</strong>; pregnancy and lactation; oncology and pre-oncology; allergy to components; current retinoids or antibiotics.</p>
+<p><strong>With caution</strong> on photosensitising medication: NSAIDs, antihistamines, antidepressants, anxiolytics, anticonvulsants.</p>
 
-<h2>The protocol <span class="em">step by step</span></h2>
+<h2>Protocol <span class="em">step by step</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Skin priming</div><div class="step-desc">14 days prior — PRO with niacinamide. Reduces PIH risk.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Cleansing & degreasing</div><div class="step-desc">Identical to PEEL 1. Skin completely dry.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Applying PEEL 2</div><div class="step-desc">Brush or cotton swab, 1 layer. Exposure 2–4 minutes. Control sign — light frosting.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">TONIC neutralization</div><div class="step-desc">Abundant CO2 foam. Continue until reaction stops. Don't rush.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Post-peel calming</div><div class="step-desc">Cold compresses, soothing mask, regenerating serum.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Home protocol</div><div class="step-desc">EVOXA PRO for 21 days. SPF 50+ mandatory. No active sun for 4 weeks.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Cleansing</div><div class="step-desc">Apply cleanser to dampened skin, cleanse for 3 minutes, rinse thoroughly with warm water.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Pre-peel lotion</div><div class="step-desc">Soak cotton pads, wipe along massage lines. The skin must be dried.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Apply PEEL 2</div><div class="step-desc">Order: forehead → chin → jaw → cheekbones and cheeks → nose → temples. Exposure 2–3 min on the first session, then up to 8–10 min.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">TONIC neutralisation</div><div class="step-desc">Without rinsing, apply TONIC in reverse order (6→1) along massage lines for 1–2 min. CO2 foam appears.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Rinse and tone</div><div class="step-desc">Rinse with cool water, taking care around the eyes and nose wings. Tone with a soothing or hydrating toner.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Care and SPF</div><div class="step-desc">Soothing or restorative cream. For a morning or daytime session — SPF 50.</div></div>
 </div>
 
-<h2>Treatment course</h2>
-<p>Standard course — <strong>3–4 sessions every 21 days</strong>. Maintenance — once every 2 months.</p>
+<h2>Course</h2>
+<p>Standard course — <strong>3–4 sessions, 7–14 days apart</strong>. Combined protocols with biorevitalization are possible, from a 48-hour interval. Mandatory pairing — EVOXA TONIC.</p>
 
-<h2>Working with phototypes</h2>
-<table>
-<thead><tr><th>Phototype</th><th>Priming</th><th>Exposure</th></tr></thead>
-<tbody>
-<tr><td>I–II</td><td>7 days</td><td>3–4 min</td></tr>
-<tr><td>III–IV</td><td>14 days</td><td>2–3 min</td></tr>
-<tr><td>V–VI</td><td>21+ days</td><td>1–2 min</td></tr>
-</tbody></table>
-
-<div class="callout"><strong>Important</strong>For IV–VI phototypes the protocol requires intensified priming and shorter exposures. Without priming — high PIH risk.</div>
-
-<h2>Common mistakes</h2>
-<ol>
-<li>Treating dark phototypes without prior priming.</li>
-<li>Skipping frosting control — depth is not monitored.</li>
-<li>Insufficient neutralization. The foam must fully stop.</li>
-<li>No PRO prescribed in the post-peel period.</li>
-<li>Shortening intervals "for faster results".</li>
-</ol>
-
-<blockquote>A medium peel is a raised-voice conversation. EVOXA PEEL 2 — loud, but always safe.</blockquote>
-
-<h2>What's next</h2>
-<p>Once confident with PEEL 2, move to EVOXA PEEL 3 for deeper challenges. Also explore the combined "Biorevitalization + EVOXA Peel" protocol.</p>
+<blockquote>A medium peel is a conversation raised in tone. EVOXA PEEL 2 — loud, but always safe.</blockquote>
 `,
 es: `
 <h2>Sobre este curso</h2>
-<p class="lead">EVOXA PEEL 2 es el peeling medio para hiperpigmentación, post-acné y líneas finas. Profundidad controlada con neutralización TONIC obligatoria.</p>
-<p>El curso asume que ya dominas PEEL 1. Cubrimos el protocolo ampliado, trabajo con distintos fototipos y tácticas para pacientes complejos.</p>
+<p class="lead">EVOXA PEEL 2 es un remodulador dérmico bifásico selectivo. Un potente remodulador antiedad inteligente con soporte de NMF.</p>
+<p>Vemos la sinergia AHA–aminoácidos, el efecto de carboxiterapia con TONIC, indicaciones, contraindicaciones y el protocolo.</p>
 
-<h2>Formulación y mecanismo</h2>
-<p><strong>Activos:</strong> AHA + TCA en baja concentración. pH 2,4–2,8. Profundidad — hasta capa basal de la epidermis.</p>
-<p>El menor pH y la pequeña dosis de TCA entregan una señal más intensa. Se activa la neocolagenogénesis, se acelera la renovación de melanocitos, se regula la producción de melanina.</p>
+<h2>Composición y mecanismo</h2>
+<p><strong>Glicólico 35%</strong>, propilenglicol 10%, refuerzo NMF (Sodium PCA, Sodium Lactate PCA), arginina, ácido aspártico. pH 1.8–2.2, 30 ml.</p>
+<ul>
+  <li>Glicólico (35%) — exfoliación potente y neocolagénesis</li>
+  <li>Propilenglicol (10%) — humectante, mejora la penetración</li>
+  <li>Refuerzo NMF — soporta la barrera hidrolipídica durante el procedimiento</li>
+  <li>Arginina — queratólisis controlada sin irritación: efecto de peeling profundo con sensación superficial</li>
+  <li>Ácido aspártico — regeneración y material de reparación</li>
+</ul>
+<div class="callout"><strong>Carboxiterapia</strong>Con TONIC se forma un gradiente brusco de pH, el glicólico penetra de forma difusa y rápida, sube el CO₂ local y aumenta la microcirculación. La piel cansada se vuelve rosada y rellena.</div>
 
 <h2>Indicaciones</h2>
 <ul>
-<li>Hiperpigmentación (melasma, post-acné, post-inflamatoria)</li>
-<li>Cicatrices post-acné leves a moderadas</li>
-<li>Líneas finas y medias de expresión</li>
-<li>Piel grasa con poros dilatados</li>
-<li>Preparación para tratamientos láser</li>
-<li>Cambios por edad 35–55 años</li>
+  <li>Piel seca, envejecimiento de arruga fina</li>
+  <li>Piel apagada, tono y textura irregulares</li>
+  <li>Deshidratación</li>
+  <li>Fotoenvejecimiento</li>
+  <li>Hiperpigmentación</li>
+  <li>Piel sensible; pérdida de turgencia, tono y elasticidad</li>
 </ul>
 
 <h2>Contraindicaciones</h2>
-<ul>
-<li>Todas las contraindicaciones de PEEL 1</li>
-<li>Cuperosis, rosácea activa</li>
-<li>Piel fina, atrófica</li>
-<li>Fototipo V–VI sin preparación</li>
-<li>Bronceado reciente (menos de 4 semanas)</li>
-<li>Cualquier peeling en los últimos 14 días</li>
-</ul>
+<p><strong>Absolutas:</strong> barrera cutánea dañada; fiebre, infección respiratoria o cualquier brote; inflamación aguda y herpes <strong>(estricto — la arginina puede desencadenar recidiva)</strong>; embarazo y lactancia; oncología y preoncología; alergia a los componentes; retinoides o antibióticos en curso.</p>
+<p><strong>Con precaución</strong> con fármacos fotosensibilizantes: AINE, antihistamínicos, antidepresivos, ansiolíticos, anticonvulsivos.</p>
 
-<h2>El protocolo <span class="em">paso a paso</span></h2>
+<h2>Protocolo <span class="em">paso a paso</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Preparación de piel</div><div class="step-desc">14 días antes — PRO con niacinamida. Reduce el riesgo de HPI.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Limpieza y desengrase</div><div class="step-desc">Idéntico a PEEL 1. Piel completamente seca.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Aplicar PEEL 2</div><div class="step-desc">Pincel o bastoncillo, 1 capa. Exposición 2–4 min. Señal de control — frosting ligero.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Neutralización TONIC</div><div class="step-desc">Espuma abundante de CO2. Continuar hasta que cese. Sin prisa.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Calma post-peeling</div><div class="step-desc">Compresas frías, mascarilla calmante, sérum regenerador.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Protocolo en casa</div><div class="step-desc">EVOXA PRO 21 días. SPF 50+ obligatorio. Sin sol activo 4 semanas.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Limpieza</div><div class="step-desc">Aplicar limpiador sobre piel humedecida, limpiar 3 minutos, aclarar bien con agua tibia.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Loción pre-peeling</div><div class="step-desc">Empapar discos de algodón, pasar siguiendo las líneas de masaje. La piel debe quedar seca.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Aplicar PEEL 2</div><div class="step-desc">Orden: frente → mentón → mandíbula → pómulos y mejillas → nariz → sienes. Exposición 2–3 min en la primera sesión, luego hasta 8–10 min.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">Neutralización TONIC</div><div class="step-desc">Sin aclarar, aplicar TONIC en orden inverso (6→1) por las líneas de masaje, 1–2 min. Aparece espuma de CO2.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Aclarado y tónico</div><div class="step-desc">Aclarar con agua fresca, con cuidado alrededor de ojos y alas de la nariz. Tonificar con un tónico calmante o hidratante.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Cuidado y SPF</div><div class="step-desc">Crema calmante o reparadora. En sesión de mañana o de día — SPF 50.</div></div>
 </div>
 
-<h2>Curso de tratamientos</h2>
-<p>Estándar — <strong>3–4 sesiones cada 21 días</strong>. Mantenimiento — una vez cada 2 meses.</p>
+<h2>Curso</h2>
+<p>Curso estándar — <strong>3–4 sesiones con 7–14 días de intervalo</strong>. Son posibles protocolos combinados con biorrevitalización, desde un intervalo de 48 horas. Pareja obligatoria — EVOXA TONIC.</p>
 
-<h2>Trabajo con fototipos</h2>
-<table>
-<thead><tr><th>Fototipo</th><th>Preparación</th><th>Exposición</th></tr></thead>
-<tbody>
-<tr><td>I–II</td><td>7 días</td><td>3–4 min</td></tr>
-<tr><td>III–IV</td><td>14 días</td><td>2–3 min</td></tr>
-<tr><td>V–VI</td><td>21+ días</td><td>1–2 min</td></tr>
-</tbody></table>
-
-<div class="callout"><strong>Importante</strong>En fototipos IV–VI requiere preparación intensificada y exposiciones más cortas. Sin preparación — alto riesgo de HPI.</div>
-
-<h2>Errores comunes</h2>
-<ol>
-<li>Tratar fototipos oscuros sin preparación previa.</li>
-<li>Saltar el control del frosting — sin monitorización de profundidad.</li>
-<li>Neutralización insuficiente. La espuma debe cesar por completo.</li>
-<li>No prescribir PRO en post-peeling.</li>
-<li>Acortar intervalos "para resultados más rápidos".</li>
-</ol>
-
-<blockquote>El peeling medio es una conversación en voz alta. EVOXA PEEL 2 — alta, pero siempre segura.</blockquote>
-
-<h2>Qué viene después</h2>
-<p>Una vez seguro con PEEL 2, pasa a EVOXA PEEL 3 para desafíos más profundos. Explora también el protocolo combinado "Biorrevitalización + EVOXA Peel".</p>
+<blockquote>Un peeling medio es una conversación en tono alto. EVOXA PEEL 2 — alta, pero siempre segura.</blockquote>
 `
 },
 
 'peel-3': {
 ru: `
 <h2>О чём этот курс</h2>
-<p class="lead">EVOXA PEEL 3 — глубокий пилинг линейки. Серьёзный инструмент для серьёзных задач. Используется только врачом с опытом и только после освоения PEEL 1 и PEEL 2.</p>
+<p class="lead">EVOXA PEEL 3 — селективный двухфазный дермальный ремодулятор. Сверхконцентрированное решение для сложных случаев: розацеа, купероз, тяжёлое акне. Это не агрессивный срединный пилинг.</p>
+<p>При розацеа и куперозе PEEL 3 работает как противовоспалительный и себорегулирующий ремодулятор. Разбираем состав, карбокси-эффект, показания, противопоказания и протокол.</p>
 
 <h2>Состав и механизм</h2>
-<p><strong>Активные компоненты:</strong> TCA в средней концентрации в комбинации с AHA. pH 1.8–2.2. Глубина — сетчатый слой дермы.</p>
-<p>Воздействие на этом уровне инициирует мощный регенеративный каскад. Активируется фибробласт, перестраивается коллагеновый матрикс, выравнивается рельеф.</p>
+<p><strong>Azelaico 16% + Salicilico 20%</strong>, дуэт-проводник: пропиленгликоль и денатурированный спирт для глубокой пенетрации. pH 1.8–2.2, объём 30 ml.</p>
+<ul>
+  <li>Азелаиновая (16%) — антимикробное, противовоспалительное, кератолитическое, осветляющее</li>
+  <li>Салициловая (20%) — глубокое проникновение в поры, растворение комедонов</li>
+  <li>Мягкий кератолиз, лёгкое сужение капилляров, подавление калликреина-5 и тирозиназы</li>
+</ul>
+<div class="callout"><strong>Оксигенация без покраснения</strong>В паре с TONIC высвобождение CO₂ мягко улучшает тканевое дыхание и метаболизм, не усиливая сосудистую реакцию и не вызывая выраженной эритемы. Кожа обновляется без видимого глазу шелушения.</div>
 
 <h2>Показания</h2>
 <ul>
-<li>Глубокая гиперпигментация, резистентная к PEEL 2</li>
-<li>Постакне-рубцы средней и выраженной степени</li>
-<li>Глубокие мимические и статические морщины</li>
-<li>Возрастные изменения 45+ с потерей тургора</li>
-<li>Себорейный кератоз, актинический кератоз</li>
-<li>Подготовка к фракционным лазерным процедурам</li>
+  <li>Жирная и комбинированная кожа</li>
+  <li>Тяжёлые формы акне, розацеа</li>
+  <li>Выраженная гиперпигментация, постакне, мелазма</li>
+  <li>Рубцы</li>
+  <li>Первые признаки старения, потеря упругости, тусклый цвет</li>
 </ul>
 
 <h2>Противопоказания</h2>
-<ul>
-<li>Все противопоказания PEEL 1 и PEEL 2</li>
-<li>Фототип V–VI (только в индивидуальном порядке)</li>
-<li>Склонность к келоидным и гипертрофическим рубцам</li>
-<li>Аутоиммунные заболевания</li>
-<li>Сахарный диабет в стадии декомпенсации</li>
-<li>Психологическая неготовность пациента к восстановлению</li>
-</ul>
+<p><strong>Абсолютные:</strong> нарушение целостности кожи; повышенная температура, ОРЗ/ОРВИ и любые обострения; острые воспаления и герпес в обострении; беременность и лактация; онкология и предонкология; аллергия на компоненты; приём ретиноидов и антибиотиков.</p>
+<p><strong>С осторожностью</strong> при приёме фотосенсибилизирующих препаратов: НПВС, антигистаминные, антидепрессанты, анксиолитики, противосудорожные.</p>
 
 <h2>Протокол <span class="em">шаг за шагом</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Консультация и согласие</div><div class="step-desc">Информированное согласие, фотопротокол, реалистичные ожидания. Обсуждение реабилитации.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Подготовка 28 дней</div><div class="step-desc">PRO с ретинолом + ниацинамид. Обязательная антигерпетическая профилактика за 3 дня.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Очищение, обезжиривание</div><div class="step-desc">Усиленный протокол. Возможна локальная анестезия.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Нанесение PEEL 3</div><div class="step-desc">Послойно, по зонам. Контроль frosting второго уровня. Время 1–3 минуты.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Нейтрализация TONIC</div><div class="step-desc">Интенсивная пена. Обязательно полное завершение реакции. Контроль самочувствия.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Постпилинговый протокол</div><div class="step-desc">Регенерирующие средства. Запрет умывания водой 24 часа. Реабилитация 7–10 дней.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Очищение</div><div class="step-desc">На увлажнённое лицо нанести очищающее средство, очищать 3 минуты, тщательно смыть тёплой водой.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Предпилинговый лосьон</div><div class="step-desc">Пропитать ватные диски, протереть кожу по массажным линиям. Кожа должна быть просушена.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Нанесение PEEL 3</div><div class="step-desc">По схеме: лоб → подбородок → нижняя челюсть → скулы и щёки → нос → виски. Экспозиция 2–3 мин на первой процедуре, далее до 8–10 мин.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">Нейтрализация TONIC</div><div class="step-desc">Не смывая, нанести TONIC в обратном порядке (6→1) по массажным линиям на 1–2 мин. Появляется пена CO2.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Смывание и тоник</div><div class="step-desc">Смыть прохладной водой, особое внимание зонам вокруг глаз и крыльям носа. Тонизировать успокаивающим или увлажняющим тоником.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Уход и SPF</div><div class="step-desc">Успокаивающий или восстанавливающий крем. Обязательно SPF 50+: ультрафиолет — главный триггер розацеа.</div></div>
 </div>
 
 <h2>Курс процедур</h2>
-<p>Только <strong>1–2 процедуры с интервалом 60 дней</strong>. Большее количество не показано.</p>
+<p>Стандартный курс — <strong>2–4 процедуры с интервалом 7–14 дней</strong>. Подходит для комбинированных протоколов: в сочетании с биоревитализацией PEEL 3 наиболее безопасен, снимает воспаление и корректирует состояние сосудов. Обязательная пара — EVOXA TONIC.</p>
 
-<div class="callout"><strong>Внимание</strong>PEEL 3 — это серьёзная медицинская процедура. Реабилитация 7–10 дней с шелушением. Пациент должен быть полностью готов и информирован.</div>
-
-<h2>Что назначается домой</h2>
-<ol>
-<li>Дни 1–3: только регенерирующий бальзам</li>
-<li>Дни 4–7: успокаивающая сыворотка EVOXA PRO + регенерант</li>
-<li>Дни 8–14: возвращение к стандартному протоколу PRO без активов</li>
-<li>День 15+: полное восстановление режима ухода с SPF 50+</li>
-</ol>
-
-<h2>Типичные ошибки</h2>
-<ol>
-<li>Назначение без подготовки 28 дней.</li>
-<li>Отсутствие антигерпетической профилактики.</li>
-<li>Превышение глубины frosting (третий уровень — это уже зона риска).</li>
-<li>Назначение пациентам, не готовым к реабилитации.</li>
-<li>Сокращение интервала между процедурами.</li>
-</ol>
-
-<blockquote>PEEL 3 — это инструмент хирурга в руках косметолога. Применяется редко, точно и осознанно.</blockquote>
-
-<h2>Что дальше</h2>
-<p>После PEEL 3 — обязательно изучите курс «EVOXA PRO: домашний уход» для корректного ведения пациента. Также курс «Розацеа: щадящий протокол» — для понимания обратной стратегии работы.</p>
+<blockquote>EVOXA PEEL 3 — ANTI-ACNE &amp; ANTI-REDNESS терапия.</blockquote>
 `,
 en: `
 <h2>About this course</h2>
-<p class="lead">EVOXA PEEL 3 — the deep peel of the range. A serious tool for serious tasks. Used only by experienced practitioners and only after mastering PEEL 1 and PEEL 2.</p>
+<p class="lead">EVOXA PEEL 3 is a selective two-phase dermal remodulator. A super-concentrated solution for complex cases: rosacea, couperose, severe acne. It is not an aggressive medium peel.</p>
+<p>For rosacea and couperose, PEEL 3 acts as an anti-inflammatory, sebum-regulating remodulator. We cover the formulation, the carboxy effect, indications, contraindications and the protocol.</p>
 
 <h2>Formulation & mechanism</h2>
-<p><strong>Active ingredients:</strong> medium-concentration TCA combined with AHA. pH 1.8–2.2. Depth — reticular dermis.</p>
-<p>At this level the impact triggers a powerful regenerative cascade. Fibroblasts are activated, the collagen matrix is rebuilt, surface texture is reset.</p>
+<p><strong>Azelaic 16% + Salicylic 20%</strong>, a carrier duo of propylene glycol and denatured alcohol for deep penetration. pH 1.8–2.2, 30 ml.</p>
+<ul>
+  <li>Azelaic (16%) — antimicrobial, anti-inflammatory, keratolytic, brightening</li>
+  <li>Salicylic (20%) — deep pore penetration, comedone dissolution</li>
+  <li>Mild keratolysis, gentle capillary constriction, inhibition of kallikrein-5 and tyrosinase</li>
+</ul>
+<div class="callout"><strong>Oxygenation without redness</strong>With TONIC, CO₂ release gently improves tissue respiration and metabolism without intensifying the vascular response or causing marked erythema. Skin renews without visible flaking.</div>
 
 <h2>Indications</h2>
 <ul>
-<li>Deep hyperpigmentation resistant to PEEL 2</li>
-<li>Moderate to severe post-acne scarring</li>
-<li>Deep expression and static lines</li>
-<li>Age 45+ with loss of turgor</li>
-<li>Seborrheic keratosis, actinic keratosis</li>
-<li>Pre-fractional laser preparation</li>
+  <li>Oily and combination skin</li>
+  <li>Severe acne, rosacea</li>
+  <li>Marked hyperpigmentation, post-acne, melasma</li>
+  <li>Scars</li>
+  <li>First signs of ageing, loss of firmness, dull complexion</li>
 </ul>
 
 <h2>Contraindications</h2>
-<ul>
-<li>All PEEL 1 and PEEL 2 contraindications</li>
-<li>Phototype V–VI (case-by-case only)</li>
-<li>Tendency to keloid or hypertrophic scarring</li>
-<li>Autoimmune disease</li>
-<li>Decompensated diabetes</li>
-<li>Patient unprepared for recovery</li>
-</ul>
+<p><strong>Absolute:</strong> broken skin barrier; fever, respiratory infection or any flare-up; acute inflammation and active herpes; pregnancy and lactation; oncology and pre-oncology; allergy to components; current retinoids or antibiotics.</p>
+<p><strong>With caution</strong> on photosensitising medication: NSAIDs, antihistamines, antidepressants, anxiolytics, anticonvulsants.</p>
 
-<h2>The protocol <span class="em">step by step</span></h2>
+<h2>Protocol <span class="em">step by step</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Consult & consent</div><div class="step-desc">Informed consent, photo log, realistic expectations. Recovery discussion.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">28-day priming</div><div class="step-desc">PRO with retinol + niacinamide. Mandatory antiviral prophylaxis 3 days prior.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Cleansing, degreasing</div><div class="step-desc">Enhanced protocol. Local anesthesia possible.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Applying PEEL 3</div><div class="step-desc">Layer by layer, zone by zone. Level 2 frosting control. Time 1–3 min.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">TONIC neutralization</div><div class="step-desc">Intense foam. Reaction must fully complete. Monitor patient.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Post-peel protocol</div><div class="step-desc">Regenerating products. No washing for 24 hrs. Recovery 7–10 days.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Cleansing</div><div class="step-desc">Apply cleanser to dampened skin, cleanse for 3 minutes, rinse thoroughly with warm water.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Pre-peel lotion</div><div class="step-desc">Soak cotton pads, wipe along massage lines. The skin must be dried.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Apply PEEL 3</div><div class="step-desc">Order: forehead → chin → jaw → cheekbones and cheeks → nose → temples. Exposure 2–3 min on the first session, then up to 8–10 min.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">TONIC neutralisation</div><div class="step-desc">Without rinsing, apply TONIC in reverse order (6→1) along massage lines for 1–2 min. CO2 foam appears.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Rinse and tone</div><div class="step-desc">Rinse with cool water, taking care around the eyes and nose wings. Tone with a soothing or hydrating toner.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Care and SPF</div><div class="step-desc">Soothing or restorative cream. SPF 50+ is mandatory: UV is the main rosacea trigger.</div></div>
 </div>
 
-<h2>Treatment course</h2>
-<p>Only <strong>1–2 sessions with a 60-day interval</strong>. More is not indicated.</p>
+<h2>Course</h2>
+<p>Standard course — <strong>2–4 sessions, 7–14 days apart</strong>. Suited to combined protocols: paired with biorevitalization, PEEL 3 is the safest option, calming inflammation and addressing vascular condition. Mandatory pairing — EVOXA TONIC.</p>
 
-<div class="callout"><strong>Caution</strong>PEEL 3 is a serious medical procedure. 7–10 day recovery with peeling. The patient must be fully prepared and informed.</div>
-
-<h2>Home prescription</h2>
-<ol>
-<li>Days 1–3: regenerating balm only</li>
-<li>Days 4–7: soothing serum EVOXA PRO + regenerant</li>
-<li>Days 8–14: return to standard PRO without actives</li>
-<li>Day 15+: full restoration of the care routine with SPF 50+</li>
-</ol>
-
-<h2>Common mistakes</h2>
-<ol>
-<li>Treating without 28-day priming.</li>
-<li>No antiviral prophylaxis.</li>
-<li>Exceeding frosting depth (level three is the risk zone).</li>
-<li>Treating patients unwilling to undergo recovery.</li>
-<li>Shortening intervals between sessions.</li>
-</ol>
-
-<blockquote>PEEL 3 is a surgeon's tool in a cosmetologist's hand. Used rarely, precisely, consciously.</blockquote>
-
-<h2>What's next</h2>
-<p>After PEEL 3 — study "EVOXA PRO: Home Care" for correct patient management. Also "Rosacea: gentle protocol" for the inverse strategy.</p>
+<blockquote>EVOXA PEEL 3 — ANTI-ACNE &amp; ANTI-REDNESS therapy.</blockquote>
 `,
 es: `
 <h2>Sobre este curso</h2>
-<p class="lead">EVOXA PEEL 3 — el peeling profundo de la línea. Una herramienta seria para tareas serias. Solo profesionales con experiencia y solo tras dominar PEEL 1 y PEEL 2.</p>
+<p class="lead">EVOXA PEEL 3 es un remodulador dérmico bifásico selectivo. Una solución superconcentrada para casos complejos: rosácea, couperosis, acné grave. No es un peeling medio agresivo.</p>
+<p>En rosácea y couperosis, PEEL 3 actúa como remodulador antiinflamatorio y seborregulador. Vemos la composición, el efecto carboxi, indicaciones, contraindicaciones y el protocolo.</p>
 
-<h2>Formulación y mecanismo</h2>
-<p><strong>Activos:</strong> TCA en concentración media combinada con AHA. pH 1,8–2,2. Profundidad — dermis reticular.</p>
-<p>A este nivel se desencadena una potente cascada regenerativa. Se activan fibroblastos, se reconstruye la matriz de colágeno, se restablece la textura superficial.</p>
+<h2>Composición y mecanismo</h2>
+<p><strong>Azelaico 16% + Salicílico 20%</strong>, dúo vehiculizador de propilenglicol y alcohol desnaturalizado para una penetración profunda. pH 1.8–2.2, 30 ml.</p>
+<ul>
+  <li>Azelaico (16%) — antimicrobiano, antiinflamatorio, queratolítico, despigmentante</li>
+  <li>Salicílico (20%) — penetración profunda en poros, disolución de comedones</li>
+  <li>Queratólisis suave, ligera constricción capilar, inhibición de calicreína-5 y tirosinasa</li>
+</ul>
+<div class="callout"><strong>Oxigenación sin enrojecimiento</strong>Con TONIC, la liberación de CO₂ mejora suavemente la respiración del tejido y el metabolismo sin intensificar la respuesta vascular ni causar eritema marcado. La piel se renueva sin descamación visible.</div>
 
 <h2>Indicaciones</h2>
 <ul>
-<li>Hiperpigmentación profunda resistente a PEEL 2</li>
-<li>Cicatrices post-acné moderadas a severas</li>
-<li>Líneas profundas de expresión y estáticas</li>
-<li>45+ años con pérdida de turgencia</li>
-<li>Queratosis seborreica, actínica</li>
-<li>Preparación para láser fraccional</li>
+  <li>Piel grasa y mixta</li>
+  <li>Formas graves de acné, rosácea</li>
+  <li>Hiperpigmentación marcada, post-acné, melasma</li>
+  <li>Cicatrices</li>
+  <li>Primeros signos de envejecimiento, pérdida de firmeza, tez apagada</li>
 </ul>
 
 <h2>Contraindicaciones</h2>
-<ul>
-<li>Todas las de PEEL 1 y PEEL 2</li>
-<li>Fototipo V–VI (solo caso por caso)</li>
-<li>Tendencia a queloides o cicatrices hipertróficas</li>
-<li>Enfermedad autoinmune</li>
-<li>Diabetes descompensada</li>
-<li>Paciente no preparado para recuperación</li>
-</ul>
+<p><strong>Absolutas:</strong> barrera cutánea dañada; fiebre, infección respiratoria o cualquier brote; inflamación aguda y herpes activo; embarazo y lactancia; oncología y preoncología; alergia a los componentes; retinoides o antibióticos en curso.</p>
+<p><strong>Con precaución</strong> con fármacos fotosensibilizantes: AINE, antihistamínicos, antidepresivos, ansiolíticos, anticonvulsivos.</p>
 
-<h2>El protocolo <span class="em">paso a paso</span></h2>
+<h2>Protocolo <span class="em">paso a paso</span></h2>
 <div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Consulta y consentimiento</div><div class="step-desc">Consentimiento informado, fotoprotocolo, expectativas realistas. Hablar de recuperación.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Preparación 28 días</div><div class="step-desc">PRO con retinol + niacinamida. Profilaxis antiviral obligatoria 3 días antes.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Limpieza, desengrase</div><div class="step-desc">Protocolo reforzado. Anestesia local posible.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Aplicar PEEL 3</div><div class="step-desc">Capa por capa, zona por zona. Control de frosting nivel 2. Tiempo 1–3 min.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Neutralización TONIC</div><div class="step-desc">Espuma intensa. La reacción debe completarse. Vigilar al paciente.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">Protocolo post-peeling</div><div class="step-desc">Productos regeneradores. Sin lavar 24 h. Recuperación 7–10 días.</div></div>
+  <div class="step"><div class="step-num">01</div><div class="step-name">Limpieza</div><div class="step-desc">Aplicar limpiador sobre piel humedecida, limpiar 3 minutos, aclarar bien con agua tibia.</div></div>
+  <div class="step"><div class="step-num">02</div><div class="step-name">Loción pre-peeling</div><div class="step-desc">Empapar discos de algodón, pasar siguiendo las líneas de masaje. La piel debe quedar seca.</div></div>
+  <div class="step"><div class="step-num">03</div><div class="step-name">Aplicar PEEL 3</div><div class="step-desc">Orden: frente → mentón → mandíbula → pómulos y mejillas → nariz → sienes. Exposición 2–3 min en la primera sesión, luego hasta 8–10 min.</div></div>
+  <div class="step"><div class="step-num">04</div><div class="step-name">Neutralización TONIC</div><div class="step-desc">Sin aclarar, aplicar TONIC en orden inverso (6→1) por las líneas de masaje, 1–2 min. Aparece espuma de CO2.</div></div>
+  <div class="step"><div class="step-num">05</div><div class="step-name">Aclarado y tónico</div><div class="step-desc">Aclarar con agua fresca, con cuidado alrededor de ojos y alas de la nariz. Tonificar con un tónico calmante o hidratante.</div></div>
+  <div class="step"><div class="step-num">06</div><div class="step-name">Cuidado y SPF</div><div class="step-desc">Crema calmante o reparadora. SPF 50+ obligatorio: el UV es el principal desencadenante de la rosácea.</div></div>
 </div>
 
 <h2>Curso</h2>
-<p>Solo <strong>1–2 sesiones con intervalo de 60 días</strong>. Más no está indicado.</p>
+<p>Curso estándar — <strong>2–4 sesiones con 7–14 días de intervalo</strong>. Apto para protocolos combinados: junto a la biorrevitalización, PEEL 3 es la opción más segura, calma la inflamación y corrige el estado vascular. Pareja obligatoria — EVOXA TONIC.</p>
 
-<div class="callout"><strong>Atención</strong>PEEL 3 es un procedimiento médico serio. Recuperación 7–10 días con descamación. El paciente debe estar plenamente preparado e informado.</div>
-
-<h2>Prescripción domiciliaria</h2>
-<ol>
-<li>Días 1–3: solo bálsamo regenerador</li>
-<li>Días 4–7: sérum calmante EVOXA PRO + regenerante</li>
-<li>Días 8–14: vuelta al PRO estándar sin activos</li>
-<li>Día 15+: restauración completa con SPF 50+</li>
-</ol>
-
-<h2>Errores comunes</h2>
-<ol>
-<li>Tratar sin preparación de 28 días.</li>
-<li>Sin profilaxis antiviral.</li>
-<li>Exceder la profundidad del frosting (nivel tres es zona de riesgo).</li>
-<li>Tratar pacientes no dispuestos a la recuperación.</li>
-<li>Acortar intervalos entre sesiones.</li>
-</ol>
-
-<blockquote>PEEL 3 es una herramienta de cirujano en mano de un cosmetólogo. Se usa raramente, con precisión, con consciencia.</blockquote>
-
-<h2>Qué viene después</h2>
-<p>Tras PEEL 3 — estudia "EVOXA PRO: cuidado en casa" para la correcta gestión del paciente. También "Rosácea: protocolo suave" para la estrategia inversa.</p>
+<blockquote>EVOXA PEEL 3 — terapia ANTI-ACNÉ y ANTI-ROJECES.</blockquote>
 `
 },
 
@@ -7409,238 +7249,195 @@ es: `
 'choose-peel': {
 ru: `
 <h2>Зачем нужен этот гид</h2>
-<p class="lead">PEEL 1, PEEL 2 или PEEL 3? Самая частая ошибка — выбор уровня «по запросу пациента» вместо клинических показаний. Этот курс даёт алгоритм.</p>
-
-<h2>Три параметра выбора</h2>
-<p>Корректный подбор уровня PEEL опирается на три параметра одновременно:</p>
-<ol>
-<li><strong>Тип кожи и фототип.</strong> Жирная или сухая, реактивная или толерантная, светлая или смуглая.</li>
-<li><strong>Клиническая задача.</strong> Что именно вы решаете — пигмент, морщины, постакне, тонус.</li>
-<li><strong>Готовность пациента.</strong> Может ли он/она позволить себе реабилитацию или нужен формат «без выпадений».</li>
-</ol>
+<p class="lead">PEEL 1, PEEL 2 или PEEL 3? Выбор опирается на клинические показания: задачу, тип кожи и фототип. Правильный пилинг — не самый сильный, а тот, который точно решает задачу.</p>
 
 <h2>Алгоритм выбора <span class="em">по задачам</span></h2>
 <table>
-<thead><tr><th>Задача</th><th>Уровень PEEL</th><th>Дополнительно</th></tr></thead>
+<thead><tr><th>Задача</th><th>Препарат</th><th>Курс</th></tr></thead>
 <tbody>
-<tr><td>Тусклый цвет, текстура</td><td>PEEL 1</td><td>Курс 4–6 процедур</td></tr>
-<tr><td>Расширенные поры</td><td>PEEL 1 или 2</td><td>+ PRO с салициловой</td></tr>
-<tr><td>Лёгкая пигментация</td><td>PEEL 1</td><td>+ PRO с ниацинамидом</td></tr>
-<tr><td>Стойкая пигментация</td><td>PEEL 2</td><td>Подготовка 14 дней</td></tr>
-<tr><td>Глубокая пигментация</td><td>PEEL 3</td><td>Подготовка 28 дней</td></tr>
-<tr><td>Постакне (свежее)</td><td>PEEL 1</td><td>Курс 6 процедур</td></tr>
-<tr><td>Постакне-рубцы</td><td>PEEL 2 или 3</td><td>По глубине рубцов</td></tr>
-<tr><td>Мелкие морщины</td><td>PEEL 2</td><td>Возможно с биоревитализацией</td></tr>
-<tr><td>Глубокие морщины</td><td>PEEL 3</td><td>Только с подготовкой</td></tr>
-<tr><td>Профилактика</td><td>PEEL 1</td><td>Поддерживающие 1 раз в месяц</td></tr>
+<tr><td>Тусклый цвет, текстура</td><td>PEEL 1, 2, 3</td><td>2–4 процедуры, 1 раз в 7–10 дней</td></tr>
+<tr><td>Расширенные поры</td><td>PEEL 1 или 3</td><td>2–4 процедуры, 1 раз в 7–10 дней</td></tr>
+<tr><td>Фотостарение, пигментация</td><td>PEEL 2</td><td>3–5 процедур, 1 раз в 7–10 дней</td></tr>
+<tr><td>Стойкая пигментация, мелазма</td><td>PEEL 1, 3</td><td>4 процедуры, 1 раз в 7–10 дней</td></tr>
+<tr><td>Постакне (свежее)</td><td>PEEL 3</td><td>2–4 процедуры, 1 раз в 7–10 дней</td></tr>
+<tr><td>Постакне-рубцы</td><td>PEEL 1</td><td>4 процедуры, 1 раз в 7–10 дней</td></tr>
+<tr><td>Мелкоморщинистый тип, сухая кожа</td><td>PEEL 2</td><td>Сочетанные протоколы с биоревитализацией, интервал от 48 часов</td></tr>
+<tr><td>Морщины глубокого залегания</td><td>PEEL 1</td><td>Сочетанные протоколы с аппаратными методиками, интервал 7 дней</td></tr>
+<tr><td>Купероз и розацеа</td><td>PEEL 3</td><td>2–4 процедуры, 1 раз в 7–14 дней</td></tr>
+<tr><td>Профилактика</td><td>PEEL 1, 2, 3</td><td>Со 2-го месяца после курса, раз в 1–2 месяца</td></tr>
 </tbody></table>
 
 <h2>Алгоритм по типу кожи</h2>
-<h3>Сухая и чувствительная</h3>
+<h3>Сухая, обезвоженная и чувствительная</h3>
 <ul>
-<li>Старт всегда с PEEL 1</li>
-<li>Удлинённый интервал между процедурами (14 дней)</li>
-<li>Усиленная подготовка PRO</li>
-<li>PEEL 2 — только после 4 успешных PEEL 1</li>
+<li>Препарат выбора — <strong>EVOXA PEEL 2</strong></li>
+<li>Экспозиция 2–3 мин на первой процедуре, далее до 5–8 мин</li>
+<li>Интервал 7–14 дней; восстанавливающий уход, обязательно SPF 50</li>
 </ul>
-
 <h3>Нормальная кожа</h3>
 <ul>
-<li>Стандартный путь: PEEL 1 → PEEL 2 при необходимости</li>
-<li>Интервалы 7–10 дней</li>
-<li>Универсальный протокол PRO</li>
+<li>Дегидратация, фотостарение → <strong>PEEL 2</strong> (2–3 → 8–10 мин)</li>
+<li>Купероз, розацеа → <strong>PEEL 3</strong> (2–3 → 8–10 мин)</li>
+<li>Интервал 7–10 дней; универсальный уход, обязательно SPF 50</li>
 </ul>
-
 <h3>Жирная и комбинированная</h3>
 <ul>
-<li>PEEL 1 переносится отлично</li>
-<li>Возможен переход на PEEL 2 уже после 2–3 процедур</li>
-<li>Интервалы 7 дней</li>
-<li>PRO с салициловой кислотой</li>
+<li>Препарат выбора — <strong>EVOXA PEEL 1</strong> (2–3 → 5–8 мин)</li>
+<li>Возможен переход на <strong>PEEL 3</strong> после 1–2 процедур (до 7–10 мин)</li>
+<li>Интервал 7 дней; уход для жирной кожи, обязательно SPF 50</li>
 </ul>
 
-<h2>Алгоритм по фототипу <span class="em">по Фитцпатрику</span></h2>
+<h2>Алгоритм по фототипу <span class="em">(Фитцпатрик)</span></h2>
 <table>
 <thead><tr><th>Фототип</th><th>PEEL 1</th><th>PEEL 2</th><th>PEEL 3</th></tr></thead>
 <tbody>
-<tr><td>I–II</td><td>Без ограничений</td><td>Без подготовки</td><td>Подготовка 14 дн</td></tr>
-<tr><td>III–IV</td><td>Без ограничений</td><td>Подготовка 14 дн</td><td>Подготовка 28 дн</td></tr>
-<tr><td>V–VI</td><td>Подготовка 7 дн</td><td>Подготовка 21 дн</td><td>Только индивидуально</td></tr>
+<tr><td>I–II</td><td>Без ограничений</td><td>Без ограничений</td><td>Без ограничений</td></tr>
+<tr><td>III</td><td>Без ограничений</td><td>Без ограничений</td><td>Без ограничений</td></tr>
+<tr><td>IV</td><td>Индивидуально</td><td>Препарат выбора</td><td>Индивидуально</td></tr>
+<tr><td>V–VI</td><td>Не рекомендуется</td><td>Индивидуально</td><td>Не рекомендуется</td></tr>
 </tbody></table>
-
-<div class="callout"><strong>Правило безопасности</strong>Если сомневаетесь между двумя уровнями — всегда выбирайте младший. Эффект можно усилить, ошибку нельзя отменить.</div>
+<div class="callout"><strong>Правило безопасности</strong>Если сомневаетесь в безопасности — уменьшите экспозицию и используйте SPF с высоким фактором. Эффект можно усилить, ошибку нельзя отменить.</div>
 
 <h2>Чек-лист перед назначением</h2>
-<ol>
-<li>Определён фототип пациента</li>
-<li>Собран анамнез: лекарства, пилинги в прошлом, реакции</li>
+<ul>
+<li>Определён тип, состояние и фототип пациента</li>
+<li>Собран анамнез: заболевания, препараты и БАД, прошлые процедуры, аллергии</li>
 <li>Сделан фотопротокол</li>
 <li>Подписано информированное согласие</li>
 <li>Согласован курс и план реабилитации</li>
 <li>Назначен домашний уход EVOXA PRO</li>
 <li>Обозначены ограничения: солнце, сауна, активы</li>
-</ol>
+</ul>
 
 <blockquote>Правильный пилинг — это не самый сильный пилинг. Это тот, который точно решает задачу.</blockquote>
-
-<h2>Что дальше</h2>
-<p>Освоив выбор уровня — переходите к детальному изучению каждого: курсы EVOXA PEEL 1, 2 и 3 раскрывают протоколы максимально подробно.</p>
 `,
 en: `
 <h2>Why this guide</h2>
-<p class="lead">PEEL 1, PEEL 2 or PEEL 3? The most common mistake is choosing the level "by patient request" instead of clinical indication. This course provides the algorithm.</p>
+<p class="lead">PEEL 1, PEEL 2 or PEEL 3? The choice rests on clinical indications: goal, skin type and phototype. The right peel is not the strongest one — it is the one that precisely solves the task.</p>
 
-<h2>Three selection parameters</h2>
-<ol>
-<li><strong>Skin type and phototype.</strong> Oily or dry, reactive or tolerant, fair or dark.</li>
-<li><strong>Clinical task.</strong> What exactly are you solving — pigment, lines, post-acne, tone.</li>
-<li><strong>Patient readiness.</strong> Can they afford recovery or do they need "no downtime"?</li>
-</ol>
-
-<h2>Algorithm <span class="em">by task</span></h2>
+<h2>Selection <span class="em">by goal</span></h2>
 <table>
-<thead><tr><th>Task</th><th>PEEL level</th><th>Additionally</th></tr></thead>
+<thead><tr><th>Goal</th><th>Product</th><th>Course</th></tr></thead>
 <tbody>
-<tr><td>Dull tone, texture</td><td>PEEL 1</td><td>Course of 4–6</td></tr>
-<tr><td>Enlarged pores</td><td>PEEL 1 or 2</td><td>+ PRO with salicylic</td></tr>
-<tr><td>Mild pigment</td><td>PEEL 1</td><td>+ PRO with niacinamide</td></tr>
-<tr><td>Stubborn pigment</td><td>PEEL 2</td><td>14-day prep</td></tr>
-<tr><td>Deep pigment</td><td>PEEL 3</td><td>28-day prep</td></tr>
-<tr><td>Fresh post-acne</td><td>PEEL 1</td><td>Course of 6</td></tr>
-<tr><td>Post-acne scars</td><td>PEEL 2 or 3</td><td>By scar depth</td></tr>
-<tr><td>Fine lines</td><td>PEEL 2</td><td>Possibly with biorevit.</td></tr>
-<tr><td>Deep lines</td><td>PEEL 3</td><td>Only with prep</td></tr>
-<tr><td>Prevention</td><td>PEEL 1</td><td>Maintenance once a month</td></tr>
+<tr><td>Dull tone, texture</td><td>PEEL 1, 2, 3</td><td>2–4 sessions, once every 7–10 days</td></tr>
+<tr><td>Enlarged pores</td><td>PEEL 1 or 3</td><td>2–4 sessions, once every 7–10 days</td></tr>
+<tr><td>Photo-ageing, pigmentation</td><td>PEEL 2</td><td>3–5 sessions, once every 7–10 days</td></tr>
+<tr><td>Stubborn pigmentation, melasma</td><td>PEEL 1, 3</td><td>4 sessions, once every 7–10 days</td></tr>
+<tr><td>Fresh post-acne</td><td>PEEL 3</td><td>2–4 sessions, once every 7–10 days</td></tr>
+<tr><td>Post-acne scars</td><td>PEEL 1</td><td>4 sessions, once every 7–10 days</td></tr>
+<tr><td>Fine-wrinkle type, dry skin</td><td>PEEL 2</td><td>Combined protocols with biorevitalization, interval from 48 h</td></tr>
+<tr><td>Deep-set wrinkles</td><td>PEEL 1</td><td>Combined protocols with device methods, interval 7 days</td></tr>
+<tr><td>Couperose and rosacea</td><td>PEEL 3</td><td>2–4 sessions, once every 7–14 days</td></tr>
+<tr><td>Prevention</td><td>PEEL 1, 2, 3</td><td>From month 2 after the course, once every 1–2 months</td></tr>
 </tbody></table>
 
-<h2>Algorithm by skin type</h2>
-<h3>Dry and sensitive</h3>
+<h2>By skin type</h2>
+<h3>Dry, dehydrated and sensitive</h3>
 <ul>
-<li>Always start with PEEL 1</li>
-<li>Extended interval (14 days)</li>
-<li>Enhanced PRO priming</li>
-<li>PEEL 2 only after 4 successful PEEL 1 sessions</li>
+<li>Product of choice — <strong>EVOXA PEEL 2</strong></li>
+<li>Exposure 2–3 min on the first session, then up to 5–8 min</li>
+<li>Interval 7–14 days; restorative care, mandatory SPF 50</li>
 </ul>
-
 <h3>Normal skin</h3>
 <ul>
-<li>Standard path: PEEL 1 → PEEL 2 if needed</li>
-<li>7–10 day intervals</li>
-<li>Universal PRO protocol</li>
+<li>Dehydration, photo-ageing → <strong>PEEL 2</strong> (2–3 → 8–10 min)</li>
+<li>Couperose, rosacea → <strong>PEEL 3</strong> (2–3 → 8–10 min)</li>
+<li>Interval 7–10 days; universal care, mandatory SPF 50</li>
 </ul>
-
 <h3>Oily and combination</h3>
 <ul>
-<li>PEEL 1 tolerated very well</li>
-<li>Move to PEEL 2 after 2–3 sessions</li>
-<li>7-day intervals</li>
-<li>PRO with salicylic</li>
+<li>Product of choice — <strong>EVOXA PEEL 1</strong> (2–3 → 5–8 min)</li>
+<li>A switch to <strong>PEEL 3</strong> is possible after 1–2 sessions (up to 7–10 min)</li>
+<li>Interval 7 days; care for oily skin, mandatory SPF 50</li>
 </ul>
 
-<h2>Algorithm by Fitzpatrick phototype</h2>
+<h2>By phototype <span class="em">(Fitzpatrick)</span></h2>
 <table>
 <thead><tr><th>Phototype</th><th>PEEL 1</th><th>PEEL 2</th><th>PEEL 3</th></tr></thead>
 <tbody>
-<tr><td>I–II</td><td>No limits</td><td>No prep</td><td>14-day prep</td></tr>
-<tr><td>III–IV</td><td>No limits</td><td>14-day prep</td><td>28-day prep</td></tr>
-<tr><td>V–VI</td><td>7-day prep</td><td>21-day prep</td><td>Case-by-case</td></tr>
+<tr><td>I–II</td><td>No restrictions</td><td>No restrictions</td><td>No restrictions</td></tr>
+<tr><td>III</td><td>No restrictions</td><td>No restrictions</td><td>No restrictions</td></tr>
+<tr><td>IV</td><td>Individually</td><td>Product of choice</td><td>Individually</td></tr>
+<tr><td>V–VI</td><td>Not recommended</td><td>Individually</td><td>Not recommended</td></tr>
 </tbody></table>
-
-<div class="callout"><strong>Safety rule</strong>If unsure between two levels — always choose the lower. Effect can be intensified; a mistake cannot be undone.</div>
+<div class="callout"><strong>Safety rule</strong>If in doubt about safety — reduce exposure and use a high-factor SPF. The effect can be intensified; a mistake cannot be undone.</div>
 
 <h2>Pre-treatment checklist</h2>
-<ol>
-<li>Phototype identified</li>
-<li>History taken: medications, prior peels, reactions</li>
-<li>Photo log made</li>
+<ul>
+<li>Skin type, condition and phototype determined</li>
+<li>History taken: conditions, medications and supplements, past procedures, allergies</li>
+<li>Photo-protocol done</li>
 <li>Informed consent signed</li>
-<li>Course and recovery plan agreed</li>
+<li>Course and rehabilitation plan agreed</li>
 <li>EVOXA PRO home care prescribed</li>
-<li>Restrictions communicated: sun, sauna, actives</li>
-</ol>
+<li>Restrictions set: sun, sauna, actives</li>
+</ul>
 
-<blockquote>The right peel isn't the strongest one. It's the one that precisely solves the task.</blockquote>
-
-<h2>What's next</h2>
-<p>Once you can choose the level — dive into detailed protocols: EVOXA PEEL 1, 2 and 3 courses cover them in full.</p>
+<blockquote>The right peel is not the strongest one. It is the one that precisely solves the task.</blockquote>
 `,
 es: `
 <h2>Por qué esta guía</h2>
-<p class="lead">¿PEEL 1, PEEL 2 o PEEL 3? El error más común es elegir el nivel "por petición del paciente" en lugar de indicación clínica. Este curso da el algoritmo.</p>
+<p class="lead">¿PEEL 1, PEEL 2 o PEEL 3? La elección se basa en indicaciones clínicas: objetivo, tipo de piel y fototipo. El peeling correcto no es el más fuerte, sino el que resuelve la tarea con precisión.</p>
 
-<h2>Tres parámetros de elección</h2>
-<ol>
-<li><strong>Tipo de piel y fototipo.</strong> Grasa o seca, reactiva o tolerante, clara u oscura.</li>
-<li><strong>Tarea clínica.</strong> Qué resuelves — pigmento, líneas, post-acné, tono.</li>
-<li><strong>Disposición del paciente.</strong> ¿Puede permitirse recuperación o necesita "sin downtime"?</li>
-</ol>
-
-<h2>Algoritmo <span class="em">por tarea</span></h2>
+<h2>Selección <span class="em">por objetivo</span></h2>
 <table>
-<thead><tr><th>Tarea</th><th>Nivel PEEL</th><th>Adicional</th></tr></thead>
+<thead><tr><th>Objetivo</th><th>Producto</th><th>Curso</th></tr></thead>
 <tbody>
-<tr><td>Tez apagada, textura</td><td>PEEL 1</td><td>Curso 4–6</td></tr>
-<tr><td>Poros dilatados</td><td>PEEL 1 o 2</td><td>+ PRO con salicílico</td></tr>
-<tr><td>Pigmento leve</td><td>PEEL 1</td><td>+ PRO con niacinamida</td></tr>
-<tr><td>Pigmento persistente</td><td>PEEL 2</td><td>Prep 14 días</td></tr>
-<tr><td>Pigmento profundo</td><td>PEEL 3</td><td>Prep 28 días</td></tr>
-<tr><td>Post-acné fresco</td><td>PEEL 1</td><td>Curso de 6</td></tr>
-<tr><td>Cicatrices post-acné</td><td>PEEL 2 o 3</td><td>Por profundidad</td></tr>
-<tr><td>Líneas finas</td><td>PEEL 2</td><td>Posible con biorrevit.</td></tr>
-<tr><td>Líneas profundas</td><td>PEEL 3</td><td>Solo con prep</td></tr>
-<tr><td>Prevención</td><td>PEEL 1</td><td>Mant. 1 vez al mes</td></tr>
+<tr><td>Tono apagado, textura</td><td>PEEL 1, 2, 3</td><td>2–4 sesiones, 1 vez cada 7–10 días</td></tr>
+<tr><td>Poros dilatados</td><td>PEEL 1 o 3</td><td>2–4 sesiones, 1 vez cada 7–10 días</td></tr>
+<tr><td>Fotoenvejecimiento, pigmentación</td><td>PEEL 2</td><td>3–5 sesiones, 1 vez cada 7–10 días</td></tr>
+<tr><td>Pigmentación persistente, melasma</td><td>PEEL 1, 3</td><td>4 sesiones, 1 vez cada 7–10 días</td></tr>
+<tr><td>Post-acné reciente</td><td>PEEL 3</td><td>2–4 sesiones, 1 vez cada 7–10 días</td></tr>
+<tr><td>Cicatrices de post-acné</td><td>PEEL 1</td><td>4 sesiones, 1 vez cada 7–10 días</td></tr>
+<tr><td>Arruga fina, piel seca</td><td>PEEL 2</td><td>Protocolos combinados con biorrevitalización, intervalo desde 48 h</td></tr>
+<tr><td>Arrugas profundas</td><td>PEEL 1</td><td>Protocolos combinados con aparatología, intervalo 7 días</td></tr>
+<tr><td>Couperosis y rosácea</td><td>PEEL 3</td><td>2–4 sesiones, 1 vez cada 7–14 días</td></tr>
+<tr><td>Prevención</td><td>PEEL 1, 2, 3</td><td>Desde el mes 2 tras el curso, 1 vez cada 1–2 meses</td></tr>
 </tbody></table>
 
-<h2>Algoritmo por tipo de piel</h2>
-<h3>Seca y sensible</h3>
+<h2>Por tipo de piel</h2>
+<h3>Seca, deshidratada y sensible</h3>
 <ul>
-<li>Siempre PEEL 1 al inicio</li>
-<li>Intervalo extendido (14 días)</li>
-<li>Preparación PRO reforzada</li>
-<li>PEEL 2 solo tras 4 PEEL 1 exitosos</li>
+<li>Producto de elección — <strong>EVOXA PEEL 2</strong></li>
+<li>Exposición 2–3 min en la primera sesión, luego hasta 5–8 min</li>
+<li>Intervalo 7–14 días; cuidado reparador, SPF 50 obligatorio</li>
 </ul>
-
 <h3>Piel normal</h3>
 <ul>
-<li>Camino estándar: PEEL 1 → PEEL 2 si necesario</li>
-<li>Intervalos 7–10 días</li>
-<li>Protocolo PRO universal</li>
+<li>Deshidratación, fotoenvejecimiento → <strong>PEEL 2</strong> (2–3 → 8–10 min)</li>
+<li>Couperosis, rosácea → <strong>PEEL 3</strong> (2–3 → 8–10 min)</li>
+<li>Intervalo 7–10 días; cuidado universal, SPF 50 obligatorio</li>
 </ul>
-
 <h3>Grasa y mixta</h3>
 <ul>
-<li>PEEL 1 tolerado óptimamente</li>
-<li>Pasar a PEEL 2 tras 2–3 sesiones</li>
-<li>Intervalos 7 días</li>
-<li>PRO con salicílico</li>
+<li>Producto de elección — <strong>EVOXA PEEL 1</strong> (2–3 → 5–8 min)</li>
+<li>Posible cambio a <strong>PEEL 3</strong> tras 1–2 sesiones (hasta 7–10 min)</li>
+<li>Intervalo 7 días; cuidado para piel grasa, SPF 50 obligatorio</li>
 </ul>
 
-<h2>Algoritmo por fototipo Fitzpatrick</h2>
+<h2>Por fototipo <span class="em">(Fitzpatrick)</span></h2>
 <table>
 <thead><tr><th>Fototipo</th><th>PEEL 1</th><th>PEEL 2</th><th>PEEL 3</th></tr></thead>
 <tbody>
-<tr><td>I–II</td><td>Sin límites</td><td>Sin prep</td><td>Prep 14 días</td></tr>
-<tr><td>III–IV</td><td>Sin límites</td><td>Prep 14 días</td><td>Prep 28 días</td></tr>
-<tr><td>V–VI</td><td>Prep 7 días</td><td>Prep 21 días</td><td>Caso por caso</td></tr>
+<tr><td>I–II</td><td>Sin restricciones</td><td>Sin restricciones</td><td>Sin restricciones</td></tr>
+<tr><td>III</td><td>Sin restricciones</td><td>Sin restricciones</td><td>Sin restricciones</td></tr>
+<tr><td>IV</td><td>Individual</td><td>Producto de elección</td><td>Individual</td></tr>
+<tr><td>V–VI</td><td>No recomendado</td><td>Individual</td><td>No recomendado</td></tr>
 </tbody></table>
+<div class="callout"><strong>Regla de seguridad</strong>Si dudas de la seguridad — reduce la exposición y usa un SPF de alto factor. El efecto se puede intensificar; un error no se puede deshacer.</div>
 
-<div class="callout"><strong>Regla de seguridad</strong>Si dudas entre dos niveles — siempre el menor. El efecto se puede intensificar; un error no se puede deshacer.</div>
-
-<h2>Checklist pre-tratamiento</h2>
-<ol>
-<li>Fototipo identificado</li>
-<li>Historia tomada: medicación, peelings previos, reacciones</li>
-<li>Fotoprotocolo hecho</li>
-<li>Consentimiento firmado</li>
-<li>Curso y plan de recuperación acordados</li>
-<li>EVOXA PRO domiciliario prescrito</li>
-<li>Restricciones comunicadas: sol, sauna, activos</li>
-</ol>
+<h2>Checklist previo</h2>
+<ul>
+<li>Tipo, estado y fototipo del paciente determinados</li>
+<li>Anamnesis: enfermedades, fármacos y suplementos, procedimientos previos, alergias</li>
+<li>Foto-protocolo realizado</li>
+<li>Consentimiento informado firmado</li>
+<li>Curso y plan de rehabilitación acordados</li>
+<li>Cuidado domiciliario EVOXA PRO prescrito</li>
+<li>Restricciones marcadas: sol, sauna, activos</li>
+</ul>
 
 <blockquote>El peeling correcto no es el más fuerte. Es el que resuelve la tarea con precisión.</blockquote>
-
-<h2>Qué viene después</h2>
-<p>Una vez que sabes elegir el nivel — sumérgete en los protocolos detallados: cursos EVOXA PEEL 1, 2 y 3.</p>
 `
 },
 
@@ -8269,17 +8066,17 @@ const PRODUCTS = [
     num:'N° 01',
     img:'peel_1.jpeg',
     code:'EP-100',
-    level:{ru:'Поверхностный ремодулятор',en:'Superficial remodulator',es:'Remodulador superficial'},
+    level:{ru:'Проблемная кожа',en:'Problem skin',es:'Piel problemática'},
     name:{ru:'EVOXA PEEL 1',en:'EVOXA PEEL 1',es:'EVOXA PEEL 1'},
-    tagline:{ru:'Мягкий старт. Контролируемый сигнал. Ноль реабилитации.',
-             en:'Gentle start. Controlled signal. Zero downtime.',
-             es:'Inicio suave. Señal controlada. Sin recuperación.'},
-    desc:{ru:'Поверхностный ремодулятор. Стартовый протокол для большинства пациентов.',
-          en:'The superficial remodulator. The entry protocol for most patients.',
-          es:'Remodulador superficial. Protocolo de entrada para la mayoría.'},
+    tagline:{ru:'Мощный тандем для проблемной кожи.',
+             en:'A powerful tandem for problem skin.',
+             es:'Un tándem potente para la piel problemática.'},
+    desc:{ru:'Для жирной и проблемной кожи: акне, себорея, расширенные поры, постакне, гиперпигментация.',
+          en:'For oily, problem skin: acne, seborrhoea, enlarged pores, post-acne, pigmentation.',
+          es:'Para piel grasa y problemática: acné, seborrea, poros dilatados, post-acné, pigmentación.'},
     spec:{
-      volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
-      ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'3.2 – 3.6'},
+      volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'20 ml'},
+      ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'1.5 – 1.7'},
       depth:{label:{ru:'Глубина',en:'Depth',es:'Profundidad'},value:{ru:'Эпидермис',en:'Epidermis',es:'Epidermis'}},
       use:{label:{ru:'Использование',en:'Use',es:'Uso'},value:{ru:'Только врач',en:'Practitioner only',es:'Solo médico'}}
     }
@@ -8289,17 +8086,17 @@ const PRODUCTS = [
     num:'N° 02',
     img:'peel_2.jpeg',
     code:'EP-200',
-    level:{ru:'Срединный ремодулятор',en:'Medium remodulator',es:'Remodulador medio'},
+    level:{ru:'Антивозраст · сухая кожа',en:'Anti-age · dry skin',es:'Antiedad · piel seca'},
     name:{ru:'EVOXA PEEL 2',en:'EVOXA PEEL 2',es:'EVOXA PEEL 2'},
-    tagline:{ru:'Точный контроль глубины. Работа с пигментом и текстурой.',
-             en:'Precise depth control. For pigment and texture.',
-             es:'Control preciso de profundidad. Para pigmento y textura.'},
-    desc:{ru:'Срединный ремодулятор для пигментации, постакне и мелких морщин.',
-          en:'Medium remodulator for pigmentation, post-acne and fine lines.',
-          es:'Remodulador medio para pigmentación, post-acné y líneas finas.'},
+    tagline:{ru:'Интеллектуальный антивозраст с поддержкой NMF.',
+             en:'Intelligent anti-age with NMF support.',
+             es:'Antiedad inteligente con soporte NMF.'},
+    desc:{ru:'Для сухой и чувствительной кожи: фотостарение, пигмент, мелкие морщины, обезвоженность.',
+          en:'For dry, sensitive skin: photo-ageing, pigment, fine lines, dehydration.',
+          es:'Para piel seca y sensible: fotoenvejecimiento, pigmento, líneas finas, deshidratación.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
-      ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'2.4 – 2.8'},
+      ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'1.8 – 2.2'},
       depth:{label:{ru:'Глубина',en:'Depth',es:'Profundidad'},value:{ru:'Базальный слой',en:'Basal layer',es:'Capa basal'}},
       use:{label:{ru:'Использование',en:'Use',es:'Uso'},value:{ru:'Только врач',en:'Practitioner only',es:'Solo médico'}}
     }
@@ -8309,14 +8106,14 @@ const PRODUCTS = [
     num:'N° 03',
     img:'skin.jpeg',
     code:'EP-300',
-    level:{ru:'Глубокий ремодулятор',en:'Deep remodulator',es:'Remodulador profundo'},
+    level:{ru:'Сложные случаи · розацеа',en:'Complex cases · rosacea',es:'Casos complejos · rosácea'},
     name:{ru:'EVOXA PEEL 3',en:'EVOXA PEEL 3',es:'EVOXA PEEL 3'},
-    tagline:{ru:'Серьёзный инструмент. Серьёзные задачи. Только опыт.',
-             en:'Serious tool. Serious tasks. Experience only.',
-             es:'Herramienta seria. Tareas serias. Solo experiencia.'},
-    desc:{ru:'Глубокий ремодулятор для возрастных задач, рубцов и стойкой пигментации.',
-          en:'Deep remodulator for age, scarring and stubborn pigmentation.',
-          es:'Remodulador profundo para edad, cicatrices y pigmentación persistente.'},
+    tagline:{ru:'Сверхконцентрат для сложных случаев. Anti-acne & anti-redness.',
+             en:'Super-concentrate for complex cases. Anti-acne & anti-redness.',
+             es:'Superconcentrado para casos complejos. Anti-acné y anti-rojeces.'},
+    desc:{ru:'Для розацеа, купероза и сложного постакне. Противовоспалительный ремодулятор.',
+          en:'For rosacea, couperose and complex post-acne. An anti-inflammatory remodulator.',
+          es:'Para rosácea, couperosis y post-acné complejo. Un remodulador antiinflamatorio.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
       ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'1.8 – 2.2'},
@@ -8339,6 +8136,7 @@ const PRODUCTS = [
           es:'Neutralizador CO2. Completa el remodulador con espuma visible.'},
     spec:{
       volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'50 ml'},
+      ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'7.9 – 8.1'},
       reaction:{label:{ru:'Реакция',en:'Reaction',es:'Reacción'},value:{ru:'Пена CO2',en:'CO2 foam',es:'Espuma CO2'}},
       pair:{label:{ru:'Сочетается с',en:'Pairs with',es:'Combina con'},value:'PEEL 1 / 2 / 3'},
       use:{label:{ru:'Использование',en:'Use',es:'Uso'},value:{ru:'Обязательно',en:'Mandatory',es:'Obligatorio'}}
@@ -8430,364 +8228,443 @@ const PRODUCT_CONTENT = {
 'evoxa-peel-1': {
 ru: `
 <h2>Что такое EVOXA PEEL 1</h2>
-<p class="lead">Поверхностный ремодулятор профессиональной линейки EVOXA. Стартовый протокол метода.</p>
-<p>В отличие от классических AHA-пилингов, PEEL 1 не повреждает кожу — он передаёт ей биохимический сигнал к обновлению. Концентрация и pH рассчитаны так, чтобы инициировать каскад регенерации без формирования зоны некроза.</p>
+<p class="lead">Дермальный ремодулятор профессиональной линейки EVOXA PEEL, 1 фаза. Селективный двухфазный дермальный ремодулятор — не классический пилинг. Мощный тандем для проблемной кожи.</p>
+<p>В EVOXA PEEL 1 реализована стратегия, при которой в дерме создаётся и немедленно регулируется субклиническое воспаление — сигнал к обновлению. При взаимодействии с EVOXA TONIC формируется локальный эффект Вериго–Бора: он усиливает терапевтический ответ, не провоцируя покраснение и реактивность. Эффект остаётся контролируемым и ненавязчивым, без выраженной гиперемии — именно такой нужен коже с акне: функциональный, а не раздражающий.</p>
 
 <h2>Состав</h2>
-<p>Комбинация альфа-гидроксикислот низкой концентрации: молочная и миндальная. pH 3.2–3.6. Без отдушек, без красителей, без консервантов парабенового ряда.</p>
+<p>Salicilico 15% + Piruvico 8% + Lactico 5,5%, ундеценоил фенилаланин, ретинил пальмитат, диацетилболдин, токоферол. pH 1.5–1.7, объём 20 ml.</p>
+<ul>
+<li>Салициловая к-та (15%): BHA — глубокое очищение пор, комедонолитик, противовоспалительное действие</li>
+<li>Пировиноградная к-та (8%): альфа-кето-кислота — стимуляция коллагена, себорегуляция, антиоксидант</li>
+<li>Молочная к-та (5,5%): AHA — увлажнение, осветление</li>
+<li>Ундеценоил фенилаланин: выравнивает тон, работает с возрастными пятнами, поствоспалительной гиперпигментацией и мелазмой, защищает от фотостарения</li>
+<li>Ретинил пальмитат: ретинол-подобная активность — регенерация, синтез коллагена, тон и текстура</li>
+<li>Диацетилболдин: мощный антиоксидант и противовоспалительный агент</li>
+<li>Токоферол: антиоксидант, усиливает стабильность ретинола</li>
+</ul>
 
 <h2>Для кого</h2>
 <ul>
-<li>Тусклый цвет лица, нарушение текстуры</li>
-<li>Лёгкая постакне-симптоматика, расширенные поры</li>
-<li>Первые мимические морщины (25–35 лет)</li>
-<li>Подготовка к более глубоким PEEL 2 и 3</li>
-<li>Чувствительная кожа, не переносящая агрессивных пилингов</li>
+<li>Жирная и комбинированная кожа</li>
+<li>Гиперкератоз, себорея</li>
+<li>Акне, постакне</li>
+<li>Плотные сальные пробки, расширенные поры</li>
+<li>Поствоспалительная гиперпигментация, мелазма</li>
+<li>Потеря тургора, тонуса и эластичности кожи</li>
 </ul>
 
 <h2>Принцип работы</h2>
-<p>Кожа получает контролируемый кислотный стимул. Активируется обновление кератиноцитов, ускоряется регенерация. Реакция останавливается мгновенно после нанесения EVOXA TONIC — появляется характерная пена CO2.</p>
+<p>Синергия кислот и дополнительных ингредиентов запускает ремодуляцию матрикса: упорядочивает существующие и стимулирует синтез новых волокон коллагена и эластина.</p>
 
-<div class="callout"><strong>Ключевое отличие</strong>Классический пилинг повреждает. EVOXA PEEL 1 модулирует. Концентрация и pH рассчитаны так, чтобы инициировать каскад регенерации без эпидермолиза.</div>
+<div class="callout"><strong>Ключевое отличие</strong>Классический пилинг работает с последствиями и действует «снаружи внутрь», удаляя старое. EVOXA PEEL 1 работает с причиной — ослабление коллагенового каркаса, потеря плотности, хроническое воспаление, оксидативный стресс — и действует «изнутри наружу», создавая новое.</div>
 
 <h2>Курс</h2>
-<p>Стандартный курс — 4–6 процедур с интервалом 7–14 дней в зависимости от типа кожи. Поддерживающие процедуры — 1 раз в месяц.</p>
+<p>Стандартный курс — 2–4 процедуры с интервалом 7–14 дней в зависимости от состояния кожи.</p>
 
 <h2>Применение</h2>
-<p>Только в кабинете врача-косметолога с действующим сертификатом EVOXA. Самостоятельное использование пациентом исключено.</p>
+<p>Только в кабинете врача-косметолога с действующим сертификатом EVOXA. Самостоятельное использование пациентом исключено. Обязательная пара — EVOXA TONIC.</p>
 
-<blockquote>PEEL 1 — это первый разговор кожи с методом EVOXA.</blockquote>
+<blockquote>EVOXA PEEL 1 — революция в уходе за проблемной и уставшей кожей.</blockquote>
 `,
 en: `
 <h2>What is EVOXA PEEL 1</h2>
-<p class="lead">The superficial remodulator of the professional EVOXA range. The entry protocol of the method.</p>
-<p>Unlike classic AHA peels, PEEL 1 does not damage the skin — it delivers a biochemical signal to renew. Concentration and pH are calibrated to initiate the regeneration cascade without a zone of necrosis.</p>
+<p class="lead">A dermal remodulator of the professional EVOXA PEEL range, phase 1. A selective two-phase dermal remodulator — not a classic peel. A powerful tandem for problem skin.</p>
+<p>PEEL 1 creates and immediately regulates a sub-clinical inflammation in the dermis — a signal to renew. Paired with EVOXA TONIC it produces a local Verigo–Bohr effect that strengthens the therapeutic response without provoking redness or reactivity. The effect stays controlled and discreet, without marked hyperaemia — exactly what acne-prone skin needs: functional, not irritating.</p>
 
 <h2>Formulation</h2>
-<p>Low-concentration alpha-hydroxy acids: lactic and mandelic. pH 3.2–3.6. Free of fragrance, dyes and paraben-class preservatives.</p>
+<p>Salicylic 15% + Pyruvic 8% + Lactic 5.5%, undecenoyl phenylalanine, retinyl palmitate, diacetyl boldine, tocopherol. pH 1.5–1.7, 20 ml.</p>
+<ul>
+<li>Salicylic acid (15%): BHA — deep pore cleansing, comedolytic, anti-inflammatory</li>
+<li>Pyruvic acid (8%): alpha-keto acid — collagen stimulation, sebum regulation, antioxidant</li>
+<li>Lactic acid (5.5%): AHA — hydration, brightening</li>
+<li>Undecenoyl phenylalanine: evens tone, addresses age spots, post-inflammatory hyperpigmentation and melasma, protects against photo-ageing</li>
+<li>Retinyl palmitate: retinol-like activity — regeneration, collagen synthesis, tone and texture</li>
+<li>Diacetyl boldine: strong antioxidant and anti-inflammatory agent</li>
+<li>Tocopherol: antioxidant, stabilises retinol</li>
+</ul>
 
 <h2>For whom</h2>
 <ul>
-<li>Dull complexion, uneven texture</li>
-<li>Mild post-acne, enlarged pores</li>
-<li>Early expression lines (age 25–35)</li>
-<li>Pre-treatment for PEEL 2 and 3</li>
-<li>Sensitive skin intolerant of aggressive peels</li>
+<li>Oily and combination skin</li>
+<li>Hyperkeratosis, seborrhoea</li>
+<li>Acne, post-acne</li>
+<li>Dense sebaceous plugs, enlarged pores</li>
+<li>Post-inflammatory hyperpigmentation, melasma</li>
+<li>Loss of turgor, tone and elasticity</li>
 </ul>
 
 <h2>Mechanism</h2>
-<p>The skin receives a controlled acid stimulus. Keratinocyte renewal activates, regeneration accelerates. The reaction stops instantly after EVOXA TONIC application — the characteristic CO2 foam appears.</p>
+<p>The synergy of acids and supporting actives launches matrix remodulation: it reorganises existing fibres and stimulates the synthesis of new collagen and elastin.</p>
 
-<div class="callout"><strong>Key difference</strong>Classic peels damage. EVOXA PEEL 1 modulates. Concentration and pH calibrated to initiate regeneration without epidermolysis.</div>
+<div class="callout"><strong>Key difference</strong>A classic peel works with consequences, acting "outside-in" by removing the old. EVOXA PEEL 1 works with the cause — a weakened collagen scaffold, loss of density, chronic inflammation, oxidative stress — acting "inside-out" to build the new.</div>
 
 <h2>Course</h2>
-<p>Standard course — 4–6 sessions at 7–14 day intervals depending on skin type. Maintenance — once a month.</p>
+<p>Standard course — 2–4 sessions, 7–14 days apart depending on skin condition.</p>
 
-<h2>Application</h2>
-<p>Practitioner-only use, in clinic, with valid EVOXA certification. Patient self-use is excluded.</p>
+<h2>Use</h2>
+<p>Only in the office of an EVOXA-certified cosmetologist. Patient self-use is excluded. Mandatory pairing — EVOXA TONIC.</p>
 
-<blockquote>PEEL 1 is the skin's first conversation with the EVOXA method.</blockquote>
+<blockquote>EVOXA PEEL 1 — a revolution in care for problem and tired skin.</blockquote>
 `,
 es: `
 <h2>Qué es EVOXA PEEL 1</h2>
-<p class="lead">Remodulador superficial de la línea profesional EVOXA. Protocolo de entrada del método.</p>
-<p>A diferencia de los AHA clásicos, PEEL 1 no daña la piel — le entrega una señal bioquímica de renovación. Concentración y pH calibrados para iniciar la cascada regenerativa sin necrosis.</p>
+<p class="lead">Remodulador dérmico de la línea profesional EVOXA PEEL, fase 1. Remodulador dérmico bifásico selectivo — no un peeling clásico. Un tándem potente para la piel problemática.</p>
+<p>PEEL 1 crea y regula de inmediato una inflamación subclínica en la dermis — una señal de renovación. Junto a EVOXA TONIC se forma un efecto local Verigo–Bohr que refuerza la respuesta terapéutica sin provocar enrojecimiento ni reactividad. El efecto permanece controlado y discreto, sin hiperemia marcada — justo lo que necesita la piel con acné: funcional, no irritante.</p>
 
-<h2>Formulación</h2>
-<p>AHA de baja concentración: ácido láctico y mandélico. pH 3,2–3,6. Sin perfume, sin colorantes, sin parabenos.</p>
+<h2>Composición</h2>
+<p>Salicílico 15% + Pirúvico 8% + Láctico 5,5%, undecenoil fenilalanina, palmitato de retinilo, diacetil boldina, tocoferol. pH 1.5–1.7, 20 ml.</p>
+<ul>
+<li>Ácido salicílico (15%): BHA — limpieza profunda de poros, comedolítico, antiinflamatorio</li>
+<li>Ácido pirúvico (8%): alfa-cetoácido — estimulación del colágeno, seborregulación, antioxidante</li>
+<li>Ácido láctico (5,5%): AHA — hidratación, luminosidad</li>
+<li>Undecenoil fenilalanina: unifica el tono, actúa sobre manchas, hiperpigmentación postinflamatoria y melasma, protege del fotoenvejecimiento</li>
+<li>Palmitato de retinilo: actividad tipo retinol — regeneración, síntesis de colágeno, tono y textura</li>
+<li>Diacetil boldina: potente antioxidante y antiinflamatorio</li>
+<li>Tocoferol: antioxidante, estabiliza el retinol</li>
+</ul>
 
 <h2>Para quién</h2>
 <ul>
-<li>Tez apagada, textura irregular</li>
-<li>Post-acné leve, poros dilatados</li>
-<li>Primeras líneas de expresión (25–35)</li>
-<li>Preparación para PEEL 2 y 3</li>
-<li>Piel sensible que no tolera peelings agresivos</li>
+<li>Piel grasa y mixta</li>
+<li>Hiperqueratosis, seborrea</li>
+<li>Acné, post-acné</li>
+<li>Tapones sebáceos densos, poros dilatados</li>
+<li>Hiperpigmentación postinflamatoria, melasma</li>
+<li>Pérdida de turgencia, tono y elasticidad</li>
 </ul>
 
 <h2>Mecanismo</h2>
-<p>La piel recibe un estímulo ácido controlado. Se activa la renovación de queratinocitos, se acelera la regeneración. La reacción se detiene al instante con EVOXA TONIC — aparece la espuma CO2 característica.</p>
+<p>La sinergia de ácidos y activos lanza la remodulación de la matriz: reorganiza las fibras existentes y estimula la síntesis de nuevo colágeno y elastina.</p>
 
-<div class="callout"><strong>Diferencia clave</strong>El peeling clásico daña. EVOXA PEEL 1 modula. Concentración y pH calibrados para iniciar la regeneración sin epidermólisis.</div>
+<div class="callout"><strong>Diferencia clave</strong>El peeling clásico trabaja con las consecuencias, "de fuera hacia dentro", eliminando lo viejo. EVOXA PEEL 1 trabaja con la causa — debilitamiento del andamiaje de colágeno, pérdida de densidad, inflamación crónica, estrés oxidativo — "de dentro hacia fuera", creando lo nuevo.</div>
 
 <h2>Curso</h2>
-<p>Curso estándar — 4–6 sesiones cada 7–14 días según tipo de piel. Mantenimiento — una vez al mes.</p>
+<p>Curso estándar — 2–4 sesiones con 7–14 días de intervalo según el estado de la piel.</p>
 
 <h2>Uso</h2>
-<p>Solo profesional, en clínica, con certificación EVOXA vigente. Uso por el paciente excluido.</p>
+<p>Solo en consulta de un cosmetólogo certificado EVOXA. Se excluye el autouso. Pareja obligatoria — EVOXA TONIC.</p>
 
-<blockquote>PEEL 1 es la primera conversación de la piel con el método EVOXA.</blockquote>
+<blockquote>EVOXA PEEL 1 — una revolución en el cuidado de la piel problemática y cansada.</blockquote>
 `
 },
 
 'evoxa-peel-2': {
 ru: `
 <h2>Что такое EVOXA PEEL 2</h2>
-<p class="lead">Срединный ремодулятор для работы с пигментацией, постакне и мелкими морщинами. Контролируемая глубина с обязательной нейтрализацией TONIC.</p>
-<p>Используется как самостоятельный протокол после освоения PEEL 1, либо как этап в курсе ремоделирования.</p>
+<p class="lead">Дермальный ремодулятор профессиональной линейки EVOXA PEEL, 1 фаза. Мощный интеллектуальный антивозрастной ремодулятор с поддержкой NMF.</p>
+<p>В EVOXA PEEL 2 используется не моно-ингредиент, а комплекс кислот и дополнительных компонентов. Особый интерес — взаимодействие альфа-гидроксикислот (AHA) и аминокислот. При взаимодействии с EVOXA TONIC формируется максимально выраженный эффект карбокситерапии: «уставшая» кожа становится розовой, наполненной, живой. Эффект карбокситерапии усиливает результат и защищает кожу от стресса, оставаясь щадящим даже для чувствительной кожи.</p>
 
 <h2>Состав</h2>
-<p>Комбинация AHA + TCA низкой концентрации. pH 2.4–2.8. Глубина воздействия — до базального слоя эпидермиса.</p>
+<p>Glicolico 35%, пропиленгликоль 10%, NMF-бустер (Sodium PCA, Sodium Lactate PCA), аргинин, аспарагиновая кислота. pH 1.8–2.2, объём 30 ml.</p>
+<ul>
+<li>Гликолевая к-та (35%): мощное отшелушивание и стимуляция неоколлагенеза</li>
+<li>Пропиленгликоль (10%): увлажнитель, улучшает проникновение гликолевой кислоты</li>
+<li>NMF-бустер: интенсивная поддержка гидро-липидного барьера во время процедуры</li>
+<li>Аргинин: контролируемый кератолиз без раздражения — эффект глубокого пилинга при ощущениях поверхностного, минимум жжения и эритемы</li>
+<li>Аспарагиновая к-та: регенерация на нескольких уровнях, пластический материал для восстановления</li>
+</ul>
 
 <h2>Для кого</h2>
 <ul>
-<li>Гиперпигментация (мелазма, постакне-пигментация)</li>
-<li>Постакне-рубцы лёгкой и средней степени</li>
-<li>Мелкие и средние мимические морщины</li>
-<li>Жирная кожа с расширенными порами</li>
-<li>Подготовка к лазерным процедурам</li>
-<li>Возраст 35–55 лет</li>
+<li>Сухая кожа, мелкоморщинистый тип старения</li>
+<li>Тусклая кожа, неровный тон и текстура</li>
+<li>Обезвоженность</li>
+<li>Фотостарение</li>
+<li>Гиперпигментация</li>
+<li>Чувствительная кожа</li>
+<li>Потеря тургора, тонуса и эластичности кожи</li>
 </ul>
 
 <h2>Принцип работы</h2>
-<p>За счёт более низкого pH и наличия TCA в малой дозе кожа получает более выраженный сигнал. Активируется неоколлагеногенез, ускоряется обновление меланоцитов, регулируется выработка меланина.</p>
+<p>Синергия гликолевой, аспарагиновой кислот и аргинина создаёт эффект глубокого пилинга при субъективных ощущениях пациента, сравнимых с поверхностным.</p>
 
-<div class="callout"><strong>Маркер контроля</strong>Лёгкое побеление кожи (frosting первого уровня) — визуальный сигнал достижения базального слоя. После TONIC реакция полностью завершается.</div>
+<div class="callout"><strong>Карбокситерапия</strong>В паре с EVOXA TONIC создаётся резкий pH-градиент, гликолевая кислота проникает диффузно и быстро, временно повышается локальное содержание CO₂ и усиливается микроциркуляция.</div>
 
 <h2>Курс</h2>
-<p>Стандартный курс — 3–4 процедуры с интервалом 21 день. Поддерживающие — 1 раз в 2 месяца.</p>
+<p>Стандартный курс — 3–4 процедуры с интервалом 7–14 дней.</p>
 
 <h2>Применение</h2>
-<p>Только в кабинете врача-косметолога с сертификацией EVOXA уровня PEEL 2. Требуется опыт работы с PEEL 1.</p>
+<p>Только в кабинете врача-косметолога с сертификацией EVOXA. Обязательная пара — EVOXA TONIC.</p>
 
 <blockquote>Срединный пилинг — это разговор на повышенных тонах. EVOXA PEEL 2 — разговор громкий, но всегда безопасный.</blockquote>
 `,
 en: `
 <h2>What is EVOXA PEEL 2</h2>
-<p class="lead">A medium remodulator for hyperpigmentation, post-acne and fine lines. Controlled depth with mandatory TONIC neutralization.</p>
+<p class="lead">A dermal remodulator of the professional EVOXA PEEL range, phase 1. A powerful, intelligent anti-age remodulator with NMF support.</p>
+<p>PEEL 2 uses not a single active but a complex of acids and supporting components, with a notable interplay between alpha-hydroxy acids (AHA) and amino acids. Paired with EVOXA TONIC it delivers the most pronounced carboxytherapy effect: tired skin becomes pink, plumped, alive. The effect amplifies the result and protects skin from stress while staying gentle, even for sensitive skin.</p>
 
 <h2>Formulation</h2>
-<p>AHA + low-concentration TCA. pH 2.4–2.8. Depth — to the basal epidermal layer.</p>
+<p>Glycolic 35%, propylene glycol 10%, NMF booster (Sodium PCA, Sodium Lactate PCA), arginine, aspartic acid. pH 1.8–2.2, 30 ml.</p>
+<ul>
+<li>Glycolic acid (35%): powerful exfoliation and neocollagenesis stimulation</li>
+<li>Propylene glycol (10%): humectant, improves glycolic acid penetration</li>
+<li>NMF booster: intensive support of the hydro-lipid barrier during the procedure</li>
+<li>Arginine: controlled keratolysis without irritation — a deep-peel effect with superficial sensations, minimal stinging and erythema</li>
+<li>Aspartic acid: multi-level regeneration and building material for repair</li>
+</ul>
 
 <h2>For whom</h2>
 <ul>
-<li>Hyperpigmentation (melasma, post-acne pigment)</li>
-<li>Mild to moderate post-acne scarring</li>
-<li>Fine and medium expression lines</li>
-<li>Oily skin with enlarged pores</li>
-<li>Pre-laser preparation</li>
-<li>Age 35–55</li>
+<li>Dry skin, fine-wrinkle ageing type</li>
+<li>Dull skin, uneven tone and texture</li>
+<li>Dehydration</li>
+<li>Photo-ageing</li>
+<li>Hyperpigmentation</li>
+<li>Sensitive skin</li>
+<li>Loss of turgor, tone and elasticity</li>
 </ul>
 
 <h2>Mechanism</h2>
-<p>Lower pH and small-dose TCA deliver a stronger signal. Neocollagenogenesis triggers, melanocyte renewal accelerates, melanin production regulates.</p>
+<p>The synergy of glycolic, aspartic acids and arginine produces a deep-peel effect while the patient experiences sensations comparable to a superficial peel.</p>
 
-<div class="callout"><strong>Control marker</strong>Light skin frosting (level one) — a visual signal of basal layer reach. After TONIC the reaction completes fully.</div>
+<div class="callout"><strong>Carboxytherapy</strong>With EVOXA TONIC a sharp pH gradient forms, glycolic acid penetrates diffusely and fast, local CO₂ rises temporarily and microcirculation increases.</div>
 
 <h2>Course</h2>
-<p>Standard course — 3–4 sessions every 21 days. Maintenance — once every 2 months.</p>
+<p>Standard course — 3–4 sessions, 7–14 days apart.</p>
 
-<h2>Application</h2>
-<p>Practitioner-only use with EVOXA PEEL 2 certification. Prior PEEL 1 experience required.</p>
+<h2>Use</h2>
+<p>Only in the office of an EVOXA-certified cosmetologist. Mandatory pairing — EVOXA TONIC.</p>
 
-<blockquote>A medium peel is a raised-voice conversation. EVOXA PEEL 2 — loud, but always safe.</blockquote>
+<blockquote>A medium peel is a conversation raised in tone. EVOXA PEEL 2 — loud, but always safe.</blockquote>
 `,
 es: `
 <h2>Qué es EVOXA PEEL 2</h2>
-<p class="lead">Remodulador medio para hiperpigmentación, post-acné y líneas finas. Profundidad controlada con neutralización TONIC obligatoria.</p>
+<p class="lead">Remodulador dérmico de la línea profesional EVOXA PEEL, fase 1. Un potente remodulador antiedad inteligente con soporte de NMF.</p>
+<p>PEEL 2 no usa un único activo, sino un complejo de ácidos y componentes de apoyo, con una interacción destacada entre alfa-hidroxiácidos (AHA) y aminoácidos. Junto a EVOXA TONIC ofrece el efecto de carboxiterapia más marcado: la piel cansada se vuelve rosada, rellena, viva. El efecto amplifica el resultado y protege del estrés, manteniéndose suave incluso en piel sensible.</p>
 
-<h2>Formulación</h2>
-<p>AHA + TCA en baja concentración. pH 2,4–2,8. Profundidad — capa basal de la epidermis.</p>
+<h2>Composición</h2>
+<p>Glicólico 35%, propilenglicol 10%, refuerzo NMF (Sodium PCA, Sodium Lactate PCA), arginina, ácido aspártico. pH 1.8–2.2, 30 ml.</p>
+<ul>
+<li>Ácido glicólico (35%): exfoliación potente y estimulación de neocolagénesis</li>
+<li>Propilenglicol (10%): humectante, mejora la penetración del glicólico</li>
+<li>Refuerzo NMF: soporte intensivo de la barrera hidrolipídica durante el procedimiento</li>
+<li>Arginina: queratólisis controlada sin irritación — efecto de peeling profundo con sensación superficial, mínimo escozor y eritema</li>
+<li>Ácido aspártico: regeneración multinivel y material de reparación</li>
+</ul>
 
 <h2>Para quién</h2>
 <ul>
-<li>Hiperpigmentación (melasma, post-acné)</li>
-<li>Cicatrices post-acné leves a moderadas</li>
-<li>Líneas finas y medias</li>
-<li>Piel grasa con poros dilatados</li>
-<li>Preparación pre-láser</li>
-<li>35–55 años</li>
+<li>Piel seca, envejecimiento de arruga fina</li>
+<li>Piel apagada, tono y textura irregulares</li>
+<li>Deshidratación</li>
+<li>Fotoenvejecimiento</li>
+<li>Hiperpigmentación</li>
+<li>Piel sensible</li>
+<li>Pérdida de turgencia, tono y elasticidad</li>
 </ul>
 
 <h2>Mecanismo</h2>
-<p>El menor pH y la pequeña dosis de TCA entregan una señal más intensa. Se activa la neocolagenogénesis, se acelera la renovación de melanocitos, se regula la melanina.</p>
+<p>La sinergia de ácidos glicólico, aspártico y arginina produce un efecto de peeling profundo con sensaciones comparables a uno superficial.</p>
 
-<div class="callout"><strong>Marcador de control</strong>Frosting ligero (nivel uno) — señal visual de llegada a capa basal. Tras TONIC la reacción se completa.</div>
+<div class="callout"><strong>Carboxiterapia</strong>Con EVOXA TONIC se forma un gradiente brusco de pH, el glicólico penetra de forma difusa y rápida, sube temporalmente el CO₂ local y aumenta la microcirculación.</div>
 
 <h2>Curso</h2>
-<p>Curso estándar — 3–4 sesiones cada 21 días. Mantenimiento — una vez cada 2 meses.</p>
+<p>Curso estándar — 3–4 sesiones con 7–14 días de intervalo.</p>
 
 <h2>Uso</h2>
-<p>Solo profesional con certificación EVOXA PEEL 2. Experiencia previa con PEEL 1 requerida.</p>
+<p>Solo en consulta de un cosmetólogo certificado EVOXA. Pareja obligatoria — EVOXA TONIC.</p>
 
-<blockquote>El peeling medio es una conversación en voz alta. EVOXA PEEL 2 — alta, pero siempre segura.</blockquote>
+<blockquote>Un peeling medio es una conversación en tono alto. EVOXA PEEL 2 — alta, pero siempre segura.</blockquote>
 `
 },
 
 'evoxa-peel-3': {
 ru: `
 <h2>Что такое EVOXA PEEL 3</h2>
-<p class="lead">Глубокий ремодулятор линейки. Серьёзный инструмент для серьёзных задач. Только врач с опытом и только после освоения PEEL 1 и PEEL 2.</p>
+<p class="lead">Дермальный ремодулятор профессиональной линейки EVOXA PEEL, 1 фаза. Сверхконцентрированное решение для сложных случаев. Anti-acne &amp; anti-redness терапия.</p>
+<p>Кожа с розацеа и куперозом требует крайне деликатного подхода. Традиционные салициловые пилинги часто вызывают раздражение и покраснение из-за спиртовой основы или высоких концентраций. EVOXA PEEL 3 решает это за счёт сбалансированной композиции. Это не агрессивный срединный пилинг: при розацеа и куперозе он работает как противовоспалительный и себорегулирующий ремодулятор.</p>
 
 <h2>Состав</h2>
-<p>TCA в средней концентрации в комбинации с AHA. pH 1.8–2.2. Глубина — сетчатый слой дермы.</p>
+<p>Azelaico 16% + Salicilico 20%, пропиленгликоль. pH 1.8–2.2, объём 30 ml.</p>
+<ul>
+<li>Азелаиновая к-та (16%): антимикробное, противовоспалительное, кератолитическое, осветляющее действие</li>
+<li>Салициловая к-та (20%): глубокое проникновение в поры, растворение комедонов</li>
+</ul>
 
 <h2>Для кого</h2>
 <ul>
-<li>Глубокая гиперпигментация, резистентная к PEEL 2</li>
-<li>Постакне-рубцы средней и выраженной степени</li>
-<li>Глубокие мимические и статические морщины</li>
-<li>Возрастные изменения 45+ с потерей тургора</li>
-<li>Себорейный кератоз, актинический кератоз</li>
-<li>Подготовка к фракционным лазерным процедурам</li>
+<li>Жирная и комбинированная кожа</li>
+<li>Тяжёлые формы акне, розацеа</li>
+<li>Выраженная гиперпигментация, постакне, мелазма</li>
+<li>Рубцы</li>
+<li>Первые признаки старения</li>
+<li>Потеря упругости, тусклый цвет лица</li>
 </ul>
 
 <h2>Принцип работы</h2>
-<p>Воздействие на этом уровне инициирует мощный регенеративный каскад. Активируется фибробласт, перестраивается коллагеновый матрикс, выравнивается рельеф.</p>
+<p>Мягкий кератолитический эффект, лёгкое сужение капилляров, подавление калликреина-5 и тирозиназы (профилактика пигментации), бактерицидное действие. Пилинг мягко обновляет кожу без видимого глазу шелушения, запуская процессы внутреннего оздоровления. После процедуры обязательна интенсивная защита от солнца SPF 50+: ультрафиолет — главный триггер розацеа.</p>
 
-<div class="callout"><strong>Внимание</strong>PEEL 3 — это серьёзная медицинская процедура. Реабилитация 7–10 дней с шелушением. Пациент должен быть полностью готов и информирован. Обязательная подготовка кожи 28 дней.</div>
+<div class="callout"><strong>Карбокситерапия</strong>В паре с EVOXA TONIC высвобождение CO₂ мягко улучшает тканевое дыхание и поддерживает метаболизм, не усиливая сосудистую реакцию и не вызывая выраженной эритемы — оксигенация без покраснения.</div>
 
 <h2>Курс</h2>
-<p>Только 1–2 процедуры с интервалом 60 дней. Большее количество не показано.</p>
+<p>Стандартный курс — 2–4 процедуры с интервалом 7–14 дней.</p>
 
 <h2>Применение</h2>
-<p>Только врач с сертификацией EVOXA PEEL 3 и опытом работы с PEEL 1 и PEEL 2. Обязательное информированное согласие пациента.</p>
+<p>Только врач с сертификацией EVOXA. Обязательная пара — EVOXA TONIC.</p>
 
-<blockquote>PEEL 3 — это инструмент хирурга в руках косметолога. Применяется редко, точно и осознанно.</blockquote>
+<blockquote>EVOXA PEEL 3 — ANTI-ACNE &amp; ANTI-REDNESS терапия.</blockquote>
 `,
 en: `
 <h2>What is EVOXA PEEL 3</h2>
-<p class="lead">The deep remodulator of the range. A serious tool for serious tasks. Only experienced practitioners and only after mastering PEEL 1 and PEEL 2.</p>
+<p class="lead">A dermal remodulator of the professional EVOXA PEEL range, phase 1. A super-concentrated solution for complex cases. Anti-acne &amp; anti-redness therapy.</p>
+<p>Skin with rosacea and couperose needs an extremely delicate approach. Traditional salicylic peels often cause irritation and redness due to an alcohol base or high concentrations. EVOXA PEEL 3 solves this with a balanced composition. It is not an aggressive medium peel: for rosacea and couperose it acts as an anti-inflammatory, sebum-regulating remodulator.</p>
 
 <h2>Formulation</h2>
-<p>Medium-concentration TCA with AHA. pH 1.8–2.2. Depth — reticular dermis.</p>
+<p>Azelaic 16% + Salicylic 20%, propylene glycol. pH 1.8–2.2, 30 ml.</p>
+<ul>
+<li>Azelaic acid (16%): antimicrobial, anti-inflammatory, keratolytic, brightening</li>
+<li>Salicylic acid (20%): deep pore penetration, comedone dissolution</li>
+</ul>
 
 <h2>For whom</h2>
 <ul>
-<li>Deep hyperpigmentation resistant to PEEL 2</li>
-<li>Moderate to severe post-acne scarring</li>
-<li>Deep expression and static lines</li>
-<li>Age 45+ with loss of turgor</li>
-<li>Seborrheic and actinic keratosis</li>
-<li>Pre-fractional laser preparation</li>
+<li>Oily and combination skin</li>
+<li>Severe acne, rosacea</li>
+<li>Marked hyperpigmentation, post-acne, melasma</li>
+<li>Scars</li>
+<li>First signs of ageing</li>
+<li>Loss of firmness, dull complexion</li>
 </ul>
 
 <h2>Mechanism</h2>
-<p>At this level the impact triggers a powerful regenerative cascade. Fibroblasts activate, collagen matrix rebuilds, surface texture resets.</p>
+<p>A mild keratolytic effect, gentle capillary constriction, inhibition of kallikrein-5 and tyrosinase (pigment prevention), bactericidal action. The peel gently renews skin without visible flaking, launching inner recovery. Intensive SPF 50+ protection is mandatory afterwards: UV is the main rosacea trigger.</p>
 
-<div class="callout"><strong>Caution</strong>PEEL 3 is a serious medical procedure. 7–10 day recovery with peeling. The patient must be fully prepared and informed. 28-day skin priming is mandatory.</div>
+<div class="callout"><strong>Carboxytherapy</strong>With EVOXA TONIC, CO₂ release gently improves tissue respiration and supports metabolism without intensifying the vascular response or causing marked erythema — oxygenation without redness.</div>
 
 <h2>Course</h2>
-<p>Only 1–2 sessions with a 60-day interval. More is not indicated.</p>
+<p>Standard course — 2–4 sessions, 7–14 days apart.</p>
 
-<h2>Application</h2>
-<p>Practitioner with EVOXA PEEL 3 certification and prior PEEL 1 and PEEL 2 experience. Mandatory informed consent.</p>
+<h2>Use</h2>
+<p>EVOXA-certified practitioners only. Mandatory pairing — EVOXA TONIC.</p>
 
-<blockquote>PEEL 3 is a surgeon's tool in a cosmetologist's hand. Used rarely, precisely, consciously.</blockquote>
+<blockquote>EVOXA PEEL 3 — ANTI-ACNE &amp; ANTI-REDNESS therapy.</blockquote>
 `,
 es: `
 <h2>Qué es EVOXA PEEL 3</h2>
-<p class="lead">El remodulador profundo de la línea. Herramienta seria para tareas serias. Solo profesionales con experiencia tras dominar PEEL 1 y PEEL 2.</p>
+<p class="lead">Remodulador dérmico de la línea profesional EVOXA PEEL, fase 1. Una solución superconcentrada para casos complejos. Terapia anti-acné y anti-rojeces.</p>
+<p>La piel con rosácea y couperosis requiere un enfoque muy delicado. Los peelings salicílicos tradicionales suelen irritar y enrojecer por su base alcohólica o altas concentraciones. EVOXA PEEL 3 lo resuelve con una composición equilibrada. No es un peeling medio agresivo: en rosácea y couperosis actúa como remodulador antiinflamatorio y seborregulador.</p>
 
-<h2>Formulación</h2>
-<p>TCA en concentración media combinada con AHA. pH 1,8–2,2. Profundidad — dermis reticular.</p>
+<h2>Composición</h2>
+<p>Azelaico 16% + Salicílico 20%, propilenglicol. pH 1.8–2.2, 30 ml.</p>
+<ul>
+<li>Ácido azelaico (16%): antimicrobiano, antiinflamatorio, queratolítico, despigmentante</li>
+<li>Ácido salicílico (20%): penetración profunda en poros, disolución de comedones</li>
+</ul>
 
 <h2>Para quién</h2>
 <ul>
-<li>Hiperpigmentación profunda resistente a PEEL 2</li>
-<li>Cicatrices post-acné moderadas a severas</li>
-<li>Líneas profundas de expresión y estáticas</li>
-<li>45+ años con pérdida de turgencia</li>
-<li>Queratosis seborreica y actínica</li>
-<li>Preparación pre-láser fraccional</li>
+<li>Piel grasa y mixta</li>
+<li>Formas graves de acné, rosácea</li>
+<li>Hiperpigmentación marcada, post-acné, melasma</li>
+<li>Cicatrices</li>
+<li>Primeros signos de envejecimiento</li>
+<li>Pérdida de firmeza, tez apagada</li>
 </ul>
 
 <h2>Mecanismo</h2>
-<p>A este nivel se desencadena una potente cascada regenerativa. Se activan fibroblastos, se reconstruye la matriz de colágeno, se restablece la textura.</p>
+<p>Efecto queratolítico suave, ligera constricción capilar, inhibición de la calicreína-5 y la tirosinasa (prevención del pigmento), acción bactericida. El peeling renueva la piel sin descamación visible, activando una recuperación interna. Después es obligatoria una protección solar intensa SPF 50+: el UV es el principal desencadenante de la rosácea.</p>
 
-<div class="callout"><strong>Atención</strong>PEEL 3 es un procedimiento médico serio. Recuperación 7–10 días con descamación. Preparación obligatoria de 28 días.</div>
+<div class="callout"><strong>Carboxiterapia</strong>Con EVOXA TONIC, la liberación de CO₂ mejora suavemente la respiración del tejido y apoya el metabolismo sin intensificar la respuesta vascular ni causar eritema marcado — oxigenación sin enrojecimiento.</div>
 
 <h2>Curso</h2>
-<p>Solo 1–2 sesiones con intervalo de 60 días. Más no está indicado.</p>
+<p>Curso estándar — 2–4 sesiones con 7–14 días de intervalo.</p>
 
 <h2>Uso</h2>
-<p>Profesional con certificación EVOXA PEEL 3 y experiencia previa con PEEL 1 y PEEL 2. Consentimiento informado obligatorio.</p>
+<p>Solo profesionales certificados EVOXA. Pareja obligatoria — EVOXA TONIC.</p>
 
-<blockquote>PEEL 3 es una herramienta de cirujano en mano de un cosmetólogo. Se usa raramente, con precisión, con consciencia.</blockquote>
+<blockquote>EVOXA PEEL 3 — terapia ANTI-ACNÉ y ANTI-ROJECES.</blockquote>
 `
 },
 
 'evoxa-tonic': {
 ru: `
 <h2>Что такое EVOXA TONIC</h2>
-<p class="lead">Карбонатный нейтрализатор кислотного пилинга. Главная технологическая особенность бренда. При контакте с PEEL даёт реакцию с выделением углекислого газа — видимую пену CO2.</p>
+<p class="lead">Дермальный ремодулятор, 2 фаза. Больше, чем просто нейтрализатор. pH 7.9–8.1. EVOXA TONIC превращает нейтрализацию в активную фазу восстановления кожи.</p>
+<ul>
+<li>Стоп-сигнал — прекращает действие кислот</li>
+<li>Успокоение и реабилитация — удерживает влагу и восстанавливает гидро-липидную мантию</li>
+</ul>
 
 <h2>Состав</h2>
 <p>Карбонатный комплекс на стабилизированной основе. Без отдушек, без красителей. Не содержит перекиси, не относится к нейтрализаторам бикарбонатного ряда.</p>
 
-<h2>Принцип работы</h2>
-<p>Кислота PEEL (H+) реагирует с карбонатом TONIC (CO3²-) с образованием воды и углекислого газа. Газ выделяется на коже в виде микропузырьков, которые объединяются в характерную пену. Реакция экзотермическая, но энергия минимальна — отсюда лёгкое тепло, а не жжение.</p>
+<h2>Механизм действия</h2>
+<p>Запускает эффект Вериго–Бора — механизм, критически важный для газообмена. В активно работающих тканях накапливается CO₂, среда закисляется, и гемоглобин высвобождает больше кислорода именно туда, где он нужен.</p>
 
-<div class="callout"><strong>Что это даёт</strong>Визуальный маркер завершения процедуры. Пока есть пена — реакция идёт. Пена прекратилась — нейтрализация завершена. Никаких догадок, точный контроль глубины.</div>
+<div class="callout"><strong>Что это даёт</strong>Эффект карбокситерапии адаптирован под клиническую задачу каждого ремодулятора: нет лишней гиперемии там, где она не нужна, при этом повышается эффективность без снижения комплаентности. Образование пены у каждого препарата разное — зависит от класса кислот и особенностей кожи пациента.</div>
 
 <h2>Преимущества</h2>
 <ul>
-<li>Контроль глубины. Реакция останавливается мгновенно и предсказуемо</li>
-<li>Безопасность. Нет риска «передержать» пилинг</li>
-<li>Комфорт пациента. Пена даёт лёгкое охлаждение, снижает жжение</li>
-<li>Доверие. Пациент видит, как заканчивается процедура</li>
-<li>Контентогенность. Уникальный визуал для соцсетей и работы с пациентами</li>
+<li>Контроль глубины — реакция останавливается мгновенно и предсказуемо</li>
+<li>Безопасность — нет риска «передержать» пилинг</li>
+<li>Комфорт пациента — эффект Вериго–Бора успокаивает кожу</li>
+<li>Доверие — пациент ощущает, как заканчивается процедура</li>
 </ul>
 
 <h2>Применение</h2>
-<p>Используется только в комплекте с EVOXA PEEL 1, 2 или 3. Обязательный этап протокола ремодуляции. Замена другими нейтрализаторами не предусмотрена методикой.</p>
+<p>Используется в комплекте с EVOXA PEEL 1, 2 или 3. Обязательный этап протокола ремодуляции. Замена другими нейтрализаторами методикой не предусмотрена.</p>
 
-<blockquote>Пена CO2 — это ритуал нанесения крема La Mer, только научно обоснованный. Главный визуальный код бренда EVOXA.</blockquote>
+<blockquote>EVOXA показывает, что карбокситерапия может быть умной — не одинаковой для всех, а встроенной в дермальную логику кожи.</blockquote>
 `,
 en: `
 <h2>What is EVOXA TONIC</h2>
-<p class="lead">A carbonate neutralizer for acid peeling. The brand's signature technology. On contact with PEEL it produces a reaction releasing carbon dioxide — visible CO2 foam.</p>
+<p class="lead">A dermal remodulator, phase 2. More than a neutraliser. pH 7.9–8.1. EVOXA TONIC turns neutralisation into an active phase of skin recovery.</p>
+<ul>
+<li>A stop signal — it ends the action of the acids</li>
+<li>Soothing and rehabilitation — it retains moisture and restores the hydro-lipid mantle</li>
+</ul>
 
 <h2>Formulation</h2>
-<p>Carbonate complex on a stabilized base. No fragrance, no dyes. Contains no peroxide; not a bicarbonate-class neutralizer.</p>
+<p>A carbonate complex on a stabilised base. No fragrance, no dyes. Contains no peroxide and is not a bicarbonate-class neutraliser.</p>
 
 <h2>Mechanism</h2>
-<p>The PEEL acid (H+) reacts with TONIC carbonate (CO3²-) producing water and CO2. The gas releases on skin as microbubbles that merge into the characteristic foam. The reaction is exothermic, but the energy is minimal — light warmth, not burning.</p>
+<p>It triggers the Verigo–Bohr effect — a mechanism critical for gas exchange. In actively working tissue CO₂ accumulates, the environment acidifies, and haemoglobin releases more oxygen exactly where it is needed.</p>
 
-<div class="callout"><strong>What it delivers</strong>A visual marker of procedure completion. As long as there's foam — the reaction is happening. Foam stops — neutralization is complete. No guesswork, precise depth control.</div>
+<div class="callout"><strong>What it gives</strong>The carboxytherapy effect is adapted to the clinical task of each remodulator: no excess hyperaemia where it isn't wanted, while efficacy rises without lowering compliance. Foam formation differs per product — it depends on the acid class and the patient's skin.</div>
 
 <h2>Advantages</h2>
 <ul>
-<li>Depth control. Reaction stops instantly and predictably</li>
-<li>Safety. No risk of over-exposure</li>
-<li>Patient comfort. Foam delivers light cooling, reduces burning</li>
-<li>Trust. The patient sees the procedure end</li>
-<li>Content value. Unique visual for social media</li>
+<li>Depth control — the reaction stops instantly and predictably</li>
+<li>Safety — no risk of "over-holding" the peel</li>
+<li>Patient comfort — the Verigo–Bohr effect soothes the skin</li>
+<li>Trust — the patient feels the procedure conclude</li>
 </ul>
 
-<h2>Application</h2>
-<p>Used only with EVOXA PEEL 1, 2 or 3. A mandatory step of the remodulation protocol. Substitution with other neutralizers is not part of the method.</p>
+<h2>Use</h2>
+<p>Used together with EVOXA PEEL 1, 2 or 3. A mandatory step of the remodulation protocol. Substitution with other neutralisers is not part of the method.</p>
 
-<blockquote>The CO2 foam is the La Mer cream ritual, only scientifically grounded. The brand's main visual code.</blockquote>
+<blockquote>EVOXA shows that carboxytherapy can be smart — not the same for everyone, but built into the dermal logic of the skin.</blockquote>
 `,
 es: `
 <h2>Qué es EVOXA TONIC</h2>
-<p class="lead">Neutralizador de carbonato para peeling ácido. Firma tecnológica de la marca. Al contacto con PEEL produce una reacción liberando dióxido de carbono — espuma CO2 visible.</p>
+<p class="lead">Remodulador dérmico, fase 2. Más que un neutralizador. pH 7.9–8.1. EVOXA TONIC convierte la neutralización en una fase activa de recuperación cutánea.</p>
+<ul>
+<li>Señal de stop — detiene la acción de los ácidos</li>
+<li>Calma y rehabilitación — retiene la humedad y restaura el manto hidrolipídico</li>
+</ul>
 
-<h2>Formulación</h2>
-<p>Complejo de carbonato sobre base estabilizada. Sin perfume, sin colorantes. Sin peróxido; no es un neutralizador de bicarbonato.</p>
+<h2>Composición</h2>
+<p>Complejo de carbonatos sobre base estabilizada. Sin fragancia, sin colorantes. No contiene peróxido ni es un neutralizador de la familia del bicarbonato.</p>
 
 <h2>Mecanismo</h2>
-<p>El ácido PEEL (H+) reacciona con el carbonato TONIC (CO3²-) produciendo agua y CO2. El gas se libera en piel como microburbujas que forman la espuma. Reacción exotérmica con energía mínima — calor ligero, no ardor.</p>
+<p>Desencadena el efecto Verigo–Bohr — un mecanismo clave para el intercambio gaseoso. En el tejido activo se acumula CO₂, el medio se acidifica y la hemoglobina libera más oxígeno justo donde se necesita.</p>
 
-<div class="callout"><strong>Qué aporta</strong>Marcador visual del fin del tratamiento. Mientras haya espuma — la reacción sigue. Sin espuma — neutralización completa. Control preciso de profundidad.</div>
+<div class="callout"><strong>Qué aporta</strong>El efecto de carboxiterapia se adapta a la tarea clínica de cada remodulador: sin hiperemia de más donde no hace falta, con mayor eficacia sin reducir el cumplimiento. La formación de espuma difiere en cada producto — depende de la clase de ácidos y de la piel del paciente.</div>
 
 <h2>Ventajas</h2>
 <ul>
-<li>Control de profundidad. La reacción para al instante</li>
-<li>Seguridad. Sin riesgo de sobreexposición</li>
-<li>Confort del paciente. Frescor ligero, menos ardor</li>
-<li>Confianza. El paciente ve cómo termina</li>
-<li>Valor de contenido. Visual único para redes sociales</li>
+<li>Control de profundidad — la reacción se detiene de forma instantánea y predecible</li>
+<li>Seguridad — sin riesgo de "pasarse" con el peeling</li>
+<li>Confort del paciente — el efecto Verigo–Bohr calma la piel</li>
+<li>Confianza — el paciente siente cómo concluye el procedimiento</li>
 </ul>
 
 <h2>Uso</h2>
-<p>Solo con EVOXA PEEL 1, 2 o 3. Paso obligatorio del protocolo de remodulación. La sustitución por otros neutralizadores no forma parte del método.</p>
+<p>Se usa junto a EVOXA PEEL 1, 2 o 3. Etapa obligatoria del protocolo de remodulación. El método no contempla sustituirlo por otros neutralizadores.</p>
 
-<blockquote>La espuma CO2 es el ritual de la crema La Mer, solo que con base científica. El código visual principal de la marca.</blockquote>
+<blockquote>EVOXA demuestra que la carboxiterapia puede ser inteligente — no igual para todos, sino integrada en la lógica dérmica de la piel.</blockquote>
 `
 }
-
 };
 
 
@@ -9027,6 +8904,238 @@ function buildToc(){
 
 
 /* ============ PRODUCTS RENDER ============ */
+
+/* ============ ПОДБОР ПРЕПАРАТА (алгоритмы технолога) ============ */
+const ALGO = {
+ru:`
+  <div class="algo-inner">
+    <div class="algo-eyebrow">— Для специалистов —</div>
+    <h2 class="algo-title">Подбор <span class="em">препарата.</span></h2>
+    <p class="algo-lead">Алгоритмы выбора EVOXA PEEL по задаче, типу кожи и фототипу. Правильный пилинг — не самый сильный, а тот, который точно решает задачу.</p>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Алгоритм по задачам</div>
+      <table class="algo-table">
+        <thead><tr><th>Задача</th><th>Препарат</th><th>Курс</th></tr></thead>
+        <tbody>
+          <tr><td>Тусклый цвет, текстура</td><td><strong>PEEL 1, 2, 3</strong></td><td>2–4 процедуры, 1 раз в 7–10 дней</td></tr>
+          <tr><td>Расширенные поры</td><td><strong>PEEL 1 или 3</strong></td><td>2–4 процедуры, 1 раз в 7–10 дней</td></tr>
+          <tr><td>Фотостарение, пигментация</td><td><strong>PEEL 2</strong></td><td>3–5 процедур, 1 раз в 7–10 дней</td></tr>
+          <tr><td>Стойкая пигментация, мелазма</td><td><strong>PEEL 1, 3</strong></td><td>4 процедуры, 1 раз в 7–10 дней</td></tr>
+          <tr><td>Постакне (свежее)</td><td><strong>PEEL 3</strong></td><td>2–4 процедуры, 1 раз в 7–10 дней</td></tr>
+          <tr><td>Постакне-рубцы</td><td><strong>PEEL 1</strong></td><td>4 процедуры, 1 раз в 7–10 дней</td></tr>
+          <tr><td>Мелкоморщинистый тип старения, сухая и обезвоженная кожа</td><td><strong>PEEL 2</strong></td><td>Возможны сочетанные протоколы с биоревитализацией, интервал от 48 часов</td></tr>
+          <tr><td>Морщины глубокого залегания</td><td><strong>PEEL 1</strong></td><td>Возможны сочетанные протоколы с аппаратными методиками, интервал 7 дней</td></tr>
+          <tr><td>Коррекция купероза и розацеа</td><td><strong>PEEL 3</strong></td><td>2–4 процедуры, 1 раз в 7–14 дней</td></tr>
+          <tr><td>Профилактика</td><td><strong>PEEL 1, 2, 3</strong></td><td>Поддерживающие процедуры по состоянию кожи, со 2-го месяца после курса, раз в 1–2 месяца</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Алгоритм по типу кожи</div>
+      <div class="algo-cards">
+        <div class="algo-card">
+          <div class="algo-card-h">Сухая, обезвоженная, чувствительная</div>
+          <p>Препарат выбора — <strong>EVOXA PEEL 2</strong>. Экспозиция 2–3 мин на первой процедуре, далее до 5–8 мин.</p>
+          <p>Интервал 7–14 дней по состоянию кожи. Восстанавливающий, увлажняющий, успокаивающий домашний уход, обязательно SPF 50.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-card-h">Нормальная</div>
+          <p>Дегидратация, фотостарение → <strong>PEEL 2</strong> (2–3 → 8–10 мин). Купероз, розацеа → <strong>PEEL 3</strong> (2–3 → 8–10 мин).</p>
+          <p>Интервал 7–10 дней. Универсальный домашний уход, обязательно SPF 50.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-card-h">Жирная и комбинированная</div>
+          <p>Препарат выбора — <strong>EVOXA PEEL 1</strong> (2–3 → 5–8 мин). Возможен переход на <strong>PEEL 3</strong> уже после 1–2 процедур (до 7–10 мин).</p>
+          <p>Интервал 7 дней. Уход для жирной и комбинированной кожи, обязательно SPF 50.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Алгоритм по фототипу (Фитцпатрик)</div>
+      <table class="algo-table">
+        <thead><tr><th>Фототип</th><th>PEEL 1</th><th>PEEL 2</th><th>PEEL 3</th></tr></thead>
+        <tbody>
+          <tr><td>I–II</td><td>Без ограничений</td><td>Без ограничений</td><td>Без ограничений</td></tr>
+          <tr><td>III</td><td>Без ограничений</td><td>Без ограничений</td><td>Без ограничений</td></tr>
+          <tr><td>IV</td><td>Индивидуально</td><td><strong>Препарат выбора</strong></td><td>Индивидуально</td></tr>
+          <tr><td>V–VI</td><td>Не рекомендуется</td><td>Индивидуально</td><td>Не рекомендуется</td></tr>
+        </tbody>
+      </table>
+      <div class="algo-note"><strong>Правило безопасности.</strong> Если сомневаетесь в безопасности — уменьшите экспозицию и используйте SPF с высоким защитным фактором. Эффект можно усилить, ошибку нельзя отменить.</div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Чек-лист перед назначением</div>
+      <ul class="algo-check">
+        <li>Определён тип, состояние и фототип пациента</li>
+        <li>Собран анамнез: заболевания, препараты и БАД, прошлые процедуры, аллергии</li>
+        <li>Сделан фотопротокол</li>
+        <li>Подписано информированное согласие</li>
+        <li>Согласован курс процедур и план реабилитации</li>
+        <li>Назначен домашний уход EVOXA PRO</li>
+        <li>Обозначены ограничения: солнце, сауна, активы</li>
+      </ul>
+    </div>
+  </div>
+`,
+en:`
+  <div class="algo-inner">
+    <div class="algo-eyebrow">— For professionals —</div>
+    <h2 class="algo-title">Choosing the <span class="em">remodulator.</span></h2>
+    <p class="algo-lead">EVOXA PEEL selection algorithms by goal, skin type and phototype. The right peel is not the strongest one — it is the one that precisely solves the task.</p>
+
+    <div class="algo-block">
+      <div class="algo-block-h">By goal</div>
+      <table class="algo-table">
+        <thead><tr><th>Goal</th><th>Product</th><th>Course</th></tr></thead>
+        <tbody>
+          <tr><td>Dull tone, texture</td><td><strong>PEEL 1, 2, 3</strong></td><td>2–4 sessions, once every 7–10 days</td></tr>
+          <tr><td>Enlarged pores</td><td><strong>PEEL 1 or 3</strong></td><td>2–4 sessions, once every 7–10 days</td></tr>
+          <tr><td>Photo-ageing, pigmentation</td><td><strong>PEEL 2</strong></td><td>3–5 sessions, once every 7–10 days</td></tr>
+          <tr><td>Stubborn pigmentation, melasma</td><td><strong>PEEL 1, 3</strong></td><td>4 sessions, once every 7–10 days</td></tr>
+          <tr><td>Fresh post-acne</td><td><strong>PEEL 3</strong></td><td>2–4 sessions, once every 7–10 days</td></tr>
+          <tr><td>Post-acne scars</td><td><strong>PEEL 1</strong></td><td>4 sessions, once every 7–10 days</td></tr>
+          <tr><td>Fine-wrinkle ageing, dry and dehydrated skin</td><td><strong>PEEL 2</strong></td><td>Combined protocols with biorevitalization possible, interval from 48 hours</td></tr>
+          <tr><td>Deep-set wrinkles</td><td><strong>PEEL 1</strong></td><td>Combined protocols with device methods possible, interval 7 days</td></tr>
+          <tr><td>Couperose and rosacea correction</td><td><strong>PEEL 3</strong></td><td>2–4 sessions, once every 7–14 days</td></tr>
+          <tr><td>Prevention</td><td><strong>PEEL 1, 2, 3</strong></td><td>Maintenance per skin condition, from month 2 after the course, once every 1–2 months</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">By skin type</div>
+      <div class="algo-cards">
+        <div class="algo-card">
+          <div class="algo-card-h">Dry, dehydrated, sensitive</div>
+          <p>Product of choice — <strong>EVOXA PEEL 2</strong>. Exposure 2–3 min on the first session, then up to 5–8 min.</p>
+          <p>Interval 7–14 days per skin condition. Restorative, hydrating, soothing home care, mandatory SPF 50.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-card-h">Normal</div>
+          <p>Dehydration, photo-ageing → <strong>PEEL 2</strong> (2–3 → 8–10 min). Couperose, rosacea → <strong>PEEL 3</strong> (2–3 → 8–10 min).</p>
+          <p>Interval 7–10 days. Universal home care, mandatory SPF 50.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-card-h">Oily and combination</div>
+          <p>Product of choice — <strong>EVOXA PEEL 1</strong> (2–3 → 5–8 min). A switch to <strong>PEEL 3</strong> is possible after 1–2 sessions (up to 7–10 min).</p>
+          <p>Interval 7 days. Home care for oily/combination skin, mandatory SPF 50.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">By phototype (Fitzpatrick)</div>
+      <table class="algo-table">
+        <thead><tr><th>Phototype</th><th>PEEL 1</th><th>PEEL 2</th><th>PEEL 3</th></tr></thead>
+        <tbody>
+          <tr><td>I–II</td><td>No restrictions</td><td>No restrictions</td><td>No restrictions</td></tr>
+          <tr><td>III</td><td>No restrictions</td><td>No restrictions</td><td>No restrictions</td></tr>
+          <tr><td>IV</td><td>Individually</td><td><strong>Product of choice</strong></td><td>Individually</td></tr>
+          <tr><td>V–VI</td><td>Not recommended</td><td>Individually</td><td>Not recommended</td></tr>
+        </tbody>
+      </table>
+      <div class="algo-note"><strong>Safety rule.</strong> If in doubt about safety — reduce exposure and use a high-factor SPF. The effect can be intensified; a mistake cannot be undone.</div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Pre-treatment checklist</div>
+      <ul class="algo-check">
+        <li>Skin type, condition and phototype determined</li>
+        <li>History taken: conditions, medications and supplements, past procedures, allergies</li>
+        <li>Photo-protocol done</li>
+        <li>Informed consent signed</li>
+        <li>Course and rehabilitation plan agreed</li>
+        <li>EVOXA PRO home care prescribed</li>
+        <li>Restrictions set: sun, sauna, actives</li>
+      </ul>
+    </div>
+  </div>
+`,
+es:`
+  <div class="algo-inner">
+    <div class="algo-eyebrow">— Para profesionales —</div>
+    <h2 class="algo-title">Elección del <span class="em">remodulador.</span></h2>
+    <p class="algo-lead">Algoritmos de selección de EVOXA PEEL por objetivo, tipo de piel y fototipo. El peeling correcto no es el más fuerte, sino el que resuelve la tarea con precisión.</p>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Por objetivo</div>
+      <table class="algo-table">
+        <thead><tr><th>Objetivo</th><th>Producto</th><th>Curso</th></tr></thead>
+        <tbody>
+          <tr><td>Tono apagado, textura</td><td><strong>PEEL 1, 2, 3</strong></td><td>2–4 sesiones, 1 vez cada 7–10 días</td></tr>
+          <tr><td>Poros dilatados</td><td><strong>PEEL 1 o 3</strong></td><td>2–4 sesiones, 1 vez cada 7–10 días</td></tr>
+          <tr><td>Fotoenvejecimiento, pigmentación</td><td><strong>PEEL 2</strong></td><td>3–5 sesiones, 1 vez cada 7–10 días</td></tr>
+          <tr><td>Pigmentación persistente, melasma</td><td><strong>PEEL 1, 3</strong></td><td>4 sesiones, 1 vez cada 7–10 días</td></tr>
+          <tr><td>Post-acné reciente</td><td><strong>PEEL 3</strong></td><td>2–4 sesiones, 1 vez cada 7–10 días</td></tr>
+          <tr><td>Cicatrices de post-acné</td><td><strong>PEEL 1</strong></td><td>4 sesiones, 1 vez cada 7–10 días</td></tr>
+          <tr><td>Envejecimiento de arruga fina, piel seca y deshidratada</td><td><strong>PEEL 2</strong></td><td>Posibles protocolos combinados con biorrevitalización, intervalo desde 48 horas</td></tr>
+          <tr><td>Arrugas profundas</td><td><strong>PEEL 1</strong></td><td>Posibles protocolos combinados con métodos de aparatología, intervalo 7 días</td></tr>
+          <tr><td>Corrección de couperosis y rosácea</td><td><strong>PEEL 3</strong></td><td>2–4 sesiones, 1 vez cada 7–14 días</td></tr>
+          <tr><td>Prevención</td><td><strong>PEEL 1, 2, 3</strong></td><td>Mantenimiento según la piel, desde el mes 2 tras el curso, 1 vez cada 1–2 meses</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Por tipo de piel</div>
+      <div class="algo-cards">
+        <div class="algo-card">
+          <div class="algo-card-h">Seca, deshidratada, sensible</div>
+          <p>Producto de elección — <strong>EVOXA PEEL 2</strong>. Exposición 2–3 min en la primera sesión, luego hasta 5–8 min.</p>
+          <p>Intervalo 7–14 días según la piel. Cuidado domiciliario reparador, hidratante y calmante, SPF 50 obligatorio.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-card-h">Normal</div>
+          <p>Deshidratación, fotoenvejecimiento → <strong>PEEL 2</strong> (2–3 → 8–10 min). Couperosis, rosácea → <strong>PEEL 3</strong> (2–3 → 8–10 min).</p>
+          <p>Intervalo 7–10 días. Cuidado domiciliario universal, SPF 50 obligatorio.</p>
+        </div>
+        <div class="algo-card">
+          <div class="algo-card-h">Grasa y mixta</div>
+          <p>Producto de elección — <strong>EVOXA PEEL 1</strong> (2–3 → 5–8 min). Posible cambio a <strong>PEEL 3</strong> tras 1–2 sesiones (hasta 7–10 min).</p>
+          <p>Intervalo 7 días. Cuidado para piel grasa/mixta, SPF 50 obligatorio.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Por fototipo (Fitzpatrick)</div>
+      <table class="algo-table">
+        <thead><tr><th>Fototipo</th><th>PEEL 1</th><th>PEEL 2</th><th>PEEL 3</th></tr></thead>
+        <tbody>
+          <tr><td>I–II</td><td>Sin restricciones</td><td>Sin restricciones</td><td>Sin restricciones</td></tr>
+          <tr><td>III</td><td>Sin restricciones</td><td>Sin restricciones</td><td>Sin restricciones</td></tr>
+          <tr><td>IV</td><td>Individual</td><td><strong>Producto de elección</strong></td><td>Individual</td></tr>
+          <tr><td>V–VI</td><td>No recomendado</td><td>Individual</td><td>No recomendado</td></tr>
+        </tbody>
+      </table>
+      <div class="algo-note"><strong>Regla de seguridad.</strong> Si dudas de la seguridad — reduce la exposición y usa un SPF de alto factor. El efecto se puede intensificar; un error no se puede deshacer.</div>
+    </div>
+
+    <div class="algo-block">
+      <div class="algo-block-h">Checklist previo</div>
+      <ul class="algo-check">
+        <li>Tipo, estado y fototipo del paciente determinados</li>
+        <li>Anamnesis: enfermedades, fármacos y suplementos, procedimientos previos, alergias</li>
+        <li>Foto-protocolo realizado</li>
+        <li>Consentimiento informado firmado</li>
+        <li>Curso y plan de rehabilitación acordados</li>
+        <li>Cuidado domiciliario EVOXA PRO prescrito</li>
+        <li>Restricciones marcadas: sol, sauna, activos</li>
+      </ul>
+    </div>
+  </div>
+`
+};
+function renderAlgo(){
+  const el=document.getElementById('algoContent');
+  if(!el) return;
+  el.innerHTML = ALGO[currentLang]||ALGO['ru'];
+}
+
 function renderProducts(){
   const lang=currentLang;
   const html=PRODUCTS.map((p,i)=>`
@@ -9049,6 +9158,7 @@ function renderProducts(){
   const page=document.getElementById('productsGrid');
   if(home) home.innerHTML=html;
   if(page) page.innerHTML=html;
+  renderAlgo();
   applyImages();initReveal();bindCursor();
 }
 
