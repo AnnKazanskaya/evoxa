@@ -4025,6 +4025,27 @@ img, video, iframe {
   z-index:2;
 }
 .glance-tile-type.video{color:var(--amber)}
+.btn-gold{
+  background:linear-gradient(135deg,#e0b25f 0%,#c89050 100%);
+  color:var(--black)!important;border-color:transparent!important;
+}
+.btn-gold:hover{filter:brightness(1.06)}
+.glance-tile-sound{
+  pointer-events:auto;
+  position:absolute;bottom:14px;left:14px;
+  width:40px;height:40px;
+  background:rgba(10,10,10,0.55);
+  color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;
+  border:none;cursor:pointer;
+  border-radius:50%;
+  opacity:0;
+  transition:all .3s ease;
+  z-index:3;backdrop-filter:blur(4px);
+}
+.glance-tile:hover .glance-tile-sound{opacity:1}
+.glance-tile-sound.on{background:rgba(200,144,80,0.95);color:var(--black)}
 .glance-tile-download{
   pointer-events:auto;
   position:absolute;top:14px;right:14px;
@@ -4259,6 +4280,11 @@ img, video, iframe {
     width:36px;height:36px;font-size:16px;
     top:10px;right:10px;
   }
+  .glance-tile-sound{
+    opacity:1!important;
+    width:36px;height:36px;font-size:15px;
+    bottom:10px;left:10px;
+  }
   .glance-tile-type{font-size:8px;letter-spacing:1.5px;padding:5px 8px;top:10px;left:10px}
   
   .glance-contest-section{padding:60px 20px}
@@ -4371,6 +4397,10 @@ img, video, iframe {
         </a>
         <a class="btn" data-route="products" data-cursor>
           <span data-i18n="hero.cta2">Изучить линейку</span>
+        </a>
+        <a class="btn btn-gold" data-route="club" data-cursor>
+          <span data-i18n="hero.cta3">Золотая карта</span>
+          <span class="arrow">→</span>
         </a>
       </div>
     </div>
@@ -5148,6 +5178,13 @@ img, video, iframe {
           <span data-i18n="club.cta">Получить карту бесплатно</span>
           <span class="arrow">↓</span>
         </a>
+        <a class="btn" data-route="home" data-cursor>
+          <span data-i18n="club.ctaProc">Подробно о процедуре EVOXA Therapy</span>
+        </a>
+        <a class="btn" data-route="clinics" data-cursor>
+          <span data-i18n="club.ctaWhere">Где сделать</span>
+          <span class="arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -5228,6 +5265,11 @@ img, video, iframe {
         <div class="club-form-row">
           <label class="club-form-label" data-i18n="club.fldName">ФИО полностью <span class="req">*</span></label>
           <input type="text" class="club-form-input" id="club-fld-name" required placeholder="Иванова Анна Сергеевна">
+        </div>
+        
+        <div class="club-form-row">
+          <label class="club-form-label" data-i18n="club.fldCity">Город <span class="req">*</span></label>
+          <input type="text" class="club-form-input" id="club-fld-city" required placeholder="Москва">
         </div>
         
         <div class="club-form-row two">
@@ -5374,7 +5416,7 @@ const I18N = {
     'club.title1':'Золотая карта','club.title2':'первой тысячи.',
     'club.lead':'Закрытый клуб для тех, кто выбирает здоровую и сияющую кожу. Первые 1000 клиентов получают именную золотую карту с привилегиями навсегда.',
     'club.of':'из','club.issued':'карт выпущено',
-    'club.cta':'Получить карту бесплатно',
+    'club.cta':'Получить карту бесплатно','club.ctaProc':'Подробно о процедуре EVOXA Therapy','club.ctaWhere':'Где сделать',
     'club.benefitsEyebrow':'— Привилегии Gold —',
     'club.benefitsTitle1':'Что даёт','club.benefitsTitle2':'золотая карта.',
     'club.benefit1Name':'Процедуры EVOXA',
@@ -5392,7 +5434,7 @@ const I18N = {
     'club.cardNote':'Карта приходит на email в формате PDF сразу после заполнения формы. Сохраните её в телефон или распечатайте.',
     'club.formEyebrow':'— Выпуск карты —',
     'club.formTitle1':'Получите','club.formTitle2':'свою золотую карту.',
-    'club.fldName':'ФИО полностью','club.fldPhone':'Телефон','club.fldEmail':'Email',
+    'club.fldName':'ФИО полностью','club.fldCity':'Город','club.fldPhone':'Телефон','club.fldEmail':'Email',
     'club.consent':'Я согласен(а) на обработку персональных данных EVOXA Studio SL для оформления и сопровождения карты лояльности',
     'club.submit':'Получить золотую карту',
     'club.closedTitle':'Лимит выпуска достигнут',
@@ -5463,7 +5505,7 @@ const I18N = {
     'hero.eyebrow':'— Метод EVOXA —',
     'hero.word1':'Ремодуляция,','hero.word2':'не пилинг.',
     'hero.tagline':'«Ваша кожа умнее, чем вы думаете. Ей нужен сигнал, а не удар.»',
-    'hero.cta1':'Найти клинику','hero.cta2':'Изучить линейку','hero.scroll':'прокрутите',
+    'hero.cta1':'Найти клинику','hero.cta2':'Изучить линейку','hero.cta3':'Золотая карта','hero.scroll':'прокрутите',
     'hero.stat1':'процедура','hero.stat2':'реабилитация','hero.stat3':'дней в году',
     'marquee.1':'Ремодуляция','marquee.2':'не пилинг','marquee.3':'Made in Barcelona','marquee.4':'Карбокситерапия CO2',
     'manifesto.eyebrow':'Манифест',
@@ -5548,7 +5590,7 @@ const I18N = {
     'club.title1':'Gold card','club.title2':'of the first thousand.',
     'club.lead':'A closed club for those who choose healthy radiant skin. The first 1000 clients receive a personal gold card with lifetime privileges.',
     'club.of':'of','club.issued':'cards issued',
-    'club.cta':'Get card for free',
+    'club.cta':'Get card for free','club.ctaProc':'About the EVOXA Therapy procedure','club.ctaWhere':'Where to do it',
     'club.benefitsEyebrow':'— Gold privileges —',
     'club.benefitsTitle1':'What the gold card','club.benefitsTitle2':'gives you.',
     'club.benefit1Name':'EVOXA procedures',
@@ -5566,7 +5608,7 @@ const I18N = {
     'club.cardNote':'The card arrives on your email as PDF right after submitting the form. Save it to your phone or print.',
     'club.formEyebrow':'— Card issue —',
     'club.formTitle1':'Get','club.formTitle2':'your gold card.',
-    'club.fldName':'Full name','club.fldPhone':'Phone','club.fldEmail':'Email',
+    'club.fldName':'Full name','club.fldCity':'City','club.fldPhone':'Phone','club.fldEmail':'Email',
     'club.consent':'I consent to EVOXA Studio SL processing my personal data for loyalty card issuance and management',
     'club.submit':'Get gold card',
     'club.closedTitle':'Issue limit reached',
@@ -5637,7 +5679,7 @@ const I18N = {
     'hero.eyebrow':'— The EVOXA Method —',
     'hero.word1':'Remodulation,','hero.word2':'not peeling.',
     'hero.tagline':'"Your skin is smarter than you think. It needs a signal, not a blow."',
-    'hero.cta1':'Find a clinic','hero.cta2':'Explore the range','hero.scroll':'scroll',
+    'hero.cta1':'Find a clinic','hero.cta2':'Explore the range','hero.cta3':'Gold card','hero.scroll':'scroll',
     'hero.stat1':'procedure','hero.stat2':'recovery','hero.stat3':'days a year',
     'marquee.1':'Remodulation','marquee.2':'not peeling','marquee.3':'Made in Barcelona','marquee.4':'CO2 Carboxytherapy',
     'manifesto.eyebrow':'Manifesto',
@@ -5721,7 +5763,7 @@ const I18N = {
     'club.title1':'Tarjeta dorada','club.title2':'de los primeros mil.',
     'club.lead':'Club cerrado para quienes eligen una piel sana y radiante. Los primeros 1000 clientes reciben una tarjeta dorada personal con privilegios para siempre.',
     'club.of':'de','club.issued':'tarjetas emitidas',
-    'club.cta':'Obtener tarjeta gratis',
+    'club.cta':'Obtener tarjeta gratis','club.ctaProc':'Sobre el procedimiento EVOXA Therapy','club.ctaWhere':'Dónde hacerlo',
     'club.benefitsEyebrow':'— Privilegios Gold —',
     'club.benefitsTitle1':'Qué da','club.benefitsTitle2':'la tarjeta dorada.',
     'club.benefit1Name':'Procedimientos EVOXA',
@@ -5739,7 +5781,7 @@ const I18N = {
     'club.cardNote':'La tarjeta llega a tu email en formato PDF justo tras enviar el formulario. Guárdala en el móvil o imprímela.',
     'club.formEyebrow':'— Emisión de tarjeta —',
     'club.formTitle1':'Recibe','club.formTitle2':'tu tarjeta dorada.',
-    'club.fldName':'Nombre completo','club.fldPhone':'Teléfono','club.fldEmail':'Email',
+    'club.fldName':'Nombre completo','club.fldCity':'Ciudad','club.fldPhone':'Teléfono','club.fldEmail':'Email',
     'club.consent':'Doy mi consentimiento a EVOXA Studio SL para tratar mis datos para la emisión y gestión de la tarjeta',
     'club.submit':'Obtener tarjeta dorada',
     'club.closedTitle':'Límite alcanzado',
@@ -5810,7 +5852,7 @@ const I18N = {
     'hero.eyebrow':'— El Método EVOXA —',
     'hero.word1':'Remodulación,','hero.word2':'no peeling.',
     'hero.tagline':'«Tu piel es más inteligente de lo que crees. Necesita una señal, no un golpe.»',
-    'hero.cta1':'Encuentra clínica','hero.cta2':'Explora la línea','hero.scroll':'desplaza',
+    'hero.cta1':'Encuentra clínica','hero.cta2':'Explora la línea','hero.cta3':'Tarjeta dorada','hero.scroll':'desplaza',
     'hero.stat1':'tratamiento','hero.stat2':'recuperación','hero.stat3':'días al año',
     'marquee.1':'Remodulación','marquee.2':'no peeling','marquee.3':'Hecho en Barcelona','marquee.4':'Carboxiterapia CO2',
     'manifesto.eyebrow':'Manifiesto',
@@ -9284,10 +9326,11 @@ function renderGlanceGrid(){
     const filename = m.src.split('/').pop();
     if(m.type==='video'){
       return `
-        <div class="glance-tile" data-cursor onmouseenter="this.querySelector('video').play()" onmouseleave="(function(v){v.pause();v.currentTime=0;})(this.querySelector('video'))">
+        <div class="glance-tile glance-tile-vid" data-cursor>
           <span class="glance-tile-type video">▶ ${typeLabel}</span>
           <button class="glance-tile-download" onclick="event.stopPropagation();downloadMedia('${m.src}','${filename}')" title="Скачать">↓</button>
-          <video muted loop playsinline preload="metadata" poster="${m.poster||''}">
+          <button class="glance-tile-sound" onclick="event.stopPropagation();toggleGlanceSound(this)" title="Включить звук">🔇</button>
+          <video class="glance-tile-video" muted loop playsinline webkit-playsinline preload="metadata" poster="${m.poster||''}" onclick="toggleGlanceSound(this.parentElement.querySelector('.glance-tile-sound'))">
             <source src="${m.src}" type="video/mp4">
           </video>
           <div class="glance-tile-overlay">
@@ -9308,6 +9351,50 @@ function renderGlanceGrid(){
       `;
     }
   }).join('');
+  initGlanceVideos();
+}
+
+let glanceVideoObserver = null;
+function initGlanceVideos(){
+  const vids = document.querySelectorAll('#glanceGrid .glance-tile-video');
+  if(!vids.length) return;
+  if(glanceVideoObserver) glanceVideoObserver.disconnect();
+  glanceVideoObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      const v = en.target;
+      if(en.isIntersecting){
+        const p = v.play(); if(p && p.catch) p.catch(function(){});
+      } else {
+        v.pause();
+        if(!v.muted){
+          v.muted = true;
+          const b = v.parentElement.querySelector('.glance-tile-sound');
+          if(b){ b.textContent='🔇'; b.classList.remove('on'); }
+        }
+      }
+    });
+  }, {threshold:0.35});
+  vids.forEach(function(v){ v.muted = true; glanceVideoObserver.observe(v); });
+}
+
+// Тап / клик по видео или кнопке — включить/выключить звук (скачивание всегда со звуком)
+function toggleGlanceSound(btn){
+  if(!btn) return;
+  const tile = btn.closest('.glance-tile');
+  if(!tile) return;
+  const v = tile.querySelector('.glance-tile-video');
+  if(!v) return;
+  document.querySelectorAll('#glanceGrid .glance-tile-video').forEach(function(o){
+    if(o!==v){
+      o.muted = true;
+      const ob = o.parentElement.querySelector('.glance-tile-sound');
+      if(ob){ ob.textContent='🔇'; ob.classList.remove('on'); }
+    }
+  });
+  v.muted = !v.muted;
+  btn.textContent = v.muted ? '🔇' : '🔊';
+  btn.classList.toggle('on', !v.muted);
+  const pr = v.play(); if(pr && pr.catch) pr.catch(function(){});
 }
 
 async function downloadMedia(url, filename){
@@ -9488,6 +9575,7 @@ async function submitClubForm(e){
     fullName: document.getElementById('club-fld-name').value.trim(),
     phone: document.getElementById('club-fld-phone').value.trim(),
     email: document.getElementById('club-fld-email').value.trim(),
+    city: document.getElementById('club-fld-city').value.trim(),
     consent: clubConsent
   };
   
