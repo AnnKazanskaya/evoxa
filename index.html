@@ -3654,7 +3654,7 @@ img, video, iframe {
   color:var(--amber);text-transform:none;
 }
 .club-benefits-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
+  display:grid;grid-template-columns:repeat(2,1fr);
   gap:1px;background:var(--border);border:1px solid var(--border);
 }
 .club-benefit{
@@ -4429,7 +4429,6 @@ img, video, iframe {
     <div class="hero-floating">
       <div class="float-pill peel"><span class="dot"></span>EVOXA PEEL</div>
       <div class="float-pill clinic"><span class="dot"></span>EVOXA CLINIC</div>
-      <div class="float-pill pro"><span class="dot"></span>EVOXA PRO</div>
     </div>
     
     <div class="hero-center">
@@ -4574,7 +4573,7 @@ img, video, iframe {
             <span data-i18n="geo.title1">От Поволжья</span><br>
             <span class="em" data-i18n="geo.title2">до Прибайкалья.</span>
           </h2>
-          <p class="geo-quote reveal reveal-delay-2" data-i18n="geo.quote">EVOXA выбирают сертифицированные врачи-косметологи в шестнадцати городах России. Найдите специалиста в своём.</p>
+          <p class="geo-quote reveal reveal-delay-2" data-i18n="geo.quote">EVOXA выбирают сертифицированные врачи-косметологи в семнадцати городах России. Найдите специалиста в своём.</p>
         </div>
 
         <div class="geo-right reveal reveal-delay-2">
@@ -4584,7 +4583,7 @@ img, video, iframe {
             <div class="geo-stat-label" data-i18n="geo.stat1">сертифицированных специалиста</div>
           </div>
           <div class="geo-stat">
-            <div class="geo-stat-num" data-target="16">0</div>
+            <div class="geo-stat-num" data-target="17">0</div>
             <div class="geo-stat-line"></div>
             <div class="geo-stat-label" data-i18n="geo.stat2">городов России</div>
           </div>
@@ -5221,11 +5220,6 @@ img, video, iframe {
           <div class="club-benefit-desc" data-i18n="club.benefit1Desc">Скидка на любую процедуру EVOXA Therapy в клиниках-партнёрах</div>
         </div>
         <div class="club-benefit reveal reveal-delay-2">
-          <div class="club-benefit-num">10%</div>
-          <div class="club-benefit-name" data-i18n="club.benefit2Name">Домашняя линейка</div>
-          <div class="club-benefit-desc" data-i18n="club.benefit2Desc">Скидка на всю розничную линейку для домашнего ухода EVOXA</div>
-        </div>
-        <div class="club-benefit reveal reveal-delay-3">
           <div class="club-benefit-num">∞</div>
           <div class="club-benefit-name" data-i18n="club.benefit3Name">Срок действия</div>
           <div class="club-benefit-desc" data-i18n="club.benefit3Desc">Карта работает бессрочно. Раз получили — пользуетесь всегда</div>
@@ -5437,8 +5431,6 @@ const I18N = {
     'club.benefitsTitle1':'Что даёт','club.benefitsTitle2':'золотая карта.',
     'club.benefit1Name':'Процедуры EVOXA',
     'club.benefit1Desc':'Скидка на любую процедуру EVOXA Therapy в клиниках-партнёрах',
-    'club.benefit2Name':'Домашняя линейка',
-    'club.benefit2Desc':'Скидка на всю розничную линейку для домашнего ухода EVOXA',
     'club.benefit3Name':'Срок действия',
     'club.benefit3Desc':'Карта работает бессрочно. Раз получили — пользуетесь всегда',
     'club.previewEyebrow':'— Как выглядит карта —',
@@ -5461,7 +5453,7 @@ const I18N = {
     'cinematic.scrollHint':'Прокрутите вниз',
     'geo.eyebrow':'— География метода —',
     'geo.title1':'От Поволжья','geo.title2':'до Прибайкалья.',
-    'geo.quote':'EVOXA выбирают сертифицированные врачи-косметологи в шестнадцати городах России. Найдите специалиста в своём.',
+    'geo.quote':'EVOXA выбирают сертифицированные врачи-косметологи в семнадцати городах России. Найдите специалиста в своём.',
     'geo.stat1':'сертифицированных специалиста','geo.stat2':'городов России','geo.stat3':'клиник-партнёров',
     'geo.west':'Запад','geo.east':'Восток',
     'geo.cta':'Где сделать процедуру EVOXA',
@@ -5534,7 +5526,6 @@ const I18N = {
     'lines.all':'Все 18 продуктов','lines.more':'Подробнее',
     'lines.peel':'PEEL 1, PEEL 2, PEEL 3 и TONIC. Селективные двухфазные дермальные ремодуляторы с нейтрализацией через карбокситерапию. Только врач-косметолог.',
     'lines.clinic':'Сыворотки и активы для применения врачом в кабинете. Усиление эффекта процедуры. Только профессиональное использование.',
-    'lines.pro':'Домашний уход пациента. Сыворотки, кремы, SPF. Поддержание результата процедуры между визитами в клинику.',
     'co2.eyebrow':'— Главный момент —','co2.title1':'Карбокситерапия','co2.title2':'в момент встречи.',
     'co2.text1':'Когда EVOXA TONIC встречает кожу после PEEL — появляется пена CO2. Зримо. Научно. Это не эффект — это реакция нейтрализации.',
     'co2.text2':'Кислотный пилинг останавливается контролируемо. Без агрессии. Без реабилитации.',
@@ -5549,7 +5540,6 @@ const I18N = {
     'prod.subtitle':'Сейчас доступно 4 профессиональных продукта. Ещё 6 — запуск осенью 2026. Полная система ремодуляции для специалистов и пациентов.',
     'prod.peel':'PEEL 1 — проблемная кожа. PEEL 2 — сухая кожа и антивозраст. PEEL 3 — розацеа и сложные случаи. TONIC — нейтрализация через карбокситерапию. 4 препарата, 1 принцип: ремодуляция, не пилинг.',
     'prod.clinic':'Signal Serum, Bio Serum и активы. Используются врачом для усиления и направления эффекта процедуры. Профессиональная упаковка с лайм-акцентами.',
-    'prod.pro':'C3 Radiance Serum, ремоделирующий крем, SPF. Полный домашний протокол. Бордо-акценты. Премиальное стекло. Роскошь на полке в ванной.',
     'clinics.eyebrow':'— Где сделать процедуру —','clinics.title1':'Сертифицированные','clinics.title2':'партнёры.',
     'clinics.subtitle':'EVOXA — профессиональный продукт. Работают сертифицированные специалисты в 16 городах России. Выберите ваш город — покажем всех специалистов и их контакты.',
     'clinics.label.country':'Страна','clinics.label.city':'Город','clinics.label.search':'Поиск по названию',
@@ -5612,8 +5602,6 @@ const I18N = {
     'club.benefitsTitle1':'What the gold card','club.benefitsTitle2':'gives you.',
     'club.benefit1Name':'EVOXA procedures',
     'club.benefit1Desc':'Discount on any EVOXA Therapy procedure at partner clinics',
-    'club.benefit2Name':'Home range',
-    'club.benefit2Desc':'Discount on the entire EVOXA retail home care range',
     'club.benefit3Name':'Validity',
     'club.benefit3Desc':'The card works forever. Once issued — yours always',
     'club.previewEyebrow':'— How the card looks —',
@@ -5636,7 +5624,7 @@ const I18N = {
     'cinematic.scrollHint':'Scroll down',
     'geo.eyebrow':'— Method geography —',
     'geo.title1':'From the Volga','geo.title2':'to Lake Baikal.',
-    'geo.quote':'EVOXA is the choice of certified cosmetologists in sixteen cities across Russia. Find a specialist in yours.',
+    'geo.quote':'EVOXA is the choice of certified cosmetologists in seventeen cities across Russia. Find a specialist in yours.',
     'geo.stat1':'certified specialists','geo.stat2':'Russian cities','geo.stat3':'partner clinics',
     'geo.west':'West','geo.east':'East',
     'geo.cta':'Where to book an EVOXA procedure',
@@ -5709,7 +5697,6 @@ const I18N = {
     'lines.all':'All 18 products','lines.more':'Learn more',
     'lines.peel':'PEEL 1, PEEL 2, PEEL 3 and TONIC. Selective two-phase dermal remodulators with carboxytherapy neutralization. Licensed cosmetologists only.',
     'lines.clinic':'Serums and actives for in-office use by physicians. Amplifies the effect of the procedure. Professional use only.',
-    'lines.pro':'Patient home care. Serums, creams, SPF. Maintains procedure results between clinic visits.',
     'co2.eyebrow':'— The main moment —','co2.title1':'Carboxytherapy','co2.title2':'at the moment of contact.',
     'co2.text1':'When EVOXA TONIC meets the skin after PEEL — CO2 foam appears. Visible. Scientific. This is not an effect — this is a neutralization reaction.',
     'co2.text2':'The acid peel is stopped in a controlled way. Without aggression. Without recovery.',
@@ -5724,7 +5711,6 @@ const I18N = {
     'prod.subtitle':'Four professional products available now. Six more launching in autumn 2026. A full remodulation system for specialists and patients.',
     'prod.peel':'PEEL 1 — problem skin. PEEL 2 — dry skin & anti-age. PEEL 3 — rosacea & complex cases. TONIC — carboxytherapy neutralization. 4 products, 1 principle: remodulation, not peeling.',
     'prod.clinic':'Signal Serum, Bio Serum and actives. Used by physicians to amplify and direct the procedure effect. Professional packaging with lime accents.',
-    'prod.pro':'C3 Radiance Serum, remodulating cream, SPF. The complete home protocol. Wine accents. Premium glass. Quiet luxury on the bathroom shelf.',
     'clinics.eyebrow':'— Where to book a procedure —','clinics.title1':'Certified','clinics.title2':'partners.',
     'clinics.subtitle':'EVOXA is a professional product. Certified specialists work in 16 cities across Russia. Pick your city — we will show all specialists and their contacts.',
     'clinics.label.country':'Country','clinics.label.city':'City','clinics.label.search':'Search by name',
@@ -5786,8 +5772,6 @@ const I18N = {
     'club.benefitsTitle1':'Qué da','club.benefitsTitle2':'la tarjeta dorada.',
     'club.benefit1Name':'Procedimientos EVOXA',
     'club.benefit1Desc':'Descuento en cualquier procedimiento EVOXA Therapy en clínicas partner',
-    'club.benefit2Name':'Línea para casa',
-    'club.benefit2Desc':'Descuento en toda la línea retail de cuidado en casa EVOXA',
     'club.benefit3Name':'Vigencia',
     'club.benefit3Desc':'La tarjeta es para siempre. Una vez emitida — es tuya',
     'club.previewEyebrow':'— Cómo es la tarjeta —',
@@ -5810,7 +5794,7 @@ const I18N = {
     'cinematic.scrollHint':'Desplázate',
     'geo.eyebrow':'— Geografía del método —',
     'geo.title1':'Del Volga','geo.title2':'al lago Baikal.',
-    'geo.quote':'EVOXA es la elección de cosmetólogos certificados en dieciséis ciudades de Rusia. Encuentra al tuyo.',
+    'geo.quote':'EVOXA es la elección de cosmetólogos certificados en diecisiete ciudades de Rusia. Encuentra al tuyo.',
     'geo.stat1':'especialistas certificados','geo.stat2':'ciudades rusas','geo.stat3':'clínicas partner',
     'geo.west':'Oeste','geo.east':'Este',
     'geo.cta':'Dónde reservar EVOXA',
@@ -5883,7 +5867,6 @@ const I18N = {
     'lines.all':'Los 18 productos','lines.more':'Saber más',
     'lines.peel':'PEEL 1, PEEL 2, PEEL 3 y TONIC. Remoduladores dérmicos bifásicos selectivos con neutralización por carboxiterapia. Solo uso médico.',
     'lines.clinic':'Sueros y activos para uso del médico en cabina. Potencia el efecto del tratamiento. Solo uso profesional.',
-    'lines.pro':'Cuidado domiciliario para el paciente. Sueros, cremas, SPF. Mantiene el resultado del tratamiento entre visitas.',
     'co2.eyebrow':'— El momento clave —','co2.title1':'Carboxiterapia','co2.title2':'en el momento del contacto.',
     'co2.text1':'Cuando EVOXA TONIC se encuentra con la piel tras el PEEL — aparece la espuma de CO2. Visible. Científica. No es un efecto: es una reacción de neutralización.',
     'co2.text2':'El peeling ácido se detiene de forma controlada. Sin agresión. Sin recuperación.',
@@ -5898,7 +5881,6 @@ const I18N = {
     'prod.subtitle':'Cuatro productos profesionales disponibles. Seis más en lanzamiento otoño 2026. Sistema completo de remodulación.',
     'prod.peel':'PEEL 1 — piel problemática. PEEL 2 — piel seca y antiedad. PEEL 3 — rosácea y casos complejos. TONIC — neutralización por carboxiterapia. 4 productos, 1 principio: remodulación, no peeling.',
     'prod.clinic':'Signal Serum, Bio Serum y activos. Usados por el médico para potenciar y dirigir el efecto del tratamiento. Packaging profesional con acentos lima.',
-    'prod.pro':'C3 Radiance Serum, crema remoduladora, SPF. El protocolo completo en casa. Acentos vino. Vidrio premium. Lujo silencioso en la estantería del baño.',
     'clinics.eyebrow':'— Dónde reservar el tratamiento —','clinics.title1':'Socios','clinics.title2':'certificados.',
     'clinics.subtitle':'EVOXA es un producto profesional. Especialistas certificados trabajan en 16 ciudades de Rusia. Elige tu ciudad — te mostramos todos los especialistas y sus contactos.',
     'clinics.label.country':'País','clinics.label.city':'Ciudad','clinics.label.search':'Buscar por nombre',
