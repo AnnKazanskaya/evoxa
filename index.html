@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+м<!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
@@ -1683,6 +1683,22 @@ input,select{font-family:inherit;outline:none}
 }
 
 /* offline cities list */
+.offline-topics{max-width:1320px;margin:0 auto 56px;}
+.offline-topics-head{margin-bottom:28px;}
+.offline-topics-eyebrow{font-size:11px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--amber);margin-bottom:14px;}
+.offline-topics-title{font-size:clamp(22px,3vw,30px);font-weight:300;letter-spacing:-0.5px;color:var(--text-on-dark);}
+.offline-topics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--border);border:1px solid var(--border);}
+.offline-topic{display:flex;gap:18px;padding:26px 28px;background:var(--coal);transition:background .3s var(--ease-out-expo);}
+.offline-topic:hover{background:#181818;}
+.offline-topic-num{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;color:var(--amber);line-height:1;flex-shrink:0;padding-top:2px;}
+.offline-topic-text{font-size:14px;line-height:1.6;color:var(--text-muted);}
+.offline-topics-note{margin-top:22px;font-size:13px;line-height:1.6;color:var(--text-muted);border-left:2px solid var(--amber);padding-left:16px;}
+@media(max-width:768px){
+  .offline-topics{margin-bottom:40px;}
+  .offline-topics-grid{grid-template-columns:1fr!important;}
+  .offline-topic{padding:20px 18px!important;gap:14px!important;}
+  .offline-topic-text{font-size:13px!important;}
+}
 .offline-list{
   max-width:1320px;margin:0 auto;
   display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
@@ -1733,6 +1749,9 @@ input,select{font-family:inherit;outline:none}
 }
 .offline-manager-name{
   font-size:14px;font-weight:400;color:var(--text-on-dark);margin-bottom:4px;
+}
+.offline-manager-addr{
+  font-size:13px;color:var(--text-muted);line-height:1.5;margin-bottom:4px;
 }
 .offline-manager-phone{
   font-size:13px;color:var(--text-muted);letter-spacing:0.3px;
@@ -4735,6 +4754,7 @@ img, video, iframe {
     </div>
 
     <div class="training-pane" id="pane-offline">
+      <div class="offline-topics" id="offlineTopics"></div>
       <div class="offline-list" id="offlineList"></div>
     </div>
   </section>
@@ -5026,44 +5046,8 @@ img, video, iframe {
         <span data-i18n="compat.title1">Сочетается</span>
         <span class="em" data-i18n="compat.title2">с методами.</span>
       </h2>
-      <p class="compatibility-lead" data-i18n="compat.lead">EVOXA усиливает действие большинства эстетических протоколов. Используйте в комбинации для синергического эффекта.</p>
-      <div class="compatibility-grid">
-        <div class="compat-item">
-          <div class="compat-num">01</div>
-          <div class="compat-body">
-            <h3 class="compat-name" data-i18n="compat.1.name">Инъекционная биоревитализация</h3>
-            <p class="compat-desc" data-i18n="compat.1.desc">После ремодулятора кожа подготовлена. Гиалуроновая кислота встраивается максимально эффективно. Один визит — два уровня обновления.</p>
-          </div>
-        </div>
-        <div class="compat-item">
-          <div class="compat-num">02</div>
-          <div class="compat-body">
-            <h3 class="compat-name" data-i18n="compat.2.name">Экзосомы</h3>
-            <p class="compat-desc" data-i18n="compat.2.desc">Активированный фибробласт получает сигнальные молекулы. Регенерация ускоряется в несколько раз. Премиальный протокол.</p>
-          </div>
-        </div>
-        <div class="compat-item">
-          <div class="compat-num">03</div>
-          <div class="compat-body">
-            <h3 class="compat-name" data-i18n="compat.3.name">IPL — фотоомоложение</h3>
-            <p class="compat-desc" data-i18n="compat.3.desc">Работа с сосудистым компонентом и пигментом на разных уровнях. Интервал между процедурами 14 дней.</p>
-          </div>
-        </div>
-        <div class="compat-item">
-          <div class="compat-num">04</div>
-          <div class="compat-body">
-            <h3 class="compat-name" data-i18n="compat.4.name">Игольчатый RF-лифтинг</h3>
-            <p class="compat-desc" data-i18n="compat.4.desc">Глубинное воздействие на дермальный коллаген. EVOXA подготавливает кожу, RF работает с матрицей. Интервал 21 день.</p>
-          </div>
-        </div>
-        <div class="compat-item">
-          <div class="compat-num">05</div>
-          <div class="compat-body">
-            <h3 class="compat-name" data-i18n="compat.5.name">УЗ-чистка лица</h3>
-            <p class="compat-desc" data-i18n="compat.5.desc">Деликатное очищение пор перед нанесением ремодулятора. В одном визите — улучшение текстуры и обновление.</p>
-          </div>
-        </div>
-      </div>
+      <p class="compatibility-lead" id="compatLead">EVOXA усиливает действие большинства эстетических протоколов. Используйте в комбинации для синергического эффекта.</p>
+      <div class="compatibility-grid" id="compatGrid"></div>
       <div class="compatibility-note">
         <span class="compat-note-tag" data-i18n="compat.noteTag">Важно</span>
         <span data-i18n="compat.noteText">Все сочетания подбираются индивидуально врачом-косметологом. Не назначайте комбинированные протоколы самостоятельно. Конкретные интервалы и последовательность зависят от типа кожи и задач пациента.</span>
@@ -5532,6 +5516,7 @@ const I18N = {
     'cr.success':'Заявка получена. Мы свяжемся с вами в течение 5 рабочих дней.',
     'train.tab.online':'Онлайн-курсы','train.tab.offline':'Оффлайн-обучение',
     'offline.courses':'Программы','offline.manager':'Менеджер города','offline.call':'Позвонить',
+    'offline.topicsEyebrow':'— Темы очных обучений —','offline.topicsTitle':'Программы семинаров и мастер-классов','offline.topicsNote':'Формат — 1 раз в месяц или по запросу в клинике. Темы и даты уточняйте у менеджера вашего города.',
     'hero.metaTop':'Барселона · Производство ЕС · 2026',
     'hero.metaRight':'18 продуктов / 3 линейки',
     'hero.eyebrow':'— Метод EVOXA —',
@@ -5706,6 +5691,7 @@ const I18N = {
     'cr.success':"Application received. We'll get back to you within 5 business days.",
     'train.tab.online':'Online courses','train.tab.offline':'In-person training',
     'offline.courses':'Programs','offline.manager':'City manager','offline.call':'Call',
+    'offline.topicsEyebrow':'— In-person training topics —','offline.topicsTitle':'Seminar and masterclass programs','offline.topicsNote':'Format — once a month or on request at the clinic. Check topics and dates with your city manager.',
     'hero.metaTop':'Barcelona · Made in EU · 2026',
     'hero.metaRight':'18 products / 3 lines',
     'hero.eyebrow':'— The EVOXA Method —',
@@ -5879,6 +5865,7 @@ const I18N = {
     'cr.success':'Solicitud recibida. Te responderemos en 5 días laborables.',
     'train.tab.online':'Cursos online','train.tab.offline':'Formación presencial',
     'offline.courses':'Programas','offline.manager':'Manager de ciudad','offline.call':'Llamar',
+    'offline.topicsEyebrow':'— Temas de formación presencial —','offline.topicsTitle':'Programas de seminarios y masterclasses','offline.topicsNote':'Formato — una vez al mes o a petición en la clínica. Consulta temas y fechas con el manager de tu ciudad.',
     'hero.metaTop':'Barcelona · Fabricado en UE · 2026',
     'hero.metaRight':'18 productos / 3 líneas',
     'hero.eyebrow':'— El Método EVOXA —',
@@ -6014,19 +6001,6 @@ const TRAINING = [
     desc:{ru:'Главная фишка метода. Как работает нейтрализация CO2, почему это безопаснее классики и как это снимать на видео.',
           en:'The signature feature of the method. How CO2 neutralization works, why it is safer than classic peels, and how to film it.',
           es:'La firma del método. Cómo funciona la neutralización CO2, por qué es más segura que el peeling clásico, y cómo grabarla.'}
-  },
-  {
-    id:'home-care',
-    img:'tonic_2.jpeg',
-    poster:'tonic_2.jpeg',
-    rutube:null,
-    duration:{ru:'38 мин',en:'38 min',es:'38 min'},
-    format:{ru:'Видео-урок',en:'Video lesson',es:'Lección en vídeo'},
-    level:{ru:'Средний',en:'Intermediate',es:'Intermedio'},
-    name:{ru:'EVOXA PRO: домашний уход',en:'EVOXA PRO: Home Care',es:'EVOXA PRO: cuidado en casa'},
-    desc:{ru:'Что назначить пациенту между визитами. Сыворотки, кремы, SPF. Как удержать результат на 12+ недель.',
-          en:'What to prescribe between visits. Serums, creams, SPF. How to hold the result for 12+ weeks.',
-          es:'Qué prescribir entre visitas. Sueros, cremas, SPF. Cómo mantener el resultado durante 12+ semanas.'}
   },
   {
     id:'rosacea',
@@ -6374,109 +6348,6 @@ const NEWS = [
 <h2>Por qué no usamos la palabra «peeling»</h2>
 <p>Decisión de principio. La palabra «peeling» carga 40 años de expectativas — y la mayoría no son relevantes a lo que hace EVOXA. Es una medicina diferente, y requiere una palabra diferente.</p>
 <p>Cuando un cosmetólogo dice al paciente «esto es remodulación, no peeling» — es la primera señal de que el protocolo es diferente, las expectativas son diferentes, el resultado es diferente.</p>`
-    }
-  },
-  {
-    id:'post-acne-12-weeks',
-    date:'24.02.2026',
-    img:'skin.jpeg',
-    author:{ru:'Dr. Marina Sokolova',en:'Dr. Marina Sokolova',es:'Dra. Marina Sokolova'},
-    read:{ru:'8 минут',en:'8 min read',es:'8 min de lectura'},
-    cat:{ru:'Кейс',en:'Case study',es:'Caso clínico'},
-    title:{ru:'Постакне: 12-недельный протокол с EVOXA CLINIC и домашним уходом PRO',
-           en:'Post-acne: a 12-week protocol with EVOXA CLINIC and PRO home care',
-           es:'Post-acné: protocolo de 12 semanas con EVOXA CLINIC y cuidado PRO'},
-    excerpt:{ru:'Кейс пациентки 34 года с поствоспалительной гиперпигментацией и атрофическими рубцами. Полная динамика по неделям.',
-            en:'Case of a 34-year-old patient with post-inflammatory hyperpigmentation and atrophic scars. Full week-by-week dynamics.',
-            es:'Caso de paciente de 34 años con hiperpigmentación post-inflamatoria y cicatrices atróficas. Dinámica semanal completa.'},
-    content:{
-      ru:`<p class="lead">Пациентка 34 года. После 10 лет акне — поствоспалительная гиперпигментация и атрофические рубцы умеренной глубины. Тип кожи III по Фитцпатрику.</p>
-<h2>Исходные данные</h2>
-<ul>
-<li>Возраст: 34 года</li>
-<li>Тип кожи: III</li>
-<li>Длительность акне в анамнезе: 10 лет</li>
-<li>Активные воспаления: нет</li>
-<li>Рубцы: атрофические icepick на щеках, средняя глубина</li>
-<li>Пигментация: PIH средней интенсивности по всему лицу</li>
-</ul>
-<h2>Протокол</h2>
-<h3>Неделя 0 — Подготовка</h3>
-<p>Назначен домашний уход EVOXA PRO: AHA-кислоты 10% утром, ретинол 0.5% вечером. SPF50+ обязательно.</p>
-<h3>Неделя 2 — PEEL 1</h3>
-<p>Первая процедура. Стартовый протокол. Кожа отреагировала хорошо, минимальное шелушение на 3-4 день.</p>
-<h3>Неделя 6 — PEEL 2 + TONIC</h3>
-<p>Срединный ремодулятор. Цель — работа с пигментом. Реакция кожи контролируема, frosting равномерный.</p>
-<h3>Неделя 10 — PEEL 2 + TONIC повторно</h3>
-<p>Закрепление результата по пигменту. Дополнительно — точечная работа с рубцами через PEEL 3.</p>
-<h2>Результаты по визуальной шкале</h2>
-<div class="step-grid">
-<div class="step"><div class="step-num">W0</div><div class="step-name">Старт</div><div class="step-desc">PIH 7/10, рубцы 6/10</div></div>
-<div class="step"><div class="step-num">W6</div><div class="step-name">Середина</div><div class="step-desc">PIH 4/10, рубцы 5/10</div></div>
-<div class="step"><div class="step-num">W12</div><div class="step-name">Финал</div><div class="step-desc">PIH 2/10, рубцы 3/10</div></div>
-</div>
-<h2>Выводы</h2>
-<p>Комбинированный подход (профессиональные процедуры + домашний уход) даёт результат, недостижимый только одним из инструментов. PIH ушёл на 70%, рубцы — на 50%.</p>
-<blockquote>«Без домашнего ухода в перерывах между процедурами эффект был бы вдвое слабее. Кожа продолжает работать каждый день, не только в кабинете.» — Dr. Marina Sokolova</blockquote>
-<p>Рекомендация — повторный курс через 6 месяцев для дальнейшей работы с рубцовой текстурой.</p>`,
-      en:`<p class="lead">Female patient, 34 years old. After 10 years of acne — post-inflammatory hyperpigmentation and atrophic scars of moderate depth. Fitzpatrick type III.</p>
-<h2>Baseline</h2>
-<ul>
-<li>Age: 34</li>
-<li>Skin type: III</li>
-<li>Acne history duration: 10 years</li>
-<li>Active inflammation: no</li>
-<li>Scars: atrophic icepick on cheeks, moderate depth</li>
-<li>Pigmentation: moderate PIH across the face</li>
-</ul>
-<h2>Protocol</h2>
-<h3>Week 0 — Preparation</h3>
-<p>EVOXA PRO home care prescribed: 10% AHA in the morning, 0.5% retinol in the evening. SPF50+ mandatory.</p>
-<h3>Week 2 — PEEL 1</h3>
-<p>First procedure. Starter protocol. Skin reacted well, minimal flaking on day 3-4.</p>
-<h3>Week 6 — PEEL 2 + TONIC</h3>
-<p>Medium remodulator. Goal — work on pigment. Skin reaction controlled, frosting uniform.</p>
-<h3>Week 10 — PEEL 2 + TONIC repeat</h3>
-<p>Reinforcing pigment result. Additionally — spot work on scars with PEEL 3.</p>
-<h2>Results on visual scale</h2>
-<div class="step-grid">
-<div class="step"><div class="step-num">W0</div><div class="step-name">Start</div><div class="step-desc">PIH 7/10, scars 6/10</div></div>
-<div class="step"><div class="step-num">W6</div><div class="step-name">Middle</div><div class="step-desc">PIH 4/10, scars 5/10</div></div>
-<div class="step"><div class="step-num">W12</div><div class="step-name">Final</div><div class="step-desc">PIH 2/10, scars 3/10</div></div>
-</div>
-<h2>Conclusions</h2>
-<p>The combined approach (professional procedures + home care) delivers results unachievable with one tool alone. PIH reduced 70%, scars by 50%.</p>
-<blockquote>"Without home care between procedures, the effect would be half as strong. The skin keeps working every day, not only in the cabinet." — Dr. Marina Sokolova</blockquote>
-<p>Recommendation — repeat course in 6 months for further work on scar texture.</p>`,
-      es:`<p class="lead">Paciente femenina, 34 años. Tras 10 años de acné — hiperpigmentación post-inflamatoria y cicatrices atróficas de profundidad moderada. Fototipo III.</p>
-<h2>Punto de partida</h2>
-<ul>
-<li>Edad: 34</li>
-<li>Fototipo: III</li>
-<li>Duración del acné: 10 años</li>
-<li>Inflamación activa: no</li>
-<li>Cicatrices: atróficas icepick en mejillas, profundidad moderada</li>
-<li>Pigmentación: PIH moderada en toda la cara</li>
-</ul>
-<h2>Protocolo</h2>
-<h3>Semana 0 — Preparación</h3>
-<p>Prescrito cuidado en casa EVOXA PRO: AHA 10% por la mañana, retinol 0,5% por la noche. SPF50+ obligatorio.</p>
-<h3>Semana 2 — PEEL 1</h3>
-<p>Primer procedimiento. Protocolo inicial. La piel reaccionó bien, descamación mínima días 3-4.</p>
-<h3>Semana 6 — PEEL 2 + TONIC</h3>
-<p>Remodulador medio. Objetivo — trabajo con pigmento. Reacción controlada, frosting uniforme.</p>
-<h3>Semana 10 — PEEL 2 + TONIC repetido</h3>
-<p>Refuerzo del resultado de pigmento. Adicionalmente — trabajo puntual con cicatrices usando PEEL 3.</p>
-<h2>Resultados en escala visual</h2>
-<div class="step-grid">
-<div class="step"><div class="step-num">W0</div><div class="step-name">Inicio</div><div class="step-desc">PIH 7/10, cicatrices 6/10</div></div>
-<div class="step"><div class="step-num">W6</div><div class="step-name">Mitad</div><div class="step-desc">PIH 4/10, cicatrices 5/10</div></div>
-<div class="step"><div class="step-num">W12</div><div class="step-name">Final</div><div class="step-desc">PIH 2/10, cicatrices 3/10</div></div>
-</div>
-<h2>Conclusiones</h2>
-<p>El enfoque combinado (procedimientos profesionales + cuidado en casa) entrega resultados inalcanzables con una sola herramienta. PIH reducida 70%, cicatrices 50%.</p>
-<blockquote>«Sin cuidado en casa entre procedimientos, el efecto sería la mitad. La piel sigue trabajando cada día, no solo en cabina.» — Dra. Marina Sokolova</blockquote>
-<p>Recomendación — repetir curso en 6 meses para más trabajo en textura cicatricial.</p>`
     }
   },
   {
@@ -7794,250 +7665,6 @@ es: `
 `
 },
 
-'home-care': {
-ru: `
-<h2>О чём этот курс</h2>
-<p class="lead">Что назначить пациенту между визитами. Полная стратегия EVOXA PRO — сывороток, кремов и SPF, которые удерживают результат процедуры на 12+ недель.</p>
-
-<h2>Зачем нужен домашний уход</h2>
-<p>Процедура в кабинете — это 10% результата. Остальные 90% — это то, что пациент делает дома между визитами. Без правильного PRO даже идеально проведённый PEEL даст краткосрочный эффект.</p>
-
-<div class="callout"><strong>Главный принцип</strong>EVOXA PRO — не просто косметика. Это продолжение протокола, разработанное под механизм ремодуляции. Нельзя заменить продуктами других брендов без потери эффективности.</div>
-
-<h2>Линейка PRO</h2>
-<h3>Очищение</h3>
-<ul>
-<li>Деликатное молочко — для всех типов кожи</li>
-<li>Очищающий гель с ниацинамидом — для жирной и комби</li>
-</ul>
-
-<h3>Активные сыворотки</h3>
-<ul>
-<li>C3 Radiance Serum — антиоксидант, выравнивание тона</li>
-<li>Signal Restore — восстановление после процедуры</li>
-<li>Anti-Pigment Active — для работы с гиперпигментацией</li>
-<li>Retinol PRO — антивозрастной актив</li>
-</ul>
-
-<h3>Кремы</h3>
-<ul>
-<li>Day Cream — лёгкая дневная текстура</li>
-<li>Night Repair — ночное восстановление с пептидами</li>
-<li>Eye Contour — деликатная зона век</li>
-</ul>
-
-<h3>SPF</h3>
-<ul>
-<li>SPF 50+ Daily — обязательная база</li>
-<li>SPF 50+ Tinted — с лёгким покрытием</li>
-</ul>
-
-<h2>Протокол по фазам <span class="em">после процедуры</span></h2>
-<div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Дни 1–3</div><div class="step-desc">Только Signal Restore + лёгкий крем. Никаких активов. Обязательно SPF.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Дни 4–7</div><div class="step-desc">Добавляем C3 Radiance утром. Вечером — Night Repair. SPF.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Дни 8–14</div><div class="step-desc">Подключаем целевой актив (Anti-Pigment или Retinol PRO) через день.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Дни 15–21</div><div class="step-desc">Полный протокол. Все активы по назначению. Подготовка к следующей процедуре.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">День 21+</div><div class="step-desc">Поддерживающий протокол до следующего визита. Корректировка под сезон.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">За 7 дней до</div><div class="step-desc">Отмена ретинола и кислотных активов. Только базовый уход.</div></div>
-</div>
-
-<h2>Подбор по задачам</h2>
-<table>
-<thead><tr><th>Задача пациента</th><th>Утренний протокол</th><th>Вечерний протокол</th></tr></thead>
-<tbody>
-<tr><td>Антивозрастной</td><td>C3 Radiance + Day Cream + SPF</td><td>Retinol PRO + Night Repair</td></tr>
-<tr><td>Гиперпигментация</td><td>Anti-Pigment + Day Cream + SPF</td><td>C3 Radiance + Night Repair</td></tr>
-<tr><td>Постакне</td><td>C3 Radiance + лёгкий крем + SPF</td><td>Signal Restore + Night Repair</td></tr>
-<tr><td>Чувствительная</td><td>Signal Restore + Day Cream + SPF</td><td>Signal Restore + Night Repair</td></tr>
-</tbody></table>
-
-<h2>Сезонная корректировка</h2>
-<h3>Лето</h3>
-<p>SPF 50+ дважды в день. Снижение ретинола до 1 раза в неделю. Усиление антиоксидантов.</p>
-
-<h3>Осень-весна</h3>
-<p>Стандартный протокол. Идеальное время для активной работы с пигментом и глубоких процедур.</p>
-
-<h3>Зима</h3>
-<p>Усиленное увлажнение. Возможно добавление ночной маски. Аккуратнее с кислотами.</p>
-
-<h2>Типичные ошибки</h2>
-<ol>
-<li>Замена PRO на «то же самое» из аптеки — снижение эффективности процедуры.</li>
-<li>Нарушение последовательности: пациент путает утро и вечер.</li>
-<li>Отказ от SPF в облачную погоду или дома.</li>
-<li>Самостоятельное усиление активов «для быстрого результата».</li>
-<li>Невыполнение «диеты ухода» за 7 дней до процедуры.</li>
-</ol>
-
-<blockquote>Хорошая процедура без правильного домашнего ухода — это потраченные деньги. PRO — это не дополнение, это половина результата.</blockquote>
-
-<h2>Как продавать PRO пациенту</h2>
-<p>Не как «дополнительные расходы», а как «инструмент удержания результата, за который он уже заплатил». Покажите ему/ей фото до/после с подписью «процедура + PRO» и «процедура без PRO» — разница говорит сама за себя.</p>
-
-<h2>Что дальше</h2>
-<p>После освоения PRO — переходите на курс «Какой пилинг выбрать» для построения индивидуальных протоколов «процедура + домашний уход».</p>
-`,
-en: `
-<h2>About this course</h2>
-<p class="lead">What to prescribe between visits. The full EVOXA PRO strategy — serums, creams and SPF that hold procedure results for 12+ weeks.</p>
-
-<h2>Why home care matters</h2>
-<p>The in-clinic procedure is 10% of the result. The other 90% is what the patient does at home between visits. Without correct PRO even a perfectly executed PEEL gives short-lived effect.</p>
-
-<div class="callout"><strong>Core principle</strong>EVOXA PRO is not just cosmetics. It's a continuation of the protocol, designed for the remodulation mechanism. Substituting other brands loses effectiveness.</div>
-
-<h2>The PRO range</h2>
-<h3>Cleansing</h3>
-<ul>
-<li>Gentle milk — all skin types</li>
-<li>Niacinamide cleansing gel — oily and combo</li>
-</ul>
-
-<h3>Active serums</h3>
-<ul>
-<li>C3 Radiance Serum — antioxidant, tone</li>
-<li>Signal Restore — post-procedure recovery</li>
-<li>Anti-Pigment Active — hyperpigmentation</li>
-<li>Retinol PRO — anti-aging active</li>
-</ul>
-
-<h3>Creams</h3>
-<ul>
-<li>Day Cream — light daytime texture</li>
-<li>Night Repair — overnight recovery with peptides</li>
-<li>Eye Contour — delicate eye area</li>
-</ul>
-
-<h3>SPF</h3>
-<ul>
-<li>SPF 50+ Daily — mandatory base</li>
-<li>SPF 50+ Tinted — light coverage</li>
-</ul>
-
-<h2>Phased protocol <span class="em">after procedure</span></h2>
-<div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Days 1–3</div><div class="step-desc">Only Signal Restore + light cream. No actives. Mandatory SPF.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Days 4–7</div><div class="step-desc">Add C3 Radiance AM. PM — Night Repair. SPF.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Days 8–14</div><div class="step-desc">Introduce target active (Anti-Pigment or Retinol PRO) every other day.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Days 15–21</div><div class="step-desc">Full protocol. All actives as prescribed. Prep for next session.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Day 21+</div><div class="step-desc">Maintenance until next visit. Seasonal adjustments.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">7 days before</div><div class="step-desc">Stop retinol and acid actives. Basic care only.</div></div>
-</div>
-
-<h2>Selection by task</h2>
-<table>
-<thead><tr><th>Task</th><th>AM</th><th>PM</th></tr></thead>
-<tbody>
-<tr><td>Anti-aging</td><td>C3 Radiance + Day Cream + SPF</td><td>Retinol PRO + Night Repair</td></tr>
-<tr><td>Hyperpigmentation</td><td>Anti-Pigment + Day Cream + SPF</td><td>C3 Radiance + Night Repair</td></tr>
-<tr><td>Post-acne</td><td>C3 Radiance + light cream + SPF</td><td>Signal Restore + Night Repair</td></tr>
-<tr><td>Sensitive</td><td>Signal Restore + Day Cream + SPF</td><td>Signal Restore + Night Repair</td></tr>
-</tbody></table>
-
-<h2>Seasonal adjustment</h2>
-<h3>Summer</h3>
-<p>SPF 50+ twice daily. Retinol down to once a week. Boost antioxidants.</p>
-
-<h3>Autumn-Spring</h3>
-<p>Standard protocol. Best time for active pigment work and deep procedures.</p>
-
-<h3>Winter</h3>
-<p>Enhanced hydration. Possibly night mask. Careful with acids.</p>
-
-<h2>Common mistakes</h2>
-<ol>
-<li>Substituting PRO with "the same thing" from a pharmacy — reduces procedure effectiveness.</li>
-<li>Order confusion: patient mixes AM and PM.</li>
-<li>Skipping SPF on cloudy days or indoors.</li>
-<li>Self-intensifying actives "for faster results".</li>
-<li>Not following the "care diet" 7 days before procedure.</li>
-</ol>
-
-<blockquote>A good procedure without correct home care is wasted money. PRO isn't an add-on — it's half the result.</blockquote>
-
-<h2>How to sell PRO to the patient</h2>
-<p>Not as "extra cost" but as "the tool that protects what they already paid for". Show before/after with "procedure + PRO" vs "procedure alone" — the difference speaks for itself.</p>
-
-<h2>What's next</h2>
-<p>After PRO — proceed to "Which peel to choose" to build individual "procedure + home care" protocols.</p>
-`,
-es: `
-<h2>Sobre este curso</h2>
-<p class="lead">Qué prescribir entre visitas. Estrategia completa EVOXA PRO — sueros, cremas y SPF que mantienen el resultado del tratamiento durante 12+ semanas.</p>
-
-<h2>Por qué importa el cuidado en casa</h2>
-<p>El tratamiento en clínica es el 10% del resultado. El otro 90% es lo que el paciente hace en casa entre visitas. Sin un PRO correcto, incluso un PEEL impecable da efecto fugaz.</p>
-
-<div class="callout"><strong>Principio clave</strong>EVOXA PRO no es solo cosmética. Es la continuación del protocolo, diseñado para el mecanismo de remodulación. Sustituir por otras marcas pierde eficacia.</div>
-
-<h2>La línea PRO</h2>
-<h3>Limpieza</h3>
-<ul><li>Leche suave — todo tipo de piel</li><li>Gel limpiador con niacinamida — grasa y mixta</li></ul>
-
-<h3>Sueros activos</h3>
-<ul>
-<li>C3 Radiance Serum — antioxidante, tono</li>
-<li>Signal Restore — recuperación post-tratamiento</li>
-<li>Anti-Pigment Active — hiperpigmentación</li>
-<li>Retinol PRO — antiedad</li>
-</ul>
-
-<h3>Cremas</h3>
-<ul>
-<li>Day Cream — textura ligera de día</li>
-<li>Night Repair — reparación nocturna con péptidos</li>
-<li>Eye Contour — zona delicada de ojos</li>
-</ul>
-
-<h3>SPF</h3>
-<ul><li>SPF 50+ Daily — base obligatoria</li><li>SPF 50+ Tinted — con cobertura ligera</li></ul>
-
-<h2>Protocolo por fases <span class="em">post-tratamiento</span></h2>
-<div class="step-grid">
-<div class="step"><div class="step-num">01</div><div class="step-name">Días 1–3</div><div class="step-desc">Solo Signal Restore + crema ligera. Sin activos. SPF obligatorio.</div></div>
-<div class="step"><div class="step-num">02</div><div class="step-name">Días 4–7</div><div class="step-desc">Añadir C3 Radiance AM. PM — Night Repair. SPF.</div></div>
-<div class="step"><div class="step-num">03</div><div class="step-name">Días 8–14</div><div class="step-desc">Introducir activo diana (Anti-Pigment o Retinol PRO) días alternos.</div></div>
-<div class="step"><div class="step-num">04</div><div class="step-name">Días 15–21</div><div class="step-desc">Protocolo completo. Todos los activos según prescripción.</div></div>
-<div class="step"><div class="step-num">05</div><div class="step-name">Día 21+</div><div class="step-desc">Mantenimiento hasta próxima visita. Ajustes estacionales.</div></div>
-<div class="step"><div class="step-num">06</div><div class="step-name">7 días antes</div><div class="step-desc">Suspender retinol y ácidos. Solo cuidado básico.</div></div>
-</div>
-
-<h2>Selección por tarea</h2>
-<table>
-<thead><tr><th>Tarea</th><th>Mañana</th><th>Noche</th></tr></thead>
-<tbody>
-<tr><td>Antiedad</td><td>C3 Radiance + Day Cream + SPF</td><td>Retinol PRO + Night Repair</td></tr>
-<tr><td>Hiperpigmentación</td><td>Anti-Pigment + Day Cream + SPF</td><td>C3 Radiance + Night Repair</td></tr>
-<tr><td>Post-acné</td><td>C3 Radiance + crema ligera + SPF</td><td>Signal Restore + Night Repair</td></tr>
-<tr><td>Sensible</td><td>Signal Restore + Day Cream + SPF</td><td>Signal Restore + Night Repair</td></tr>
-</tbody></table>
-
-<h2>Ajuste estacional</h2>
-<h3>Verano</h3><p>SPF 50+ dos veces al día. Retinol a una vez por semana. Más antioxidantes.</p>
-<h3>Otoño-Primavera</h3><p>Protocolo estándar. Mejor época para trabajo de pigmento y tratamientos profundos.</p>
-<h3>Invierno</h3><p>Hidratación reforzada. Posible mascarilla nocturna. Cuidado con ácidos.</p>
-
-<h2>Errores comunes</h2>
-<ol>
-<li>Sustituir PRO por "lo mismo" de farmacia — reduce eficacia del tratamiento.</li>
-<li>Confusión de orden: paciente mezcla AM y PM.</li>
-<li>Saltar SPF en días nublados o en interior.</li>
-<li>Auto-intensificar activos "para resultados rápidos".</li>
-<li>No seguir la "dieta de cuidado" 7 días antes del tratamiento.</li>
-</ol>
-
-<blockquote>Un buen tratamiento sin cuidado en casa correcto es dinero perdido. PRO no es complemento — es la mitad del resultado.</blockquote>
-
-<h2>Cómo vender PRO al paciente</h2>
-<p>No como "gasto extra" sino como "herramienta que protege lo que ya pagó". Muestra antes/después de "tratamiento + PRO" vs "tratamiento solo" — la diferencia habla sola.</p>
-
-<h2>Qué viene después</h2>
-<p>Tras PRO — pasa a "Qué peeling elegir" para construir protocolos individuales.</p>
-`
-},
-
 'rosacea': {
 ru: `
 <h2>О чём этот курс</h2>
@@ -8102,7 +7729,7 @@ ru: `
 </tbody></table>
 
 <h2>Что дальше</h2>
-<p>Освоив протокол при розацеа — изучите курс «EVOXA PRO: домашний уход» для углублённой работы с барьерной функцией.</p>
+<p>Освоив протокол при розацеа — изучите курс «Какой пилинг выбрать», чтобы выстраивать индивидуальные протоколы под тип и состояние кожи.</p>
 `,
 en: `
 <h2>About this course</h2>
@@ -8167,7 +7794,7 @@ en: `
 </tbody></table>
 
 <h2>What's next</h2>
-<p>Once the rosacea protocol is mastered — study "EVOXA PRO: Home Care" for in-depth barrier work.</p>
+<p>Once the rosacea protocol is mastered — study "Which peel to choose" to build individual protocols by skin type and condition.</p>
 `,
 es: `
 <h2>Sobre este curso</h2>
@@ -8232,7 +7859,7 @@ es: `
 </tbody></table>
 
 <h2>Qué viene después</h2>
-<p>Tras dominar el protocolo en rosácea — estudia "EVOXA PRO: cuidado en casa" para trabajo profundo con barrera.</p>
+<p>Tras dominar el protocolo en rosácea — estudia "Qué peeling elegir" para construir protocolos individuales según tipo y estado de la piel.</p>
 `
 }
 
@@ -8315,7 +7942,7 @@ const PRODUCTS = [
           en:'CO2 carbonate neutralizer. Completes the remodulator action with visible foam.',
           es:'Neutralizador CO2. Completa el remodulador con espuma visible.'},
     spec:{
-      volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'50 ml'},
+      volume:{label:{ru:'Объём',en:'Volume',es:'Volumen'},value:'30 ml'},
       ph:{label:{ru:'pH',en:'pH',es:'pH'},value:'7.9 – 8.1'},
       reaction:{label:{ru:'Реакция',en:'Reaction',es:'Reacción'},value:{ru:'Пена CO2',en:'CO2 foam',es:'Espuma CO2'}},
       pair:{label:{ru:'Сочетается с',en:'Pairs with',es:'Combina con'},value:'PEEL 1 / 2 / 3'},
@@ -8329,81 +7956,341 @@ const OFFLINE_CITIES = [
   {
     name:'Москва',
     nameI18n:{ru:'Москва',en:'Moscow',es:'Moscú'},
-    tag:{ru:'Флагман',en:'Flagship',es:'Flagship'},
-    meta:{ru:'Регулярные мастер-классы и интенсивы. Тренинг-центр в центре города.',
-          en:'Regular masterclasses and intensives. Training center downtown.',
-          es:'Masterclasses e intensivos regulares. Centro de formación céntrico.'},
-    courses:{ru:'Все курсы EVOXA Academy. Расписание — раз в 2 недели.',
-             en:'All EVOXA Academy courses. Schedule — every 2 weeks.',
-             es:'Todos los cursos de EVOXA Academy. Calendario cada 2 semanas.'},
-    manager:'Анна Воронова',
-    managerEn:'Anna Voronova',
-    managerEs:'Anna Voronova',
-    phone:'+7 916 123-45-67'
-  },
-  {
-    name:'Санкт-Петербург',
-    nameI18n:{ru:'Санкт-Петербург',en:'St Petersburg',es:'San Petersburgo'},
-    tag:{ru:'Школа',en:'School',es:'Escuela'},
-    meta:{ru:'Партнёрский учебный центр. Углублённые программы выходного дня.',
-          en:'Partner training center. Deep weekend programs.',
-          es:'Centro partner. Programas intensivos de fin de semana.'},
-    courses:{ru:'PEEL 1, 2, 3 + работа с осложнениями. По запросу.',
-             en:'PEEL 1, 2, 3 + complications management. On request.',
-             es:'PEEL 1, 2, 3 + gestión de complicaciones. A petición.'},
-    manager:'Мария Лебедева',
-    managerEn:'Maria Lebedeva',
-    managerEs:'Maria Lebedeva',
-    phone:'+7 921 234-56-78'
-  },
-  {
-    name:'Казань',
-    nameI18n:{ru:'Казань',en:'Kazan',es:'Kazán'},
-    tag:{ru:'Регион',en:'Regional',es:'Regional'},
-    meta:{ru:'Региональный хаб для Поволжья. Сертификационные интенсивы 2 раза в квартал.',
-          en:'Regional hub for the Volga region. Certification intensives twice a quarter.',
-          es:'Hub regional para el Volga. Intensivos de certificación 2 veces por trimestre.'},
-    courses:{ru:'Базовая сертификация EVOXA + комбо-протоколы.',
-             en:'Basic EVOXA certification + combo protocols.',
-             es:'Certificación básica EVOXA + protocolos combo.'},
-    manager:'Эльвира Хасанова',
-    managerEn:'Elvira Khasanova',
-    managerEs:'Elvira Jasanova',
-    phone:'+7 917 345-67-89'
+    tag:{ru:'Флагман · Центр',en:'Flagship · Center',es:'Flagship · Centro'},
+    meta:{ru:'Семинары, презентации и консультации — по согласованию. Мастер-классы в клиниках — по согласованию.',
+          en:'Seminars, presentations and consultations by arrangement. In-clinic masterclasses by arrangement.',
+          es:'Seminarios, presentaciones y consultas según acuerdo. Masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología.'},
+    addr:'Москва, ул. Спартаковская, 6',
+    manager:'Назарян Ирина',
+    managerEn:'Nazaryan Irina',
+    managerEs:'Nazaryan Irina',
+    phone:'+7 922 244-02-35'
   },
   {
     name:'Пермь',
     nameI18n:{ru:'Пермь',en:'Perm',es:'Perm'},
-    tag:{ru:'Регион',en:'Regional',es:'Regional'},
-    meta:{ru:'Учебная площадка Уральского региона. Камерные группы до 10 человек.',
-          en:'Ural region training site. Small groups up to 10.',
-          es:'Sede de formación de la región Ural. Grupos pequeños de hasta 10.'},
-    courses:{ru:'PEEL 1, PEEL 2, гид по выбору, работа с розацеа.',
-             en:'PEEL 1, PEEL 2, selection guide, rosacea protocol.',
-             es:'PEEL 1, PEEL 2, guía de elección, protocolo rosácea.'},
-    manager:'Ольга Соловьёва',
-    managerEn:'Olga Solovyova',
-    managerEs:'Olga Solovieva',
-    phone:'+7 912 456-78-90'
+    tag:{ru:'Экспертный центр',en:'Expert center',es:'Centro experto'},
+    meta:{ru:'Регулярные очные обучения: семинары 1–2 раза в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars 1–2 times a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios 1–2 veces al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики. Полная программа сертификации и супервизия процедур.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods. Full certification program and procedure supervision.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología. Programa completo de certificación y supervisión de procedimientos.'},
+    addr:'Пермь, ул. Ленина, 65',
+    manager:'Офис EVOXA',
+    managerEn:'EVOXA office',
+    managerEs:'Oficina EVOXA',
+    phone:'+7 342 244-69-89'
   },
   {
     name:'Екатеринбург',
     nameI18n:{ru:'Екатеринбург',en:'Yekaterinburg',es:'Ekaterinburgo'},
-    tag:{ru:'Регион',en:'Regional',es:'Regional'},
-    meta:{ru:'Урал-флагман. Очные курсы и кейс-разборы с ведущими тренерами бренда.',
-          en:'Ural flagship. In-person courses and case reviews with lead brand trainers.',
-          es:'Flagship Ural. Cursos presenciales y casos con formadores principales.'},
-    courses:{ru:'Полная программа сертификации + супервизия процедур.',
-             en:'Full certification program + procedure supervision.',
-             es:'Programa de certificación completo + supervisión de tratamientos.'},
-    manager:'Ирина Зайцева',
-    managerEn:'Irina Zaytseva',
-    managerEs:'Irina Zaytseva',
-    phone:'+7 922 567-89-01'
-  }
+    tag:{ru:'Флагман · Урал',en:'Flagship · Ural',es:'Flagship · Ural'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología.'},
+    addr:'Екатеринбург, ул. Гоголя, 57',
+    manager:'Учебный центр — Анна',
+    managerEn:'Training center — Anna',
+    managerEs:'Centro de formación — Anna',
+    phone:'+7 343 228-60-07'
+  },
+  {
+    name:'Казань',
+    nameI18n:{ru:'Казань',en:'Kazan',es:'Kazán'},
+    tag:{ru:'Флагман · Поволжье',en:'Flagship · Volga',es:'Flagship · Volga'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Курсы EVOXA Academy: базовые протоколы и сочетанные протоколы EVOXA PEEL + инъекционные методики.',
+             en:'EVOXA Academy courses: basic protocols and combined protocols EVOXA PEEL + injectable methods.',
+             es:'Cursos de EVOXA Academy: protocolos básicos y protocolos combinados EVOXA PEEL + métodos inyectables.'},
+    addr:'Казань, ул. Сибгата Хакима, 35',
+    manager:'Газизова Лилия',
+    managerEn:'Gazizova Liliya',
+    managerEs:'Gazizova Liliya',
+    phone:'+7 987 407-87-78'
+  },
+  {
+    name:'Владивосток',
+    nameI18n:{ru:'Владивосток',en:'Vladivostok',es:'Vladivostok'},
+    tag:{ru:'Учебная площадка · Дальний Восток',en:'Training site · Far East',es:'Sede · Lejano Oriente'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. In-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Базовые курсы EVOXA Academy.',
+             en:'Basic EVOXA Academy courses.',
+             es:'Cursos básicos de EVOXA Academy.'},
+    addr:'Владивосток, ул. 2-я Круговая, 12, 1 этаж',
+    manager:'Гудлевская Виктория',
+    managerEn:'Gudlevskaya Viktoriya',
+    managerEs:'Gudlevskaya Viktoriya',
+    phone:'+7 951 022-12-99'
+  },
+  {
+    name:'Челябинск',
+    nameI18n:{ru:'Челябинск',en:'Chelyabinsk',es:'Cheliábinsk'},
+    tag:{ru:'Учебная площадка · Урал',en:'Training site · Ural',es:'Sede · Ural'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología.'},
+    addr:'Челябинск, ул. Карла Маркса, 73',
+    manager:'Максимова Влада',
+    managerEn:'Maksimova Vlada',
+    managerEs:'Maksimova Vlada',
+    phone:'+7 922 728-63-99'
+  },
+  {
+    name:'Тюмень',
+    nameI18n:{ru:'Тюмень',en:'Tyumen',es:'Tiumén'},
+    tag:{ru:'Учебная площадка · Урал',en:'Training site · Ural',es:'Sede · Ural'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología.'},
+    addr:'Тюмень, ул. Циолковского, 9',
+    manager:'Хасанова Антонина',
+    managerEn:'Khasanova Antonina',
+    managerEs:'Khasanova Antonina',
+    phone:'+7 919 944-71-95'
+  },
+  {
+    name:'Красноярск',
+    nameI18n:{ru:'Красноярск',en:'Krasnoyarsk',es:'Krasnoyarsk'},
+    tag:{ru:'Учебная площадка · Сибирь',en:'Training site · Siberia',es:'Sede · Siberia'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología.'},
+    addr:'Красноярск, ул. 6-я Полярная, 2а',
+    manager:'Герасименко Илянна',
+    managerEn:'Gerasimenko Ilyanna',
+    managerEs:'Gerasimenko Ilyanna',
+    phone:'+7 922 380-09-83'
+  },
+  {
+    name:'Новосибирск',
+    nameI18n:{ru:'Новосибирск',en:'Novosibirsk',es:'Novosibirsk'},
+    tag:{ru:'Учебная площадка · Сибирь',en:'Training site · Siberia',es:'Sede · Siberia'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Все курсы EVOXA Academy: базовые протоколы, сочетанные протоколы EVOXA PEEL + инъекционные и аппаратные методики.',
+             en:'All EVOXA Academy courses: basic protocols, combined protocols EVOXA PEEL + injectable and device-based methods.',
+             es:'Todos los cursos de EVOXA Academy: protocolos básicos, protocolos combinados EVOXA PEEL + métodos inyectables y de aparatología.'},
+    addr:'Новосибирск, ул. Кирова, 27, стр. 1',
+    manager:'Маргарита',
+    managerEn:'Margarita',
+    managerEs:'Margarita',
+    phone:'+7 913 929-95-55'
+  },
+  {
+    name:'Кемерово',
+    nameI18n:{ru:'Кемерово',en:'Kemerovo',es:'Kémerovo'},
+    tag:{ru:'Учебная площадка · Сибирь',en:'Training site · Siberia',es:'Sede · Siberia'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Курсы EVOXA Academy: базовые протоколы и сочетанные протоколы EVOXA PEEL + инъекционные методики.',
+             en:'EVOXA Academy courses: basic protocols and combined protocols EVOXA PEEL + injectable methods.',
+             es:'Cursos de EVOXA Academy: protocolos básicos y protocolos combinados EVOXA PEEL + métodos inyectables.'},
+    addr:'Кемерово, ул. Ленина, 71',
+    manager:'Калитина Валерия',
+    managerEn:'Kalitina Valeriya',
+    managerEs:'Kalitina Valeriya',
+    phone:'+7 900 055-38-58'
+  },
+  {
+    name:'Иркутск',
+    nameI18n:{ru:'Иркутск',en:'Irkutsk',es:'Irkutsk'},
+    tag:{ru:'Учебная площадка · Сибирь',en:'Training site · Siberia',es:'Sede · Siberia'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Курсы EVOXA Academy: базовые протоколы и сочетанные протоколы EVOXA PEEL + инъекционные методики.',
+             en:'EVOXA Academy courses: basic protocols and combined protocols EVOXA PEEL + injectable methods.',
+             es:'Cursos de EVOXA Academy: protocolos básicos y protocolos combinados EVOXA PEEL + métodos inyectables.'},
+    addr:'Иркутск, ул. Красноказачья, 80',
+    manager:'Доценко Арина',
+    managerEn:'Dotsenko Arina',
+    managerEs:'Dotsenko Arina',
+    phone:'+7 922 245-51-46'
+  },
+  {
+    name:'Омск',
+    nameI18n:{ru:'Омск',en:'Omsk',es:'Omsk'},
+    tag:{ru:'Учебная площадка · Сибирь',en:'Training site · Siberia',es:'Sede · Siberia'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Базовые курсы EVOXA Academy.',
+             en:'Basic EVOXA Academy courses.',
+             es:'Cursos básicos de EVOXA Academy.'},
+    addr:'Омск, ул. Красный Путь, 101/4',
+    manager:'Хохлова Татьяна',
+    managerEn:'Khokhlova Tatyana',
+    managerEs:'Khokhlova Tatyana',
+    phone:'+7 913 614-50-35'
+  },
+  {
+    name:'Нижний Новгород',
+    nameI18n:{ru:'Нижний Новгород',en:'Nizhny Novgorod',es:'Nizhni Nóvgorod'},
+    tag:{ru:'Учебная площадка · Поволжье',en:'Training site · Volga',es:'Sede · Volga'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Курсы EVOXA Academy: базовые протоколы и сочетанные протоколы EVOXA PEEL + инъекционные методики.',
+             en:'EVOXA Academy courses: basic protocols and combined protocols EVOXA PEEL + injectable methods.',
+             es:'Cursos de EVOXA Academy: protocolos básicos y protocolos combinados EVOXA PEEL + métodos inyectables.'},
+    addr:'Нижний Новгород, ул. Белинского, 83',
+    manager:'Тосунова Оксана',
+    managerEn:'Tosunova Oksana',
+    managerEs:'Tosunova Oksana',
+    phone:'8 800 555-98-55'
+  },
+  {
+    name:'Уфа',
+    nameI18n:{ru:'Уфа',en:'Ufa',es:'Ufá'},
+    tag:{ru:'Учебная площадка · Поволжье',en:'Training site · Volga',es:'Sede · Volga'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Базовые курсы EVOXA Academy.',
+             en:'Basic EVOXA Academy courses.',
+             es:'Cursos básicos de EVOXA Academy.'},
+    addr:'Уфа, ул. Аксакова, 56',
+    manager:'Нурмухаметова Альфия',
+    managerEn:'Nurmukhametova Alfiya',
+    managerEs:'Nurmukhametova Alfiya',
+    phone:'+7 937 858-28-77'
+  },
+  {
+    name:'Ижевск',
+    nameI18n:{ru:'Ижевск',en:'Izhevsk',es:'Izhevsk'},
+    tag:{ru:'Учебная площадка · Удмуртия',en:'Training site · Udmurtia',es:'Sede · Udmurtia'},
+    meta:{ru:'Регулярные очные обучения в камерных группах до 10 человек.',
+          en:'Regular in-person training in small groups of up to 10 people.',
+          es:'Formación presencial regular en grupos reducidos de hasta 10 personas.'},
+    courses:{ru:'Базовые курсы EVOXA Academy.',
+             en:'Basic EVOXA Academy courses.',
+             es:'Cursos básicos de EVOXA Academy.'},
+    addr:'Ижевск, ул. Кирова, 172, 1 этаж, каб. 117',
+    manager:'Карелина Анастасия',
+    managerEn:'Karelina Anastasiya',
+    managerEs:'Karelina Anastasiya',
+    phone:'+7 952 409-36-52'
+  },
+  {
+    name:'Краснодар',
+    nameI18n:{ru:'Краснодар',en:'Krasnodar',es:'Krasnodar'},
+    tag:{ru:'Учебная площадка · Юг',en:'Training site · South',es:'Sede · Sur'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Курсы EVOXA Academy: базовые протоколы и сочетанные протоколы EVOXA PEEL + инъекционные методики.',
+             en:'EVOXA Academy courses: basic protocols and combined protocols EVOXA PEEL + injectable methods.',
+             es:'Cursos de EVOXA Academy: protocolos básicos y protocolos combinados EVOXA PEEL + métodos inyectables.'},
+    addr:'Краснодар, пр. Репина 3, корп. 1, помещ. 1104',
+    manager:'Горшкова Анастасия',
+    managerEn:'Gorshkova Anastasiya',
+    managerEs:'Gorshkova Anastasiya',
+    phone:'+7 922 366-00-32'
+  },
+  {
+    name:'Сочи',
+    nameI18n:{ru:'Сочи',en:'Sochi',es:'Sochi'},
+    tag:{ru:'Учебная площадка · Юг',en:'Training site · South',es:'Sede · Sur'},
+    meta:{ru:'Регулярные очные обучения: семинары 1 раз в месяц. Презентации, консультации и мастер-классы в клиниках — по согласованию.',
+          en:'Regular in-person training: seminars once a month. Presentations, consultations and in-clinic masterclasses by arrangement.',
+          es:'Formación presencial regular: seminarios una vez al mes. Presentaciones, consultas y masterclasses en clínicas según acuerdo.'},
+    courses:{ru:'Курсы EVOXA Academy: базовые протоколы и сочетанные протоколы EVOXA PEEL + инъекционные методики.',
+             en:'EVOXA Academy courses: basic protocols and combined protocols EVOXA PEEL + injectable methods.',
+             es:'Cursos de EVOXA Academy: protocolos básicos y protocolos combinados EVOXA PEEL + métodos inyectables.'},
+    addr:'Сочи, ул. Виноградная 2/3, стр. 1, оф. 502',
+    manager:'Штокалева Полина',
+    managerEn:'Shtokaleva Polina',
+    managerEs:'Shtokaleva Polina',
+    phone:'+7 988 409-12-12'
+  },
 ];
 
 /* ============ PRODUCT CONTENT (детальное описание) ============ */
+const COMPAT = {
+'evoxa-peel-1': {
+  lead:{ru:`EVOXA PEEL 1 усиливает действие следующих эстетических протоколов.`,en:`EVOXA PEEL 1 enhances the following aesthetic protocols.`,es:`EVOXA PEEL 1 potencia los siguientes protocolos estéticos.`},
+  items:[
+    {name:{ru:`Экзосомы`,en:`Exosomes`,es:`Exosomas`},
+     desc:{ru:`Активированный фибробласт получает сигнальные молекулы — регенерация ускоряется в несколько раз. Премиальный протокол.`,
+           en:`The activated fibroblast receives signaling molecules — regeneration accelerates several-fold. A premium protocol.`,
+           es:`El fibroblasto activado recibe moléculas señalizadoras — la regeneración se acelera varias veces. Un protocolo premium.`}},
+    {name:{ru:`Чистка лица`,en:`Facial cleansing`,es:`Limpieza facial`},
+     desc:{ru:`Эффективная подготовка к чистке лица по выбранной технологии. Оптимальное воздействие на жирную и проблемную кожу с чёрными точками, сальными пробками и постакне.`,
+           en:`Effective preparation for facial cleansing by the chosen technique. Optimal action on oily, problem skin with blackheads, sebaceous plugs and post-acne.`,
+           es:`Preparación eficaz para la limpieza facial según la técnica elegida. Acción óptima sobre piel grasa y problemática con puntos negros, tapones sebáceos y post-acné.`}},
+  ]},
+'evoxa-peel-2': {
+  lead:{ru:`EVOXA PEEL 2 усиливает действие следующих эстетических протоколов.`,en:`EVOXA PEEL 2 enhances the following aesthetic protocols.`,es:`EVOXA PEEL 2 potencia los siguientes protocolos estéticos.`},
+  items:[
+    {name:{ru:`Инъекционная биоревитализация`,en:`Injectable biorevitalization`,es:`Biorrevitalización inyectable`},
+     desc:{ru:`Гликолевая кислота стимулирует выработку коллагена, эластина и собственной гиалуроновой кислоты и улучшает проникновение активов, аминокислоты — сырьё для фибробластов. Ремодулятор обновляет поверхность, а биоревитализация питает и восстанавливает кожу в глубоких слоях.`,
+           en:`Glycolic acid stimulates collagen, elastin and the skin’s own hyaluronic acid and improves the penetration of actives; amino acids are the raw material for fibroblasts. The remodulator renews the surface while biorevitalization nourishes and repairs the deep layers.`,
+           es:`El ácido glicólico estimula el colágeno, la elastina y el ácido hialurónico propio y mejora la penetración de activos; los aminoácidos son materia prima para los fibroblastos. El remodulador renueva la superficie mientras la biorrevitalización nutre y repara las capas profundas.`}},
+    {name:{ru:`Экзосомы — коррекция гиперпигментации`,en:`Exosomes — hyperpigmentation correction`,es:`Exosomas — corrección de la hiperpigmentación`},
+     desc:{ru:`Синергия EVOXA PEEL 2 и экзосом тормозит выработку меланина и ускоряет обновление клеток, корректируя гиперпигментацию различного генеза и мелазму, а также улучшает микроциркуляцию.`,
+           en:`The synergy of EVOXA PEEL 2 and exosomes suppresses melanin production and speeds cell turnover, correcting hyperpigmentation of various origins and melasma, and improving microcirculation.`,
+           es:`La sinergia de EVOXA PEEL 2 y los exosomas frena la producción de melanina y acelera la renovación celular, corrigiendo la hiperpigmentación de diverso origen y el melasma, y mejora la microcirculación.`}},
+    {name:{ru:`IPL — фотоомоложение`,en:`IPL — photorejuvenation`,es:`IPL — fotorrejuvenecimiento`},
+     desc:{ru:`Гликолевая кислота стимулирует собственный коллаген, экзосомы доставляют сигнальные молекулы для восстановления и омоложения. Премиальный протокол. Требуется дополнительное обучение по сочетанным протоколам EVOXA PEEL и аппаратным методикам.`,
+           en:`Glycolic acid stimulates the skin’s own collagen while exosomes deliver signaling molecules for repair and rejuvenation. A premium protocol. Additional training in combined EVOXA PEEL + device protocols is required.`,
+           es:`El ácido glicólico estimula el colágeno propio mientras los exosomas aportan moléculas señalizadoras para la reparación y el rejuvenecimiento. Protocolo premium. Se requiere formación adicional en protocolos combinados EVOXA PEEL + aparatología.`}},
+    {name:{ru:`Вакуумная или микрокристаллическая дермабразия`,en:`Vacuum or microcrystalline dermabrasion`,es:`Dermoabrasión por vacío o microcristales`},
+     desc:{ru:`Отличное сочетание для усиления антивозрастного эффекта. Выполняется в рамках одного визита: сначала дермабразия, затем дермальный ремодулятор.`,
+           en:`An excellent pairing to boost the anti-age effect. Done within one visit: dermabrasion first, then the dermal remodulator.`,
+           es:`Una excelente combinación para reforzar el efecto antiedad. Se realiza en una sola visita: primero la dermoabrasión, luego el remodulador dérmico.`}},
+    {name:{ru:`Ионофорез`,en:`Iontophoresis`,es:`Iontoforesis`},
+     desc:{ru:`Усиливает доставку гликолевой кислоты в глубокие слои кожи, например при работе с акне.`,
+           en:`Enhances the delivery of glycolic acid into the deep skin layers, for example when working with acne.`,
+           es:`Potencia la llegada del ácido glicólico a las capas profundas de la piel, por ejemplo al trabajar el acné.`}},
+  ]},
+'evoxa-peel-3': {
+  lead:{ru:`EVOXA PEEL 3 усиливает действие следующих эстетических протоколов.`,en:`EVOXA PEEL 3 enhances the following aesthetic protocols.`,es:`EVOXA PEEL 3 potencia los siguientes protocolos estéticos.`},
+  items:[
+    {name:{ru:`Инъекционная биоревитализация`,en:`Injectable biorevitalization`,es:`Biorrevitalización inyectable`},
+     desc:{ru:`Мощное сочетание для выравнивания тона и рельефа кожи. Укрепляет стенки сосудов, уменьшает последствия инъекционной мезотерапии — папулы и гематомы. Синергия методик усиливает и продлевает эффект.`,
+           en:`A powerful pairing for evening out tone and texture. Strengthens vessel walls and reduces the after-effects of injectable mesotherapy — papules and bruising. The synergy amplifies and prolongs the effect.`,
+           es:`Una combinación potente para unificar el tono y el relieve. Refuerza las paredes vasculares y reduce las secuelas de la mesoterapia inyectable — pápulas y hematomas. La sinergia intensifica y prolonga el efecto.`}},
+    {name:{ru:`Экзосомы`,en:`Exosomes`,es:`Exosomas`},
+     desc:{ru:`Сочетание EVOXA PEEL 3 и экзосом даёт тройной синергетический эффект: решает проблему кожи, ускоряет восстановление и потенцирует результат. Идеальный тандем при акне, постакне, гиперпигментации различного генеза и для чувствительной кожи.`,
+           en:`EVOXA PEEL 3 with exosomes gives a triple synergistic effect: it resolves the skin problem, speeds recovery and potentiates the result. An ideal tandem for acne, post-acne, hyperpigmentation of various origins and for sensitive skin.`,
+           es:`EVOXA PEEL 3 con exosomas da un efecto sinérgico triple: resuelve el problema cutáneo, acelera la recuperación y potencia el resultado. Un tándem ideal para acné, post-acné, hiperpigmentación de diverso origen y piel sensible.`}},
+    {name:{ru:`IPL — фотоомоложение`,en:`IPL — photorejuvenation`,es:`IPL — fotorrejuvenecimiento`},
+     desc:{ru:`EVOXA PEEL 3 выравнивает тон, а IPL работает с сосудами и пигментом. Перерыв между процедурами — от 7 дней в зависимости от типа и состояния кожи. Требуется дополнительное обучение по сочетанным протоколам EVOXA PEEL и аппаратным методикам.`,
+           en:`EVOXA PEEL 3 evens the tone while IPL works on vessels and pigment. The interval between procedures is from 7 days depending on skin type and condition. Additional training in combined EVOXA PEEL + device protocols is required.`,
+           es:`EVOXA PEEL 3 unifica el tono mientras el IPL actúa sobre vasos y pigmento. El intervalo entre procedimientos es de 7 días en adelante según el tipo y estado de la piel. Se requiere formación adicional en protocolos combinados EVOXA PEEL + aparatología.`}},
+    {name:{ru:`RF-лифтинг (в том числе игольчатый)`,en:`RF lifting (including microneedle)`,es:`Lifting RF (incluido con microagujas)`},
+     desc:{ru:`Глубинное воздействие на дермальный коллаген, синергия методов усиливает лифтинг-эффект. Курс: EVOXA PEEL 3 3 раза с интервалом 7 дней, через 14 дней после последнего сеанса — курс RF-лифтинга. Требуется дополнительное обучение по сочетанным протоколам EVOXA PEEL и аппаратным методикам.`,
+           en:`Deep action on dermal collagen; the synergy amplifies the lifting effect. Course: EVOXA PEEL 3 three times at 7-day intervals, then 14 days after the last session start the RF-lifting course. Additional training in combined EVOXA PEEL + device protocols is required.`,
+           es:`Acción profunda sobre el colágeno dérmico; la sinergia intensifica el efecto lifting. Curso: EVOXA PEEL 3 tres veces con intervalos de 7 días; 14 días después de la última sesión, iniciar el curso de lifting RF. Se requiere formación adicional en protocolos combinados EVOXA PEEL + aparatología.`}},
+    {name:{ru:`УЗ-пилинг лица`,en:`Ultrasonic facial peel`,es:`Peeling facial ultrasónico`},
+     desc:{ru:`Может проводиться в рамках одного визита: сначала пилинг, затем дермальный ремодулятор.`,
+           en:`Can be done within one visit: the peel first, then the dermal remodulator.`,
+           es:`Puede realizarse en una sola visita: primero el peeling, luego el remodulador dérmico.`}},
+  ]},
+};
+
 const PRODUCT_CONTENT = {
 'evoxa-peel-1': {
 ru: `
@@ -8867,6 +8754,7 @@ function applyI18n(){
   if(currentRoute==='news') renderNews();
   if(currentRoute==='club'){loadClubStats();}
   if(currentRoute==='glance'){renderGlanceGrid();renderNews();}
+  if(currentRoute==='product'&&window._pid) renderProductPage(window._pid);
   updateGlanceBookmarkVisibility();
 }
 function setLang(lang){
@@ -8914,6 +8802,9 @@ function renderClinics(){
   const dict=I18N[currentLang];
   let list=(CLINICS[country]&&CLINICS[country][city])||[];
   if(search) list=list.filter(c=>c.name.toLowerCase().includes(search));
+  // Клиники и организации (ООО, ИП, клиники, студии, центры) — наверх списка, сохраняя исходный порядок внутри групп
+  const isOrg=n=>/(^\s*(ООО|ОOO|ЗАО|АО|ИП|ПАО)\b|КЛИНИК|СТУДИ|ЦЕНТР|ПЛАСТИК|КОСМО|ЛАБОРАТОР|МЕДИ|ESTET|ЭСТЕТ|«|"|”|“)/i.test(n||'');
+  list=list.map((c,idx)=>({c,idx})).sort((a,b)=>(isOrg(b.c.name)-isOrg(a.c.name))||(a.idx-b.idx)).map(x=>x.c);
   const meta=document.getElementById('resultsMeta');
   const out=document.getElementById('clinicResults');
   if(list.length===0){
@@ -9356,6 +9247,7 @@ function openProduct(id){
 function renderProductPage(id){
   const p=PRODUCTS.find(x=>x.id===id);
   if(!p) return;
+  window._pid=id;
   const lang=currentLang;
   
   document.getElementById('productHeroImg').style.backgroundImage=`url('${IMG[p.img]||p.img}')`;
@@ -9377,9 +9269,31 @@ function renderProductPage(id){
   // long content
   const cnt=PRODUCT_CONTENT[id]&&PRODUCT_CONTENT[id][lang]?PRODUCT_CONTENT[id][lang]:PRODUCT_CONTENT[id]['ru'];
   document.getElementById('productContent').innerHTML=cnt;
-  
+
+  // сочетанные протоколы — индивидуально для каждого препарата
+  renderCompat(id);
+
   // build TOC for product
   buildProductToc();
+}
+function renderCompat(id){
+  const lang=currentLang;
+  const sec=document.getElementById('compatibilitySection');
+  const grid=document.getElementById('compatGrid');
+  const lead=document.getElementById('compatLead');
+  if(!sec||!grid) return;
+  const rec=COMPAT[id];
+  if(!rec||!rec.items||!rec.items.length){ sec.style.display='none'; return; }
+  sec.style.display='';
+  if(lead){ lead.textContent=(rec.lead&&rec.lead[lang])||rec.lead&&rec.lead['ru']||''; }
+  grid.innerHTML=rec.items.map((it,i)=>`
+    <div class="compat-item">
+      <div class="compat-num">${String(i+1).padStart(2,'0')}</div>
+      <div class="compat-body">
+        <h3 class="compat-name">${it.name[lang]||it.name['ru']}</h3>
+        <p class="compat-desc">${it.desc[lang]||it.desc['ru']}</p>
+      </div>
+    </div>`).join('');
 }
 function buildProductToc(){
   const content=document.getElementById('productContent');
@@ -9412,14 +9326,54 @@ function setTrainingTab(tab){
   document.querySelectorAll('.training-pane').forEach(p=>p.classList.toggle('active',p.id==='pane-'+tab));
   if(tab==='offline') renderOffline();
 }
+const OFFLINE_TOPICS = [
+  {ru:'Клинические стратегии ремоделирования дермы. Готовый инструментарий для врача-косметолога.',
+   en:'Clinical strategies for dermal remodeling. A ready toolkit for the aesthetic doctor.',
+   es:'Estrategias clínicas de remodelación dérmica. Un kit listo para el médico estético.'},
+  {ru:'Новая парадигма в эстетической косметологии: дермальные ремодуляторы EVOXA PEEL и трансдермальные технологии BIOAKNEROLL.',
+   en:'A new paradigm in aesthetic cosmetology: EVOXA PEEL dermal remodulators and BIOAKNEROLL transdermal technologies.',
+   es:'Un nuevo paradigma en cosmetología estética: remoduladores dérmicos EVOXA PEEL y tecnologías transdérmicas BIOAKNEROLL.'},
+  {ru:'Современные тренды в косметологии 2026. Комбинированные дермальные протоколы: биоревитализация ATLANTIS и модуляция EVOXA PEEL.',
+   en:'Current cosmetology trends 2026. Combined dermal protocols: ATLANTIS biorevitalization and EVOXA PEEL modulation.',
+   es:'Tendencias actuales en cosmetología 2026. Protocolos dérmicos combinados: biorrevitalización ATLANTIS y modulación EVOXA PEEL.'},
+  {ru:'EVOXA PEEL + BELLARTI. Персонализированная формула омоложения. Уникальные протоколы на основе гибридных и сочетанных технологий для пациента любого возраста.',
+   en:'EVOXA PEEL + BELLARTI. A personalized rejuvenation formula. Unique protocols based on hybrid and combined technologies for patients of any age.',
+   es:'EVOXA PEEL + BELLARTI. Fórmula de rejuvenecimiento personalizada. Protocolos únicos basados en tecnologías híbridas y combinadas para pacientes de cualquier edad.'},
+  {ru:'Химия и физика в одной процедуре. Тотальный ремоделинг: сочетанные протоколы EVOXA PEEL и аппаратных методик. Стратегия долгосрочного омоложения.',
+   en:'Chemistry and physics in one procedure. Total remodeling: combined protocols of EVOXA PEEL and device-based methods. A long-term rejuvenation strategy.',
+   es:'Química y física en un solo procedimiento. Remodelación total: protocolos combinados de EVOXA PEEL y métodos de aparatología. Estrategia de rejuvenecimiento a largo plazo.'},
+  {ru:'Синергия препаратов EVOXA PEEL и биоревитализантов.',
+   en:'Synergy of EVOXA PEEL products and biorevitalizants.',
+   es:'Sinergia de los productos EVOXA PEEL y los biorrevitalizantes.'},
+];
+function renderOfflineTopics(){
+  const lang=currentLang;
+  const dict=I18N[lang];
+  const box=document.getElementById('offlineTopics');
+  if(!box) return;
+  const items=OFFLINE_TOPICS.map((t,i)=>`
+    <div class="offline-topic reveal reveal-delay-${(i%3)+1}">
+      <span class="offline-topic-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="offline-topic-text">${t[lang]}</span>
+    </div>`).join('');
+  box.innerHTML=`
+    <div class="offline-topics-head">
+      <div class="offline-topics-eyebrow">${dict['offline.topicsEyebrow']||'— Темы очных обучений —'}</div>
+      <h3 class="offline-topics-title">${dict['offline.topicsTitle']||'Программы семинаров и мастер-классов'}</h3>
+    </div>
+    <div class="offline-topics-grid">${items}</div>
+    <div class="offline-topics-note">${dict['offline.topicsNote']||'Формат — 1 раз в месяц или по запросу в клинике. Темы и даты уточняйте у менеджера вашего города.'}</div>`;
+}
 function renderOffline(){
   const lang=currentLang;
   const dict=I18N[lang];
+  renderOfflineTopics();
   const list=document.getElementById('offlineList');
   if(!list) return;
   list.innerHTML=OFFLINE_CITIES.map((c,i)=>{
     const mgr=lang==='ru'?c.manager:(lang==='en'?c.managerEn:c.managerEs);
     const tel=c.phone.replace(/[^+\d]/g,'');
+    const addrRow=c.addr?`<div class="offline-manager-addr">${c.addr}</div>`:'';
     return `
     <div class="offline-city reveal reveal-delay-${(i%2)+1}">
       <div class="offline-city-head">
@@ -9435,6 +9389,7 @@ function renderOffline(){
         <div class="offline-manager-info">
           <div class="offline-manager-label">${dict['offline.manager']||'Менеджер города'}</div>
           <div class="offline-manager-name">${mgr}</div>
+          ${addrRow}
           <div class="offline-manager-phone">${c.phone}</div>
         </div>
         <a href="tel:${tel}" class="offline-manager-call" data-cursor>
