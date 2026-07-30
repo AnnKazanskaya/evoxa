@@ -1914,6 +1914,8 @@ input,select{font-family:inherit;outline:none}
   background:var(--amber);
   margin-right:7px;
 }
+.clinic-cert-badge{ border-color:var(--lime,#9BBF5B); color:var(--lime,#9BBF5B); margin-left:8px; }
+.clinic-cert-badge::before{ background:var(--lime,#9BBF5B); }
 
 
 /* ============================================================
@@ -5544,7 +5546,7 @@ const I18N = {
     'clinics.subtitle':'EVOXA — профессиональный продукт. Работают сертифицированные специалисты в 16 городах России. Выберите ваш город — покажем всех специалистов и их контакты.',
     'clinics.label.country':'Страна','clinics.label.city':'Город','clinics.label.search':'Поиск по названию',
     'clinics.found':'Найдено специалистов','clinics.empty':'В выбранном городе специалистов пока нет. Свяжитесь с нами — поможем подобрать ближайшего.',
-    'clinics.visit':'Перейти на сайт','clinics.call':'Позвонить','clinics.phone':'Телефон','clinics.partner':'Партнёр',
+    'clinics.visit':'Перейти на сайт','clinics.call':'Позвонить','clinics.phone':'Телефон','clinics.partner':'Партнёр','clinics.certified':'Сертификат EVOXA',
     'train.eyebrow':'— EVOXA Academy —','train.title1':'Обучение','train.title2':'для врачей.',
     'train.subtitle':'Все курсы EVOXA Academy открыты бесплатно. Видео-уроки, протоколы и разборы клинических случаев. Только для медицинских специалистов.',
     'train.free':'Бесплатно','train.request':'По запросу','train.link':'Открыть курс →',
@@ -5715,7 +5717,7 @@ const I18N = {
     'clinics.subtitle':'EVOXA is a professional product. Certified specialists work in 16 cities across Russia. Pick your city — we will show all specialists and their contacts.',
     'clinics.label.country':'Country','clinics.label.city':'City','clinics.label.search':'Search by name',
     'clinics.found':'Specialists found','clinics.empty':'No specialists in this city yet. Contact us — we will help you find the nearest one.',
-    'clinics.visit':'Visit website','clinics.call':'Call','clinics.phone':'Phone','clinics.partner':'Partner',
+    'clinics.visit':'Visit website','clinics.call':'Call','clinics.phone':'Phone','clinics.partner':'Partner','clinics.certified':'EVOXA certified',
     'train.eyebrow':'— EVOXA Academy —','train.title1':'Training','train.title2':'for physicians.',
     'train.subtitle':'All EVOXA Academy courses are free. Video lessons, protocols and clinical case studies. For medical specialists only.',
     'train.free':'Free','train.request':'On request','train.link':'Open course →',
@@ -5885,7 +5887,7 @@ const I18N = {
     'clinics.subtitle':'EVOXA es un producto profesional. Especialistas certificados trabajan en 16 ciudades de Rusia. Elige tu ciudad — te mostramos todos los especialistas y sus contactos.',
     'clinics.label.country':'País','clinics.label.city':'Ciudad','clinics.label.search':'Buscar por nombre',
     'clinics.found':'Especialistas encontrados','clinics.empty':'Aún no hay especialistas en esta ciudad. Contáctanos: te ayudamos a encontrar el más cercano.',
-    'clinics.visit':'Ir al sitio','clinics.call':'Llamar','clinics.phone':'Teléfono','clinics.partner':'Partner',
+    'clinics.visit':'Ir al sitio','clinics.call':'Llamar','clinics.phone':'Teléfono','clinics.partner':'Partner','clinics.certified':'Certificado EVOXA',
     'train.eyebrow':'— EVOXA Academy —','train.title1':'Formación','train.title2':'para médicos.',
     'train.subtitle':'Todos los cursos de EVOXA Academy son gratuitos. Vídeo-lecciones, protocolos y casos clínicos. Solo para profesionales sanitarios.',
     'train.free':'Gratis','train.request':'Bajo petición','train.link':'Abrir curso →',
@@ -8761,7 +8763,7 @@ function navigate(route){
   window.scrollTo({top:0,behavior:'instant'});
   closeMobileMenu();
   setTimeout(()=>{
-    if(route==='clinics'){populateCities();renderClinics();}
+    if(route==='clinics'){populateCities();renderClinics();ensureCertifiedDoctors();}
     if(route==='training'){renderTraining();}
     if(route==='news') renderNews();
     if(route==='products') renderProducts();
@@ -8774,8 +8776,53 @@ function navigate(route){
 function populateCities(){
   const country=document.getElementById('countrySelect').value;
   const sel=document.getElementById('citySelect');
-  const cities=Object.keys(CLINICS[country]||{});
+  const prev=sel.value;
+  const cities=Object.keys(CLINICS[country]||{}).sort((a,b)=>a.localeCompare(b,'ru'));
   sel.innerHTML=cities.map(c=>`<option value="${c}">${c}</option>`).join('');
+  if(prev && cities.includes(prev)) sel.value=prev; // сохранить выбранный город при перерисовке
+}
+
+/* ============ СЕРТИФИЦИРОВАННЫЕ ВРАЧИ ИЗ GOOGLE-ТАБЛИЦЫ ============ */
+/* Тянет лист «Врачи» через тот же Apps Script (action=doctors) и добавляет
+   их в справочник поверх текущего списка. Если эндпоинта нет/ошибка — тихо
+   остаётся текущий список, ничего не ломается. */
+let _certLoaded=false, _certLoading=false;
+const SPAIN_CITIES=new Set(['барселона','мадрид','валенсия','севилья','малага']);
+function _properCity(s){
+  s=(s||'').trim().replace(/\s+/g,' ').toLowerCase();
+  if(!s) return '';
+  // Заглавная первая буква каждого слова (обрабатывает и ВЕРХНИЙ регистр вроде «УФА» → «Уфа»)
+  return s.replace(/(^|[\s\-])([а-яёa-zà-ÿ])/g,(m,p,c)=>p+c.toUpperCase());
+}
+function _fmtPhone(raw){
+  let d=(raw||'').replace(/\D/g,'');
+  if(!d) return '';
+  if(d.length===11 && d[0]==='8') d='7'+d.slice(1);
+  if(d.length===11 && d[0]==='7') return '+7 ('+d.slice(1,4)+') '+d.slice(4,7)+'-'+d.slice(7,9)+'-'+d.slice(9,11);
+  return (raw||'').trim();
+}
+async function ensureCertifiedDoctors(){
+  if(_certLoaded || _certLoading) return;
+  _certLoading=true;
+  try{
+    const res=await fetch(CLUB_API_URL+'?action=doctors',{method:'GET',mode:'cors'});
+    const data=await res.json();
+    if(!data || !data.ok || !Array.isArray(data.doctors)){ _certLoading=false; return; }
+    data.doctors.forEach(d=>{
+      const city=_properCity(d.city);
+      const name=(d.name||'').trim();
+      if(!city || !name) return;
+      const country = SPAIN_CITIES.has(city.toLowerCase()) ? 'es' : 'ru';
+      const root=CLINICS[country]||(CLINICS[country]={});
+      const arr=root[city]||(root[city]=[]);
+      const existing=arr.find(x=>(x.name||'').trim().toLowerCase()===name.toLowerCase());
+      if(existing){ existing.certified=true; return; } // не дублируем, просто помечаем
+      arr.push({ name, phone:_fmtPhone(d.phone), certified:true });
+    });
+    _certLoaded=true;
+    if(currentRoute==='clinics'){ populateCities(); renderClinics(); }
+  }catch(e){ /* тихо */ }
+  _certLoading=false;
 }
 function renderClinics(){
   const country=document.getElementById('countrySelect').value;
@@ -8796,8 +8843,9 @@ function renderClinics(){
   }
   meta.textContent=`${dict['clinics.found']}: ${list.length}`;
   out.innerHTML=list.map(c=>{
-    const tel=c.phone.replace(/[^+\d]/g,'');
+    const tel=(c.phone||'').replace(/[^+\d]/g,'');
     const partnerBadge=c.partner?`<span class="clinic-partner-badge">${dict['clinics.partner']||'Партнёр'}</span>`:'';
+    const certBadge=c.certified?`<span class="clinic-partner-badge clinic-cert-badge">${dict['clinics.certified']||'Сертификат EVOXA'}</span>`:'';
     const websiteBtn=c.url?`<a href="${c.url}" target="_blank" class="clinic-link-btn" data-cursor>${dict['clinics.visit']} →</a>`:'';
     const callBtn=`<a href="tel:${tel}" class="clinic-link-btn" data-cursor>${dict['clinics.call']||'Позвонить'} →</a>`;
     return `
@@ -8805,7 +8853,7 @@ function renderClinics(){
       <div class="clinic-info-main">
         <div class="clinic-name-row">
           <div class="clinic-name">${c.name}</div>
-          ${partnerBadge}
+          ${partnerBadge}${certBadge}
         </div>
         <div class="clinic-addr">${city}</div>
       </div>
@@ -10025,7 +10073,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   document.getElementById('menuClose').addEventListener('click',closeMobileMenu);
   document.getElementById('mobileOverlay').addEventListener('click',closeMobileMenu);
   
-  populateCities();renderClinics();renderTraining();renderNews();renderProducts();renderGlanceGrid();updateGlanceBookmarkVisibility();
+  populateCities();renderClinics();renderTraining();renderNews();renderProducts();renderGlanceGrid();updateGlanceBookmarkVisibility();ensureCertifiedDoctors();
   initGeoCountUp();
   initCinematicScroll();
   applyI18n();
